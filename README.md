@@ -1,0 +1,1 @@
+# Standalone Smartwatch V1 (STM32L432)
