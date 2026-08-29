@@ -1,0 +1,31 @@
+{
+	"name": "smartwatch-v1-stm32",
+	"version": "1.0.0",
+	"private": true,
+	"description": "Standalone STM32L432 smartwatch PCB implemented in tscircuit",
+	"main": "index.circuit.tsx",
+	"type": "module",
+	"keywords": [
+		"tscircuit",
+		"smartwatch",
+		"stm32",
+		"pcb"
+	],
+	"scripts": {
+		"dev": "tsci dev index.circuit.tsx",
+		"build": "tsci build index.circuit.tsx --disable-parts-engine --autorouter-timeout 180s",
+		"build:placement": "tsci build index.circuit.tsx --routing-disabled --disable-parts-engine",
+		"format": "biome format --write .",
+		"format:check": "biome format .",
+		"snapshot": "tsci snapshot index.circuit.tsx",
+		"snapshot:update": "tsci snapshot index.circuit.tsx --update",
+		"start": "tsci dev index.circuit.tsx",
+		"test": "npm run build:placement && node scripts/check-connectivity.mjs",
+		"typecheck": "tsc --noEmit"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.4.16",
+		"tscircuit": "0.0.2460",
+		"typescript": "5.9.3"
+	}
+}
