@@ -13,12 +13,13 @@
 	],
 	"scripts": {
 		"dev": "tsci dev index.circuit.tsx",
-		"build": "tsci build index.circuit.tsx --disable-parts-engine --autorouter-timeout 180s",
-		"build:placement": "tsci build index.circuit.tsx --routing-disabled --disable-parts-engine",
+		"build": "tsci build index.circuit.tsx --disable-parts-engine",
+		"build:placement": "npm run build",
+		"build:routed": "tsci build index.circuit.tsx --ignore-config --disable-parts-engine --autorouter-timeout 5m && node scripts/check-connectivity.mjs",
 		"format": "biome format --write .",
 		"format:check": "biome format .",
-		"snapshot": "tsci snapshot index.circuit.tsx",
-		"snapshot:update": "tsci snapshot index.circuit.tsx --update",
+		"snapshot": "tsci snapshot SMARTWATCH_V1_STM32.circuit.tsx --3d",
+		"snapshot:update": "tsci snapshot SMARTWATCH_V1_STM32.circuit.tsx --update --3d",
 		"start": "tsci dev index.circuit.tsx",
 		"test": "npm run build:placement && node scripts/check-connectivity.mjs",
 		"typecheck": "tsc --noEmit"

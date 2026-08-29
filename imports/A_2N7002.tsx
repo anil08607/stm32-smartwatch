@@ -8,7 +8,7 @@ export const A_2N7002 = (
 			channelType="n"
 			mosfetMode="enhancement"
 			symbol={
-				<symbol>
+				<symbol width="1.1mm" height="1mm">
 					<schematicpath
 						points={[
 							{ x: 0, y: 0 },

@@ -99,15 +99,15 @@ Exact EasyEDA/JLCPCB OBJ and STEP model metadata is attached for J1–J4, U1–U
 cd /Users/manishchaudhary/repo/ts/SMARTWATCH_V1_STM32
 npm install
 npm run typecheck
-npm run build:placement
+npm test
 npm run dev
-npm run build
 npm run snapshot:update
+npm run build:routed
 ```
 
-`build:placement` is the fast smoke test used for this initialized project; it resolves the full standalone component tree and emits `dist/index/circuit.json` without invoking the slow full-board autorouter. `build` and `snapshot:update` invoke routing and should be used after the routing bottleneck described below is addressed.
+`build`, `build:placement`, `test`, `dev`, and the checked-in snapshots intentionally use the routing-disabled configuration. This makes the schematic, component placement, source connectivity, and custom MOSFET pin mapping deterministic and reviewable. `test` also rejects every Circuit JSON warning/error, unexpected open pin, merged named net, or incorrect Q1/Q2 gate-source-drain connection.
 
-The tscircuit source and snapshots are suitable for schematic/placement review. The current PCB snapshot shows the verified circular placement with J3 but intentionally has routing disabled because the post-J3 full-board autorouter did not terminate after repeated multi-minute runs. The earlier pre-J3 build's 41-net/172-trace result is therefore obsolete. The copper is **not Gerber/order-ready**: reroute J3 and the full board, then clear every routing/placement DRC item before generating Gerbers and reviewing them in JLCDFM.
+`build:routed` bypasses the routing-disabled project setting, gives the local capacity router five minutes, and then applies the same strict checker to the routed result. The router can finish this 41-net board, but its output is currently nondeterministic: the same source has produced between 4 and 22 post-route clearance/contact violations, and the alternate local `krt` backend exhausts its route plans on GND/RTC_OSCO. The command therefore remains red by design. The source and snapshots are suitable for schematic and placement review, but the copper is **not Gerber/order-ready**. Freeze or manually complete a route, clear every routed DRC item, then inspect the generated Gerbers in JLCDFM before ordering.
 
 ## Files
 
@@ -117,4 +117,4 @@ The tscircuit source and snapshots are suitable for schematic/placement review. 
 - `imports/` — verified reusable/custom package and pin definitions, including the copied old-watch switch footprint.
 - `bom.csv` — complete procurement BOM.
 - `REFERENCES.md` — project commits, official datasheets, and sourcing links.
-- `__snapshots__/` — rendered PCB placement review artifact. Regenerate routed PCB and schematic snapshots after the autorouter issue is resolved.
+- `__snapshots__/` — deterministic routing-disabled PCB, schematic, and 3D review artifacts. Add a separately identified routed snapshot only after routed DRC is clean.

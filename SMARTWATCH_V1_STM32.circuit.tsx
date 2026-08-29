@@ -48,8 +48,8 @@ export const SMARTWATCH_V1_STM32 = () => (
 		doubleSidedAssembly
 		pcbStyle={{ viaPadDiameter: "0.4mm", viaHoleDiameter: "0.2mm" }}
 		minTraceWidth="0.1mm"
-		minTraceToPadEdgeClearance="0.15mm"
-		minViaEdgeToPadEdgeClearance="0.15mm"
+		minTraceToPadEdgeClearance="0.1mm"
+		minViaEdgeToPadEdgeClearance="0.1mm"
 		minPadEdgeToPadEdgeClearance="0.1mm"
 		minViaHoleEdgeToViaHoleEdgeClearance="0.2mm"
 		minViaPadDiameter="0.4mm"
@@ -57,29 +57,13 @@ export const SMARTWATCH_V1_STM32 = () => (
 		minBoardEdgeClearance="0.2mm"
 		schSheetName="main"
 		autorouter={{
-			preset: "fanout",
-			traceClearance: "0.15mm",
+			preset: "auto_local",
+			traceClearance: "0.1mm",
 		}}
-		autorouterVersion="beta_pipeline9"
-		autorouterEffortLevel="1x"
+		autorouterVersion="beta_pipeline7"
+		autorouterEffortLevel="2x"
 		schMaxTraceDistance="5mm"
 	>
-		<copperpour
-			name="GND_PLANE"
-			layer="inner1"
-			connectsTo="net.GND"
-			unbroken
-			clearance="0.15mm"
-			boardEdgeMargin="0.2mm"
-		/>
-		<copperpour
-			name="V3V3_PLANE"
-			layer="inner2"
-			connectsTo="net.V3V3"
-			unbroken
-			clearance="0.15mm"
-			boardEdgeMargin="0.2mm"
-		/>
 		<schematicsheet
 			name="main"
 			displayName="Standalone Smartwatch V1"
@@ -197,6 +181,7 @@ export const SMARTWATCH_V1_STM32 = () => (
 			supplierPartNumbers={{ jlcpcb: ["C52923"] }}
 			pcbX={-10}
 			pcbY={-12}
+			pcbRotation={180}
 			schX={-23}
 			schY={-12}
 			connections={{ pin1: "net.USB5V", pin2: "net.GND" }}
@@ -221,6 +206,7 @@ export const SMARTWATCH_V1_STM32 = () => (
 			supplierPartNumbers={{ jlcpcb: ["C52923"] }}
 			pcbX={-10}
 			pcbY={-9}
+			pcbRotation={180}
 			schX={-15.5}
 			schY={-12}
 			connections={{ pin1: "net.BAT", pin2: "net.GND" }}
@@ -271,10 +257,7 @@ export const SMARTWATCH_V1_STM32 = () => (
 			connections={{
 				VIN: "net.SYS",
 				EN: "net.SYS",
-				MODE: "net.GND",
 				GND: "net.GND",
-				AGND: "net.GND",
-				VOUT: "net.V3V3",
 				L1: "net.BUCK_L1",
 				L2: "net.BUCK_L2",
 				FB: "net.BUCK_FB",
@@ -330,6 +313,7 @@ export const SMARTWATCH_V1_STM32 = () => (
 			supplierPartNumbers={{ jlcpcb: ["C15850"] }}
 			pcbX={-3.7}
 			pcbY={-10.5}
+			pcbRotation={180}
 			schX={-13}
 			schY={-12}
 			connections={{ pin1: "net.SYS", pin2: "net.GND" }}
@@ -340,11 +324,30 @@ export const SMARTWATCH_V1_STM32 = () => (
 			footprint="0805"
 			manufacturerPartNumber="CL21A226MAQNNNE"
 			supplierPartNumbers={{ jlcpcb: ["C45783"] }}
-			pcbX={3.2}
+			pcbX={3}
 			pcbY={-10.5}
+			pcbRotation={90}
 			schX={-7}
 			schY={-12}
 			connections={{ pin1: "net.V3V3", pin2: "net.GND" }}
+		/>
+		<trace
+			name="U6_VOUT_TO_C5"
+			from=".U6 > .VOUT"
+			to=".C5 > .pin1"
+			pcbStraightLine
+		/>
+		<trace
+			name="U6_MODE_TO_AGND"
+			from=".U6 > .MODE"
+			to=".U6 > .AGND"
+			pcbStraightLine
+		/>
+		<trace
+			name="U6_AGND_TO_GND"
+			from=".U6 > .AGND"
+			to=".U6 > .GND"
+			pcbStraightLine
 		/>
 		<resistor
 			name="R4"
@@ -475,6 +478,7 @@ export const SMARTWATCH_V1_STM32 = () => (
 			supplierPartNumbers={{ jlcpcb: [cap100n.jlc] }}
 			pcbX={-9.2}
 			pcbY={6}
+			pcbRotation={180}
 			schX={-7}
 			schY={6}
 			connections={{ pin1: "net.V3V3", pin2: "net.GND" }}
@@ -499,6 +503,7 @@ export const SMARTWATCH_V1_STM32 = () => (
 			supplierPartNumbers={{ jlcpcb: [cap100n.jlc] }}
 			pcbX={-9.2}
 			pcbY={4.8}
+			pcbRotation={180}
 			schX={-3}
 			schY={6}
 			connections={{ pin1: "net.V3V3", pin2: "net.GND" }}
@@ -511,6 +516,7 @@ export const SMARTWATCH_V1_STM32 = () => (
 			supplierPartNumbers={{ jlcpcb: ["C52923"] }}
 			pcbX={-9.2}
 			pcbY={3.6}
+			pcbRotation={180}
 			schX={-1}
 			schY={6}
 			connections={{ pin1: "net.V3V3", pin2: "net.GND" }}
@@ -571,8 +577,9 @@ export const SMARTWATCH_V1_STM32 = () => (
 			footprint="0402"
 			manufacturerPartNumber={cap100n.mpn}
 			supplierPartNumbers={{ jlcpcb: [cap100n.jlc] }}
-			pcbX={-9.2}
+			pcbX={-10.7}
 			pcbY={1.2}
+			pcbRotation={90}
 			schX={-6}
 			schY={-4}
 			connections={{ pin1: "net.NRST", pin2: "net.GND" }}
@@ -596,8 +603,9 @@ export const SMARTWATCH_V1_STM32 = () => (
 			footprint="0402"
 			manufacturerPartNumber="0402WGF1004TCE"
 			supplierPartNumbers={{ jlcpcb: ["C26083"] }}
-			pcbX={-0.7}
-			pcbY={2.5}
+			pcbX={-2.6}
+			pcbY={0.3}
+			pcbRotation={180}
 			schX={6}
 			schY={-5}
 			connections={{ pin1: "net.BAT", pin2: "net.BAT_ADC" }}
@@ -608,8 +616,8 @@ export const SMARTWATCH_V1_STM32 = () => (
 			footprint="0402"
 			manufacturerPartNumber="0402WGF3303TCE"
 			supplierPartNumbers={{ jlcpcb: ["C25778"] }}
-			pcbX={-0.7}
-			pcbY={1.3}
+			pcbX={-1.3}
+			pcbY={-4}
 			schX={8}
 			schY={-5}
 			connections={{ pin1: "net.BAT_ADC", pin2: "net.GND" }}
@@ -621,7 +629,7 @@ export const SMARTWATCH_V1_STM32 = () => (
 			manufacturerPartNumber={cap100n.mpn}
 			supplierPartNumbers={{ jlcpcb: [cap100n.jlc] }}
 			pcbX={1.3}
-			pcbY={1.3}
+			pcbY={-4}
 			schX={10}
 			schY={-5}
 			connections={{ pin1: "net.BAT_ADC", pin2: "net.GND" }}
@@ -662,16 +670,42 @@ export const SMARTWATCH_V1_STM32 = () => (
 			]}
 			connections={{
 				GND1: "net.GND",
-				GND2: "net.GND",
 				LEDA: "net.DISPLAY_LEDA",
 				LEDK: "net.DISPLAY_LED_K",
-				VDD: "net.V3V3",
+				RESET: "net.LCD_RESET",
 				SDA: "net.LCD_MOSI",
 				SCL: "net.LCD_SCK",
 				CS: "net.LCD_CS",
 				RS: "net.LCD_DC",
-				RESET: "net.LCD_RESET",
 			}}
+		/>
+		<trace
+			name="J4_VDD_TO_V3V3"
+			from=".J4 > .VDD"
+			to=".R10 > .pin1"
+			pcbPathRelativeTo=".J4 > .VDD"
+			pcbPath={[
+				{ x: 2, y: 0.8 },
+				{
+					x: 2,
+					y: 0.8,
+					via: true,
+					fromLayer: "bottom",
+					toLayer: "top",
+				},
+				{ x: 2, y: 0.8 },
+				{ x: -2.4, y: 0.8 },
+			]}
+		/>
+		<trace
+			name="J4_GND2_TO_GND1"
+			from=".J4 > .GND2"
+			to=".J4 > .GND1"
+			pcbPathRelativeTo=".J4 > .GND2"
+			pcbPath={[
+				{ x: -1.5, y: 0.4 },
+				{ x: 3.5, y: 0.4 },
+			]}
 		/>
 		<silkscreentext
 			layer="bottom"
@@ -803,10 +837,15 @@ export const SMARTWATCH_V1_STM32 = () => (
 				INT: "net.PPG_INT",
 				PGND: "net.GND",
 				GND: "net.GND",
-				VLED1: "net.V3V3",
 				VLED2: "net.V3V3",
 				VDD: "net.V1V8",
 			}}
+		/>
+		<trace
+			name="U3_VLED1_TO_VLED2"
+			from=".U3 > .VLED1"
+			to=".U3 > .VLED2"
+			pcbStraightLine
 		/>
 		<capacitor
 			name="C18"
@@ -829,7 +868,7 @@ export const SMARTWATCH_V1_STM32 = () => (
 			supplierPartNumbers={{ jlcpcb: [cap100n.jlc] }}
 			layer="bottom"
 			pcbX={-3.2}
-			pcbY={-0.5}
+			pcbY={0.2}
 			schX={11}
 			schY={10}
 			connections={{ pin1: "net.V1V8", pin2: "net.GND" }}
@@ -854,8 +893,8 @@ export const SMARTWATCH_V1_STM32 = () => (
 			manufacturerPartNumber={cap100n.mpn}
 			supplierPartNumbers={{ jlcpcb: [cap100n.jlc] }}
 			layer="bottom"
-			pcbX={3.2}
-			pcbY={-0.5}
+			pcbX={-2.99}
+			pcbY={-1.45}
 			schX={15}
 			schY={10}
 			connections={{ pin1: "net.V3V3", pin2: "net.GND" }}
@@ -905,8 +944,8 @@ export const SMARTWATCH_V1_STM32 = () => (
 				pcbRotationOffset: 0,
 				modelOriginPosition: { x: -0.0000254, y: -0.0001397, z: -0.01 },
 			}}
-			pcbX={14}
-			pcbY={-1}
+			pcbX={5}
+			pcbY={-4}
 			schX={26}
 			schY={15}
 			connections={{ pin1: "net.RTC_OSCI", pin2: "net.RTC_OSCO" }}
