@@ -56,10 +56,10 @@ export const SMARTWATCH_V1_STM32 = () => (
 		schRelative
 		autorouter={{
 			preset: "auto_local",
-			traceClearance: "0.1mm",
+			traceClearance: "0.2mm",
 		}}
 		autorouterVersion="beta_pipeline7"
-		autorouterEffortLevel="2x"
+		autorouterEffortLevel="5x"
 		schMaxTraceDistance="5mm"
 	>
 
@@ -582,12 +582,13 @@ export const SMARTWATCH_V1_STM32 = () => (
 				manufacturerPartNumber="0402WGF1004TCE"
 				supplierPartNumbers={{ jlcpcb: ["C26083"] }}
 				pcbX={-12}
-				pcbY={-2}
+				pcbY={-2.2}
 				pcbRotation={180}
 				schX={6}
 				schY={-5}
 				connections={{ pin1: "net.BAT", pin2: "net.BAT_ADC" }}
 			/>
+			<tracehint for=".R12 > .pin1" offset={{ x: 1.5, y: -1 }} />
 			<resistor
 				name="R13"
 				resistance="330k"
