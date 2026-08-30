@@ -47,7 +47,8 @@ export const JstShBattery = (props: ChipProps<typeof jstPins>) => (
 				"https://modelcdn.tscircuit.com/easyeda_models/assets/C160402.obj?uuid=b15083895b61401296a20b79cbc50a55",
 			stepUrl:
 				"https://modelcdn.tscircuit.com/easyeda_models/assets/C160402.step?uuid=b15083895b61401296a20b79cbc50a55",
-			pcbRotationOffset: 0,
+			// The EasyEDA model's cable-entry side is opposite its footprint axes.
+			pcbRotationOffset: 180,
 			modelOriginPosition: { x: 0.5, y: 0.5135125, z: -0.01 },
 		}}
 		schWidth={2}

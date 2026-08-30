@@ -1,6 +1,71 @@
-# Standalone Smartwatch V1 (STM32L432)
+# SMARTWATCH V1 — STM32L432 Health & Fitness Watch Hardware
 
-This directory is a self-contained `tsci init`-style project containing a reference-backed tscircuit implementation of a standalone, non-radio smartwatch. It intentionally has no Bluetooth, Wi-Fi, speaker, microphone, external flash, or fuel-gauge IC.
+> A compact 40 mm round smartwatch PCB with a 240 x 240 color display, motion tracking, heart-rate/SpO2 sensing, accurate battery-backed timekeeping, vibration alerts, USB-C charging, and a protected 400 mAh LiPo battery.
+
+SMARTWATCH V1 is a standalone, non-radio wearable hardware platform built around the low-power STM32L432. It combines the display, sensors, controls, charging system, power rails, programming connector, and haptic driver required for a practical watch in one four-layer board design.
+
+This repository contains the complete tscircuit PCB source, component models, schematic and placement snapshots, procurement BOM, and hardware documentation. It defines the **watch electronics**; application firmware and the final enclosure are separate deliverables.
+
+![SMARTWATCH V1 3D PCB preview](./__snapshots__/SMARTWATCH_V1_STM32.circuit-3d.snap.png)
+
+_The preview shows the electronics PCB. The display panel folds over the board; the battery, enclosure, and wire-lead motor are installed separately._
+
+## What this watch can support
+
+- A full-color round watch interface on a 1.28-inch 240 x 240 IPS display.
+- Time, date, alarm, and wake scheduling using a dedicated battery-backed RTC.
+- Step counting, motion detection, and wrist-wake gestures using a BMA400 accelerometer.
+- Experimental heart-rate and SpO2 measurements using a skin-facing MAX30102 optical sensor.
+- Silent vibration alerts through a MOSFET-driven coin vibration motor.
+- Menu and select/back input through two physical side buttons.
+- USB-C battery charging and simultaneous system operation through a charger with power-path management.
+- Stable 3.3 V operation across the LiPo discharge curve using a buck-boost regulator.
+- Battery-voltage measurement by the MCU for a software charge-level estimate.
+- Direct firmware flashing and debugging through a keyed SWD connector.
+
+These are hardware capabilities. Their user-facing behavior depends on the firmware, display UI, algorithms, calibration, and final enclosure.
+
+## Hardware at a glance
+
+| Subsystem | Part / implementation | What it provides |
+| --- | --- | --- |
+| Main controller | STM32L432KCU6 | 80 MHz Cortex-M4F, 256 KB flash, 64 KB SRAM |
+| Display | ER-TFT1.28-3 / GC9A01A | 1.28-inch round 240 x 240 color IPS UI |
+| Motion sensor | Bosch BMA400 | Steps, movement, orientation, and wake interrupts |
+| Optical sensor | MAX30102 | Experimental heart-rate and SpO2 sensing |
+| Real-time clock | PCF8563TS + 32.768 kHz crystal | Accurate timekeeping, alarm, and timer interrupts |
+| User controls | Two side buttons | Active-low menu and select/back inputs |
+| Haptics | 10 mm coin vibration motor | Silent alerts and interaction feedback |
+| Charger / power path | TI BQ25180 | Protected 1-cell LiPo charging and USB/battery power management |
+| Main regulator | TI TPS63802 | Regulated 3.3 V buck-boost supply |
+| Sensor regulator | TI TPS7A2018 | Dedicated 1.8 V MAX30102 logic supply |
+| Battery | Protected LP403035 1S LiPo | 3.7 V nominal, 400 mAh energy storage |
+| External power | Power-only USB-C | 5 V charging input with CC resistors and VBUS TVS protection |
+| Programming | Keyed 6-pin JST-SH SWD | SWDIO, SWCLK, reset, BOOT0, target reference, and ground |
+| PCB | 40 mm round, 1 mm thick | Four layers and double-sided component assembly |
+
+## Deliberately not included in V1
+
+V1 has no Bluetooth, Wi-Fi, cellular radio, GPS, NFC, touchscreen, speaker, microphone, external flash, or dedicated fuel-gauge IC. USB-C is used for power only; its USB data pins are not connected. The watch is therefore intended as a standalone embedded platform rather than a phone-connected notification watch.
+
+## Current project status
+
+- Schematic, component selection, pin allocation, placement, BOM, and 3D review assets are implemented.
+- The placement build and strict electrical/connectivity checks pass.
+- Firmware, enclosure, optical gasket, flex integration, and production validation are still required.
+- **The PCB copper routing is not Gerber/order-ready.** Autorouted trials still have clearance/contact violations that must be resolved before fabrication.
+
+## Schematic organization
+
+The electrical design is separated into five named ANSI B schematic sheets. Named nets carry power and signals between sheets while all components remain part of the same physical PCB.
+
+| Sheet | Contents |
+| --- | --- |
+| 1. Power, USB-C & Charging | USB-C input, protection, LiPo charger/power path, battery connector, 3.3 V buck-boost, and 1.8 V LDO |
+| 2. MCU, Battery Monitor & Programming | STM32L432, local decoupling, reset/BOOT0, I2C pull-ups, battery ADC divider, and SWD connector |
+| 3. Display & Backlight | LCD FPC connector, display control nets, backlight current limiting, and PWM MOSFET driver |
+| 4. Motion, Optical Sensor & RTC | BMA400 accelerometer, MAX30102 optical sensor, PCF8563 RTC, crystal, interrupt pull-ups, and decoupling |
+| 5. Buttons & Haptics | Two side buttons, pull-ups, vibration motor, MOSFET driver, flyback diode, and local bulk capacitor |
 
 The design follows the older Open-Smartwatch code pattern: one main board file contains the complete board, native passives, device instances, placement, and connections. Only reusable/custom package definitions live under `imports/`; there is no `blocks/` directory or separate `components.tsx`. The root `index.circuit.tsx`, package scripts, TypeScript configuration, npm registry configuration, and tscircuit configuration follow the current `tsci init` template.
 

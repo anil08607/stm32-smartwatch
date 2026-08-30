@@ -91,7 +91,8 @@ export const SM06B_SRSS_TB = (props: ChipProps<typeof programmingPins>) => (
 				"https://modelcdn.tscircuit.com/easyeda_models/assets/C160405.obj?uuid=e3c5d11fe8d04984a00e78e2fbfebf8b",
 			stepUrl:
 				"https://modelcdn.tscircuit.com/easyeda_models/assets/C160405.step?uuid=e3c5d11fe8d04984a00e78e2fbfebf8b",
-			pcbRotationOffset: 0,
+			// The EasyEDA model's cable-entry side is opposite its footprint axes.
+			pcbRotationOffset: 180,
 			modelOriginPosition: { x: 2.4999238, y: 0.3445009, z: -0.01 },
 		}}
 		schWidth={5}
