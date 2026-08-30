@@ -797,6 +797,7 @@ export const SMARTWATCH_V1_STM32 = () => (
 				name="U3"
 				pcbX={0}
 				pcbY={0}
+				pcbRotation={180}
 				schX={-1}
 				schY={3}
 				noConnect={["NC1", "NC5", "NC6", "NC7", "NC8", "NC14"]}
