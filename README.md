@@ -67,7 +67,9 @@ The electrical design is separated into five named ANSI B schematic sheets. Name
 | 4. Motion, Optical Sensor & RTC | BMA400 accelerometer, MAX30102 optical sensor, PCF8563 RTC, crystal, interrupt pull-ups, and decoupling |
 | 5. Buttons & Haptics | Two side buttons, pull-ups, vibration motor, MOSFET driver, flyback diode, and local bulk capacitor |
 
-The design follows the older Open-Smartwatch code pattern: one main board file contains the complete board, native passives, device instances, placement, and connections. Only reusable/custom package definitions live under `imports/`; there is no `blocks/` directory or separate `components.tsx`. The root `index.circuit.tsx`, package scripts, TypeScript configuration, npm registry configuration, and tscircuit configuration follow the current `tsci init` template.
+IC symbol bodies are sized to their pin groups rather than their physical package dimensions. The motion/optical/RTC sheet keeps local decoupling close to each compact symbol.
+
+The design follows the older Open-Smartwatch code pattern: one main board file contains the complete board, native passives, device instances, placement, and connections. Only reusable/custom package definitions live under `imports/`; there is no `blocks/` directory or separate `components.tsx`. The root `index.circuit.tsx` exports the board. `tscircuit.config.json` selects the placement build, and `tscircuit.config.js` applies the same mode to development previews and snapshots.
 
 ## What is implemented
 
@@ -137,10 +139,10 @@ Use STOP mode, BMA400 interrupts, RTC alarm interrupt, and display/backlight shu
 
 ## Mechanical, optical, and safety constraints
 
-- The main PCB is a compact 40 mm circular, four-layer board sized around the 35.59 mm-wide round LCD. The two side switches intentionally straddle the right board edge, and the USB-C receptacle sits at the bottom edge.
-- `J4` is mounted on the bottom at the left side of the circular PCB. Insert the ER-TFT1.28-3 flex with its pin 1 aligned to the PCB pin-1 marker, lock the hinged lid, and fold the panel over the electronics PCB. The external LCD outline is intentionally not drawn as FR-4, so the placement render stays circular.
-- U3/MAX30102 is on the bottom/skin side. Add an opaque black optical gasket between its red/IR windows and the case aperture, with separate emitter/receiver light barriers. No battery, adhesive, silkscreen, or enclosure rib may cover the optical window.
-- The ER-TFT1.28-3 plug-in flex folds over the PCB, following the Open-Smartwatch mechanical precedent. Validate contact orientation, pin-1 alignment, flex bend radius, connector access, and display adhesive stack in the enclosure before ordering the case.
+- The PCB diameter is 40 mm (reduced from 50 mm, a 36% reduction in board area), with four layers and double-sided assembly. This is the PCB size, not a validated enclosure diameter. The USB-C receptacle is top-mounted at the lower edge; its mouth opens through the case sidewall. J2, J3, J4 and both side switches are also on the top/display side. All pads retain the 0.2 mm board-edge clearance; no component uses `allowOffBoard`.
+- `J4` is mounted on the top at the left side of the circular PCB. Insert the ER-TFT1.28-3 flex with its pin 1 aligned to the PCB pin-1 marker, lock the hinged lid, and fold the panel over the electronics PCB. The external LCD outline is intentionally not drawn as FR-4, so the placement render stays circular.
+- U3/MAX30102 is centered on the bottom/skin side, with C18–C21 and R18 on the same side. The marked 8.8 mm-diameter central area is reserved for the optical cover/gasket assembly; other component bounds stay outside it. This is an assembly reservation, not a copper keepout. Add a transparent cover or encapsulation and an opaque emitter/receiver barrier; the bare sensor is not intended for direct skin contact. The case optical window must reach the wrist independently of the USB connector. No battery, opaque adhesive, or enclosure rib may block that optical path. See the [Analog Devices mechanical guidance and cover requirement](./REFERENCES.md#max30102efdt).
+- The ER-TFT1.28-3 flex folds around the top-side connector. Validate contact orientation, pin-1 alignment, bend radius and connector access in an enclosure model. Place the battery and wiring on the display side or outside the optical assembly area. The listed rectangular battery, display, connector heights, case wall, cover and gasket still require a complete mechanical fit check; a 40 mm PCB alone does not establish a 40 mm finished watch.
 - Keep the BMA400 away from the motor and mechanically isolate the motor where possible. Recalibrate step algorithms in the final case.
 - Only use a protected, qualified 1S 4.20 V LiPo. The selected LP403035 pack has PCM protection but no NTC. R3=10 kΩ is the BQ25180 datasheet's fixed-TS option; it disables real pack-temperature monitoring. A production wearable should use a qualified NTC pack/connector revision and must pass charging, thermal, drop, sweat, and enclosure testing.
 - Verify battery-connector polarity on every incoming lot. The listed battery needs a correctly polarized JST-SH pigtail/custom lead.
@@ -154,7 +156,9 @@ Current inventory is recorded in [bom.csv](./bom.csv). The display, display conn
 
 ## 3D CAD preview
 
-Exact EasyEDA/JLCPCB OBJ and STEP model metadata is attached for J1–J4, U1–U3, U5–U6, L1, Y1, Q1–Q2, and SW1–SW2. The two side switches are rotated 180 degrees from the earlier placement (`-90°` to `+90°`) so their actuators face the case edge; their centers are at x = 16.5 mm to preserve the 0.2 mm circular-board copper clearance. These models are served by the tscircuit model CDN, so an offline or blocked-CDN session will still show placeholders.
+The [bottom-layer preview](./__snapshots__/SMARTWATCH_V1_STM32.circuit-bottom.snap.svg) shows U3 and the marked optical assembly area. Regenerate it with `npx tsci snapshot SMARTWATCH_V1_STM32.circuit.tsx --update --layer bottom --disable-parts-engine`.
+
+Exact EasyEDA/JLCPCB OBJ and STEP model metadata is attached for J1–J4, U1–U3, U5–U6, L1, Y1, Q1–Q2, and SW1–SW2. The side switches face the right case wall with rotations of 104° and 76°; their placement anchors are x = 16.1 mm, y = ±4.5 mm. Their pad bounds and courtyards pass placement checks without an off-board exemption. These models are served by the tscircuit model CDN, so an offline or blocked-CDN session will still show placeholders.
 
 `M1` deliberately remains a PCB connection-pad representation rather than a board-mounted CAD body. The VC1026B002F is a wire-lead, adhesive-backed external motor that is mounted to the enclosure or a qualified keepout location, not centered on its two solder pads. Vybronics supplies its 3D CAD only on request; adding a motor body at the pad coordinates would misrepresent the mechanical assembly.
 
@@ -170,15 +174,16 @@ npm run snapshot:update
 npm run build:routed
 ```
 
-`build`, `build:placement`, `test`, `dev`, and the checked-in snapshots intentionally use the routing-disabled configuration. This makes the schematic, component placement, source connectivity, and custom MOSFET pin mapping deterministic and reviewable. `test` also rejects every Circuit JSON warning/error, unexpected open pin, merged named net, or incorrect Q1/Q2 gate-source-drain connection.
+`build`, `build:placement`, `test`, `dev`, and the checked-in snapshots intentionally use the routing-disabled configuration. This makes the schematic, component placement, source connectivity, and custom MOSFET pin mapping deterministic and reviewable. `test` also rejects every Circuit JSON warning/error, unexpected open pin, merged named net, or incorrect Q1/Q2 gate-source-drain connection. It checks generated pad associations, bottom-side sensor assembly, the central optical assembly area and the 40 mm round board. The custom MOSFET symbol explicitly maps SOT-23 pins 1/2/3 to gate/source/drain; the default symbol uses a different numbering and must not be substituted without remapping.
 
-`build:routed` bypasses the routing-disabled project setting, gives the local capacity router five minutes, and then applies the same strict checker to the routed result. The router can finish this 41-net board, but its output is currently nondeterministic: the same source has produced between 4 and 22 post-route clearance/contact violations, and the alternate local `krt` backend exhausts its route plans on GND/RTC_OSCO. The command therefore remains red by design. The source and snapshots are suitable for schematic and placement review, but the copper is **not Gerber/order-ready**. Freeze or manually complete a route, clear every routed DRC item, then inspect the generated Gerbers in JLCDFM before ordering.
+`build:routed` sets `SMARTWATCH_ROUTED=1` and bypasses the default build setting, gives the local capacity router five minutes, and checks both DRC diagnostics and copper coverage of every named net. The explicit runtime flag is required because the installed CLI also reads the runtime configuration during `--ignore-config`. The 2026-09-06 run on this revised placement reached exact-geometry refinement but timed out after 318.6 seconds with the five-minute limit. No complete routed result was validated. A passing placement test does not establish copper continuity or routed clearances. The source and snapshots are suitable for schematic and placement review, but the copper is **not Gerber/order-ready**. Freeze or manually complete a route, clear every routed DRC item, then inspect the generated Gerbers in JLCDFM before ordering.
 
 ## Files
 
 - `SMARTWATCH_V1_STM32.circuit.tsx` — complete board, functional sections, passives, placement, and interconnect.
 - `index.circuit.tsx` — standard `tsci init` entry point exporting the smartwatch board.
-- `package.json`, `tsconfig.json`, `tscircuit.config.json`, `.npmrc` — standalone project configuration.
+- `package.json`, `tsconfig.json`, `tscircuit.config.json`, `tscircuit.config.js`, `.npmrc` — standalone project configuration.
+- `scripts/check-connectivity.mjs` — strict electrical and mechanical regression checks on generated Circuit JSON.
 - `imports/` — verified reusable/custom package and pin definitions, including the copied old-watch switch footprint.
 - `bom.csv` — complete procurement BOM.
 - `REFERENCES.md` — project commits, official datasheets, and sourcing links.

@@ -51,8 +51,8 @@ export const JstShBattery = (props: ChipProps<typeof jstPins>) => (
 			pcbRotationOffset: 180,
 			modelOriginPosition: { x: 0.5, y: 0.5135125, z: -0.01 },
 		}}
-		schWidth={2}
-		schHeight={1.5}
+		schWidth={1.2}
+		schHeight={0.6}
 		{...props}
 	/>
 );

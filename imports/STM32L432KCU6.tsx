@@ -124,8 +124,8 @@ export const STM32L432KCU6 = (props: ChipProps<typeof stm32Pins>) => (
 			pcbRotationOffset: 0,
 			modelOriginPosition: { x: 0.0040683, y: -0.0038332, z: 0 },
 		}}
-		schWidth={6}
-		schHeight={11}
+		schWidth={3.6}
+		schHeight={4.2}
 		schPinArrangement={{
 			leftSide: {
 				direction: "top-to-bottom",

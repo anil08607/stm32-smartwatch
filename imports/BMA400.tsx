@@ -27,8 +27,8 @@ export const BMA400 = (props: ChipProps<typeof pinLabels>) => {
 				VDD: { requiresPower: true },
 				GND: { requiresGround: true },
 			}}
-			schWidth={3.6}
-			schHeight={4.4}
+			schWidth={1.8}
+			schHeight={1.4}
 			schPinArrangement={{
 				leftSide: { direction: "top-to-bottom", pins: ["SDA", "SCL", "SDO"] },
 				rightSide: {

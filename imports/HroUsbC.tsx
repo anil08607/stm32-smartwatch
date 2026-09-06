@@ -31,8 +31,8 @@ export const HroUsbC = (props: ChipProps<typeof usbCPins>) => (
 			VBUS_A: { providesPower: true },
 			VBUS_B: { providesPower: true },
 		}}
-		schWidth={3.5}
-		schHeight={5}
+		schWidth={2.4}
+		schHeight={2.2}
 		schPinArrangement={{
 			leftSide: {
 				direction: "top-to-bottom",

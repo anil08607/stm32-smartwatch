@@ -95,8 +95,8 @@ export const SM06B_SRSS_TB = (props: ChipProps<typeof programmingPins>) => (
 			pcbRotationOffset: 180,
 			modelOriginPosition: { x: 2.4999238, y: 0.3445009, z: -0.01 },
 		}}
-		schWidth={5}
-		schHeight={4}
+		schWidth={1.8}
+		schHeight={1.6}
 		{...props}
 	/>
 );

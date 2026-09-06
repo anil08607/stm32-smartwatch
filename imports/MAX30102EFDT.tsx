@@ -31,8 +31,8 @@ export const MAX30102EFDT = (props: ChipProps<typeof max30102Pins>) => (
 			GND: { requiresGround: true },
 			PGND: { requiresGround: true },
 		}}
-		schWidth={4}
-		schHeight={5.5}
+		schWidth={1.6}
+		schHeight={1.2}
 		schPinArrangement={{
 			leftSide: { direction: "top-to-bottom", pins: ["SCL", "SDA", "INT"] },
 			rightSide: {

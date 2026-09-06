@@ -43,7 +43,7 @@ The selected BuyDisplay panel is in stock, 1.28 inch, 240 x 240, 4-wire SPI, GC9
 |           11 | GND     | GND                   |
 |        12–15 | CTP_*   | NC; touch not fitted  |
 
-The display datasheet allows 2.5–3.3 V VDD and specifies a 2-chip white backlight at 3.0 V typical, 30 mA typical and 40 mA maximum. V1 retains the reference-derived 22 Ω plus N-MOSFET/PWM topology, which deliberately starts below maximum brightness on a 3.3 V rail; measure actual LED current and brightness before changing R14. The connector's two shell/hold-down pads are mechanical NCs. The bottom-side footprint includes a pin-1 marker; cable insertion orientation must be checked against the physical no-touch panel before production.
+The display datasheet allows 2.5–3.3 V VDD and specifies a 2-chip white backlight at 3.0 V typical, 30 mA typical and 40 mA maximum. V1 retains the reference-derived 22 Ω plus N-MOSFET/PWM topology, which deliberately starts below maximum brightness on a 3.3 V rail; measure actual LED current and brightness before changing R14. The connector's two shell/hold-down pads are mechanical NCs. The top-side footprint includes a pin-1 marker; cable insertion orientation must be checked against the physical no-touch panel before production.
 
 ### BQ25180YBGR
 
@@ -60,6 +60,8 @@ The implemented local values satisfy the datasheet minimums: IN 1 µF, SYS 10 µ
 
 VDD is 1.8 V with 4.7 µF + 100 nF. VLED pins are 3.3 V with 10 µF + 100 nF. PGND and GND return locally. I2C and active-low INT are open-drain and pulled to 3.3 V, which the datasheet permits independently of the 1.8 V VDD rail.
 
+Placement review (2026-09-06): U3 is centered on the bottom; its local decoupling is on that side, with the connectors on top. The central 8.8 mm assembly area is reserved for the enclosure optical interface. [Analog Devices wrist integration guidance](https://www.analog.com/en/resources/technical-articles/guidelines-for-the-optomechanical-integration-of-heartrate-monitors-in-wearable-wrist-devices.html) calls for optical isolation between emitter and detector and a cover/encapsulation that couples to the wrist. The [MAX30101/MAX30102 biocompatibility FAQ](https://ez.analog.com/optical_sensing/a/documents/do19505/has-the-max30101-max30102-been-tested-for-biocompatibility) states that the sensor requires a cover or encapsulation rather than direct skin contact. The reserved diameter is a project layout allowance, not a vendor-qualified gasket dimension; final mechanical and optical testing is still required.
+
 ### PCF8563TS
 
 Pins 1/2 connect only to the FC-135 32.768 kHz crystal; the RTC provides the oscillator load capacitance. Pins 3/4/5/6/7/8 are INT/VSS/SDA/SCL/CLKOUT/VDD respectively. CLKOUT is unused. VDD is on BAT so time survives MCU/regulator shutdown.
@@ -67,6 +69,10 @@ Pins 1/2 connect only to the FC-135 32.768 kHz crystal; the RTC provides the osc
 ### BMA400
 
 VDD and VDDIO use separate 100 nF local capacitors. CSB is high for I2C; SDO is low, selecting address `0x14`. INT1 and INT2 are routed separately.
+
+### MOSFET package mapping
+
+Q1/2N7002 and Q2/AO3400A use SOT-23 pins 1=gate, 2=source, 3=drain. The [Nexperia 2N7002 pinning table](https://assets.nexperia.com/documents/data-sheet/2N7002.pdf) and [AOS AO3400A package view](https://www.aosmd.com/sites/default/files/res/datasheets/AO3400A.pdf) document that assignment. The shared custom symbol uses those physical pin numbers so the default tscircuit drain/gate aliases cannot merge the control and load nets.
 
 ### Side switches
 

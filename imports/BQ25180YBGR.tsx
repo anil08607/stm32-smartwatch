@@ -32,8 +32,8 @@ export const BQ25180YBGR = (props: ChipProps<typeof bq25180Pins>) => (
 			SYS: { providesPower: true },
 			GND: { requiresGround: true },
 		}}
-		schWidth={3.2}
-		schHeight={4.5}
+		schWidth={1.8}
+		schHeight={1.4}
 		schPinArrangement={{
 			leftSide: { direction: "top-to-bottom", pins: ["IN", "SCL", "SDA"] },
 			rightSide: {

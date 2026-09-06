@@ -15,8 +15,8 @@ export const TPS7A2018PDBVR = (props: ChipProps<typeof pinLabels>) => (
 		manufacturerPartNumber="TPS7A2018PDBVR"
 		supplierPartNumbers={{ jlcpcb: ["C963430"] }}
 		footprint="sot25_w2.3mm_pw0.53mm_pl1.05mm_pin1location(leftside,bottom)"
-		schWidth="1.5mm"
-		schHeight="2.5mm"
+		schWidth={1.5}
+		schHeight={0.9}
 		pinLabels={pinLabels}
 		pinAttributes={{
 			VIN: { requiresPower: true },

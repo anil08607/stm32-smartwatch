@@ -121,8 +121,8 @@ export const TPS63802DLAR = (props: ChipProps<typeof pinLabels>) => (
 			pcbRotationOffset: 0,
 			modelOriginPosition: { x: 0.07497445, y: 0, z: -0.95 },
 		}}
-		schWidth={4}
-		schHeight={5}
+		schWidth={2.2}
+		schHeight={1.8}
 		{...props}
 	/>
 );

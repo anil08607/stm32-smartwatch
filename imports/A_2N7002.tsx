@@ -1,4 +1,5 @@
 import type { MosfetProps } from "@tscircuit/props";
+import { Fragment } from "react";
 
 export const A_2N7002 = (
 	props: Omit<MosfetProps, "channelType" | "mosfetMode">,
@@ -7,6 +8,103 @@ export const A_2N7002 = (
 		<mosfet
 			channelType="n"
 			mosfetMode="enhancement"
+			// Both fitted SOT-23 parts use 1=gate, 2=source, 3=drain.
+			// The built-in MOSFET symbol uses 1=drain, 3=gate; a custom
+			// symbol prevents those aliases from merging two different nets.
+			symbol={
+				<symbol width={1.4} height={1.8}>
+					<schematictext
+						text={props.name ?? ""}
+						schX={0.6}
+						schY={0.4}
+						fontSize={0.18}
+						anchor="left"
+						color="#006666"
+					/>
+					<schematictext
+						text={props.manufacturerPartNumber ?? "2N7002"}
+						schX={0.6}
+						schY={0.15}
+						fontSize={0.18}
+						anchor="left"
+						color="#006666"
+					/>
+					<schematicpath
+						points={[
+							{ x: -0.7, y: 0 },
+							{ x: -0.2, y: 0 },
+						]}
+					/>
+					<schematicpath
+						points={[
+							{ x: -0.2, y: -0.45 },
+							{ x: -0.2, y: 0.45 },
+						]}
+					/>
+					{[-0.4, 0, 0.4].map((y) => (
+						<Fragment key={y}>
+							<schematicpath
+								points={[
+									{ x: 0, y: y - 0.12 },
+									{ x: 0, y: y + 0.12 },
+								]}
+							/>
+						</Fragment>
+					))}
+					<schematicpath
+						points={[
+							{ x: 0, y: 0.4 },
+							{ x: 0.35, y: 0.4 },
+							{ x: 0.35, y: 0.9 },
+						]}
+					/>
+					<schematicpath
+						points={[
+							{ x: 0, y: -0.4 },
+							{ x: 0.35, y: -0.4 },
+							{ x: 0.35, y: -0.9 },
+						]}
+					/>
+					<schematicpath
+						points={[
+							{ x: 0.35, y: -0.4 },
+							{ x: 0.35, y: 0 },
+							{ x: 0, y: 0 },
+						]}
+					/>
+					<schematicpath
+						points={[
+							{ x: 0.13, y: 0.1 },
+							{ x: 0, y: 0 },
+							{ x: 0.13, y: -0.1 },
+						]}
+					/>
+					<port
+						name="pin1"
+						pinNumber={1}
+						aliases={["gate"]}
+						direction="left"
+						schX={-0.7}
+						schY={0}
+					/>
+					<port
+						name="pin2"
+						pinNumber={2}
+						aliases={["source"]}
+						direction="down"
+						schX={0.35}
+						schY={-0.9}
+					/>
+					<port
+						name="pin3"
+						pinNumber={3}
+						aliases={["drain"]}
+						direction="up"
+						schX={0.35}
+						schY={0.9}
+					/>
+				</symbol>
+			}
 			supplierPartNumbers={{
 				jlcpcb: ["C8545"],
 			}}

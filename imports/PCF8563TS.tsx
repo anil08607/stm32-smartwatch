@@ -22,8 +22,8 @@ export const PCF8563TS = (props: ChipProps<typeof pcf8563Pins>) => (
 			VSS: { requiresGround: true },
 		}}
 		footprint="tssop8"
-		schWidth={3}
-		schHeight={4}
+		schWidth={1.6}
+		schHeight={1.2}
 		schPinArrangement={{
 			leftSide: { direction: "top-to-bottom", pins: ["OSCI", "OSCO", "INT"] },
 			rightSide: { direction: "top-to-bottom", pins: ["SCL", "SDA", "CLKOUT"] },
