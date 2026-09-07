@@ -11,11 +11,9 @@ Originally checked on 2026-08-26; the JST programming connector was checked on 2
 
 - STM32L432KCU6: [ST datasheet](https://www.st.com/resource/en/datasheet/stm32l432kc.pdf) and [STM32L4 hardware development application note](https://www.st.com/resource/en/application_note/dm00125306-getting-started-with-stm32l4-series-and-stm32l4-series-hardware-development-stmicroelectronics.pdf).
 - BMA400: [Bosch Sensortec datasheet](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bma400-ds000.pdf).
-- MAX30102EFD+T: [Analog Devices/Maxim datasheet](https://www.analog.com/media/en/technical-documentation/data-sheets/max30102.pdf).
 - PCF8563TS: [NXP datasheet](https://www.nxp.com/docs/en/data-sheet/PCF8563.pdf).
 - BQ25180YBGR: [TI datasheet and reference circuit](https://www.ti.com/lit/ds/symlink/bq25180.pdf).
 - TPS63802: [TI product page and datasheet](https://www.ti.com/product/TPS63802).
-- TPS7A20: [TI product page and datasheet](https://www.ti.com/product/TPS7A20).
 - ER-TFT1.28-3: [EastRising/BuyDisplay panel datasheet](https://www.buydisplay.com/download/manual/ER-TFT1.28-3_Datasheet.pdf) and [official product/ordering page](https://www.buydisplay.com/1-28-inch-tft-lcd-display-240x240-round-circle-screen-for-smart-watch). This is the complete LCD/FPC/backlight assembly, not the bare GC9A01A controller.
 - AFC24-S15FIA-00: [JLCPCB manufacturer drawing and assembly listing](https://jlcpcb.com/partdetail/JUSHUO-AFC24_S15FIA00/C6709462). The exact JLC/EasyEDA land pattern was imported using `C6709462` rather than inferred from connector pitch alone.
 - VC1026B002F: [Vybronics official datasheet](https://vybronics.hk/wp-content/uploads/datasheet-files/Vybronics-VC1026B002F-datasheet.pdf).
@@ -56,12 +54,6 @@ The display datasheet allows 2.5–3.3 V VDD and specifies a 2-chip white backli
 
 The implemented local values satisfy the datasheet minimums: IN 1 µF, SYS 10 µF, BAT 1 µF. The fixed TS resistor is valid electrically but is explicitly not a substitute for production pack-temperature qualification.
 
-### MAX30102EFD+T
-
-VDD is 1.8 V with 4.7 µF + 100 nF. VLED pins are 3.3 V with 10 µF + 100 nF. PGND and GND return locally. I2C and active-low INT are open-drain and pulled to 3.3 V, which the datasheet permits independently of the 1.8 V VDD rail.
-
-Placement review (2026-09-06): U3 is centered on the bottom; its local decoupling is on that side, with the connectors on top. The central 8.8 mm assembly area is reserved for the enclosure optical interface. [Analog Devices wrist integration guidance](https://www.analog.com/en/resources/technical-articles/guidelines-for-the-optomechanical-integration-of-heartrate-monitors-in-wearable-wrist-devices.html) calls for optical isolation between emitter and detector and a cover/encapsulation that couples to the wrist. The [MAX30101/MAX30102 biocompatibility FAQ](https://ez.analog.com/optical_sensing/a/documents/do19505/has-the-max30101-max30102-been-tested-for-biocompatibility) states that the sensor requires a cover or encapsulation rather than direct skin contact. The reserved diameter is a project layout allowance, not a vendor-qualified gasket dimension; final mechanical and optical testing is still required.
-
 ### PCF8563TS
 
 Pins 1/2 connect only to the FC-135 32.768 kHz crystal; the RTC provides the oscillator load capacitance. Pins 3/4/5/6/7/8 are INT/VSS/SDA/SCL/CLKOUT/VDD respectively. CLKOUT is unused. VDD is on BAT so time survives MCU/regulator shutdown.
@@ -86,11 +78,9 @@ J3 is JST `SM06B-SRSS-TB(LF)(SN)`, LCSC/JLCPCB `C160405`, using the official 6-c
 
 - [STM32L432KCU6 C1337280](https://jlcpcb.com/partdetail/STM32L432KCU6/C1337280)
 - [BMA400 C437655](https://jlcpcb.com/partdetail/BMA400/C437655)
-- [MAX30102EFD+T C6454833](https://jlcpcb.com/partdetail/MAX30102EFD%2BT/C6454833)
 - [PCF8563TS/5,118 C27397](https://jlcpcb.com/partdetail/NXPSemicon-PCF8563TS_5118/C27397)
 - [BQ25180YBGR C3682423](https://jlcpcb.com/partdetail/C3682423)
 - [TPS63802DLAR C2845237](https://jlcpcb.com/partdetail/TexasInstruments-TPS63802DLAR/C2845237)
-- [TPS7A2018PDBVR C963430](https://jlcpcb.com/partdetail/TexasInstruments-TPS7A2018PDBVR/C963430)
 - [AFC24-S15FIA-00 C6709462](https://jlcpcb.com/partdetail/JUSHUO-AFC24_S15FIA00/C6709462)
 - [VC1026B002F C17215865](https://jlcpcb.com/partdetail/18344943-VC1026B002F/C17215865)
 - [AO3400A C20917](https://www.lcsc.com/product-image/C20917.html)

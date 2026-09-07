@@ -17,8 +17,15 @@ const components = records("source_component");
 const ports = records("source_port");
 const nets = records("source_net");
 const traces = records("source_trace");
-assert.equal(components.length, 65, "Unexpected missing/extra components");
-assert.equal(nets.length, 41, "Unexpected missing/extra named nets");
+assert.equal(components.length, 56, "Unexpected missing/extra components");
+assert.equal(nets.length, 39, "Unexpected missing/extra named nets");
+for (const name of ["U3", "U7", "C6", "C7", "C18", "C19", "C20", "C21", "R18"])
+	assert(
+		!components.some((item) => item.name === name),
+		`${name}: removed part`,
+	);
+for (const name of ["V1V8", "PPG_INT"])
+	assert(!nets.some((item) => item.name === name), `${name}: removed net`);
 
 // Reconstruct connectivity from traces, independently of the generated map keys.
 const parent = new Map();
@@ -106,7 +113,11 @@ function expectPinNet(name, pin, net) {
 		1,
 		`${name}.${pin}: ambiguous/missing physical pad`,
 	);
-	assert(pads[0].port_hints.includes(`pin${pin}`), `${name}.${pin}: wrong pad`);
+	assert(
+		pads[0].port_hints.includes(`pin${pin}`) ||
+			pads[0].port_hints.includes(String(pin)),
+		`${name}.${pin}: wrong pad`,
+	);
 }
 for (const [name, gate, drain] of [
 	["Q1", "LCD_BL_GATE", "DISPLAY_LED_K"],
@@ -116,17 +127,26 @@ for (const [name, gate, drain] of [
 	expectPinNet(name, 2, "GND");
 	expectPinNet(name, 3, drain);
 }
-for (const [pin, net] of [
-	[2, "I2C_SCL"],
-	[3, "I2C_SDA"],
-	[4, "GND"],
-	[9, "V3V3"],
-	[10, "V3V3"],
-	[11, "V1V8"],
-	[12, "GND"],
-	[13, "PPG_INT"],
-])
-	expectPinNet("U3", pin, net);
+// The remaining devices still need the shared bus and its two pull-ups.
+for (const [name, scl, sda] of [
+	["U1", 29, 30],
+	["U2", 12, 2],
+	["U4", 6, 5],
+	["U5", 3, 5],
+]) {
+	expectPinNet(name, scl, "I2C_SCL");
+	expectPinNet(name, sda, "I2C_SDA");
+}
+expectPinNet("R8", 1, "V3V3");
+expectPinNet("R8", 2, "I2C_SCL");
+expectPinNet("R9", 1, "V3V3");
+expectPinNet("R9", 2, "I2C_SDA");
+const pa11 = ports.find(
+	(port) =>
+		port.source_component_id === source("U1").source_component_id &&
+		port.pin_number === 21,
+);
+assert(pa11?.do_not_connect, "Unused PA11 must be explicitly NC");
 
 const board = records("pcb_board")[0];
 assert.equal(board.width, 40, "Watch PCB must remain 40 mm");
@@ -135,30 +155,12 @@ assert.equal(board.num_layers, 4);
 for (const point of board.outline) {
 	assert(Math.abs(Math.hypot(point.x, point.y) - 20) < 0.01, "Noncircular PCB");
 }
-assert.equal(pcb("U3").layer, "bottom", "Optical sensor must face the wrist");
-assert(Math.hypot(pcb("U3").center.x, pcb("U3").center.y) < 0.01);
 for (const name of ["J1", "J2", "J3", "J4", "SW1", "SW2"]) {
 	assert.equal(pcb(name).layer, "top", `${name} must stay off the skin side`);
 }
-for (const name of ["U3", "C18", "C19", "C20", "C21", "R18"]) {
-	assert.equal(pcb(name).layer, "bottom", `${name} must stay with the sensor`);
-	for (const pad of records("pcb_smtpad").filter(
-		(item) => item.pcb_component_id === pcb(name).pcb_component_id,
-	))
-		assert.equal(pad.layer, "bottom", `${name}: pad on wrong layer`);
-}
-// A central 8.8 mm diameter assembly area is reserved for the optical interface.
-// It is not a copper keepout: sensor pads and traces must still be routable.
 for (const component of records("pcb_component")) {
 	assert(!component.is_allowed_to_be_off_board, "Do not bypass board-edge DRC");
-	if (component.layer !== "bottom" || component === pcb("U3")) continue;
-	const dx = Math.max(0, Math.abs(component.center.x) - component.width / 2);
-	const dy = Math.max(0, Math.abs(component.center.y) - component.height / 2);
-	assert(
-		Math.hypot(dx, dy) >= 4.4,
-		"Component obstructs optical assembly area",
-	);
 }
 console.log(
-	`PASS: ${components.length} components, ${nets.length} distinct nets, no unexpected open pins or DRC diagnostics; MOSFET pin maps and 40 mm skin-facing placement verified.`,
+	`PASS: ${components.length} components, ${nets.length} distinct nets, no unexpected open pins or DRC diagnostics; MOSFET pin maps, shared I2C, unused PA11 and 40 mm placement verified.`,
 );

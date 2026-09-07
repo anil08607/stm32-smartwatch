@@ -6,13 +6,11 @@ import { TS_1806SA_2x4x3_5DY_180X } from "./imports/TS_1806SA_2x4x3_5DY_180X";
 import { BQ25180YBGR } from "./imports/BQ25180YBGR";
 import { HroUsbC } from "./imports/HroUsbC";
 import { JstShBattery } from "./imports/JstShBattery";
-import { MAX30102EFDT } from "./imports/MAX30102EFDT";
 import { MotorPads } from "./imports/MotorPads";
 import { PCF8563TS } from "./imports/PCF8563TS";
 import { SM06B_SRSS_TB } from "./imports/SM06B_SRSS_TB";
 import { STM32L432KCU6 } from "./imports/STM32L432KCU6";
 import { TPS63802DLAR } from "./imports/TPS63802DLAR";
-import { TPS7A2018PDBVR } from "./imports/TPS7A2018PDBVR";
 
 const resistorPart = {
 	cc: { mpn: "0402WGF5101TCE", jlc: "C25905" },
@@ -63,22 +61,12 @@ export const SMARTWATCH_V1_STM32 = () => (
 		autorouterEffortLevel="5x"
 		schMaxTraceDistance="5mm"
 	>
-		{/* Reserve the central bottom area for the optical cover and gasket.
-		    USB, display and cable connectors stay on the top side. */}
-		<silkscreencircle layer="bottom" pcbX={0} pcbY={0} radius="4.4mm" />
 		<silkscreentext
 			layer="bottom"
 			text="SKIN SIDE"
 			fontSize="0.7mm"
 			pcbX={0}
 			pcbY={5.4}
-		/>
-		<silkscreentext
-			layer="bottom"
-			text="OPTICAL WINDOW"
-			fontSize="0.55mm"
-			pcbX={0}
-			pcbY={-5.4}
 		/>
 
 		<schematicsheet
@@ -377,44 +365,6 @@ export const SMARTWATCH_V1_STM32 = () => (
 				schY={3}
 				connections={{ pin1: "net.V3V3", pin2: "net.BUCK_PG" }}
 			/>
-
-			<TPS7A2018PDBVR
-				name="U7"
-				pcbX={8}
-				pcbY={-10.5}
-				schX={17}
-				schY={0}
-				connections={{
-					VIN: "net.V3V3",
-					VEN: "net.V3V3",
-					VOUT: "net.V1V8",
-					GND: "net.GND",
-				}}
-			/>
-			<capacitor
-				name="C6"
-				capacitance="1uF"
-				footprint="0402"
-				manufacturerPartNumber="CL05A105KA5NQNC"
-				supplierPartNumbers={{ jlcpcb: ["C52923"] }}
-				pcbX={6}
-				pcbY={-13.5}
-				schX={15}
-				schY={-4}
-				connections={{ pin1: "net.V3V3", pin2: "net.GND" }}
-			/>
-			<capacitor
-				name="C7"
-				capacitance="1uF"
-				footprint="0402"
-				manufacturerPartNumber="CL05A105KA5NQNC"
-				supplierPartNumbers={{ jlcpcb: ["C52923"] }}
-				pcbX={10}
-				pcbY={-13.5}
-				schX={19.5}
-				schY={-4}
-				connections={{ pin1: "net.V1V8", pin2: "net.GND" }}
-			/>
 		</schematicsheet>
 
 		<schematicsheet
@@ -433,6 +383,7 @@ export const SMARTWATCH_V1_STM32 = () => (
 				noConnect={[
 					"PC14_OSC32_IN",
 					"PC15_OSC32_OUT",
+					"PA11",
 					"PA12",
 					"PB3",
 					"PB4",
@@ -458,7 +409,6 @@ export const SMARTWATCH_V1_STM32 = () => (
 					PA8: "net.BMA_INT1",
 					PA9: "net.BMA_INT2",
 					PA10: "net.RTC_INT",
-					PA11: "net.PPG_INT",
 					PA13_SWDIO: "net.SWDIO",
 					PA14_SWCLK: "net.SWCLK",
 					PA15: "net.LCD_BL",
@@ -766,7 +716,7 @@ export const SMARTWATCH_V1_STM32 = () => (
 
 		<schematicsheet
 			name="sensors"
-			displayName="Motion, Optical Sensor & RTC"
+			displayName="Motion & RTC"
 			sheetIndex={3}
 			sheetSize="ANSI_B"
 		>
@@ -814,96 +764,6 @@ export const SMARTWATCH_V1_STM32 = () => (
 				schX={-7}
 				schY={0.5}
 				connections={{ pin1: "net.V3V3", pin2: "net.GND" }}
-			/>
-
-			<MAX30102EFDT
-				name="U3"
-				layer="bottom"
-				pcbX={0}
-				pcbY={0}
-				schX={-0.5}
-				schY={3}
-				noConnect={["NC1", "NC5", "NC6", "NC7", "NC8", "NC14"]}
-				connections={{
-					SCL: "net.I2C_SCL",
-					SDA: "net.I2C_SDA",
-					INT: "net.PPG_INT",
-					PGND: "net.GND",
-					GND: "net.GND",
-					VLED2: "net.V3V3",
-					VDD: "net.V1V8",
-				}}
-			/>
-			<trace
-				name="U3_VLED1_TO_VLED2"
-				from=".U3 > .VLED1"
-				to=".U3 > .VLED2"
-				pcbStraightLine
-			/>
-			<capacitor
-				name="C18"
-				capacitance="4.7uF"
-				footprint="0603"
-				manufacturerPartNumber="CL10A475KO8NNNC"
-				supplierPartNumbers={{ jlcpcb: ["C19666"] }}
-				layer="bottom"
-				pcbX={-5.8}
-				pcbY={1.5}
-				schX={-3.5}
-				schY={0}
-				connections={{ pin1: "net.V1V8", pin2: "net.GND" }}
-			/>
-			<capacitor
-				name="C19"
-				capacitance="100nF"
-				footprint="0402"
-				manufacturerPartNumber={cap100n.mpn}
-				supplierPartNumbers={{ jlcpcb: [cap100n.jlc] }}
-				layer="bottom"
-				pcbX={-5.3}
-				pcbY={0}
-				schX={-1.5}
-				schY={0}
-				connections={{ pin1: "net.V1V8", pin2: "net.GND" }}
-			/>
-			<capacitor
-				name="C20"
-				capacitance="10uF"
-				footprint="0805"
-				manufacturerPartNumber="CL21A106KAYNNNE"
-				supplierPartNumbers={{ jlcpcb: ["C15850"] }}
-				layer="bottom"
-				pcbX={5.8}
-				pcbY={1.5}
-				schX={0.5}
-				schY={0}
-				connections={{ pin1: "net.V3V3", pin2: "net.GND" }}
-			/>
-			<capacitor
-				name="C21"
-				capacitance="100nF"
-				footprint="0402"
-				manufacturerPartNumber={cap100n.mpn}
-				supplierPartNumbers={{ jlcpcb: [cap100n.jlc] }}
-				layer="bottom"
-				pcbX={5.3}
-				pcbY={0}
-				schX={2.5}
-				schY={0}
-				connections={{ pin1: "net.V3V3", pin2: "net.GND" }}
-			/>
-			<resistor
-				name="R18"
-				resistance="4.7k"
-				footprint="0402"
-				manufacturerPartNumber="0402WGF4701TCE"
-				supplierPartNumbers={{ jlcpcb: ["C25900"] }}
-				layer="bottom"
-				pcbX={5.3}
-				pcbY={-1.5}
-				schX={3}
-				schY={1.4}
-				connections={{ pin1: "net.V3V3", pin2: "net.PPG_INT" }}
 			/>
 
 			<PCF8563TS

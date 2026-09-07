@@ -1,11 +1,9 @@
 Reference,Quantity,Component,Manufacturer,Exact MPN,Value,JLCPCB/LCSC #,Package/Footprint,Purpose,Current Availability
 U1,1,Low-power MCU,STMicroelectronics,STM32L432KCU6,256KB Flash / 64KB SRAM,C1337280,UFQFPN-32 5x5mm,Main controller,"JLC SMT; 509 in stock / 391 orderable (checked 2026-08-26)"
 U2,1,3-axis accelerometer,Bosch Sensortec,BMA400,I2C address 0x14,C437655,LGA-12 2x2mm,Steps motion and wrist detection,"JLC SMT Standard; live listing active; X-ray inspection required (checked 2026-08-26)"
-U3,1,Optical HR and SpO2 sensor,Analog Devices / Maxim Integrated,MAX30102EFD+T,1.8V VDD / 3.3V VLED,C6454833,OESIP-14 3.5x5.8mm,Heart rate and SpO2,"JLC SMT; 255 in stock / 206 orderable; assembly fixture required (checked 2026-08-26)"
 U4,1,RTC,NXP Semiconductors,"PCF8563TS/5,118",I2C RTC,C27397,TSSOP-8 3mm,Time date alarm and timer,"JLC SMT; approximately 45007 in stock (checked 2026-08-26)"
 U5,1,Li-ion charger and power path,Texas Instruments,BQ25180YBGR,1-cell 4.20V configuration,C3682423,DSBGA-8 1.1x1.6mm,USB charging and system power path,"JLC SMT Standard; 60 in stock / 53 orderable in latest indexed listing; recheck before order"
 U6,1,Low-Iq buck-boost regulator,Texas Instruments,TPS63802DLAR,3.30V adjustable,C2845237,VSON-10 2x3mm,Regulated 3V3 rail,"JLC SMT Economic/Standard; live listing active; about 3920 LCSC stock in indexed listing"
-U7,1,Low-Iq fixed LDO,Texas Instruments,TPS7A2018PDBVR,1.8V 300mA,C963430,SOT-23-5,MAX30102 VDD rail,"JLC SMT Economic/Standard; live listing active; about 2985 LCSC stock in indexed listing"
 LCD1,1,Complete round IPS TFT LCD,EastRising / BuyDisplay,ER-TFT1.28-3,"1.28in 240x240 GC9A01A 4-wire SPI",External,"Plug-in 15-pin 0.5mm FPC; 35.59x37.74x1.6mm",Round graphical UI,"BuyDisplay in stock; external no-touch option; install after SMT (checked 2026-08-27)"
 J1,1,USB-C receptacle,HRO,TYPE-C-31-M-12,USB-C sink only,C165948,HRO 12-pin mid-mount SMT/TH shell,5V charging input,"JLC SMT; approximately 371k stock (checked 2026-08-26)"
 J2,1,Battery connector,JST,SM02B-SRSS-TB(LF)(SN),2-pin 1.0mm,C160402,JST-SH top-entry SMT,External LiPo connection,"JLC SMT; approximately 93545 stock (checked 2026-08-26)"
@@ -23,15 +21,15 @@ R3; R7; R10; R17,4,Resistor,UNI-ROYAL,0402WGF1002TCE,10k 1%,C25744,0402,"BQ TS s
 R4,1,Feedback resistor,UNI-ROYAL,0402WGF5103TCE,510k 1%,C11616,0402,TPS63802 upper feedback,JLC SMT in stock (checked 2026-08-26)
 R5,1,Feedback resistor,UNI-ROYAL,0402WGF9102TCE,91k 1%,C4147,0402,TPS63802 lower feedback,JLC SMT in stock (checked 2026-08-26)
 R6; R11; R16; R19; R20; R22,6,Resistor,UNI-ROYAL,0402WGF1003TCE,100k 1%,C25741,0402,"Pull-ups/pull-downs for PG BOOT backlight buttons and motor",JLC SMT in stock (checked 2026-08-26)
-R8; R9; R18,3,Resistor,UNI-ROYAL,0402WGF4701TCE,4.7k 1%,C25900,0402,I2C and MAX30102 interrupt pull-ups,JLC SMT in stock (checked 2026-08-26)
+R8; R9,2,Resistor,UNI-ROYAL,0402WGF4701TCE,4.7k 1%,C25900,0402,I2C pull-ups,JLC SMT in stock (checked 2026-08-26)
 R12,1,Battery ADC upper resistor,UNI-ROYAL,0402WGF1004TCE,1M 1%,C26083,0402,Battery voltage divider,JLC SMT in stock (checked 2026-08-26)
 R13,1,Battery ADC lower resistor,UNI-ROYAL,0402WGF3303TCE,330k 1%,C25778,0402,Battery voltage divider,JLC SMT in stock (checked 2026-08-26)
 R14,1,LCD backlight resistor,UNI-ROYAL,0402WGF220JTCE,22ohm,C25092,0402,Limit LCD LED current,JLC SMT in stock (checked 2026-08-26)
 R15; R21,2,MOSFET gate resistors,UNI-ROYAL,0402WGF1000TCE,100ohm 1%,C25076,0402,Backlight and motor gate damping,JLC SMT in stock (checked 2026-08-26)
-C1; C3; C6; C7; C11,5,Ceramic capacitor,Samsung Electro-Mechanics,CL05A105KA5NQNC,1uF 25V X5R,C52923,0402,"BQ25180 input/battery; LDO input/output; MCU analog bulk","JLC SMT; approximately 14.5M stock (checked 2026-08-26)"
-C2; C4; C20,3,Ceramic capacitor,Samsung Electro-Mechanics,CL21A106KAYNNNE,10uF 25V X5R,C15850,0805,"BQ SYS; buck input; MAX30102 LED rail","JLC SMT; approximately 5.8M stock (checked 2026-08-26)"
+C1; C3; C11,3,Ceramic capacitor,Samsung Electro-Mechanics,CL05A105KA5NQNC,1uF 25V X5R,C52923,0402,"BQ25180 input/battery; MCU analog bulk","JLC SMT; approximately 14.5M stock (checked 2026-08-26)"
+C2; C4,2,Ceramic capacitor,Samsung Electro-Mechanics,CL21A106KAYNNNE,10uF 25V X5R,C15850,0805,"BQ SYS; buck input","JLC SMT; approximately 5.8M stock (checked 2026-08-26)"
 C5; C23,2,Ceramic capacitor,Samsung Electro-Mechanics,CL21A226MAQNNNE,22uF 6.3V X5R,C45783,0805,Buck output and motor local bulk,JLC SMT in stock (checked 2026-08-26)
-C8; C9; C10; C13; C14; C15; C16; C17; C19; C21; C22,11,Ceramic capacitor,Yageo,CC0402KRX7R7BB104,100nF 16V X7R,C60474,0402,IC decoupling reset and ADC filtering,"JLC SMT; approximately 30.8M stock (checked 2026-08-26)"
-C12; C18,2,Ceramic capacitor,Samsung Electro-Mechanics,CL10A475KO8NNNC,4.7uF 16V X5R,C19666,0603,MCU bulk and MAX30102 VDD bulk,JLC SMT in stock (checked 2026-08-26)
+C8; C9; C10; C13; C14; C15; C16; C17; C22,9,Ceramic capacitor,Yageo,CC0402KRX7R7BB104,100nF 16V X7R,C60474,0402,IC decoupling reset and ADC filtering,"JLC SMT; approximately 30.8M stock (checked 2026-08-26)"
+C12,1,Ceramic capacitor,Samsung Electro-Mechanics,CL10A475KO8NNNC,4.7uF 16V X5R,C19666,0603,MCU bulk,JLC SMT in stock (checked 2026-08-26)
 J3,1,Programming/debug connector,JST,SM06B-SRSS-TB(LF)(SN),6-pin custom SWD,C160405,JST-SH 1.0mm right-angle SMT 6P,"Direct SWD programming: 3V3 SWDIO GND SWCLK NRST BOOT0","JLC SMT Economic/Standard; LCSC live listing: 6770 in stock (checked 2026-08-27)"
 J4,1,LCD FPC connector,JUSHUO,AFC24-S15FIA-00,"15-pin 0.5mm dual-contact hinged FPC",C6709462,"Right-angle SMT; 0.3mm FPC; 2mm height",Connect ER-TFT1.28-3 display flex,"JLC SMT Economic/Standard; 6687 indexed stock / 6644 orderable; assembly fixture required (checked 2026-08-27)"
