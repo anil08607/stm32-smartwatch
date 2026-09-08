@@ -4,25 +4,28 @@ const pinLabels = {
 	pin1: ["SDO"],
 	pin2: ["SDX", "SDA"],
 	pin3: ["VDDIO"],
-	pin4: ["NC4"],
+	pin4: ["ASDA"],
 	pin5: ["INT1"],
 	pin6: ["INT2"],
 	pin7: ["VDD"],
 	pin8: ["GNDIO"],
 	pin9: ["GND"],
 	pin10: ["CSB"],
-	pin11: ["NC11"],
+	pin11: ["ASCL"],
 	pin12: ["SCX", "SCL"],
 } as const;
 
-export const BMA400 = (props: ChipProps<typeof pinLabels>) => {
+// C189518 uses the same supplier land pattern as the previous BMA400.
+// Bosch BMA456 datasheet sections 6.5 and 7.1: SDO low selects I2C 0x18;
+// ASDA/ASCL may remain unconnected when the auxiliary interface is disabled.
+export const BMA456 = (props: ChipProps<typeof pinLabels>) => {
 	return (
 		<chip
 			pinLabels={pinLabels}
 			supplierPartNumbers={{
-				jlcpcb: ["C437655"],
+				jlcpcb: ["C189518"],
 			}}
-			manufacturerPartNumber="BMA400"
+			manufacturerPartNumber="BMA456"
 			pinAttributes={{
 				VDD: { requiresPower: true },
 				GND: { requiresGround: true },
@@ -38,7 +41,7 @@ export const BMA400 = (props: ChipProps<typeof pinLabels>) => {
 				topSide: { direction: "left-to-right", pins: ["VDD", "VDDIO"] },
 				bottomSide: {
 					direction: "left-to-right",
-					pins: ["GND", "GNDIO", "NC4", "NC11"],
+					pins: ["GND", "GNDIO", "ASDA", "ASCL"],
 				},
 			}}
 			footprint={
@@ -216,9 +219,9 @@ export const BMA400 = (props: ChipProps<typeof pinLabels>) => {
 			}
 			cadModel={{
 				objUrl:
-					"https://modelcdn.tscircuit.com/easyeda_models/assets/C437655.obj?uuid=83ec6157b4954879af30009d604f164f",
+					"https://modelcdn.tscircuit.com/easyeda_models/assets/C189518.obj?uuid=83ec6157b4954879af30009d604f164f",
 				stepUrl:
-					"https://modelcdn.tscircuit.com/easyeda_models/assets/C437655.step?uuid=83ec6157b4954879af30009d604f164f",
+					"https://modelcdn.tscircuit.com/easyeda_models/assets/C189518.step?uuid=83ec6157b4954879af30009d604f164f",
 				pcbRotationOffset: 90,
 				modelOriginPosition: { x: 0, y: 0, z: 0 },
 			}}

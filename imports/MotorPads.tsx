@@ -6,8 +6,8 @@ const motorPads = { pin1: ["MOTOR_POS"], pin2: ["MOTOR_NEG"] } as const;
 export const MotorPads = (props: ChipProps<typeof motorPads>) => (
 	<connector
 		pinLabels={motorPads}
-		manufacturerPartNumber="VC1026B002F"
-		supplierPartNumbers={{ jlcpcb: ["C17215865"] }}
+		manufacturerPartNumber="LCM1234A3523F"
+		supplierPartNumbers={{ jlcpcb: ["C7424783"] }}
 		footprint={
 			<footprint insertionDirection="from_above">
 				<smtpad
@@ -30,6 +30,7 @@ export const MotorPads = (props: ChipProps<typeof motorPads>) => (
 				<silkscreenrect pcbX={0} pcbY={0} width={4.2} height={3} />
 			</footprint>
 		}
+		schWidth={3.6}
 		{...props}
 	/>
 );

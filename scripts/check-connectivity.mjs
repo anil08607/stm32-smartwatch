@@ -137,6 +137,28 @@ for (const [name, scl, sda] of [
 	expectPinNet(name, scl, "I2C_SCL");
 	expectPinNet(name, sda, "I2C_SDA");
 }
+// BMA456: preserve both interrupts, supply straps and the 0x18 address strap.
+for (const [pin, net] of [
+	[1, "GND"],
+	[3, "V3V3"],
+	[5, "BMA_INT1"],
+	[6, "BMA_INT2"],
+	[7, "V3V3"],
+	[8, "GND"],
+	[9, "GND"],
+	[10, "V3V3"],
+])
+	expectPinNet("U2", pin, net);
+for (const pin of [4, 11]) {
+	const port = ports.find(
+		(item) =>
+			item.source_component_id === source("U2").source_component_id &&
+			item.pin_number === pin,
+	);
+	assert(port?.do_not_connect, `U2.${pin}: unused auxiliary bus must be NC`);
+}
+expectPinNet("M1", 1, "V3V3");
+expectPinNet("M1", 2, "MOTOR_NEG");
 expectPinNet("R8", 1, "V3V3");
 expectPinNet("R8", 2, "I2C_SCL");
 expectPinNet("R9", 1, "V3V3");

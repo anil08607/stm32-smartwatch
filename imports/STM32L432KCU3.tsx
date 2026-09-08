@@ -102,11 +102,12 @@ const qfn32Footprint = (
 	</footprint>
 );
 
-export const STM32L432KCU6 = (props: ChipProps<typeof stm32Pins>) => (
+// Temperature grade 3 retains the KCU6 pinout, 256 KB flash and UFQFPN-32 package.
+export const STM32L432KCU3 = (props: ChipProps<typeof stm32Pins>) => (
 	<chip
 		pinLabels={stm32Pins}
-		manufacturerPartNumber="STM32L432KCU6"
-		supplierPartNumbers={{ jlcpcb: ["C1337280"] }}
+		manufacturerPartNumber="STM32L432KCU3"
+		supplierPartNumbers={{ jlcpcb: ["C1337558"] }}
 		pinAttributes={{
 			VDD1: { requiresPower: true },
 			VDD2: { requiresPower: true },
@@ -118,11 +119,11 @@ export const STM32L432KCU6 = (props: ChipProps<typeof stm32Pins>) => (
 		footprint={qfn32Footprint}
 		cadModel={{
 			objUrl:
-				"https://modelcdn.tscircuit.com/easyeda_models/assets/C1337280.obj?uuid=3d5b26a697094f4e9d801397c2dfddb7",
+				"https://modelcdn.tscircuit.com/easyeda_models/assets/C1337558.obj?uuid=3d5b26a697094f4e9d801397c2dfddb7",
 			stepUrl:
-				"https://modelcdn.tscircuit.com/easyeda_models/assets/C1337280.step?uuid=3d5b26a697094f4e9d801397c2dfddb7",
+				"https://modelcdn.tscircuit.com/easyeda_models/assets/C1337558.step?uuid=3d5b26a697094f4e9d801397c2dfddb7",
 			pcbRotationOffset: 0,
-			modelOriginPosition: { x: 0.0040683, y: -0.0038332, z: 0 },
+			modelOriginPosition: { x: 0.0040683, y: -0.0048492, z: 0 },
 		}}
 		schWidth={3.6}
 		schHeight={4.2}

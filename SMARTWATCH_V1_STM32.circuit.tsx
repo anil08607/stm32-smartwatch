@@ -1,7 +1,7 @@
 import "tscircuit";
 import { A_2N7002 } from "./imports/A_2N7002";
 import { AFC24_S15FIA_00 } from "./imports/AFC24_S15FIA_00";
-import { BMA400 } from "./imports/BMA400";
+import { BMA456 } from "./imports/BMA456";
 import { TS_1806SA_2x4x3_5DY_180X } from "./imports/TS_1806SA_2x4x3_5DY_180X";
 import { BQ25180YBGR } from "./imports/BQ25180YBGR";
 import { HroUsbC } from "./imports/HroUsbC";
@@ -9,8 +9,9 @@ import { JstShBattery } from "./imports/JstShBattery";
 import { MotorPads } from "./imports/MotorPads";
 import { PCF8563TS } from "./imports/PCF8563TS";
 import { SM06B_SRSS_TB } from "./imports/SM06B_SRSS_TB";
-import { STM32L432KCU6 } from "./imports/STM32L432KCU6";
+import { STM32L432KCU3 } from "./imports/STM32L432KCU3";
 import { TPS63802DLAR } from "./imports/TPS63802DLAR";
+import { createSavedAutorouter } from "./routing/saved-routing";
 
 const resistorPart = {
 	cc: { mpn: "0402WGF5101TCE", jlc: "C25905" },
@@ -32,7 +33,7 @@ const cap100n = {
  * Open-Smartwatch Light / ZSWatch mechanical precedent, then each IC vendor's
  * official reference circuit, then exact JLCPCB/LCSC assembly parts.
  */
-export const SMARTWATCH_V1_STM32 = () => (
+export const SMARTWATCH_V1_STM32 = ({ reroute = false } = {}) => (
 	<board
 		name="SMARTWATCH_V1_STM32"
 		width="40mm"
@@ -42,7 +43,6 @@ export const SMARTWATCH_V1_STM32 = () => (
 		thickness="1mm"
 		solderMaskColor="black"
 		silkscreenColor="white"
-		doubleSidedAssembly
 		pcbStyle={{ viaPadDiameter: "0.4mm", viaHoleDiameter: "0.2mm" }}
 		minTraceWidth="0.1mm"
 		minTraceToPadEdgeClearance="0.1mm"
@@ -54,8 +54,12 @@ export const SMARTWATCH_V1_STM32 = () => (
 		minBoardEdgeClearance="0.2mm"
 		schRelative
 		autorouter={{
-			preset: "auto_local",
-			traceClearance: "0.2mm",
+			// This core's preset resolver drops algorithmFn; use explicit local config.
+			local: true,
+			groupMode: "subcircuit",
+			algorithmFn: reroute
+				? undefined
+				: async (input) => createSavedAutorouter(input),
 		}}
 		autorouterVersion="beta_pipeline7"
 		autorouterEffortLevel="5x"
@@ -103,9 +107,9 @@ export const SMARTWATCH_V1_STM32 = () => (
 				footprint="0402"
 				manufacturerPartNumber={resistorPart.cc.mpn}
 				supplierPartNumbers={{ jlcpcb: [resistorPart.cc.jlc] }}
-				layer="bottom"
+				layer="top"
 				pcbX={-3}
-				pcbY={-11.8}
+				pcbY={-12.1}
 				schX={-11.5}
 				schY={2}
 				connections={{ pin1: "net.USB_CC1", pin2: "net.GND" }}
@@ -116,8 +120,8 @@ export const SMARTWATCH_V1_STM32 = () => (
 				footprint="0402"
 				manufacturerPartNumber={resistorPart.cc.mpn}
 				supplierPartNumbers={{ jlcpcb: [resistorPart.cc.jlc] }}
-				layer="bottom"
-				pcbX={3}
+				layer="top"
+				pcbX={5.3}
 				pcbY={-11.8}
 				schX={-11.5}
 				schY={-2}
@@ -129,8 +133,8 @@ export const SMARTWATCH_V1_STM32 = () => (
 				footprint="sod523"
 				manufacturerPartNumber="LESD5Z5.0CT1G"
 				supplierPartNumbers={{ jlcpcb: ["C136167"] }}
-				layer="bottom"
-				pcbX={-6}
+				layer="top"
+				pcbX={-6.5}
 				pcbY={-12.5}
 				schX={-10}
 				schY={0}
@@ -374,7 +378,7 @@ export const SMARTWATCH_V1_STM32 = () => (
 			sheetSize="ANSI_B"
 		>
 			{/* MCU */}
-			<STM32L432KCU6
+			<STM32L432KCU3
 				name="U1"
 				pcbX={-5}
 				pcbY={4}
@@ -721,13 +725,13 @@ export const SMARTWATCH_V1_STM32 = () => (
 			sheetSize="ANSI_B"
 		>
 			{/* Sensors */}
-			<BMA400
+			<BMA456
 				name="U2"
 				pcbX={9}
 				pcbY={8.5}
 				schX={-8}
 				schY={3}
-				noConnect={["NC4", "NC11"]}
+				noConnect={["ASDA", "ASCL"]}
 				connections={{
 					VDD: "net.V3V3",
 					VDDIO: "net.V3V3",
@@ -907,8 +911,8 @@ export const SMARTWATCH_V1_STM32 = () => (
 
 			<MotorPads
 				name="M1"
-				manufacturerPartNumber="VC1026B002F"
-				supplierPartNumbers={{ jlcpcb: ["C17215865"] }}
+				manufacturerPartNumber="LCM1234A3523F"
+				supplierPartNumbers={{ jlcpcb: ["C7424783"] }}
 				pcbX={13.3}
 				pcbY={11.8}
 				schX={8}

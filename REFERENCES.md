@@ -1,6 +1,6 @@
 # References and verification record
 
-Originally checked on 2026-08-26; the JST programming connector was checked on 2026-08-27. Manufacturer datasheets control over reference-project values, and live JLCPCB inventory must be checked again at order time.
+Originally checked on 2026-08-26; the JST programming connector was checked on 2026-08-27. All selected JLCPCB parts were audited directly on 2026-09-08 for five boards; see [the stock/replacement record](./sourcing/README.md). Manufacturer datasheets control over reference-project values, and live JLCPCB inventory must be checked again at order time.
 
 ## Open-source smartwatch references
 
@@ -9,14 +9,14 @@ Originally checked on 2026-08-26; the JST programming connector was checked on 2
 
 ## Manufacturer authorities
 
-- STM32L432KCU6: [ST datasheet](https://www.st.com/resource/en/datasheet/stm32l432kc.pdf) and [STM32L4 hardware development application note](https://www.st.com/resource/en/application_note/dm00125306-getting-started-with-stm32l4-series-and-stm32l4-series-hardware-development-stmicroelectronics.pdf).
-- BMA400: [Bosch Sensortec datasheet](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bma400-ds000.pdf).
+- STM32L432KCU3 (same STM32L432KC device/pinout, temperature grade 3): [ST datasheet](https://www.st.com/resource/en/datasheet/stm32l432kc.pdf) and [STM32L4 hardware development application note](https://www.st.com/resource/en/application_note/dm00125306-getting-started-with-stm32l4-series-and-stm32l4-series-hardware-development-stmicroelectronics.pdf).
+- BMA456: [Bosch Sensortec datasheet](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bma456-ds000.pdf) and [official SensorAPI](https://github.com/boschsensortec/BMA456_SensorAPI).
 - PCF8563TS: [NXP datasheet](https://www.nxp.com/docs/en/data-sheet/PCF8563.pdf).
 - BQ25180YBGR: [TI datasheet and reference circuit](https://www.ti.com/lit/ds/symlink/bq25180.pdf).
 - TPS63802: [TI product page and datasheet](https://www.ti.com/product/TPS63802).
 - ER-TFT1.28-3: [EastRising/BuyDisplay panel datasheet](https://www.buydisplay.com/download/manual/ER-TFT1.28-3_Datasheet.pdf) and [official product/ordering page](https://www.buydisplay.com/1-28-inch-tft-lcd-display-240x240-round-circle-screen-for-smart-watch). This is the complete LCD/FPC/backlight assembly, not the bare GC9A01A controller.
 - AFC24-S15FIA-00: [JLCPCB manufacturer drawing and assembly listing](https://jlcpcb.com/partdetail/JUSHUO-AFC24_S15FIA00/C6709462). The exact JLC/EasyEDA land pattern was imported using `C6709462` rather than inferred from connector pitch alone.
-- VC1026B002F: [Vybronics official datasheet](https://vybronics.hk/wp-content/uploads/datasheet-files/Vybronics-VC1026B002F-datasheet.pdf).
+- LCM1234A3523F: [LEADER manufacturer specification, hosted by LCSC](https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2306261204_LEADER-LCM1234A3523F_C7424783.pdf), operating conditions and mechanical drawing.
 - LP403035: [LiPol Battery pack datasheet](https://www.lipolbattery.com/LiPo-Battery-Datahseet/LiPo_Battery_LP403035_3.7V_400mAh.pdf).
 - SM06B-SRSS-TB(LF)(SN): [JST SH-series official datasheet and PCB layout](https://www.jst-mfg.com/product/pdf/eng/eSH.pdf). The 6-circuit side-entry header uses a 1.0 mm contact pitch, 5.0 mm contact span, and 8.0 mm overall body width.
 
@@ -24,7 +24,7 @@ Originally checked on 2026-08-26; the JST programming connector was checked on 2
 
 ### ER-TFT1.28-3 and J4
 
-The selected BuyDisplay panel is in stock, 1.28 inch, 240 x 240, 4-wire SPI, GC9A01A, 35.59 x 37.74 x 1.6 mm, with a plug-in 15-pin 0.5 mm-pitch flex. V1 orders the **no-touch** option. `J4` is JUSHUO `AFC24-S15FIA-00`, JLCPCB `C6709462`: 15 contacts, 0.5 mm pitch, 0.3 mm FPC, double-sided contact, top/bottom entry, hinged lid, 2 mm board height, right-angle SMT.
+The selected BuyDisplay panel is 1.28 inch, 240 x 240, 4-wire SPI, GC9A01A, 35.59 x 37.74 x 1.6 mm, with a plug-in 15-pin 0.5 mm-pitch flex. V1 orders the **no-touch** option. `J4` is JUSHUO `AFC24-S15FIA-00`, JLCPCB `C6709462`: 15 contacts, 0.5 mm pitch, 0.3 mm FPC, double-sided contact, top/bottom entry, hinged lid, 2 mm board height, right-angle SMT.
 
 | J4 / FPC pin | Signal  | V1 use                |
 | -----------: | ------- | --------------------- |
@@ -58,9 +58,9 @@ The implemented local values satisfy the datasheet minimums: IN 1 µF, SYS 10 µ
 
 Pins 1/2 connect only to the FC-135 32.768 kHz crystal; the RTC provides the oscillator load capacitance. Pins 3/4/5/6/7/8 are INT/VSS/SDA/SCL/CLKOUT/VDD respectively. CLKOUT is unused. VDD is on BAT so time survives MCU/regulator shutdown.
 
-### BMA400
+### BMA456
 
-VDD and VDDIO use separate 100 nF local capacitors. CSB is high for I2C; SDO is low, selecting address `0x14`. INT1 and INT2 are routed separately.
+VDD (pin 7) and VDDIO (pin 3) use separate 100 nF local capacitors. CSB (pin 10) is high for I2C; SDO (pin 1) is low, selecting address `0x18`. SDA/SCL remain pins 2/12, and INT1/INT2 remain pins 5/6. Auxiliary ASDA/ASCL (pins 4/11) are deliberately NC, as allowed by the Bosch connection table when that interface is disabled. The C189518 exact supplier footprint has the same pad positions and dimensions as the previous package. Firmware must load the BMA456 wearable feature configuration and use its driver; it is not register-compatible with BMA400.
 
 ### MOSFET package mapping
 
@@ -76,13 +76,13 @@ J3 is JST `SM06B-SRSS-TB(LF)(SN)`, LCSC/JLCPCB `C160405`, using the official 6-c
 
 ## JLCPCB/LCSC sourcing links
 
-- [STM32L432KCU6 C1337280](https://jlcpcb.com/partdetail/STM32L432KCU6/C1337280)
-- [BMA400 C437655](https://jlcpcb.com/partdetail/BMA400/C437655)
+- [STM32L432KCU3 C1337558](https://jlcpcb.com/partdetail/STM32L432KCU3/C1337558)
+- [BMA456 C189518](https://jlcpcb.com/partdetail/BMA456/C189518)
 - [PCF8563TS/5,118 C27397](https://jlcpcb.com/partdetail/NXPSemicon-PCF8563TS_5118/C27397)
 - [BQ25180YBGR C3682423](https://jlcpcb.com/partdetail/C3682423)
 - [TPS63802DLAR C2845237](https://jlcpcb.com/partdetail/TexasInstruments-TPS63802DLAR/C2845237)
 - [AFC24-S15FIA-00 C6709462](https://jlcpcb.com/partdetail/JUSHUO-AFC24_S15FIA00/C6709462)
-- [VC1026B002F C17215865](https://jlcpcb.com/partdetail/18344943-VC1026B002F/C17215865)
+- [LCM1234A3523F C7424783](https://jlcpcb.com/partdetail/LCM1234A3523F/C7424783)
 - [AO3400A C20917](https://www.lcsc.com/product-image/C20917.html)
 - [2N7002 C8545](https://jlcpcb.com/partdetail/JiangsuChangjingElec-2N7002/C8545)
 - [LESD5Z5.0CT1G C136167](https://jlcpcb.com/partdetail/LRC-LESD5Z50CT1G/C136167)
