@@ -4,6 +4,7 @@ import { AFC24_S15FIA_00 } from "./imports/AFC24_S15FIA_00";
 import { BMA456 } from "./imports/BMA456";
 import { TS_1806SA_2x4x3_5DY_180X } from "./imports/TS_1806SA_2x4x3_5DY_180X";
 import { BQ25180YBGR } from "./imports/BQ25180YBGR";
+import { HUSB238_002DD } from "./imports/HUSB238_002DD";
 import { HroUsbC } from "./imports/HroUsbC";
 import { JstShBattery } from "./imports/JstShBattery";
 import { MotorPads } from "./imports/MotorPads";
@@ -14,7 +15,6 @@ import { TPS63802DLAR } from "./imports/TPS63802DLAR";
 import { createSavedAutorouter } from "./routing/saved-routing";
 
 const resistorPart = {
-	cc: { mpn: "0402WGF5101TCE", jlc: "C25905" },
 	tenK: { mpn: "0402WGF1002TCE", jlc: "C25744" },
 	hundredK: { mpn: "0402WGF1003TCE", jlc: "C25741" },
 	fiveTenK: { mpn: "0402WGF5103TCE", jlc: "C11616" },
@@ -29,16 +29,15 @@ const cap100n = {
 /**
  * Standalone STM32 smartwatch V1.
  *
- * Electrical authority order used by this implementation:
- * Open-Smartwatch Light / ZSWatch mechanical precedent, then each IC vendor's
- * official reference circuit, then exact JLCPCB/LCSC assembly parts.
+ * Vendor reference circuits and exact JLCPCB/LCSC assembly parts define the
+ * electrical implementation. Mechanical constraints are encoded as checks.
  */
 export const SMARTWATCH_V1_STM32 = ({ reroute = false } = {}) => (
 	<board
 		name="SMARTWATCH_V1_STM32"
 		width="40mm"
 		height="40mm"
-		borderRadius="20mm"
+		borderRadius="8mm"
 		layers={4}
 		thickness="1mm"
 		solderMaskColor="black"
@@ -65,21 +64,13 @@ export const SMARTWATCH_V1_STM32 = ({ reroute = false } = {}) => (
 		autorouterEffortLevel="5x"
 		schMaxTraceDistance="5mm"
 	>
-		<silkscreentext
-			layer="bottom"
-			text="SKIN SIDE"
-			fontSize="0.7mm"
-			pcbX={0}
-			pcbY={5.4}
-		/>
-
 		<schematicsheet
-			name="power"
-			displayName="Power, USB-C & Charging"
+			name="usb_pd"
+			displayName="USB-C PD & Battery Charging"
 			sheetIndex={0}
 			sheetSize="ANSI_B"
 		>
-			{/* Power & charging */}
+			{/* USB-C power input, fixed safe 5 V PD request and Li-ion charging. */}
 			<HroUsbC
 				name="J1"
 				pcbX={0}
@@ -101,31 +92,76 @@ export const SMARTWATCH_V1_STM32 = ({ reroute = false } = {}) => (
 				}}
 			/>
 
+			<HUSB238_002DD
+				name="U3"
+				layer="top"
+				pcbX={8}
+				pcbY={-12.5}
+				schX={-7}
+				schY={0}
+				noConnect={["D_POS", "D_NEG", "SDA", "SCL", "GATE"]}
+				connections={{
+					VIN: "net.PD_VIN",
+					CC1: "net.USB_CC1",
+					CC2: "net.USB_CC2",
+					VSET: "net.PD_VSET",
+					ISET: "net.PD_ISET",
+					GND: "net.GND",
+				}}
+			/>
+			<resistor
+				name="R18"
+				resistance="10"
+				footprint="0402"
+				manufacturerPartNumber="0402WGF100JTCE"
+				supplierPartNumbers={{ jlcpcb: ["C25077"] }}
+				layer="top"
+				pcbX={5.5}
+				pcbY={-9}
+				schX={-10.5}
+				schY={-4}
+				connections={{ pin1: "net.USB5V", pin2: "net.PD_VIN" }}
+			/>
+			<capacitor
+				name="C6"
+				capacitance="1uF"
+				footprint="0402"
+				manufacturerPartNumber="CL05A105KA5NQNC"
+				supplierPartNumbers={{ jlcpcb: ["C52923"] }}
+				layer="top"
+				pcbX={8.5}
+				pcbY={-9}
+				schX={-7}
+				schY={-4}
+				schOrientation="vertical"
+				connections={{ pin1: "net.PD_VIN", pin2: "net.GND" }}
+			/>
+
 			<resistor
 				name="R1"
-				resistance="5.1k"
+				resistance="0"
 				footprint="0402"
-				manufacturerPartNumber={resistorPart.cc.mpn}
-				supplierPartNumbers={{ jlcpcb: [resistorPart.cc.jlc] }}
+				manufacturerPartNumber="0402WGF0000TCE"
+				supplierPartNumbers={{ jlcpcb: ["C17168"] }}
 				layer="top"
-				pcbX={-3}
-				pcbY={-12.1}
-				schX={-11.5}
+				pcbX={11.3}
+				pcbY={-11.5}
+				schX={-3}
 				schY={2}
-				connections={{ pin1: "net.USB_CC1", pin2: "net.GND" }}
+				connections={{ pin1: "net.PD_VSET", pin2: "net.GND" }}
 			/>
 			<resistor
 				name="R2"
-				resistance="5.1k"
+				resistance="0"
 				footprint="0402"
-				manufacturerPartNumber={resistorPart.cc.mpn}
-				supplierPartNumbers={{ jlcpcb: [resistorPart.cc.jlc] }}
+				manufacturerPartNumber="0402WGF0000TCE"
+				supplierPartNumbers={{ jlcpcb: ["C17168"] }}
 				layer="top"
-				pcbX={5.3}
-				pcbY={-11.8}
-				schX={-11.5}
+				pcbX={11.3}
+				pcbY={-13}
+				schX={-3}
 				schY={-2}
-				connections={{ pin1: "net.USB_CC2", pin2: "net.GND" }}
+				connections={{ pin1: "net.PD_ISET", pin2: "net.GND" }}
 			/>
 
 			<diode
@@ -134,18 +170,18 @@ export const SMARTWATCH_V1_STM32 = ({ reroute = false } = {}) => (
 				manufacturerPartNumber="LESD5Z5.0CT1G"
 				supplierPartNumbers={{ jlcpcb: ["C136167"] }}
 				layer="top"
-				pcbX={-6.5}
+				pcbX={-6.3}
 				pcbY={-12.5}
-				schX={-10}
-				schY={0}
+				schX={-13}
+				schY={-4}
 				connections={{ anode: "net.GND", cathode: "net.USB5V" }}
 			/>
 
 			<BQ25180YBGR
 				name="U5"
-				pcbX={-8}
+				pcbX={-7.5}
 				pcbY={-10.5}
-				schX={-5.5}
+				schX={2}
 				schY={0}
 				connections={{
 					IN: "net.USB5V",
@@ -164,7 +200,7 @@ export const SMARTWATCH_V1_STM32 = ({ reroute = false } = {}) => (
 				footprint="0402"
 				manufacturerPartNumber="CL05A105KA5NQNC"
 				supplierPartNumbers={{ jlcpcb: ["C52923"] }}
-				pcbX={-10}
+				pcbX={-9.5}
 				pcbY={-12}
 				pcbRotation={180}
 				schX={-8}
@@ -178,7 +214,7 @@ export const SMARTWATCH_V1_STM32 = ({ reroute = false } = {}) => (
 				manufacturerPartNumber="CL21A106KAYNNNE"
 				supplierPartNumbers={{ jlcpcb: ["C15850"] }}
 				pcbX={-4.5}
-				pcbY={-7.5}
+				pcbY={-8}
 				schX={-3}
 				schY={-4}
 				connections={{ pin1: "net.SYS", pin2: "net.GND" }}
@@ -225,11 +261,18 @@ export const SMARTWATCH_V1_STM32 = ({ reroute = false } = {}) => (
 				name="J2"
 				pcbX={-6}
 				pcbY={14.7}
-				schX={1.5}
+				schX={8}
 				schY={0}
 				connections={{ BAT_POS: "net.BAT", BAT_NEG: "net.GND" }}
 			/>
+		</schematicsheet>
 
+		<schematicsheet
+			name="system_power"
+			displayName="3.3 V Buck-Boost Power"
+			sheetIndex={1}
+			sheetSize="ANSI_B"
+		>
 			<TPS63802DLAR
 				name="U6"
 				manufacturerPartNumber="TPS63802DLAR"
@@ -374,7 +417,7 @@ export const SMARTWATCH_V1_STM32 = ({ reroute = false } = {}) => (
 		<schematicsheet
 			name="controller"
 			displayName="MCU, Battery Monitor & Programming"
-			sheetIndex={1}
+			sheetIndex={2}
 			sheetSize="ANSI_B"
 		>
 			{/* MCU */}
@@ -422,6 +465,9 @@ export const SMARTWATCH_V1_STM32 = ({ reroute = false } = {}) => (
 					PB7: "net.I2C_SDA",
 				}}
 			/>
+			<tracehint for=".U1 > .PA0" offset={{ x: -1.2, y: 0 }} />
+			<tracehint for=".U1 > .NRST" offset={{ x: -1.2, y: -0.5 }} />
+			<tracehint for=".U1 > .PB6" offset={{ x: 0, y: 1.1 }} />
 
 			<capacitor
 				name="C8"
@@ -430,7 +476,7 @@ export const SMARTWATCH_V1_STM32 = ({ reroute = false } = {}) => (
 				manufacturerPartNumber={cap100n.mpn}
 				supplierPartNumbers={{ jlcpcb: [cap100n.jlc] }}
 				pcbX={-9.2}
-				pcbY={6}
+				pcbY={6.4}
 				pcbRotation={180}
 				schX={-7}
 				schY={3.5}
@@ -455,7 +501,7 @@ export const SMARTWATCH_V1_STM32 = ({ reroute = false } = {}) => (
 				manufacturerPartNumber={cap100n.mpn}
 				supplierPartNumbers={{ jlcpcb: [cap100n.jlc] }}
 				pcbX={-9.2}
-				pcbY={4.8}
+				pcbY={5.2}
 				pcbRotation={180}
 				schX={-3}
 				schY={3.5}
@@ -468,7 +514,7 @@ export const SMARTWATCH_V1_STM32 = ({ reroute = false } = {}) => (
 				manufacturerPartNumber="CL05A105KA5NQNC"
 				supplierPartNumbers={{ jlcpcb: ["C52923"] }}
 				pcbX={-9.2}
-				pcbY={3.6}
+				pcbY={3.7}
 				pcbRotation={180}
 				schX={-1}
 				schY={3.5}
@@ -519,7 +565,7 @@ export const SMARTWATCH_V1_STM32 = ({ reroute = false } = {}) => (
 				manufacturerPartNumber="0402WGF1002TCE"
 				supplierPartNumbers={{ jlcpcb: ["C25744"] }}
 				pcbX={-9.2}
-				pcbY={2.4}
+				pcbY={1.7}
 				schX={-8}
 				schY={-4}
 				connections={{ pin1: "net.V3V3", pin2: "net.NRST" }}
@@ -591,7 +637,7 @@ export const SMARTWATCH_V1_STM32 = ({ reroute = false } = {}) => (
 			<SM06B_SRSS_TB
 				name="J3"
 				pcbX={2}
-				pcbY={15.5}
+				pcbY={16.3}
 				schX={-4}
 				schY={-6}
 				connections={{
@@ -608,7 +654,7 @@ export const SMARTWATCH_V1_STM32 = ({ reroute = false } = {}) => (
 		<schematicsheet
 			name="display"
 			displayName="Display & Backlight"
-			sheetIndex={2}
+			sheetIndex={3}
 			sheetSize="ANSI_B"
 		>
 			{/* Display */}
@@ -631,8 +677,10 @@ export const SMARTWATCH_V1_STM32 = ({ reroute = false } = {}) => (
 				]}
 				connections={{
 					GND1: "net.GND",
+					GND2: "net.GND",
 					LEDA: "net.DISPLAY_LEDA",
 					LEDK: "net.DISPLAY_LED_K",
+					VDD: "net.V3V3",
 					RESET: "net.LCD_RESET",
 					SDA: "net.LCD_MOSI",
 					SCL: "net.LCD_SCK",
@@ -640,11 +688,6 @@ export const SMARTWATCH_V1_STM32 = ({ reroute = false } = {}) => (
 					RS: "net.LCD_DC",
 				}}
 			/>
-			{/* J4 VDD is physically routed to the V3V3-connected R10 pin on the
-			    controller sheet. Keep the display-side cross-sheet rail explicit. */}
-			<netlabel net="V3V3" schX={6.9} schY={0.2} anchorSide="right" />
-			<trace name="J4_VDD_TO_V3V3" from=".J4 > .VDD" to=".R10 > .pin1" />
-			<trace name="J4_GND2_TO_GND1" from=".J4 > .GND2" to=".J4 > .GND1" />
 			<silkscreentext
 				layer="top"
 				text="LCD FPC / PIN 1"
@@ -721,7 +764,7 @@ export const SMARTWATCH_V1_STM32 = ({ reroute = false } = {}) => (
 		<schematicsheet
 			name="sensors"
 			displayName="Motion & RTC"
-			sheetIndex={3}
+			sheetIndex={4}
 			sheetSize="ANSI_B"
 		>
 			{/* Sensors */}
@@ -858,7 +901,7 @@ export const SMARTWATCH_V1_STM32 = ({ reroute = false } = {}) => (
 		<schematicsheet
 			name="interface"
 			displayName="Buttons & Haptics"
-			sheetIndex={4}
+			sheetIndex={5}
 			sheetSize="ANSI_B"
 		>
 			{/* Controls & haptics */}

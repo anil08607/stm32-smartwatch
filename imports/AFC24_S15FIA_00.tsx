@@ -32,6 +32,27 @@ export const AFC24_S15FIA_00 = (props: ChipProps<typeof pinLabels>) => (
 		pinLabels={pinLabels}
 		supplierPartNumbers={{ jlcpcb: ["C6709462"] }}
 		manufacturerPartNumber="AFC24-S15FIA-00"
+		schWidth={4.5}
+		schHeight={8}
+		schPinArrangement={{
+			leftSide: {
+				direction: "top-to-bottom",
+				pins: ["LEDA", "LEDK", "RS", "CS", "SCL", "SDA", "RESET"],
+			},
+			rightSide: {
+				direction: "top-to-bottom",
+				pins: [
+					"CTP_RST",
+					"CTP_INT",
+					"CTP_SDA",
+					"CTP_SCL",
+					"MOUNT_1",
+					"MOUNT_2",
+				],
+			},
+			topSide: { direction: "left-to-right", pins: ["VDD", "CTP_VDD"] },
+			bottomSide: { direction: "left-to-right", pins: ["GND1", "GND2"] },
+		}}
 		footprint={
 			<footprint>
 				<smtpad

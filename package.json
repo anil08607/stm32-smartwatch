@@ -16,13 +16,19 @@
 		"build": "tsci build index.circuit.tsx --disable-parts-engine",
 		"build:placement": "SMARTWATCH_ROUTED=0 tsci build index.circuit.tsx --routing-disabled --disable-parts-engine",
 		"build:routed": "SMARTWATCH_ROUTED=1 npm run build -- --autorouter-timeout 5m && node scripts/check-connectivity.mjs --require-routing",
+		"check:assembly": "node scripts/check-assembly.mjs",
+		"check:connectivity": "node scripts/check-connectivity.mjs",
+		"check:decoupling": "node scripts/check-decoupling.mjs",
+		"check:routing": "node scripts/check-routing.mjs",
+		"check:stock": "node scripts/check-jlcpcb-stock.mjs",
 		"format": "biome format --write .",
 		"format:check": "biome format .",
 		"snapshot": "tsci snapshot SMARTWATCH_V1_STM32.circuit.tsx --3d",
-		"snapshot:update": "npm run build:routed && SMARTWATCH_ROUTED=1 tsci snapshot SMARTWATCH_V1_STM32.circuit.tsx --update --3d --disable-parts-engine",
+		"snapshot:update": "npm run build:routed && SMARTWATCH_ROUTED=1 tsci snapshot SMARTWATCH_V1_STM32.circuit.tsx --update --force-update --3d --disable-parts-engine && SMARTWATCH_ROUTED=1 tsci snapshot SMARTWATCH_V1_STM32.circuit.tsx --update --force-update --layer bottom --disable-parts-engine",
 		"start": "tsci dev index.circuit.tsx",
 		"test": "npm run build:placement && node scripts/check-connectivity.mjs",
-		"typecheck": "tsc --noEmit"
+		"typecheck": "tsc --noEmit",
+		"verify": "npm run format:check && npm run typecheck && npm test && npm run build:routed && npm run check:routing && npm run check:assembly && npm run check:decoupling"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.4.16",

@@ -1,186 +1,141 @@
-# SMARTWATCH V1 — STM32L432 Health & Fitness Watch Hardware
+# SMARTWATCH V1 — STM32L432 wearable hardware
 
-> A compact 40 mm round smartwatch PCB with a 240 x 240 color display, motion tracking, accurate battery-backed timekeeping, vibration alerts, USB-C charging, and a protected 400 mAh LiPo battery.
+A complete four-layer tscircuit smartwatch PCB with a 40 x 40 mm rounded-square outline, 8 mm corner radius, top-side-only assembly, USB-C PD charging, a round color display, motion tracking, RTC, physical controls, haptics, SWD, and a protected 1-cell LiPo power path.
 
-SMARTWATCH V1 is a standalone, non-radio wearable hardware platform built around the low-power STM32L432. It combines the display, sensors, controls, charging system, power rails, programming connector, and haptic driver required for a practical watch in one four-layer board design.
+![SMARTWATCH V1 routed 3D preview](./__snapshots__/SMARTWATCH_V1_STM32.circuit-3d.snap.png)
 
-This repository contains the complete tscircuit PCB source, component models, schematic and routed PCB snapshots, procurement BOM, and hardware documentation. It defines the **watch electronics**; application firmware and the final enclosure are separate deliverables.
+This repository is the hardware source of truth: schematic sheets, exact component models, placement, reviewed copper, strict checks, procurement files, and bring-up documentation are versioned together. Firmware and the enclosure remain separate deliverables.
 
-![SMARTWATCH V1 3D PCB preview](./__snapshots__/SMARTWATCH_V1_STM32.circuit-3d.snap.png)
+## Board status
 
-_The preview shows the electronics PCB. The display panel folds over the board; the battery, enclosure, and wire-lead motor are installed separately._
+- 40 x 40 mm rounded-square PCB, 8 mm corner radius, 1 mm finished thickness, four copper layers.
+- 59 fitted components and 42 named electrical nets.
+- Every PCB component is on the top side; the bottom side contains copper only.
+- 153 copper traces: 150 reviewed saved routes plus three explicit traces.
+- Routed connectivity and DRC pass with zero reported warnings or errors.
+- All 34 exact JLCPCB line items were live-stock checked for five boards on 2026-10-05.
+- Schematic is split into six readable functional sheets.
 
-## What this watch can support
+These checks establish source consistency, not production certification. Gerber/DFM review, enclosure fit, flex orientation, power/thermal measurements, battery safety qualification, firmware bring-up, and a prototype build are still required before volume manufacture.
 
-- A full-color round watch interface on a 1.28-inch 240 x 240 IPS display.
-- Time, date, alarm, and wake scheduling using a dedicated battery-backed RTC.
-- Step counting, motion detection, and wrist-wake gestures using a BMA456 accelerometer.
-- Silent vibration alerts through a MOSFET-driven coin vibration motor.
-- Menu and select/back input through two physical side buttons.
-- USB-C battery charging and simultaneous system operation through a charger with power-path management.
-- Stable 3.3 V operation across the LiPo discharge curve using a buck-boost regulator.
-- Battery-voltage measurement by the MCU for a software charge-level estimate.
-- Direct firmware flashing and debugging through a keyed SWD connector.
+## Features
 
-These are hardware capabilities. Their user-facing behavior depends on the firmware, display UI, algorithms, calibration, and final enclosure.
+| Subsystem | Implementation |
+| --- | --- |
+| Controller | STM32L432KCU3, 80 MHz Cortex-M4F, 256 KB flash, 64 KB SRAM |
+| Display | ER-TFT1.28-3, 1.28-inch 240 x 240 GC9A01A IPS panel over 4-wire SPI |
+| Motion | Bosch BMA456 at I2C address `0x18`, with both interrupts routed |
+| Timekeeping | PCF8563TS with FC-135 32.768 kHz crystal and battery-backed supply |
+| Controls | Two active-low side buttons |
+| Haptics | MOSFET-driven 12 mm coin vibration motor with flyback protection |
+| USB-C PD | HUSB238 standalone sink, hardware-strapped to request 5 V / 1.25 A |
+| Charging | BQ25180 charger and power path for a protected 1S LiPo |
+| Main rail | TPS63802 buck-boost generating 3.3 V across the LiPo discharge curve |
+| Debug | Keyed 6-pin JST-SH connector for SWDIO, SWCLK, NRST, BOOT0, 3V3 and GND |
 
-## Hardware at a glance
+V1 intentionally has no radio, GPS, NFC, touchscreen, audio, external flash, or dedicated fuel gauge. USB data pins are deliberately NC: the Type-C connection is power-only, while PD negotiation occurs on CC1/CC2.
 
-| Subsystem | Part / implementation | What it provides |
-| --- | --- | --- |
-| Main controller | STM32L432KCU3 | 80 MHz Cortex-M4F, 256 KB flash, 64 KB SRAM |
-| Display | ER-TFT1.28-3 / GC9A01A | 1.28-inch round 240 x 240 color IPS UI |
-| Motion sensor | Bosch BMA456 | Steps, movement, orientation, and wake interrupts |
-| Real-time clock | PCF8563TS + 32.768 kHz crystal | Accurate timekeeping, alarm, and timer interrupts |
-| User controls | Two side buttons | Active-low menu and select/back inputs |
-| Haptics | 12 mm coin vibration motor | Silent alerts and interaction feedback |
-| Charger / power path | TI BQ25180 | Protected 1-cell LiPo charging and USB/battery power management |
-| Main regulator | TI TPS63802 | Regulated 3.3 V buck-boost supply |
-| Battery | Protected LP403035 1S LiPo | 3.7 V nominal, 400 mAh energy storage |
-| External power | Power-only USB-C | 5 V charging input with CC resistors and VBUS TVS protection |
-| Programming | Keyed 6-pin JST-SH SWD | SWDIO, SWCLK, reset, BOOT0, target reference, and ground |
-| PCB | 40 mm round, 1 mm thick | Four layers with all components assembled on top |
+## USB-C PD and power tree
 
-## Deliberately not included in V1
+```text
+USB-C VBUS ── 10 Ω ──> HUSB238 VIN
+     CC1/CC2 ─────────> HUSB238 PD negotiation
+USB-C 5 V ── TVS ────> BQ25180 IN ──> SYS ──> TPS63802 ──> 3V3
+                                      └──────> BAT <──── protected 1S LiPo
+```
 
-V1 has no Bluetooth, Wi-Fi, cellular radio, GPS, NFC, touchscreen, speaker, microphone, external flash, or dedicated fuel-gauge IC. USB-C is used for power only; its USB data pins are not connected. The watch is therefore intended as a standalone embedded platform rather than a phone-connected notification watch.
+`R1=0 Ω` on VSET selects 5 V and `R2=0 Ω` on ISET selects 1.25 A. The fixed 5 V request keeps the BQ25180 input inside its intended USB supply range; higher PD voltages are not requested. `R18=10 Ω` and `C6=1 µF` implement the HUSB238 input filter. The BQ25180 still controls the actual battery charge and input limits, which firmware must configure for the qualified pack.
 
-## Current project status
+TPS63802 uses 510 kΩ / 91 kΩ feedback: `0.5 V × (1 + 510/91) ≈ 3.30 V`. `SYS` is not used directly as the digital rail because it can exceed 3.3 V.
 
-- Schematic, component selection, pin allocation, placement, BOM, and 3D review assets are implemented.
-- The placement build and strict electrical/connectivity checks pass.
-- Firmware, enclosure, flex integration, and production validation are still required.
-- **The PCB copper routing is not Gerber/order-ready.** Autorouted trials still have clearance/contact violations that must be resolved before fabrication.
-
-## Schematic organization
-
-The electrical design is separated into five named ANSI B schematic sheets. Named nets carry power and signals between sheets while all components remain part of the same physical PCB.
+## Schematic sheets
 
 | Sheet | Contents |
 | --- | --- |
-| 1. Power, USB-C & Charging | USB-C input, protection, LiPo charger/power path, battery connector, and 3.3 V buck-boost |
-| 2. MCU, Battery Monitor & Programming | STM32L432, local decoupling, reset/BOOT0, I2C pull-ups, battery ADC divider, and SWD connector |
-| 3. Display & Backlight | LCD FPC connector, display control nets, backlight current limiting, and PWM MOSFET driver |
-| 4. Motion & RTC | BMA456 accelerometer, PCF8563 RTC, crystal, interrupt pull-ups, and decoupling |
-| 5. Buttons & Haptics | Two side buttons, pull-ups, vibration motor, MOSFET driver, flyback diode, and local bulk capacitor |
+| 1. USB-C PD & Battery Charging | Type-C receptacle, HUSB238, TVS, BQ25180, battery input and local filtering |
+| 2. 3.3 V Buck-Boost Power | TPS63802, inductor, feedback and input/output capacitors |
+| 3. Controller & Programming | STM32L432, decoupling, battery ADC, reset/BOOT0 and SWD |
+| 4. Display & Backlight | 15-pin FPC, SPI/control nets and PWM low-side backlight driver |
+| 5. Motion & RTC | BMA456, PCF8563, crystal, interrupts and local decoupling |
+| 6. Buttons & Haptics | Side switches, pull-ups, motor driver, flyback diode and bulk capacitor |
 
-IC symbol bodies are sized to their pin groups rather than their physical package dimensions. The motion/RTC sheet keeps local decoupling close to each compact symbol.
+Named nets carry signals between sheets; no long cross-sheet drawing wires are used. The checked-in schematic snapshot is the fastest visual review entry point.
 
-The design follows the older Open-Smartwatch code pattern: one main board file contains the complete board, native passives, device instances, placement, and connections. Only reusable/custom package definitions live under `imports/`; there is no `blocks/` directory or separate `components.tsx`. The root `index.circuit.tsx` exports the board. `tscircuit.config.json` enables routing for builds, and `tscircuit.config.js` enables it for development previews and snapshots by default.
+## MCU pin map
 
-## What is implemented
+| STM32 pin | Function |
+| --- | --- |
+| PA0 / PA1 | Buttons 1 / 2 |
+| PA2 | Motor enable |
+| PA3 | BQ25180 interrupt |
+| PA4 / PA5 / PA7 | LCD CS / SCK / MOSI |
+| PA6 | Battery ADC through 1 MΩ / 330 kΩ divider |
+| PA8 / PA9 | BMA456 INT1 / INT2 |
+| PA10 | RTC interrupt |
+| PA11 | NC |
+| PA13 / PA14 | SWDIO / SWCLK |
+| PA15 | LCD backlight PWM |
+| PB0 / PB1 | LCD D/C / reset |
+| PB6 / PB7 | Shared I2C SCL / SDA |
+| PH3 | BOOT0 with 100 kΩ pull-down |
 
-- STM32L432KCU3, 80 MHz Cortex-M4, 256 KB flash, 64 KB SRAM, 26 GPIO, UFQFPN-32.
-- EastRising/BuyDisplay ER-TFT1.28-3 complete 1.28-inch 240 x 240 GC9A01A IPS LCD panel, selected in the no-touch configuration. Its 15-pin, 0.5 mm-pitch plug-in FPC mates with a JLC-assembled JUSHUO AFC24-S15FIA-00 connector (`J4`, `C6709462`); unused touch pins are deliberately NC.
-- PCF8563TS RTC on the battery rail with an FC-135 32.768 kHz crystal. The PCF8563 has internal oscillator load capacitance; external crystal capacitors are not fitted.
-- BMA456 in I2C mode at address `0x18`: CSB high, SDO low, both interrupt outputs routed.
-- BQ25180 USB charger/power-path IC and TPS63802 3.3 V buck-boost regulator.
-- Sink-only USB-C with independent 5.1 kΩ CC1/CC2 pull-downs, grounded shell, and VBUS TVS protection. USB data pins are NC.
-- Two side buttons using the old board's exact C51927172 footprint and pin map, a keyed 6-pin JST-SH SWD/programming connector, battery-voltage ADC divider, PWM LCD backlight, and MOSFET-driven coin vibration motor with flyback diode. The STM32 buttons are active-low with 100 kΩ external pull-ups: switch pin 1 goes to the GPIO, pin 2 goes to GND, and the two bracket/retention pads remain electrically unconnected.
+A full 240 x 240 RGB565 framebuffer needs 115,200 bytes and does not fit in 64 KB SRAM. Firmware should render by tiles/lines or draw into the GC9A01A GRAM.
 
-## Power tree
+## Assembly and external parts
 
-```text
-USB-C 5 V ──> BQ25180 IN ──> SYS ──> TPS63802 ──> 3V3
-                      └────> BAT <── protected 1S LiPo
-3V3 ─────────────────> MCU, display, BMA456
-BAT ─────────────────> PCF8563 and MCU battery ADC divider
-```
+All SMT parts, connectors and switches are placed on the top/display side. No bottom-side assembly is permitted by the source checks.
 
-`SYS` is not used directly as the digital rail because it can exceed 3.3 V while USB is attached. TPS63802 uses 510 kΩ/91 kΩ feedback resistors: `0.5 V × (1 + 510/91) ≈ 3.30 V`.
+- `LCD1` is the external no-touch ER-TFT1.28-3 module. Insert its flex into top-side `J4` and verify pin 1/contact orientation before power-up.
+- `BT1` is an external protected 3.7 V, 400 mAh 1S LiPo with a correctly polarized JST-SH lead.
+- `M1` is a wire-lead motor attached after SMT assembly; only its solder pads are represented on the PCB.
+- The fixed 10 kΩ BQ25180 TS option does not provide battery-temperature monitoring. A production wearable should use a qualified NTC pack revision and complete charge/thermal testing.
 
-## MCU resource check and pin map
+See [assembly instructions](./docs/assembly.md) and [bring-up procedure](./docs/bring-up.md) before ordering or powering prototypes.
 
-The selected MCU is sufficient for this V1. A 240 x 240 RGB565 full framebuffer consumes 115,200 bytes, so it does not fit in 64 KB SRAM; firmware must render by lines/tiles or draw directly into the GC9A01 GRAM. Program flash (256 KB), one SPI bus, one I2C bus, ADC, timers/PWM, and the allocated GPIO are otherwise adequate.
+## Sourcing
 
-| STM32 pin       | Function                             |
-| --------------- | ------------------------------------ |
-| PA0 / PA1       | Buttons 1 / 2                        |
-| PA2             | Motor enable PWM/GPIO                |
-| PA3             | BQ25180 interrupt                    |
-| PA4 / PA5 / PA7 | LCD CS / SCK / MOSI                  |
-| PA6             | Battery ADC (1 MΩ / 330 kΩ divider)  |
-| PA8 / PA9       | BMA456 INT1 / INT2                   |
-| PA10            | RTC interrupt                        |
-| PA11            | Unused (NC)                         |
-| PA13 / PA14     | SWDIO / SWCLK                        |
-| PA15            | LCD backlight PWM                    |
-| PB0 / PB1       | LCD D/C / reset                      |
-| PB6 / PB7       | Shared I2C SCL / SDA                 |
-| PH3             | BOOT0, 100 kΩ pull-down and J3       |
+Exact LCSC/JLCPCB part numbers are embedded in the circuit source and exported to [bom-jlcpcb.csv](./bom-jlcpcb.csv). The current [machine-readable stock audit](./sourcing/jlcpcb-stock-2026-10-05.json) covers 34 line items and 59 fitted components per board for a five-board build. Stock is not reserved; run `npm run check:stock` immediately before ordering. R4/C11616 and R5/C4147 had only a small margin during the recorded audit, so pre-order them or substitute only exact-value, 0402, 1% parts after rerunning all checks.
 
-The MCU uses its internal high-speed oscillator; the only external crystal is the RTC crystal.
+The LCD and battery are externally sourced and are not included in the 59 fitted PCB-component count. Replacement rules and limitations are in [sourcing/README.md](./sourcing/README.md).
 
-## Programming connector
-
-`J3` replaces the six loose programming test pads with a keyed JST `SM06B-SRSS-TB(LF)(SN)` side-entry connector (`C160405`). Its cable pinout is custom and must not be confused with the ARM 10-pin Cortex-Debug pinout.
-
-| J3 pin | Signal | Programmer connection                    |
-| -----: | ------ | ---------------------------------------- |
-|      1 | 3V3    | Target-voltage reference; do not backfeed |
-|      2 | SWDIO  | SWD bidirectional data                   |
-|      3 | GND    | Common ground                            |
-|      4 | SWCLK  | SWD clock                                |
-|      5 | NRST   | Target reset                             |
-|      6 | BOOT0  | Optional boot-mode control               |
-
-Use the matching JST `SHR-06V-S` cable housing with `SSH-003T-P0.2-H` crimp contacts. Normal flashing only needs 3V3 reference, SWDIO, GND, SWCLK, and NRST; leave BOOT0 low unless the ROM bootloader is intentionally required.
-
-## Firmware requirements
-
-At first boot, firmware must configure BQ25180 for the qualified pack. For the listed 400 mAh pack, use a conservative 100–150 mA charge current, 4.20 V regulation, and an appropriate USB input current limit. The charger starts in a low default charge-current state until configured over I2C.
-
-Use the [Bosch BMA456 SensorAPI](https://github.com/boschsensortec/BMA456_SensorAPI), including the wearable feature configuration, at I2C address `0x18`. Disable the unused auxiliary interface (ASDA/ASCL are NC); the previous BMA400 driver at `0x14` is incompatible. Use STOP mode, BMA456 interrupts, RTC alarm interrupt, and display/backlight shutdown for practical battery life. The BMA456, PCF8563, and BQ25180 share I2C; the display has a dedicated SPI bus.
-
-## Mechanical and safety constraints
-
-- The PCB diameter is 40 mm (reduced from 50 mm, a 36% reduction in board area), with four layers and all components assembled on the top/display side. This is the PCB size, not a validated enclosure diameter. The USB-C receptacle is top-mounted at the lower edge; its mouth opens through the case sidewall. All pads retain the 0.2 mm board-edge clearance; no component uses `allowOffBoard`.
-- `J4` is mounted on the top at the left side of the circular PCB. Insert the ER-TFT1.28-3 flex with its pin 1 aligned to the PCB pin-1 marker, lock the hinged lid, and fold the panel over the electronics PCB. The external LCD outline is intentionally not drawn as FR-4, so the placement render stays circular.
-- The ER-TFT1.28-3 flex folds around the top-side connector. Validate contact orientation, pin-1 alignment, bend radius and connector access in an enclosure model. The listed rectangular battery, display, connector heights, case wall and cover still require a complete mechanical fit check; a 40 mm PCB alone does not establish a 40 mm finished watch.
-- Keep the BMA456 away from the motor and mechanically isolate the motor where possible. Recalibrate step algorithms in the final case.
-- Only use a protected, qualified 1S 4.20 V LiPo. The selected LP403035 pack has PCM protection but no NTC. R3=10 kΩ is the BQ25180 datasheet's fixed-TS option; it disables real pack-temperature monitoring. A production wearable should use a qualified NTC pack/connector revision and must pass charging, thermal, drop, sweat, and enclosure testing.
-- Verify battery-connector polarity on every incoming lot. The listed battery needs a correctly polarized JST-SH pigtail/custom lead.
-
-## Assembly status
-
-The SMT BOM is JLCPCB-oriented. `LCD1` is the deliberate exception: order exact panel `ER-TFT1.28-3` directly from BuyDisplay in the **no-touch** configuration and install its flex after SMT assembly. JLCPCB can assemble `J4` (`AFC24-S15FIA-00`, `C6709462`), but its listing requires an assembly support fixture. `M1` is a wire-lead motor and is normally attached after SMT assembly. `BT1` is external.
-
-The 2026-09-08 direct JLCPCB stock audit covers all 32 JLCPCB line items (56 components per board) for **5 boards**. All selected JLCPCB parts had sufficient available-to-order quantities when checked. [bom.csv](./bom.csv) records the quantities, timestamps, and source links; [bom-jlcpcb.csv](./bom-jlcpcb.csv) is the upload-format assembly BOM. See [sourcing/README.md](./sourcing/README.md) for replacement details and manual motor-assembly instructions. Stock is not reserved; JLCPCB adds assembly attrition during ordering. LCD1 and BT1 remain externally sourced, with current availability unverified.
-
-## 3D CAD preview
-
-The [routed PCB preview](./__snapshots__/SMARTWATCH_V1_STM32.circuit-pcb.snap.svg) shows the copper tracks. The [bottom-layer preview](./__snapshots__/SMARTWATCH_V1_STM32.circuit-bottom.snap.svg) shows bottom copper with no components mounted there. Regenerate it with `SMARTWATCH_ROUTED=1 npx tsci snapshot SMARTWATCH_V1_STM32.circuit.tsx --update --layer bottom --disable-parts-engine`.
-
-Exact EasyEDA/JLCPCB OBJ and STEP model metadata is attached for J1–J4, U1–U2, U5–U6, L1, Y1, Q1–Q2, and SW1–SW2. The side switches face the right case wall with rotations of 104° and 76°; their placement anchors are x = 16.1 mm, y = ±4.5 mm. Their pad bounds and courtyards pass placement checks without an off-board exemption. These models are served by the tscircuit model CDN, so an offline or blocked-CDN session will still show placeholders.
-
-`M1` deliberately remains a PCB connection-pad representation rather than a board-mounted CAD body. The LEADER LCM1234A3523F is a wire-lead external motor, 12 mm in diameter and 3.4 mm body height, mounted to the enclosure or a qualified keepout location. Its 3.0-4.5 V operating range includes the existing 3.3 V supply; the 3.7 V rated speed/current figures do not describe performance at 3.3 V. Its enclosure space and lead attachment must be reviewed. A motor body at the solder-pad coordinates would misrepresent the assembly.
-
-## Build and verification
+## Build and verify
 
 ```sh
-cd /Users/manishchaudhary/repo/ts/SMARTWATCH_V1_STM32
 npm install
-npm run typecheck
-npm test
-npm run dev
+npm run verify
+npm run check:stock
 npm run snapshot:update
-npm run build:routed
 ```
 
-`build`, `dev`, and snapshot commands replay the reviewed copper routing by default. The checked-in PCB, bottom and 3D snapshots include routed copper. `snapshot:update` first requires a passing routed build. `build:placement` and `test` explicitly disable routing for schematic, component placement, source connectivity, and custom MOSFET pin mapping checks. Set `SMARTWATCH_ROUTED=0` for placement-only development previews. `test` also rejects every Circuit JSON warning/error, unexpected open pin, merged named net, or incorrect Q1/Q2 gate-source-drain connection. It checks generated pad associations, the shared I2C connections, unused PA11, connector placement and the 40 mm round board. The custom MOSFET symbol explicitly maps SOT-23 pins 1/2/3 to gate/source/drain; the default symbol uses a different numbering and must not be substituted without remapping.
+Useful commands:
 
-`build:routed` runs with `SMARTWATCH_ROUTED=1` and checks DRC diagnostics and routed copper on every named net. The 2026-09-08 reviewed route contains **146 copper traces** and passes with **zero DRC warnings/errors**. The original six clearance errors were fixed by relocating two shared vias, aligning a near-coincident shared via, and adding a short BUTTON1 jog on inner2. Component placement and clearance rules remain unchanged. [routing/README.md](./routing/README.md) describes the saved geometry and regeneration workflow. An input fingerprint rejects the saved route if pads, connections, outline, existing traces or routing rules change. Generated Gerbers still require final JLCDFM review, and the power/thermal and mechanical constraints above remain applicable before ordering.
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Open the routed design in the tscircuit development viewer |
+| `npm run build:placement` | Build without saved routing for fast source/placement checks |
+| `npm test` | Placement build plus strict connectivity, pin-map and outline assertions |
+| `npm run build:routed` | Replay the reviewed route and require copper on every named net |
+| `npm run check:routing` | Run routed DRC and verify four-layer copper usage |
+| `npm run check:assembly` | Enforce top-side-only placement and exact JLC identifiers |
+| `npm run check:decoupling` | Verify local decoupling distance for the six IC groups |
+| `npm run check:stock` | Query live exact-part inventory from JLC Search |
+| `npm run verify` | Run format, type, placement, routed, assembly and decoupling gates |
 
-## Files
+The saved-route input is fingerprinted. Any change to pads, connections, board outline, existing traces, or routing rules is rejected until a fresh route is reviewed and saved. See [routing/README.md](./routing/README.md).
 
-- `SMARTWATCH_V1_STM32.circuit.tsx` — complete board, functional sections, passives, placement, and interconnect.
-- `index.circuit.tsx` — standard `tsci init` entry point exporting the smartwatch board.
-- `package.json`, `tsconfig.json`, `tscircuit.config.json`, `tscircuit.config.js`, `.npmrc` — standalone project configuration.
-- `scripts/check-connectivity.mjs` — strict electrical and mechanical regression checks on generated Circuit JSON.
-- `imports/` — verified reusable/custom package and pin definitions, including the copied old-watch switch footprint.
-- `bom.csv` — complete procurement BOM with stock evidence and quantities for five boards.
-- `bom-jlcpcb.csv` — JLCPCB upload BOM for the 56 components on each board, including manual motor lead attachment.
-- `sourcing/` — dated JLCPCB stock audit, replacement compatibility notes, and ordering limitations.
-- `REFERENCES.md` — project commits, official datasheets, and sourcing links.
-- `routing/` — reviewed copper geometry, stale-route protection, and a checked route-save tool.
-- `__snapshots__/` — schematic and routed PCB, bottom-layer, and 3D review artifacts.
+## Repository layout
+
+```text
+SMARTWATCH_V1_STM32.circuit.tsx  complete board and six schematic sheets
+index.circuit.tsx                project entry point
+imports/                         exact reusable symbols, footprints and CAD metadata
+routing/                         reviewed copper, repair and save tooling
+scripts/                         electrical, routing, assembly, decoupling and stock gates
+sourcing/                        dated live-stock evidence and replacement policy
+docs/                            assembly and first-power bring-up procedures
+__snapshots__/                   schematic, PCB, bottom-layer and 3D review artifacts
+bom-jlcpcb.csv                   JLCPCB assembly upload BOM
+bom.csv                          engineering procurement BOM
+```
+
+The detailed datasheet and pin/package verification record is in [REFERENCES.md](./REFERENCES.md).

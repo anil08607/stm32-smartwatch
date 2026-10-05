@@ -17,9 +17,9 @@ const components = records("source_component");
 const ports = records("source_port");
 const nets = records("source_net");
 const traces = records("source_trace");
-assert.equal(components.length, 56, "Unexpected missing/extra components");
-assert.equal(nets.length, 39, "Unexpected missing/extra named nets");
-for (const name of ["U3", "U7", "C6", "C7", "C18", "C19", "C20", "C21", "R18"])
+assert.equal(components.length, 59, "Unexpected missing/extra components");
+assert.equal(nets.length, 42, "Unexpected missing/extra named nets");
+for (const name of ["U7", "C7", "C18", "C19", "C20", "C21"])
 	assert(
 		!components.some((item) => item.name === name),
 		`${name}: removed part`,
@@ -115,7 +115,10 @@ function expectPinNet(name, pin, net) {
 	);
 	assert(
 		pads[0].port_hints.includes(`pin${pin}`) ||
-			pads[0].port_hints.includes(String(pin)),
+			pads[0].port_hints.includes(String(pin)) ||
+			(name === "U3" &&
+				pin === 11 &&
+				pads[0].port_hints.includes("thermalpad")),
 		`${name}.${pin}: wrong pad`,
 	);
 }
@@ -163,6 +166,34 @@ expectPinNet("R8", 1, "V3V3");
 expectPinNet("R8", 2, "I2C_SCL");
 expectPinNet("R9", 1, "V3V3");
 expectPinNet("R9", 2, "I2C_SDA");
+
+// HUSB238 is a real USB-PD sink. Hardware straps deliberately cap the
+// requested contract at 5 V / 1.25 A so the BQ25180 input can never see a
+// higher negotiated PDO. USB data stays deliberately disconnected because the
+// watch uses this receptacle only as a power-input port.
+for (const [pin, net] of [
+	[1, "PD_VIN"],
+	[4, "USB_CC1"],
+	[5, "USB_CC2"],
+	[8, "PD_VSET"],
+	[9, "PD_ISET"],
+	[11, "GND"],
+])
+	expectPinNet("U3", pin, net);
+for (const pin of [2, 3, 6, 7, 10]) {
+	const port = ports.find(
+		(item) =>
+			item.source_component_id === source("U3").source_component_id &&
+			item.pin_number === pin,
+	);
+	assert(port?.do_not_connect, `U3.${pin}: unused control pin must be NC`);
+}
+expectPinNet("R1", 1, "PD_VSET");
+expectPinNet("R1", 2, "GND");
+expectPinNet("R2", 1, "PD_ISET");
+expectPinNet("R2", 2, "GND");
+expectPinNet("R18", 1, "USB5V");
+expectPinNet("R18", 2, "PD_VIN");
 const pa11 = ports.find(
 	(port) =>
 		port.source_component_id === source("U1").source_component_id &&
@@ -175,14 +206,32 @@ assert.equal(board.width, 40, "Watch PCB must remain 40 mm");
 assert.equal(board.height, 40);
 assert.equal(board.num_layers, 4);
 for (const point of board.outline) {
-	assert(Math.abs(Math.hypot(point.x, point.y) - 20) < 0.01, "Noncircular PCB");
-}
-for (const name of ["J1", "J2", "J3", "J4", "SW1", "SW2"]) {
-	assert.equal(pcb(name).layer, "top", `${name} must stay off the skin side`);
+	assert(Math.abs(point.x) <= 20.001 && Math.abs(point.y) <= 20.001);
+	const x = Math.abs(point.x);
+	const y = Math.abs(point.y);
+	if (x > 12.001 && y > 12.001) {
+		assert(
+			Math.abs(Math.hypot(x - 12, y - 12) - 8) < 0.01,
+			"Board corner radius must remain 8 mm",
+		);
+	} else {
+		assert(
+			Math.abs(x - 20) < 0.01 || Math.abs(y - 20) < 0.01,
+			"Board edge must remain a 40 mm rounded square",
+		);
+	}
 }
 for (const component of records("pcb_component")) {
+	const componentName = components.find(
+		(item) => item.source_component_id === component.source_component_id,
+	)?.name;
+	assert.equal(
+		component.layer,
+		"top",
+		`${componentName ?? component.pcb_component_id}: all assembly must remain top-side`,
+	);
 	assert(!component.is_allowed_to_be_off_board, "Do not bypass board-edge DRC");
 }
 console.log(
-	`PASS: ${components.length} components, ${nets.length} distinct nets, no unexpected open pins or DRC diagnostics; MOSFET pin maps, shared I2C, unused PA11 and 40 mm placement verified.`,
+	`PASS: ${components.length} top-side components, ${nets.length} distinct nets, safe 5 V USB-PD straps, no unexpected open pins or DRC diagnostics; MOSFET pin maps, shared I2C and 40 mm rounded-square placement verified.`,
 );

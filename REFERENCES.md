@@ -1,11 +1,6 @@
 # References and verification record
 
-Originally checked on 2026-08-26; the JST programming connector was checked on 2026-08-27. All selected JLCPCB parts were audited directly on 2026-09-08 for five boards; see [the stock/replacement record](./sourcing/README.md). Manufacturer datasheets control over reference-project values, and live JLCPCB inventory must be checked again at order time.
-
-## Open-source smartwatch references
-
-- [Open-Smartwatch Light](https://github.com/Open-Smartwatch/open-smartwatch-light), inspected at commit `55ce0ec0e0254e03b575917788cb001507b01619`. Used for the watch-shaped PCB, fold-over GC9A01 display/FPC implementation, BMA400, side buttons, low-side backlight switching, and wearable component placement precedent.
-- [ZSWatch](https://github.com/ZSWatch/ZSWatch), inspected at commit `466a5ae5f3c1cc3dd53da6da2f1c7f50cfae0394`. Used to cross-check modern smartwatch partitioning, sensor placement, debug access, and power-domain practice.
+The final design was rechecked on 2026-10-05, including a live exact-part JLCPCB audit for five boards; see [the stock and replacement record](./sourcing/README.md). Manufacturer datasheets control the electrical design, and live inventory must be checked again at order time.
 
 ## Manufacturer authorities
 
@@ -13,6 +8,7 @@ Originally checked on 2026-08-26; the JST programming connector was checked on 2
 - BMA456: [Bosch Sensortec datasheet](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bma456-ds000.pdf) and [official SensorAPI](https://github.com/boschsensortec/BMA456_SensorAPI).
 - PCF8563TS: [NXP datasheet](https://www.nxp.com/docs/en/data-sheet/PCF8563.pdf).
 - BQ25180YBGR: [TI datasheet and reference circuit](https://www.ti.com/lit/ds/symlink/bq25180.pdf).
+- HUSB238: [Hynetek product page](https://www.hynetek.com/2421.html) and [official datasheet](https://www.hynetek.com/uploadfiles/site/219/news/c16af076-8c40-4e8d-b126-b4f9b83e86ea.pdf). VSET=0 Ω selects 5 V, ISET=0 Ω selects 1.25 A, and the implemented VIN filter is 10 Ω / 1 µF.
 - TPS63802: [TI product page and datasheet](https://www.ti.com/product/TPS63802).
 - ER-TFT1.28-3: [EastRising/BuyDisplay panel datasheet](https://www.buydisplay.com/download/manual/ER-TFT1.28-3_Datasheet.pdf) and [official product/ordering page](https://www.buydisplay.com/1-28-inch-tft-lcd-display-240x240-round-circle-screen-for-smart-watch). This is the complete LCD/FPC/backlight assembly, not the bare GC9A01A controller.
 - AFC24-S15FIA-00: [JLCPCB manufacturer drawing and assembly listing](https://jlcpcb.com/partdetail/JUSHUO-AFC24_S15FIA00/C6709462). The exact JLC/EasyEDA land pattern was imported using `C6709462` rather than inferred from connector pitch alone.
@@ -41,7 +37,7 @@ The selected BuyDisplay panel is 1.28 inch, 240 x 240, 4-wire SPI, GC9A01A, 35.5
 |           11 | GND     | GND                   |
 |        12–15 | CTP_*   | NC; touch not fitted  |
 
-The display datasheet allows 2.5–3.3 V VDD and specifies a 2-chip white backlight at 3.0 V typical, 30 mA typical and 40 mA maximum. V1 retains the reference-derived 22 Ω plus N-MOSFET/PWM topology, which deliberately starts below maximum brightness on a 3.3 V rail; measure actual LED current and brightness before changing R14. The connector's two shell/hold-down pads are mechanical NCs. The top-side footprint includes a pin-1 marker; cable insertion orientation must be checked against the physical no-touch panel before production.
+The display datasheet allows 2.5–3.3 V VDD and specifies a 2-chip white backlight at 3.0 V typical, 30 mA typical and 40 mA maximum. V1 uses a 22 Ω resistor plus N-MOSFET/PWM topology, which deliberately starts below maximum brightness on a 3.3 V rail; measure actual LED current and brightness before changing R14. The connector's two shell/hold-down pads are mechanical NCs. The top-side footprint includes a pin-1 marker; cable insertion orientation must be checked against the physical no-touch panel before production.
 
 ### BQ25180YBGR
 
@@ -68,7 +64,7 @@ Q1/2N7002 and Q2/AO3400A use SOT-23 pins 1=gate, 2=source, 3=drain. The [Nexperi
 
 ### Side switches
 
-SW1/SW2 reuse the exact C51927172 land pattern from the older Open-Smartwatch tscircuit board, including its two locating holes and bracket pads. The part is a right-angle, normally-open SPST switch; V1 uses an active-low STM32 input with an external 100 kΩ pull-up. The JLCPCB listing identifies it as an SMT-assembly part in the SMD-4P 4.6 x 1.8 mm family.
+SW1/SW2 use the exact C51927172 land pattern, including two locating holes and bracket pads. The part is a right-angle, normally-open SPST switch; V1 uses an active-low STM32 input with an external 100 kΩ pull-up. The JLCPCB listing identifies it as an SMT-assembly part in the SMD-4P 4.6 x 1.8 mm family.
 
 ### Programming connector
 
@@ -78,6 +74,7 @@ J3 is JST `SM06B-SRSS-TB(LF)(SN)`, LCSC/JLCPCB `C160405`, using the official 6-c
 
 - [STM32L432KCU3 C1337558](https://jlcpcb.com/partdetail/STM32L432KCU3/C1337558)
 - [BMA456 C189518](https://jlcpcb.com/partdetail/BMA456/C189518)
+- [HUSB238_002DD C7471904](https://jlcpcb.com/partdetail/C7471904)
 - [PCF8563TS/5,118 C27397](https://jlcpcb.com/partdetail/NXPSemicon-PCF8563TS_5118/C27397)
 - [BQ25180YBGR C3682423](https://jlcpcb.com/partdetail/C3682423)
 - [TPS63802DLAR C2845237](https://jlcpcb.com/partdetail/TexasInstruments-TPS63802DLAR/C2845237)

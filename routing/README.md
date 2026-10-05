@@ -1,35 +1,40 @@
-# Saved PCB routing
+# Reviewed PCB routing
 
-`routed-board.json` stores 143 reviewed routes. Together with the three explicit board traces, the built PCB contains **146 copper traces**. Default builds, development previews and snapshots replay this geometry. `SMARTWATCH_ROUTED=0` still selects placement-only output.
+`routed-board.json` stores 150 reviewed autorouted connections. Together with three explicit board traces, the built PCB contains **153 copper traces**. The route uses top, inner1, inner2 and bottom copper while all assembly stays on the top side.
 
-The six original clearance errors were removed without relaxing the board's DRC rules:
+Default builds, development previews and snapshots replay this saved geometry. `SMARTWATCH_ROUTED=0` selects the placement-only design.
 
-- Move the shared NRST via from (-8.100001, 4.680001) to (-8.21, 5.37) mm, clear of the MCU's unused oscillator pads. Keep every attached trace endpoint at the new coordinate.
-- Add a short BUTTON1 jog on inner2 at x = -8.59 mm, between y = 5.0 and 5.55 mm, to clear that through via.
-- Move the shared V3V3 via below U2 from y = 7.174969 to 7.055 mm, clear of ASDA.
-- Merge the near-coincident V3V3 via locations near (-10.14, 6.63) mm by using the identical coordinate on every attached route.
+## Review result
 
-The 2026-09-08 saved-route build passes routed connectivity and DRC with zero warnings/errors. All components remain on top; copper uses all four layers. The library represents shared vias once per incident route, so the via-record count is not the number of distinct drill locations.
+The 2026-10-05 rounded-square route passes full named-net connectivity and routing DRC with zero reported warnings/errors. Three deterministic corrections were applied to the raw `beta_pipeline7` result without relaxing clearance rules:
 
-## Updating the board
+- Move the shared NRST via to `(-8.3, 4.4)` mm to clear adjacent MCU geometry.
+- Move the shared I2C_SCL via above the MCU to `(-4.237223516671337, 7.2)` mm.
+- Move the BMA456 I2C_SCL escape point to `(7.75, 8.04)` mm and reconnect its top-layer segments cleanly.
 
-`saved-routing.ts` fingerprints the complete routing input: connections, pad geometry, board outline, existing traces and clearance rules. It rejects a stale route after an input change. Do not replace the fingerprint alone to bypass that check.
+`repair-autoroute.mjs` encodes those reviewed changes and reruns all routing checks before producing `dist/index/circuit.repaired.json`.
 
-To generate a new candidate after a design change:
+## Regenerating after a design change
+
+`saved-routing.ts` fingerprints the complete routing input: connections, pad geometry, board outline, existing traces and clearance rules. It rejects a stale route after any relevant source change. Do not replace the fingerprint alone to bypass that protection.
+
+Generate and inspect a new candidate:
 
 ```sh
-npm run build -- --inject-props '{"reroute":true}' --autorouter-timeout 5m --autorouter-dump-srj all
+npm run build -- --inject-props '{"reroute":true}' \
+  --autorouter-timeout 5m --autorouter-dump-srj all
+node routing/repair-autoroute.mjs
 ```
 
-Review and fix the resulting routing. The CLI may exit successfully with DRC errors, so run `node scripts/check-connectivity.mjs --require-routing` before accepting it. If comparing router versions, clear the disposable `.tscircuit/cache/` first: the installed core's route cache key does not include the pipeline version.
-
-Save the reviewed result using the input SRJ dumped for that same build:
+After visual review, save only a diagnostic-free result generated from the matching input SRJ:
 
 ```sh
-bun routing/save-reviewed-route.mjs dist/autorouter-debug/phase-0.input.simple-route.json dist/index/circuit.json
+bun routing/save-reviewed-route.mjs \
+  dist/autorouter-debug/phase-0.input.simple-route.json \
+  dist/index/circuit.repaired.json
 npm run format
-npm run build:routed
+npm run verify
 npm run snapshot:update
 ```
 
-The save command refuses diagnostic-bearing output and reruns all routing checks before writing. Final Gerber/DFM review, power/thermal validation and enclosure fit are separate manufacturing checks.
+The save tool refuses diagnostic-bearing output and reruns routing checks. A successful source build is still followed by external Gerber/DFM review, enclosure fit, and prototype validation before ordering production quantities.
