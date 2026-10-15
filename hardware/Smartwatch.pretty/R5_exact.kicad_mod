@@ -4,10 +4,10 @@
 	(generator_version "10.0")
 	(layer "F.Cu")
 	(property "Reference" "R5"
-		(at 0 -1.22 0)
+		(at 0 -1.22 180)
 		(layer "F.SilkS")
 		(hide yes)
-		(uuid "b7fe3b29-8063-4cf0-ac79-17499e903dd1")
+		(uuid "03f47daf-3e0c-47d1-96d2-da5212471413")
 		(effects
 			(font
 				(size 0.4 0.4)
@@ -16,10 +16,10 @@
 		)
 	)
 	(property "Value" "100kΩ"
-		(at 0 3 0)
+		(at 0 3 180)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "8110d5cd-c319-4b57-8bec-747673eaaaf0")
+		(uuid "6f30b514-a7fa-4d50-b490-16ad3ce6fae6")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -28,10 +28,10 @@
 		)
 	)
 	(property "Datasheet" ""
-		(at 0 0 0)
+		(at 0 0 180)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "671a2dc2-e5d7-4c9e-a96c-898732bc039a")
+		(uuid "f27396a3-4fcf-44c5-ad19-196c921d75fd")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -40,10 +40,10 @@
 		)
 	)
 	(property "Description" ""
-		(at 0 0 0)
+		(at 0 0 180)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "735458b6-59cf-4694-af14-aacb80b8f513")
+		(uuid "b421461d-c97e-4d7b-b3f1-c8a5d158948f")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -52,7 +52,7 @@
 		)
 	)
 	(property "Supplier Part Number" "C25741"
-		(at 0 0 0)
+		(at 0 0 180)
 		(layer "F.Fab")
 		(hide yes)
 		(uuid "1d4fea6c-7fb7-ec8c-1de0-11544487f0cc")
@@ -64,7 +64,7 @@
 		)
 	)
 	(property "MPN" "0402WGF1003TCE"
-		(at 0 0 0)
+		(at 0 0 180)
 		(layer "F.Fab")
 		(hide yes)
 		(uuid "6a5e9660-39db-b75f-0958-d85e272a06a3")

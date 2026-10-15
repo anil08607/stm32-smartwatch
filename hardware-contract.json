@@ -109,12 +109,18 @@
 		"feed_width_mm": 0.34,
 		"target_ohm": 50,
 		"antenna_window": {
-			"xmin": 17,
-			"xmax": 23,
-			"ymin": 2.3,
-			"ymax": 9.3
+			"xmin": 2.3,
+			"xmax": 9.3,
+			"ymin": -23,
+			"ymax": -17
 		},
-		"validation": "VNA tuning and final-enclosure radio tests required"
+		"validation": "VNA tuning and final-enclosure radio tests required",
+		"reference_corridor": {
+			"xmin": 4.3,
+			"xmax": 6.8,
+			"ymin": -17,
+			"ymax": -2
+		}
 	},
 	"mechanical": {
 		"case_width_mm": 54,
@@ -122,6 +128,14 @@
 		"case_thickness_mm": 18,
 		"pcb_capture": "edge ledge with screwed top retainer; no PCB mounting holes",
 		"strap_width_mm": 22,
-		"water_resistance": "not rated"
+		"water_resistance": "not rated",
+		"controls": {
+			"usb_side": "left (-X), centred at Y=0",
+			"button_side": "right (+X)",
+			"button_centres_mm": [[20.2, 3.5], [20.2, -3.5]],
+			"button_cap_z_mm": 0.5,
+			"usb_plug_body_envelope_mm": [20, 12, 6],
+			"usb_plug_body_front_x_mm": -24.5
+		}
 	}
 }

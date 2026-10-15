@@ -4,9 +4,9 @@ The compact/exploded models and `mechanical/assembly-manifest.json` cover the co
 
 ## Datum and space
 
-PCB top is Z=0 mm; PCB bottom is Z=-1 mm. +Y points toward the battery header; USB faces -Y. Board: 46 × 46 mm, R8, 1 mm thick. Polymer case: 54 × 54 × 18 mm, excluding lugs and screw-head detail. Screw centers are (±22.8, ±22.8) mm, outside the rounded PCB corners. The PCB has no mounting holes; a lower edge ledge and upper retainer capture it.
+PCB top is Z=0 mm; PCB bottom is Z=-1 mm. USB faces -X (left); buttons face +X (right), and straps extend along +/-Y. Board: 46 × 46 mm, R8, 1 mm thick. Polymer case: 54 × 54 × 18 mm, excluding lugs and screw-head detail. Screw centers are (±22.8, ±22.8) mm, outside the rounded PCB corners. The PCB has no mounting holes; a lower edge ledge and upper retainer capture it.
 
-The display body is 35.59 × 37.74 × 1.6 mm at X=-3.5 mm, Z=4.4–6.0 mm. The 38 × 40 × 1 mm lens occupies Z=6.2–7.2 mm. A 30 × 35 × 4 mm cell envelope sits below the PCB, leaving a nominal 0.7 mm swelling space above the cushion. The protection circuit, leads and supplier tolerance must fit this envelope; no unprotected cell is approved. The 12 mm motor sits beside the battery. Keep metal, cell foil and harnesses out of the antenna window defined in `hardware-contract.json`.
+The display body is 35.59 × 37.74 × 1.6 mm rotated clockwise in-plane, centred at (0, +3.5) mm, Z=4.4–6.0 mm. The 38 × 40 × 1 mm lens occupies Z=6.2–7.2 mm. A 30 × 35 × 4 mm cell envelope sits below the PCB, leaving a nominal 0.7 mm swelling space above the cushion. The protection circuit, leads and supplier tolerance must fit this envelope; no unprotected cell is approved. The 12 mm motor sits beside the battery. Keep metal, cell foil and harnesses out of the antenna window defined in `hardware-contract.json`.
 
 ## Assembly sequence
 
@@ -27,8 +27,14 @@ Exact battery/protection/lead drawing; harness cut lengths; lens and adhesive sp
 
 The display has a perimeter support ledge and a 0.10 mm tape seat, plus a 0.20 mm lens bond. Battery foil, protection tape, label face and separate positive/return leads are visible. The clock face is an illustrative CAD graphic, not running firmware. Existing ER-TFT1.28-3 electrical compatibility and the protected LP403035 pack envelope are retained.
 
-Both captive plungers align with SW1/SW2 at Y=-2/-10 mm and Z=1.7 mm. Their stem starts at X=22.68 mm, giving nominal 0.15 mm clearance from the imported actuator envelope. The stem has 0.30 mm clearance per side in the case guide and 0.30 mm available inward travel. An internal flange prevents outward loss; final switch stroke and molding tolerances need physical confirmation.
+Both captive plungers align with SW1/SW2 at Y=+3.5/-3.5 mm and stem Z=1.7 mm. The pair is centred on the right side; the finger caps are centred at Z=0.5 mm, the midpoint of the 18 mm enclosure. Their stem starts at X=22.68 mm, giving nominal 0.15 mm clearance from the imported actuator envelope. The stem has 0.30 mm clearance per side in the case guide and 0.30 mm available inward travel. An internal flange prevents outward loss; final switch stroke and molding tolerances need physical confirmation.
 
-Battery, thermistor and motor leads pass around the board perimeter instead of crossing its substrate. `docs/checks/mechanical-clearance.json` records actual solid intersections for these routes, display/retainer, battery/motor and button/case. These scoped nominal checks do not certify the unknown supplier flex population or the complete tolerance stack.
+Battery, thermistor and motor leads pass around the board perimeter instead of crossing its substrate. `docs/checks/mechanical-clearance.json` records actual solid intersections for these routes, display/retainer, battery/motor, button/case at rest and full travel, and the USB cable insertion sweep. These scoped nominal checks do not certify the unknown supplier flex population or the complete tolerance stack.
 
 Browser CAD importers can discard glTF transparency. The clock-face graphic is a cosmetic mesh placed 0.02 mm above the outer lens so it remains visible there. It follows the lens in the exploded view, is not an extra manufactured part, and does not change the specified LCD or physical stack.
+
+## Side USB cable access
+
+The USB-C receptacle is on the left side, opposite the centred button pair. The opening spans 14 mm along Y and 8 mm along Z and continues into the bezel; it admits the cable overmould into the wall recess rather than leaving only a hole for the metal tip. The checked nominal cable body is 20 x 12 x 6 mm, with its seated front at X=-24.5 mm, plus a 6.5 x 8.4 x 2.6 mm metal-tip envelope. The clearance test sweeps both 20 mm outward with both straps and spring bars installed. Cable bodies larger than this envelope need a fresh fit check. Verify full electrical engagement with the chosen cable on the prototype.
+
+The PCB and internal stack turn clockwise together to preserve critical radio/clock paths. SW1/SW2 move to the right-side midpoint; J3 moves to (-7,-18) mm and faces -Y, accessible for service with the case open. The display flex approaches J4 from +Y. The battery is centred at (-2,+6) mm; the motor is at (16,-16.5) mm. All STL/GLB, placements and fabrication exports use these new coordinates.

@@ -7,7 +7,7 @@
 		(at 0 1.22 0)
 		(layer "F.SilkS")
 		(hide yes)
-		(uuid "07295f95-d220-4490-a8cf-ccad5adf26ff")
+		(uuid "c5717f85-9623-4ac8-b2e5-65d3986359a0")
 		(effects
 			(font
 				(size 0.4 0.4)
@@ -16,10 +16,10 @@
 		)
 	)
 	(property "Value" "1uF"
-		(at 0 3 180)
+		(at 0 3 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "16f616b5-6fce-4620-94c6-c2dd3c097adc")
+		(uuid "29f2af7b-ab3f-444d-bb2c-1c7332c2021a")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -28,10 +28,10 @@
 		)
 	)
 	(property "Datasheet" ""
-		(at 0 0 180)
+		(at 0 0 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "f81b1531-105c-49dc-9cb6-e5df557346eb")
+		(uuid "b3094111-80df-4336-b877-2c9bb276c18b")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -40,10 +40,10 @@
 		)
 	)
 	(property "Description" ""
-		(at 0 0 180)
+		(at 0 0 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "4d11e116-21bc-4eab-a5d7-e90213ff1f0d")
+		(uuid "eb8bc73d-8d73-4656-95e1-8bbe2c0a57d9")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -52,7 +52,7 @@
 		)
 	)
 	(property "Supplier Part Number" "C52923"
-		(at 0 0 180)
+		(at 0 0 0)
 		(layer "F.Fab")
 		(hide yes)
 		(uuid "0144c140-1422-fcc1-298a-bac23ef278c3")
@@ -64,7 +64,7 @@
 		)
 	)
 	(property "MPN" "CL05A105KA5NQNC"
-		(at 0 0 180)
+		(at 0 0 0)
 		(layer "F.Fab")
 		(hide yes)
 		(uuid "4d1e3c06-2cf7-3d06-0cd0-3e061356c0fa")

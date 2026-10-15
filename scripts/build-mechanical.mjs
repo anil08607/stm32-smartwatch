@@ -3,7 +3,7 @@ import jscad from "@jscad/modeling";
 import stl from "@jscad/stl-serializer";
 const { cuboid, roundedCuboid, cylinder } = jscad.primitives,
 	{ union, subtract, intersect } = jscad.booleans,
-	{ translate, rotateY } = jscad.transforms,
+	{ translate, rotateY, rotateZ } = jscad.transforms,
 	{ measureVolume, measureBoundingBox } = jscad.measurements;
 mkdirSync("mechanical", { recursive: true });
 const box = (size, center = [0, 0, 0]) => cuboid({ size, center }),
@@ -24,16 +24,15 @@ const box = (size, center = [0, 0, 0]) => cuboid({ size, center }),
 	parts = [];
 const add = (id, solid, color, stage, explode = 0, production = false) => {
 	parts.push({ id, solid, color, stage, explode, production });
-	if (production)
-		writeFileSync(
-			`mechanical/${id}.stl`,
-			Buffer.concat(
-				stl.serialize({ binary: true }, solid).map((x) => Buffer.from(x)),
-			),
-		);
 	return solid;
 };
 // PCB top is Z=0. Bottom is -1. All mechanical coordinates are millimetres.
+// External controls use final case axes: USB -X, two centred buttons +X.
+const controls = JSON.parse(readFileSync("hardware-contract.json")).mechanical
+	.controls;
+const buttonYs = controls.button_centres_mm.map((p) => p[1]);
+const usbOpening = box([12, 14, 8], [-27, 0, 1.6]);
+
 const screws = [
 	[-22.8, -22.8],
 	[-22.8, 22.8],
@@ -56,9 +55,8 @@ base = union(
 for (const [x, y] of screws) base = subtract(base, cyl(1.6, 4.2, x, y, 1.5));
 base = subtract(
 	base,
-	box([11, 8, 6], [0, -26, 1]),
-	box([8, 2.8, 2.4], [26, -2, 1.7]),
-	box([8, 2.8, 2.4], [26, -10, 1.7]),
+	usbOpening,
+	...buttonYs.map((y) => box([8, 2.8, 2.4], [26, y, 1.7])),
 );
 for (const y of [-30, 30])
 	for (const x of [-12.5, 12.5]) {
@@ -275,13 +273,13 @@ add(
 	"Purchased silicone strap keeper envelope",
 	0,
 );
-for (const y of [-2, -10]) {
+for (const [i, y] of buttonYs.entries()) {
 	add(
-		`button-plunger-${-y}`,
+		`button-plunger-SW${i + 1}`,
 		union(
 			round([5.02, 2.2, 1.8], [25.19, y, 1.7], 0.25),
 			round([0.6, 3.4, 2.6], [24.05, y, 1.7], 0.2),
-			round([1.2, 4, 2.8], [28, y, 1.7], 0.65),
+			round([1.2, 4, 4], [28, y, controls.button_cap_z_mm], 0.65),
 		),
 		[0.16, 0.2, 0.25, 1],
 		"Captive side actuator: 0.15 mm rest gap, 0.30 mm available inward travel; verify switch tolerance",
@@ -440,6 +438,43 @@ add(
 	"FPC envelope; actual fold length/contact orientation must be confirmed",
 	16,
 );
+// Keep the LCD, pack, motor and their harnesses aligned with the quarter-turned PCB.
+// Their design dimensions above are in the original internal-stack datum.
+for (const part of parts) {
+	if (
+		[
+			"display-retainer",
+			"bezel",
+			"lens",
+			"display",
+			"display-active",
+			"display-seat-tape",
+			"lens-bond",
+			"battery",
+			"motor",
+			"battery-cushion",
+			"ntc",
+			"battery-protection-tape",
+			"battery-label",
+			"display-preview-face",
+			"battery-positive",
+			"battery-return",
+			"ntc-harness",
+			"motor-harness",
+			"display-flex",
+		].includes(part.id) ||
+		part.id.startsWith("dial-")
+	)
+		part.solid = rotateZ(-Math.PI / 2, part.solid);
+	if (part.id === "bezel") part.solid = subtract(part.solid, usbOpening);
+	if (part.production)
+		writeFileSync(
+			`mechanical/${part.id}.stl`,
+			Buffer.concat(
+				stl.serialize({ binary: true }, part.solid).map((x) => Buffer.from(x)),
+			),
+		);
+}
 const source = JSON.parse(readFileSync("routing/reviewed.circuit.json")),
 	names = new Map(
 		source
@@ -501,8 +536,41 @@ const pairs = [
 		"motor-harness",
 		"display-flex",
 	].map((id) => [id, "pcb"]),
-	...["button-plunger-2", "button-plunger-10"].map((id) => [id, "case-base"]),
+	...["button-plunger-SW1", "button-plunger-SW2"].map((id) => [
+		id,
+		"case-base",
+	]),
 ];
+// Sweep the largest supported cable body from fully seated to 20 mm withdrawn.
+// The metal tongue intentionally enters the receptacle; it must clear enclosure parts.
+const cableSweeps = [
+	["usb-plug-body-sweep", box([40, 12, 6], [-44.5, 0, 1.6])],
+	["usb-plug-tongue-sweep", box([26.5, 8.4, 2.6], [-31.25, 0, 1.6])],
+];
+for (const [id, solid] of cableSweeps) byId.set(id, { solid });
+for (const [id] of cableSweeps)
+	for (const target of [
+		"case-base",
+		"bezel",
+		"display-retainer",
+		"strap-30",
+		"strap--30",
+		"spring-bar-30",
+		"spring-bar--30",
+		"display",
+		"lens",
+		"battery",
+		"motor",
+		"button-plunger-SW1",
+		"button-plunger-SW2",
+	])
+		pairs.push([id, target]);
+// Check every button at rest and at its full inward travel, including offset caps.
+for (const id of ["button-plunger-SW1", "button-plunger-SW2"]) {
+	const pressed = `${id}-pressed`;
+	byId.set(pressed, { solid: translate([-0.3, 0, 0], byId.get(id).solid) });
+	pairs.push([pressed, "case-base"], [pressed, "bezel"]);
+}
 const contacts = pairs.map(([a, b]) => ({
 	a,
 	b,
@@ -516,8 +584,21 @@ writeFileSync(
 	JSON.stringify(
 		{
 			scope:
-				"Nominal solid checks for PCB/harness crossing, display support, battery/motor and button wall. Supplier tolerance and complete product fit are unqualified.",
+				"Nominal PCB/harness, display support, battery/motor, button rest/full-travel, and swept USB plug clearance with both straps fitted. Supplier tolerances and physical qualification remain pending.",
 			contacts,
+			usb_access: {
+				side: "-X",
+				plug_body_mm: [20, 12, 6],
+				body_front_x_mm: -24.5,
+				opening_yz_mm: [14, 8],
+				extraction_mm: 20,
+			},
+			buttons: {
+				side: "+X",
+				centres_y_mm: buttonYs,
+				cap_z_mm: controls.button_cap_z_mm,
+				travel_mm: 0.3,
+			},
 		},
 		null,
 		2,
@@ -655,7 +736,8 @@ writeFileSync(
 	),
 );
 const manifest = {
-	datum: "PCB top Z=0 mm; +Y toward battery connector, -Y toward USB; Z up",
+	datum:
+		"PCB top Z=0 mm; USB faces -X, buttons face +X at Y=+/-3.5 mm, straps follow Y; Z up",
 	case_mm: [54, 54, 18],
 	includes:
 		"case, bezel, retainer, lens, display, flex envelope, battery, cushion, NTC, harness envelopes, motor, fasteners, spring bars, straps, board and all fitted component envelopes",

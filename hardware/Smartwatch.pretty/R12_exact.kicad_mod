@@ -7,7 +7,7 @@
 		(at 0 -1.22 0)
 		(layer "F.SilkS")
 		(hide yes)
-		(uuid "441628a7-08e9-44f7-a9f2-7f0b242bb2a9")
+		(uuid "d9f5f335-6ed5-43c7-995e-a2205c2deff0")
 		(effects
 			(font
 				(size 0.4 0.4)
@@ -16,10 +16,10 @@
 		)
 	)
 	(property "Value" "1MΩ"
-		(at 0 3 180)
+		(at 0 3 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "458f5ece-3368-4190-be74-958e1527aa99")
+		(uuid "4bb454a4-bc63-47bf-954b-a20cbf53f6ef")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -28,10 +28,10 @@
 		)
 	)
 	(property "Datasheet" ""
-		(at 0 0 180)
+		(at 0 0 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "34689043-b1d6-4047-8962-3ff6340959a1")
+		(uuid "b61af74e-4df0-4437-8364-ea9308cd33fa")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -40,10 +40,10 @@
 		)
 	)
 	(property "Description" ""
-		(at 0 0 180)
+		(at 0 0 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "430649a2-3d9b-4b5c-b19f-1c3080459f7e")
+		(uuid "8096a360-c3c2-4449-b76c-edd1c365424c")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -52,7 +52,7 @@
 		)
 	)
 	(property "Supplier Part Number" "C26083"
-		(at 0 0 180)
+		(at 0 0 0)
 		(layer "F.Fab")
 		(hide yes)
 		(uuid "19e4b740-047c-f93f-10ea-c4c2265282c3")
@@ -64,7 +64,7 @@
 		)
 	)
 	(property "MPN" "0402WGF1004TCE"
-		(at 0 0 180)
+		(at 0 0 0)
 		(layer "F.Fab")
 		(hide yes)
 		(uuid "383408a6-180d-09a6-0819-f55a2840f45a")

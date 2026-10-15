@@ -7,7 +7,7 @@
 		(at -1.665 0 90)
 		(layer "F.SilkS")
 		(hide yes)
-		(uuid "0864820c-755e-4a33-8ceb-f1872859ac94")
+		(uuid "ce944486-4d48-4365-bce4-91cbe92a9b37")
 		(effects
 			(font
 				(size 0.410833 0.410833)
@@ -16,10 +16,10 @@
 		)
 	)
 	(property "Value" "HUSB238_002DD"
-		(at 0 3 0)
+		(at 0 3 180)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "76b59c33-4364-42f9-911a-c63fcf1991ca")
+		(uuid "b93db369-5b6b-4e46-9415-5c4a8a1c73dc")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -28,10 +28,10 @@
 		)
 	)
 	(property "Datasheet" ""
-		(at 0 0 0)
+		(at 0 0 180)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "63e1c064-ca20-4298-b0e9-051da81fb0e1")
+		(uuid "eab1f0e5-6710-474b-b9fe-5960c5d1a92d")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -40,10 +40,10 @@
 		)
 	)
 	(property "Description" ""
-		(at 0 0 0)
+		(at 0 0 180)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "4be5b1f1-d1ed-4348-8360-60c0ad5d2b74")
+		(uuid "f045dfc0-3fc6-4cc1-97ec-db8003ff2682")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -52,7 +52,7 @@
 		)
 	)
 	(property "Supplier Part Number" "C7471904"
-		(at 0 0 0)
+		(at 0 0 180)
 		(layer "F.Fab")
 		(hide yes)
 		(uuid "42aa131e-1fbd-ef02-7dda-0ede1b720cbe")
@@ -64,7 +64,7 @@
 		)
 	)
 	(property "MPN" "HUSB238_002DD"
-		(at 0 0 0)
+		(at 0 0 180)
 		(layer "F.Fab")
 		(hide yes)
 		(uuid "639b7bc0-3318-9cbf-0295-bdbe2ded2143")

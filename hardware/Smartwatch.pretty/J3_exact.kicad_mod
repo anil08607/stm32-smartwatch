@@ -4,10 +4,10 @@
 	(generator_version "10.0")
 	(layer "F.Cu")
 	(property "Reference" "J3"
-		(at 0 -3 0)
+		(at 0 -3 180)
 		(layer "F.SilkS")
 		(hide yes)
-		(uuid "675398d3-30bf-4798-a769-8d2ff38a663e")
+		(uuid "5c75a63a-407c-4b22-9b36-aa116b62f3ce")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16,10 +16,10 @@
 		)
 	)
 	(property "Value" "J3"
-		(at 0 3 0)
+		(at 0 3 180)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "96ed2be9-ba7f-4644-b928-531b28523d97")
+		(uuid "fcb4a3f7-6970-4aae-9a72-92b2f800ec1f")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -28,10 +28,10 @@
 		)
 	)
 	(property "Datasheet" ""
-		(at 0 0 0)
+		(at 0 0 180)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "1777f2be-6b05-4345-acd1-2fb14d3df151")
+		(uuid "40fe5f03-2b07-477e-8d07-d886c8bca2e9")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -40,10 +40,10 @@
 		)
 	)
 	(property "Description" ""
-		(at 0 0 0)
+		(at 0 0 180)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "13bf113f-a888-433a-af14-fa60265b37aa")
+		(uuid "553e1d63-8203-4ae0-96b5-52c0e4be5e38")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -52,7 +52,7 @@
 		)
 	)
 	(property "Supplier Part Number" "C160405"
-		(at 0 0 0)
+		(at 0 0 180)
 		(layer "F.Fab")
 		(hide yes)
 		(uuid "73c0cff8-29d7-2de8-3890-d438650729a8")
@@ -64,7 +64,7 @@
 		)
 	)
 	(property "MPN" "SM06B-SRSS-TB(LF)(SN)"
-		(at 0 0 0)
+		(at 0 0 180)
 		(layer "F.Fab")
 		(hide yes)
 		(uuid "7fc28b20-4f3f-ac1f-1ebc-cd1e11c611e3")

@@ -78,6 +78,14 @@ document.querySelector("#reset").onclick = () => {
 	camera.position.set(185, -220, 210);
 	controls.target.set(0, 0, 5);
 };
+document.querySelector("#usb-side").onclick = () => {
+	camera.position.set(-115, -30, 35);
+	controls.target.set(0, 0, 1);
+};
+document.querySelector("#button-side").onclick = () => {
+	camera.position.set(115, 0, 8);
+	controls.target.set(0, 0, 0.5);
+};
 function frame() {
 	const r = canvas.getBoundingClientRect();
 	if (

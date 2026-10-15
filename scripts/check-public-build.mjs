@@ -3,6 +3,7 @@ import { spawnSync } from "node:child_process";
 import { readFileSync, writeFileSync } from "node:fs";
 import { createHash } from "node:crypto";
 const config = JSON.parse(readFileSync("tscircuit.config.json"));
+const copper = JSON.parse(readFileSync("routing/native-copper.json"));
 // Run the same CLI discovery path used by the hosted build, not only RootCircuit.
 const result = spawnSync("bunx", ["tsci", "build", "--disable-parts-engine"], {
 	encoding: "utf8",
@@ -22,8 +23,14 @@ const entries = config.includeBoardFiles.map((file) => {
 		c.filter((x) => /error|warning/.test(x.type)),
 		[],
 	);
-	assert.equal(c.filter((x) => x.type === "pcb_trace").length, 833);
-	assert.equal(c.filter((x) => x.type === "pcb_via").length, 95);
+	assert.equal(
+		c.filter((x) => x.type === "pcb_trace").length,
+		copper.tracks.length,
+	);
+	assert.equal(
+		c.filter((x) => x.type === "pcb_via").length,
+		copper.vias.length,
+	);
 	const mechanical = c.filter(
 		(x) =>
 			x.type === "cad_component" &&

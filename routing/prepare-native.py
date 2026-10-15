@@ -1,6 +1,6 @@
 """Prepare fresh world-coordinate pad images and protected DSN routing input."""
 from pathlib import Path
-import math
+import math, json, shutil
 import pcbnew as p
 import wx
 wx.Log.SetLogLevel(0)
@@ -17,8 +17,7 @@ for f in b.GetFootprints():
         a.SetOrientationDegrees(angle)
         a.SetLayerSet(layers)
 for z in list(b.Zones()):
-    held.append(z)
-    b.Remove(z)
+    b.Delete(z)
 z = p.ZONE(b)
 z.SetIsRuleArea(True)
 z.SetDoNotAllowTracks(True)
@@ -26,10 +25,12 @@ z.SetDoNotAllowVias(True)
 z.SetLayerSet(p.LSET.AllCuMask(4))
 poly = z.Outline()
 poly.NewOutline()
-for x, y in [(17, 2.3), (23, 2.3), (23, 9.3), (17, 9.3)]:
+w=json.loads(Path('hardware-contract.json').read_text())['rf']['antenna_window']
+for x, y in [(w['xmin'],w['ymin']),(w['xmax'],w['ymin']),(w['xmax'],w['ymax']),(w['xmin'],w['ymax'])]:
     poly.Append(p.FromMM(100 + x), p.FromMM(100 - y))
 b.Add(z)
 p.SaveBoard(str(Path('build/router-base.kicad_pcb').resolve()), b)
+shutil.copyfile('build/native/smartwatch-nrf52810.kicad_pro','build/router-base.kicad_pro')
 assert p.ExportSpecctraDSN(b, str(Path('build/input.dsn').resolve()))
 path = Path('build/input.dsn')
 s = path.read_text()

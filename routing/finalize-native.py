@@ -3,7 +3,7 @@
 Run with KiCad 10's Python: python routing/finalize-native.py build/replayed
 This is specific to the committed routing seed. New layouts require a new review.
 """
-import sys, math, json
+import sys, math, json, shutil
 from pathlib import Path
 import pcbnew as p
 import wx
@@ -17,10 +17,9 @@ routed = p.LoadBoard(str(Path('routing/native/router-base.kicad_pcb').resolve())
 assert p.ImportSpecctraSES(routed, str(Path('routing/native/routed.ses').resolve()))
 held = []
 rf_nets = {"RF_ANT", "RF_50", "RF_FEED"}
-fixed_rf = [(t.GetNetname(), t.GetStart(), t.GetEnd(), t.GetLayer(), p.ToMM(t.GetWidth())) for t in source.GetTracks() if t.GetNetname() in rf_nets]
+fixed_rf = [(t.GetNetname(), p.VECTOR2I(t.GetStart().x,t.GetStart().y), p.VECTOR2I(t.GetEnd().x,t.GetEnd().y), t.GetLayer(), p.ToMM(t.GetWidth())) for t in source.GetTracks() if t.GetNetname() in rf_nets]
 for t in list(source.GetTracks()):
-    held.append(t)
-    source.Remove(t)
+    source.Delete(t)
 
 def point(x, y):
     return p.VECTOR2I(p.FromMM(100 + x), p.FromMM(100 - y))
@@ -49,44 +48,33 @@ for t in routed.GetTracks():
         source.Add(item)
         item.SetNet(source.FindNet(name))
     else:
-        layer = p.B_Cu if name == 'V3V0' and t.GetLayer() == p.In1_Cu else t.GetLayer()
+        layer = t.GetLayer()
         item = add_segment(name, t.GetStart(), t.GetEnd(), layer, max(.1, p.ToMM(t.GetWidth())))
     assert item.GetNetname() == name
 
 for args in fixed_rf:
     add_segment(*args)
 
-# One unfinished motor net is completed explicitly; never duplicate another route.
-assert not any(t.GetNetname() == 'MOTOR_EN' for t in source.GetTracks()), 'New route differs: review motor finishing first'
-for a, b, layer in [((-7, 5.8), (-7.6, 5.8125), p.F_Cu),
-                     ((-7.6, 5.8125), (-4.4, 5.8), p.B_Cu),
-                     ((-4.4, 5.8), (4.6, 14.8), p.B_Cu),
-                     ((4.6, 14.8), (5.29, 14.8), p.F_Cu)]:
-    add_segment('MOTOR_EN', point(*a), point(*b), layer, .15)
-for x, y in [(-7.6, 5.8125), (4.6, 14.8)]:
-    via = p.PCB_VIA(source)
-    via.SetPosition(point(x, y))
-    via.SetWidth(p.FromMM(.4))
-    via.SetDrill(p.FromMM(.2))
-    via.SetViaType(p.VIATYPE_THROUGH)
-    via.SetLayerPair(p.F_Cu, p.B_Cu)
-    source.Add(via)
-    via.SetNet(source.FindNet('MOTOR_EN'))
+# Reviewed explicit finish: preserve the original MCU button escape and RF plane.
+finish=json.loads(Path('routing/native/side-access-finishing.json').read_text())
+for t in list(source.GetTracks()):
+    remove=t.GetNetname() in finish['replace_nets']
+    if not isinstance(t,p.PCB_VIA):
+        ends={(t.GetStart().x,t.GetStart().y),(t.GetEnd().x,t.GetEnd().y)}
+        for expected in finish['remove_tracks']:
+            wanted={(point(v['x'],v['y']).x,point(v['x'],v['y']).y) for v in expected['route']}
+            if t.GetNetname()==expected['net'] and all(any(abs(a[0]-b[0])<=1000 and abs(a[1]-b[1])<=1000 for b in wanted) for a in ends):remove=True
+    if remove:source.Delete(t)
+layer_ids={'top':p.F_Cu,'inner1':p.In1_Cu,'inner2':p.In2_Cu,'bottom':p.B_Cu}
+for item in finish['tracks']:
+    a,b=item['route'];add_segment(item['net'],point(a['x'],a['y']),point(b['x'],b['y']),layer_ids[a['layer']],a['width'])
+for item in finish['vias']:
+    via=p.PCB_VIA(source);via.SetPosition(point(item['x'],item['y']));via.SetWidth(p.FromMM(item['outer_diameter']));via.SetDrill(p.FromMM(item['hole_diameter']));via.SetViaType(p.VIATYPE_THROUGH);via.SetLayerPair(p.F_Cu,p.B_Cu);source.Add(via);via.SetNet(source.FindNet(item['net']))
 
-# Preserve >=0.1 mm clearance on both sides of the motor/interrupt escape.
-changed = 0
-for t in source.GetTracks():
-    if t.GetNetname() != 'CHG_INT':
+for z in list(source.Zones()):
+    if not z.GetIsRuleArea():
+        source.Delete(z)
         continue
-    pairs = [(t.GetPosition, t.SetPosition)] if isinstance(t, p.PCB_VIA) else [(t.GetStart, t.SetStart), (t.GetEnd, t.SetEnd)]
-    for getter, setter in pairs:
-        a = getter()
-        if abs(p.ToMM(a.y) - 94.5452) < .001 and 91.8 < p.ToMM(a.x) < 93:
-            setter(p.VECTOR2I(a.x, p.FromMM(94.563)))
-            changed += 1
-assert changed >= 3, 'Saved escape geometry changed; a new clearance review is required'
-
-for z in source.Zones():
     if z.GetIsRuleArea():
         z.SetDoNotAllowTracks(False)  # RF_FEED is checked separately; pours/vias remain forbidden.
         z.SetDoNotAllowVias(True)
@@ -123,11 +111,10 @@ for f in source.GetFootprints():
     p.PCB_IO_KICAD_SEXPR().FootprintSave(str(pretty.resolve()), f)
 for item in list(source.GetDrawings()):
     if item.GetLayer() in (p.F_SilkS, p.B_SilkS):
-        held.append(item)
-        source.Remove(item)
+        source.Delete(item)
 text = p.PCB_TEXT(source)
 text.SetText('ANIL')
-text.SetPosition(point(-11, -20))
+text.SetPosition(point(-20, 11))
 text.SetTextSize(p.VECTOR2I(p.FromMM(.8), p.FromMM(.8)))
 text.SetTextThickness(p.FromMM(.12))
 text.SetLayer(p.F_SilkS)
@@ -135,4 +122,5 @@ source.Add(text)
 source.GetDesignSettings().SetAuxOrigin(point(-23, -23))
 p.ZONE_FILLER(source).Fill(source.Zones())
 p.SaveBoard(str((out / 'smartwatch-nrf52810.kicad_pcb').resolve()), source)
-print('Replayed copper, power reference-plane change, motor escape, pours and silk. Run native checks before accepting.')
+shutil.copyfile('routing/native/placement.kicad_pro', out / 'smartwatch-nrf52810.kicad_pro')
+print('Replayed side-access copper, preserved critical routes, refilled ground and refreshed silk. Run native checks before accepting.')

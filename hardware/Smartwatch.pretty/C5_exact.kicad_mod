@@ -7,7 +7,7 @@
 		(at 0 1.6 0)
 		(layer "F.SilkS")
 		(hide yes)
-		(uuid "81503009-a7c9-4c11-9e79-a609aa52f073")
+		(uuid "b47cc06a-d465-4169-885d-8946bd5621e7")
 		(effects
 			(font
 				(size 0.4 0.4)
@@ -16,10 +16,10 @@
 		)
 	)
 	(property "Value" "22uF"
-		(at 0 3 270)
+		(at 0 3 90)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "a903af0a-bd8a-432b-a0cb-f1ce8359ef6e")
+		(uuid "8a01f238-05f7-42b0-834b-bc6acdb179c5")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -28,10 +28,10 @@
 		)
 	)
 	(property "Datasheet" ""
-		(at 0 0 270)
+		(at 0 0 90)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "98f7aef4-ad54-44ec-9b45-6754a88fb71a")
+		(uuid "9c17ceda-51bd-4a9f-85fc-e4d3689624ee")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -40,10 +40,10 @@
 		)
 	)
 	(property "Description" ""
-		(at 0 0 270)
+		(at 0 0 90)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "aef20782-593c-45e0-b003-aba902aabd0a")
+		(uuid "4add9385-c172-4155-a322-dabcdeb6877b")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -52,7 +52,7 @@
 		)
 	)
 	(property "Supplier Part Number" "C45783"
-		(at 0 0 270)
+		(at 0 0 90)
 		(layer "F.Fab")
 		(hide yes)
 		(uuid "47070e76-1b60-f3aa-7dc8-f5ca1fcf0816")
@@ -64,7 +64,7 @@
 		)
 	)
 	(property "MPN" "CL21A226MAQNNNE"
-		(at 0 0 270)
+		(at 0 0 90)
 		(layer "F.Fab")
 		(hide yes)
 		(uuid "1c654e40-141d-90c1-44a0-6fc275234ec3")

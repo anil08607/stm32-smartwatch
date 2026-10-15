@@ -1,5 +1,5 @@
 Drill report for smartwatch-nrf52810.kicad_pcb
-Created on 2026-10-15T18:23:10
+Created on 2026-10-15T19:46:36
 
 Copper Layer Stackup:
     =============================================================
@@ -12,10 +12,10 @@ Copper Layer Stackup:
 Drill file 'smartwatch-nrf52810-PTH.drl' contains
     plated through holes:
     =============================================================
-    T1  0.200mm  0.0079"  (95 holes))
+    T1  0.200mm  0.0079"  (99 holes))
     T2  0.600mm  0.0236"  (4 holes)  (with 4 slots)
 
-    Total plated holes count 99
+    Total plated holes count 103
 
 
 Drill file 'smartwatch-nrf52810-NPTH.drl' contains

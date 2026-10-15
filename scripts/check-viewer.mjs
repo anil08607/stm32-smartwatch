@@ -89,9 +89,9 @@ for (const [name, component, count] of [
 		entry: `${name}.circuit.tsx`,
 		source_components: count,
 		pcb_components: 71,
-		traces: 833,
-		vias: 95,
-		pours: 8,
+		traces: c.filter((x) => x.type === "pcb_trace").length,
+		vias: c.filter((x) => x.type === "pcb_via").length,
+		pours: c.filter((x) => x.type === "pcb_copper_pour").length,
 		diagnostics: 0,
 		schematic_style_issues: 0,
 		circuit_sha256: createHash("sha256").update(bytes).digest("hex"),
@@ -110,5 +110,5 @@ writeFileSync(
 		"\n",
 );
 console.log(
-	"PASS: all four real viewer entries retain all 833 segments, 95 vias, 8 pours; zero DRC/style diagnostics; stale geometry rejected.",
+	"PASS: all four real viewer entries retain every reviewed segment, via and pour; zero DRC/style diagnostics; stale geometry rejected.",
 );

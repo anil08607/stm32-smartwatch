@@ -1,5 +1,5 @@
 {
-  "scope": "Nominal solid checks for PCB/harness crossing, display support, battery/motor and button wall. Supplier tolerance and complete product fit are unqualified.",
+  "scope": "Nominal PCB/harness, display support, battery/motor, button rest/full-travel, and swept USB plug clearance with both straps fitted. Supplier tolerances and physical qualification remain pending.",
   "contacts": [
     {
       "a": "battery",
@@ -37,14 +37,187 @@
       "overlap_mm3": 0
     },
     {
-      "a": "button-plunger-2",
+      "a": "button-plunger-SW1",
       "b": "case-base",
       "overlap_mm3": 0
     },
     {
-      "a": "button-plunger-10",
+      "a": "button-plunger-SW2",
       "b": "case-base",
       "overlap_mm3": 0
+    },
+    {
+      "a": "usb-plug-body-sweep",
+      "b": "case-base",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "usb-plug-body-sweep",
+      "b": "bezel",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "usb-plug-body-sweep",
+      "b": "display-retainer",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "usb-plug-body-sweep",
+      "b": "strap-30",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "usb-plug-body-sweep",
+      "b": "strap--30",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "usb-plug-body-sweep",
+      "b": "spring-bar-30",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "usb-plug-body-sweep",
+      "b": "spring-bar--30",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "usb-plug-body-sweep",
+      "b": "display",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "usb-plug-body-sweep",
+      "b": "lens",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "usb-plug-body-sweep",
+      "b": "battery",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "usb-plug-body-sweep",
+      "b": "motor",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "usb-plug-body-sweep",
+      "b": "button-plunger-SW1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "usb-plug-body-sweep",
+      "b": "button-plunger-SW2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "usb-plug-tongue-sweep",
+      "b": "case-base",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "usb-plug-tongue-sweep",
+      "b": "bezel",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "usb-plug-tongue-sweep",
+      "b": "display-retainer",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "usb-plug-tongue-sweep",
+      "b": "strap-30",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "usb-plug-tongue-sweep",
+      "b": "strap--30",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "usb-plug-tongue-sweep",
+      "b": "spring-bar-30",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "usb-plug-tongue-sweep",
+      "b": "spring-bar--30",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "usb-plug-tongue-sweep",
+      "b": "display",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "usb-plug-tongue-sweep",
+      "b": "lens",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "usb-plug-tongue-sweep",
+      "b": "battery",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "usb-plug-tongue-sweep",
+      "b": "motor",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "usb-plug-tongue-sweep",
+      "b": "button-plunger-SW1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "usb-plug-tongue-sweep",
+      "b": "button-plunger-SW2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "button-plunger-SW1-pressed",
+      "b": "case-base",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "button-plunger-SW1-pressed",
+      "b": "bezel",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "button-plunger-SW2-pressed",
+      "b": "case-base",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "button-plunger-SW2-pressed",
+      "b": "bezel",
+      "overlap_mm3": 0
     }
-  ]
+  ],
+  "usb_access": {
+    "side": "-X",
+    "plug_body_mm": [
+      20,
+      12,
+      6
+    ],
+    "body_front_x_mm": -24.5,
+    "opening_yz_mm": [
+      14,
+      8
+    ],
+    "extraction_mm": 20
+  },
+  "buttons": {
+    "side": "+X",
+    "centres_y_mm": [
+      3.5,
+      -3.5
+    ],
+    "cap_z_mm": 0.5,
+    "travel_mm": 0.3
+  }
 }

@@ -82,6 +82,14 @@ run([
 	"release/schematics/",
 	"hardware/smartwatch-nrf52810.kicad_sch",
 ]);
+// KiCad emits trailing spaces in SVG drill markers; normalize text before hashing.
+for (const dir of ["drill", "schematics"])
+	for (const file of readdirSync(`release/${dir}`).filter((name) =>
+		name.endsWith(".svg"),
+	)) {
+		const path = `release/${dir}/${file}`;
+		writeFileSync(path, readFileSync(path, "utf8").replace(/[ \t]+$/gm, ""));
+	}
 const zip = new JSZip();
 for (const dir of ["gerbers", "drill"])
 	for (const f of readdirSync(`release/${dir}`))

@@ -104,7 +104,7 @@
 		"quantity": 1,
 		"part": "5 V USB-C source and USB-C cable",
 		"purchase_url": "https://www.digikey.com/en/products/filter/usb-cables/455",
-		"stage": "Charging/test equipment; qualify source/cable with watch",
+		"stage": "Charging/test equipment; cable overmould at most 12 mm wide x 6 mm high within checked side-opening envelope; verify full engagement",
 		"stock_status": "exact cable/source selection required"
 	}
 ]

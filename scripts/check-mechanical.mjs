@@ -40,7 +40,7 @@ for (const m of models.parts)
 const clearance = JSON.parse(
 	readFileSync("docs/checks/mechanical-clearance.json"),
 );
-assert(clearance.contacts.length >= 9);
+assert(clearance.contacts.length >= 39);
 assert(clearance.contacts.every((p) => p.overlap_mm3 < 0.001));
 for (const id of [
 	"battery",
@@ -48,8 +48,8 @@ for (const id of [
 	"display-flex",
 	"display-seat-tape",
 	"lens-bond",
-	"button-plunger-2",
-	"button-plunger-10",
+	"button-plunger-SW1",
+	"button-plunger-SW2",
 	"strap-30",
 	"strap--30",
 ])
@@ -57,6 +57,39 @@ for (const id of [
 		models.parts.some((p) => p.id === id),
 		`Missing product part ${id}`,
 	);
+// Keep case controls tied to the actual electrical component placements.
+const circuit = JSON.parse(readFileSync("routing/reviewed.circuit.json"));
+const components = new Map(
+	circuit
+		.filter((p) => p.type === "source_component")
+		.map((p) => [p.source_component_id, p.name]),
+);
+const placement = (name) =>
+	circuit.find(
+		(p) =>
+			p.type === "pcb_component" &&
+			components.get(p.source_component_id) === name,
+	);
+const usb = placement("J1");
+assert.equal(usb.rotation, 270);
+assert(Math.abs(usb.center.y) < 0.0001 && usb.cable_insertion_center.x < -21);
+for (const [i, name] of ["SW1", "SW2"].entries()) {
+	const sw = placement(name),
+		part = manifest.parts.find((p) => p.id === `button-plunger-${name}`);
+	assert.equal(sw.rotation, 90);
+	assert(Math.abs(sw.center.x - 20.2) < 0.0001);
+	assert(Math.abs(sw.center.y - clearance.buttons.centres_y_mm[i]) < 0.0001);
+	assert(
+		Math.abs((part.bounds_mm[0][1] + part.bounds_mm[1][1]) / 2 - sw.center.y) <
+			0.0001,
+	);
+}
+assert(
+	Math.abs(placement("SW1").center.y + placement("SW2").center.y) < 0.0001,
+	"Button pair must remain centred",
+);
+assert.equal(clearance.usb_access.side, "-X");
+assert.equal(clearance.buttons.side, "+X");
 writeFileSync(
 	"docs/checks/mechanical-export.json",
 	JSON.stringify(

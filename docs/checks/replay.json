@@ -2,13 +2,18 @@
   "drc_violations": 0,
   "unconnected": 0,
   "native_copper_and_pads_identical": true,
-  "copper_items": 928,
+  "copper_items": 966,
   "pads": 281,
   "files": {
-    "hardware/smartwatch-nrf52810.kicad_pcb": "dc5726961602e7f5d42c3e11879837f3ce18f49425722c08005620fee815eb37",
-    "routing/finalize-native.py": "07284c382ab81b6d7a2dce44068607bfddae8bd21aee2ea901157fe91e1cd023",
-    "routing/native/placement.kicad_pcb": "1558b4a68e66de1863683f815782f5368197f866aae926543ea52098c2a35bd3",
-    "routing/native/router-base.kicad_pcb": "8d1946453f3fd96da7379252d49cced782c1d104c7861eda00c93359a628c66a",
-    "routing/native/routed.ses": "4fb1d3ed63039286b589346c52d066d5be6fd105a78b04cbe5a42b6515a57d40"
+    "hardware/smartwatch-nrf52810.kicad_pcb": "7ea4facb653940202828cb2c26b2c74746fcfb09c3a3290ce7205b87da72f143",
+    "routing/finalize-native.py": "0c31e3c32dc6cb173586ac5fae229bd2aa98de470206349acbd092ba2c408d32",
+    "routing/native/input.dsn": "8c9bd8a9fe31e853242145aa0b0fa6ca6af092e2c2d3bf8d8ffc38fcc86dd73e",
+    "routing/native/placement.kicad_pcb": "c90bbb58d9d857dc0eb138b53d6ef40c74e1e8365f70c28e4657af92ea828bbc",
+    "routing/native/placement.kicad_pro": "2bc1f720cc8f0cec47c5865509529ee5cfa9823542318fe03defb70c2d477956",
+    "routing/native/routed.ses": "a2b4d33a95e96784766964acd925a8094a78aec088d1e5aeed9549ca4ecd4e5f",
+    "routing/native/router-base.kicad_pcb": "13f4caf9a9ce691005c3636f3d5b0b08082b8dfe9c3d152a38f825bdb914e2e8",
+    "routing/native/router-base.kicad_pro": "2bc1f720cc8f0cec47c5865509529ee5cfa9823542318fe03defb70c2d477956",
+    "routing/native/side-access-finishing.json": "75745d4d5b9563a3abd252ba1c01118f6e0cfc2b03bb3ce58f3afbb8978e6e51",
+    "scripts/check-replay.py": "8ad4960636d92bd10ebfa7fce272f92df51e1506c5ea3903cc07271e971becf2"
   }
 }

@@ -1,7 +1,7 @@
 {
   "status": "REVIEW_ONLY_NOT_ORDER_APPROVED",
-  "checked_at": "2026-10-15T12:52:42.376Z",
-  "source_sha256": "85123ac917d32a89222904440300ba579a7cdbb2cac20d97ea96e890b1a820c4",
+  "checked_at": "2026-10-15T14:14:45.109Z",
+  "source_sha256": "6bd69353cb6b99548c380c41445194d3cafcf25b0b2509e5b183be797ab2bd45",
   "stock_reserved": false,
   "holds": [
     "Fabricator stackup/50-ohm impedance confirmation and final-enclosure RF tuning/radio tests",

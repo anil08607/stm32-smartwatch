@@ -1,6 +1,6 @@
 # Anil nRF52810 Smartwatch V1
 
-A 46 × 46 mm, four-layer Bluetooth smartwatch PCB with a Nordic nRF52810-QFAA, 240 × 240 SPI LCD interface, BMA456 accelerometer, battery-backed PCF8563 RTC, USB-C 5 V charging, protected single-cell battery interface, bonded battery NTC, two buttons and haptic motor output.
+A 46 × 46 mm, four-layer Bluetooth smartwatch PCB with a Nordic nRF52810-QFAA, 240 × 240 SPI LCD interface, BMA456 accelerometer, battery-backed PCF8563 RTC, USB-C 5 V charging, protected single-cell battery interface, bonded battery NTC, two buttons and haptic motor output. USB-C faces the left side, clear of both straps; two buttons form a centred pair on the right side.
 
 **Release status: engineering review / prototype handoff. Production ordering is blocked until the explicit gates in `release/readiness.json` are closed.** Passing software checks does not establish RF performance, battery safety, assembly orientation or enclosure fit. No hardware test results or working smartwatch firmware are claimed.
 

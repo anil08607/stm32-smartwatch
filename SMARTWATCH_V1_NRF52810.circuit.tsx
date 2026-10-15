@@ -68,8 +68,8 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 			{/* USB-C power input, fixed safe 5 V PD request and Li-ion charging. */}
 			<HroUsbC
 				name="J1"
-				pcbX={0}
-				pcbY={-19.5}
+				pcbX={-19.5}
+				pcbY={0}
 				schX={-15}
 				schY={0}
 				noConnect={["SBU1", "SBU2", "DP_A", "DP_B", "DN_A", "DN_B"]}
@@ -85,6 +85,7 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 					CC1: "net.USB_CC1",
 					CC2: "net.USB_CC2",
 				}}
+				pcbRotation={270}
 			/>
 
 			<HUSB238_002DD
@@ -92,8 +93,8 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				schHeight={1.285}
 				schWidth={2.055}
 				layer="top"
-				pcbX={8}
-				pcbY={-12.5}
+				pcbX={-12.5}
+				pcbY={-8}
 				schX={-7}
 				schY={0}
 				noConnect={["D_POS", "D_NEG", "SDA", "SCL", "GATE"]}
@@ -105,6 +106,7 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 					ISET: "net.PD_ISET",
 					GND: "net.GND",
 				}}
+				pcbRotation={270}
 			/>
 			<resistor
 				name="R18"
@@ -116,9 +118,10 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				manufacturerPartNumber="0402WGF100JTCE"
 				supplierPartNumbers={{ jlcpcb: ["C25077"] }}
 				layer="top"
-				pcbX={5.5}
-				pcbY={-9}
+				pcbX={-9}
+				pcbY={-5.5}
 				connections={{ pin1: "net.USB5V", pin2: "net.PD_VIN" }}
+				pcbRotation={270}
 			/>
 			<capacitor
 				name="C6"
@@ -127,12 +130,13 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				manufacturerPartNumber="CL05A105KA5NQNC"
 				supplierPartNumbers={{ jlcpcb: ["C52923"] }}
 				layer="top"
-				pcbX={8.5}
-				pcbY={-10}
+				pcbX={-10}
+				pcbY={-8.5}
 				schX={-7}
 				schY={-4}
 				schOrientation="vertical"
 				connections={{ pin1: "net.PD_VIN", pin2: "net.GND" }}
+				pcbRotation={270}
 			/>
 
 			<resistor
@@ -143,11 +147,12 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				manufacturerPartNumber="0402WGF0000TCE"
 				supplierPartNumbers={{ jlcpcb: ["C17168"] }}
 				layer="top"
-				pcbX={11.3}
-				pcbY={-11.5}
+				pcbX={-11.5}
+				pcbY={-11.3}
 				schX={-3}
 				schY={2}
 				connections={{ pin1: "net.PD_VSET", pin2: "net.GND" }}
+				pcbRotation={270}
 			/>
 			<resistor
 				name="R2"
@@ -157,11 +162,12 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				manufacturerPartNumber="0402WGF0000TCE"
 				supplierPartNumbers={{ jlcpcb: ["C17168"] }}
 				layer="top"
-				pcbX={11.3}
-				pcbY={-13}
+				pcbX={-13}
+				pcbY={-11.3}
 				schX={-3}
 				schY={-2}
 				connections={{ pin1: "net.PD_ISET", pin2: "net.GND" }}
+				pcbRotation={270}
 			/>
 
 			<diode
@@ -173,16 +179,17 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				manufacturerPartNumber="LESD5Z5.0CT1G"
 				supplierPartNumbers={{ jlcpcb: ["C136167"] }}
 				layer="top"
-				pcbX={-6.3}
-				pcbY={-12.5}
+				pcbX={-12.5}
+				pcbY={6.3}
 				connections={{ anode: "net.GND", cathode: "net.USB5V" }}
+				pcbRotation={270}
 			/>
 
 			<BQ25180YBGR
 				name="U5"
 				schHeight={1}
-				pcbX={-7.5}
-				pcbY={-10.5}
+				pcbX={-10.5}
+				pcbY={7.5}
 				schX={2}
 				schY={0}
 				connections={{
@@ -195,6 +202,7 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 					TS_MR: "net.BQ_TS",
 					GND: "net.GND",
 				}}
+				pcbRotation={270}
 			/>
 			<capacitor
 				name="C1"
@@ -203,9 +211,9 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				footprint="0402"
 				manufacturerPartNumber="CL05A105KA5NQNC"
 				supplierPartNumbers={{ jlcpcb: ["C52923"] }}
-				pcbX={-9.5}
-				pcbY={-12}
-				pcbRotation={180}
+				pcbX={-12}
+				pcbY={9.5}
+				pcbRotation={90}
 				schX={-8}
 				schY={-4}
 				connections={{ pin1: "net.USB5V", pin2: "net.GND" }}
@@ -217,11 +225,12 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				footprint="0805"
 				manufacturerPartNumber="CL21A106KAYNNNE"
 				supplierPartNumbers={{ jlcpcb: ["C15850"] }}
-				pcbX={-4.5}
-				pcbY={-8}
+				pcbX={-8}
+				pcbY={4.5}
 				schX={-3}
 				schY={-4}
 				connections={{ pin1: "net.SYS", pin2: "net.GND" }}
+				pcbRotation={270}
 			/>
 			<capacitor
 				name="C3"
@@ -230,9 +239,9 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				footprint="0402"
 				manufacturerPartNumber="CL05A105KA5NQNC"
 				supplierPartNumbers={{ jlcpcb: ["C52923"] }}
-				pcbX={-10}
-				pcbY={-9}
-				pcbRotation={180}
+				pcbX={-9}
+				pcbY={10}
+				pcbRotation={90}
 				schX={-0.5}
 				schY={-4}
 				connections={{ pin1: "net.BAT", pin2: "net.GND" }}
@@ -248,9 +257,9 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				}}
 				schWidth={1.9}
 				schRotation={0}
-				pcbRotation={90}
-				pcbX={-19}
-				pcbY={-10}
+				pcbRotation={0}
+				pcbX={-10}
+				pcbY={19}
 				schX={5}
 				schY={-5}
 				pinAttributes={{ pin1: {}, pin2: {}, BAT_POS: {}, BAT_NEG: {} }}
@@ -265,9 +274,10 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				footprint="0402"
 				manufacturerPartNumber={resistorPart.tenK.mpn}
 				supplierPartNumbers={{ jlcpcb: [resistorPart.tenK.jlc] }}
-				pcbX={-6}
-				pcbY={-4.8}
+				pcbX={-4.8}
+				pcbY={6}
 				connections={{ pin1: "net.V3V0", pin2: "net.CHG_INT" }}
+				pcbRotation={270}
 			/>
 
 			<JstShBattery
@@ -281,11 +291,12 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				}}
 				schWidth={1.9}
 				schRotation={0}
-				pcbX={-14}
-				pcbY={19}
+				pcbX={19}
+				pcbY={14}
 				schX={8}
 				schY={0}
 				connections={{ BAT_POS: "net.BAT", BAT_NEG: "net.GND" }}
+				pcbRotation={270}
 			/>
 		</schematicsheet>
 
@@ -301,8 +312,8 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				schWidth={1.96}
 				manufacturerPartNumber="TPS63802DLAR"
 				supplierPartNumbers={{ jlcpcb: ["C2845237"] }}
-				pcbX={0}
-				pcbY={-10.5}
+				pcbX={-10.5}
+				pcbY={0}
 				schX={8.5}
 				schY={0}
 				connections={{
@@ -314,6 +325,7 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 					FB: "net.BUCK_FB",
 					PG: "net.BUCK_PG",
 				}}
+				pcbRotation={270}
 			/>
 			<inductor
 				name="L1"
@@ -350,11 +362,12 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 					pcbRotationOffset: 0,
 					modelOriginPosition: { x: 0.0000127, y: 0, z: 0 },
 				}}
-				pcbX={0}
-				pcbY={-7.3}
+				pcbX={-7.3}
+				pcbY={0}
 				schX={8.5}
 				schY={4}
 				connections={{ pin1: "net.BUCK_L1", pin2: "net.BUCK_L2" }}
+				pcbRotation={270}
 			/>
 			<capacitor
 				name="C4"
@@ -363,9 +376,9 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				footprint="0805"
 				manufacturerPartNumber="CL21A106KAYNNNE"
 				supplierPartNumbers={{ jlcpcb: ["C15850"] }}
-				pcbX={-3.7}
-				pcbY={-10.5}
-				pcbRotation={180}
+				pcbX={-10.5}
+				pcbY={3.7}
+				pcbRotation={90}
 				schX={5.5}
 				schY={-4}
 				connections={{ pin1: "net.SYS", pin2: "net.GND" }}
@@ -377,9 +390,9 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				footprint="0805"
 				manufacturerPartNumber="CL21A226MAQNNNE"
 				supplierPartNumbers={{ jlcpcb: ["C45783"] }}
-				pcbX={3}
-				pcbY={-10.5}
-				pcbRotation={90}
+				pcbX={-10.5}
+				pcbY={-3}
+				pcbRotation={0}
 				schX={11.5}
 				schY={-4}
 				connections={{ pin1: "net.V3V0", pin2: "net.GND" }}
@@ -409,11 +422,12 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				footprint="0402"
 				manufacturerPartNumber={resistorPart.fiveTenK.mpn}
 				supplierPartNumbers={{ jlcpcb: [resistorPart.fiveTenK.jlc] }}
-				pcbX={3.5}
-				pcbY={-6.5}
+				pcbX={-6.5}
+				pcbY={-3.5}
 				schX={12.5}
 				schY={1}
 				connections={{ pin1: "net.V3V0", pin2: "net.BUCK_FB" }}
+				pcbRotation={270}
 			/>
 			<resistor
 				name="R5"
@@ -422,11 +436,12 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				footprint="0402"
 				manufacturerPartNumber={resistorPart.hundredK.mpn}
 				supplierPartNumbers={{ jlcpcb: [resistorPart.hundredK.jlc] }}
-				pcbX={5.5}
-				pcbY={-6.5}
+				pcbX={-6.5}
+				pcbY={-5.5}
 				schX={12.5}
 				schY={-1}
 				connections={{ pin1: "net.BUCK_FB", pin2: "net.GND" }}
+				pcbRotation={270}
 			/>
 			<resistor
 				name="R6"
@@ -435,11 +450,12 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				footprint="0402"
 				manufacturerPartNumber={resistorPart.hundredK.mpn}
 				supplierPartNumbers={{ jlcpcb: [resistorPart.hundredK.jlc] }}
-				pcbX={-2}
-				pcbY={-5}
+				pcbX={-5}
+				pcbY={2}
 				schX={10.5}
 				schY={3}
 				connections={{ pin1: "net.V3V0", pin2: "net.BUCK_PG" }}
+				pcbRotation={270}
 			/>
 		</schematicsheet>
 
@@ -453,8 +469,8 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				name="U1"
 				schHeight={5.2}
 				schWidth={2.245}
-				pcbX={-4}
-				pcbY={6}
+				pcbX={6}
+				pcbY={4}
 				schX={0}
 				schY={0}
 				noConnect={[
@@ -510,6 +526,7 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 					P0_17: "net.RTC_INT",
 					P0_18: "net.DEBUG_GPIO",
 				}}
+				pcbRotation={270}
 			/>
 			<capacitor
 				name="C8"
@@ -520,9 +537,9 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				footprint="0402"
 				manufacturerPartNumber={cap100n.mpn}
 				supplierPartNumbers={{ jlcpcb: [cap100n.jlc] }}
-				pcbX={-8.7}
-				pcbY={8.3}
-				pcbRotation={180}
+				pcbX={8.3}
+				pcbY={8.7}
+				pcbRotation={90}
 				connections={{ pin1: "net.NRF_DEC1", pin2: "net.GND" }}
 			/>
 			<capacitor
@@ -534,9 +551,10 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				footprint="0402"
 				manufacturerPartNumber="0402CG101J500NT"
 				supplierPartNumbers={{ jlcpcb: ["C1546"] }}
-				pcbX={1}
-				pcbY={6.3}
+				pcbX={6.3}
+				pcbY={-1}
 				connections={{ pin1: "net.NRF_DEC2", pin2: "net.GND" }}
+				pcbRotation={270}
 			/>
 			<capacitor
 				name="C10"
@@ -547,9 +565,9 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				footprint="0402"
 				manufacturerPartNumber={cap100n.mpn}
 				supplierPartNumbers={{ jlcpcb: [cap100n.jlc] }}
-				pcbX={3.2}
-				pcbY={6.5}
-				pcbRotation={0}
+				pcbX={6.5}
+				pcbY={-3.2}
+				pcbRotation={270}
 				connections={{ pin1: "net.NRF_DEC3", pin2: "net.GND" }}
 			/>
 			<capacitor
@@ -561,15 +579,15 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				footprint="0402"
 				manufacturerPartNumber="CL05A105KA5NQNC"
 				supplierPartNumbers={{ jlcpcb: ["C52923"] }}
-				pcbX={-5.4}
-				pcbY={10.6}
-				pcbRotation={180}
+				pcbX={10.6}
+				pcbY={5.4}
+				pcbRotation={90}
 				connections={{ pin1: "net.NRF_DEC4", pin2: "net.GND" }}
 			/>
 			<capacitor
 				name="C12"
-				pcbY={1.5}
-				pcbX={-2}
+				pcbY={2}
+				pcbX={1.5}
 				schY={5}
 				schX={2}
 				schRotation={-90}
@@ -578,6 +596,7 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				manufacturerPartNumber="CL10A475KO8NNNC"
 				supplierPartNumbers={{ jlcpcb: ["C19666"] }}
 				connections={{ pin1: "net.V3V0", pin2: "net.GND" }}
+				pcbRotation={270}
 			/>
 
 			<resistor
@@ -587,11 +606,12 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				footprint="0402"
 				manufacturerPartNumber="0402WGF4701TCE"
 				supplierPartNumbers={{ jlcpcb: ["C25900"] }}
-				pcbX={-3}
-				pcbY={-1}
+				pcbX={-1}
+				pcbY={3}
 				schX={8}
 				schY={5}
 				connections={{ pin1: "net.V3V0", pin2: "net.I2C_SCL" }}
+				pcbRotation={270}
 			/>
 			<resistor
 				name="R9"
@@ -601,10 +621,11 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				manufacturerPartNumber="0402WGF4701TCE"
 				supplierPartNumbers={{ jlcpcb: ["C25900"] }}
 				pcbX={-1}
-				pcbY={-1}
+				pcbY={1}
 				schX={10}
 				schY={5}
 				connections={{ pin1: "net.V3V0", pin2: "net.I2C_SDA" }}
+				pcbRotation={270}
 			/>
 
 			<resistor
@@ -617,8 +638,9 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				manufacturerPartNumber="0402WGF1002TCE"
 				supplierPartNumbers={{ jlcpcb: ["C25744"] }}
 				pcbX={1}
-				pcbY={1}
+				pcbY={-1}
 				connections={{ pin1: "net.V3V0", pin2: "net.NRST" }}
+				pcbRotation={270}
 			/>
 			<capacitor
 				name="C13"
@@ -629,9 +651,9 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				footprint="0402"
 				manufacturerPartNumber={cap100n.mpn}
 				supplierPartNumbers={{ jlcpcb: [cap100n.jlc] }}
-				pcbX={3}
-				pcbY={1}
-				pcbRotation={90}
+				pcbX={1}
+				pcbY={-3}
+				pcbRotation={0}
 				connections={{ pin1: "net.NRST", pin2: "net.GND" }}
 			/>
 
@@ -642,9 +664,9 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				footprint="0402"
 				manufacturerPartNumber="0402WGF1004TCE"
 				supplierPartNumbers={{ jlcpcb: ["C26083"] }}
-				pcbX={-8}
-				pcbY={0.1}
-				pcbRotation={180}
+				pcbX={0.1}
+				pcbY={8}
+				pcbRotation={90}
 				schX={6}
 				schY={-5}
 				connections={{ pin1: "net.BAT", pin2: "net.BAT_ADC" }}
@@ -657,11 +679,12 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				footprint="0402"
 				manufacturerPartNumber="0402WGF3303TCE"
 				supplierPartNumbers={{ jlcpcb: ["C25778"] }}
-				pcbX={-1.3}
-				pcbY={-4}
+				pcbX={-4}
+				pcbY={1.3}
 				schX={8}
 				schY={-5}
 				connections={{ pin1: "net.BAT_ADC", pin2: "net.GND" }}
+				pcbRotation={270}
 			/>
 			<capacitor
 				name="C14"
@@ -670,18 +693,19 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				footprint="0402"
 				manufacturerPartNumber={cap100n.mpn}
 				supplierPartNumbers={{ jlcpcb: [cap100n.jlc] }}
-				pcbX={1.3}
-				pcbY={-4}
+				pcbX={-4}
+				pcbY={-1.3}
 				schX={10}
 				schY={-5}
 				connections={{ pin1: "net.BAT_ADC", pin2: "net.GND" }}
+				pcbRotation={270}
 			/>
 			<SM06B_SRSS_TB
 				name="J3"
 				schY={-2.5}
 				schX={-4}
-				pcbX={-4}
-				pcbY={18.5}
+				pcbX={-7}
+				pcbY={-18}
 				connections={{
 					VREF: "net.V3V0",
 					SWDIO: "net.SWDIO",
@@ -690,6 +714,7 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 					NRST: "net.NRST",
 					DEBUG_GPIO: "net.DEBUG_GPIO",
 				}}
+				pcbRotation={180}
 			/>
 		</schematicsheet>
 
@@ -704,9 +729,9 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				name="J4"
 				schHeight={2.445}
 				schWidth={2.34}
-				pcbX={-17}
-				pcbY={0}
-				pcbRotation={270}
+				pcbX={0}
+				pcbY={17}
+				pcbRotation={180}
 				layer="top"
 				schX={8}
 				schY={0}
@@ -742,8 +767,8 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 
 			<resistor
 				name="R14"
-				pcbY={8.5}
-				pcbX={-15}
+				pcbY={15}
+				pcbX={8.5}
 				schRotation={-90}
 				resistance="22"
 				footprint="0402"
@@ -752,12 +777,13 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				schX={3}
 				schY={5}
 				connections={{ pin1: "net.V3V0", pin2: "net.DISPLAY_LEDA" }}
+				pcbRotation={270}
 			/>
 			<A_2N7002
 				name="Q1"
-				pcbY={12.6}
-				pcbX={-17}
-				pcbRotation={180}
+				pcbY={17}
+				pcbX={12.6}
+				pcbRotation={90}
 				schX={0}
 				schY={0}
 				connections={{
@@ -768,8 +794,8 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 			/>
 			<resistor
 				name="R15"
-				pcbY={15.2}
-				pcbX={-16.5}
+				pcbY={16.5}
+				pcbX={15.2}
 				resistance="100"
 				footprint="0402"
 				manufacturerPartNumber="0402WGF1000TCE"
@@ -777,11 +803,12 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				schX={-6}
 				schY={0}
 				connections={{ pin1: "net.LCD_BL", pin2: "net.LCD_BL_GATE" }}
+				pcbRotation={270}
 			/>
 			<resistor
 				name="R16"
-				pcbY={15}
-				pcbX={-11}
+				pcbY={11}
+				pcbX={15}
 				resistance="100k"
 				footprint="0402"
 				manufacturerPartNumber="0402WGF1003TCE"
@@ -790,6 +817,7 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				schY={-4}
 				schOrientation="vertical"
 				connections={{ pin1: "net.LCD_BL_GATE", pin2: "net.GND" }}
+				pcbRotation={270}
 			/>
 			<capacitor
 				name="C15"
@@ -797,12 +825,13 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				footprint="0402"
 				manufacturerPartNumber="CC0402KRX7R7BB104"
 				supplierPartNumbers={{ jlcpcb: ["C60474"] }}
-				pcbX={-12.4}
-				pcbY={13.1}
+				pcbX={13.1}
+				pcbY={12.4}
 				schX={8}
 				schY={5}
 				schOrientation="vertical"
 				connections={{ pin1: "net.V3V0", pin2: "net.GND" }}
+				pcbRotation={270}
 			/>
 		</schematicsheet>
 
@@ -815,8 +844,8 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 			{/* Sensors */}
 			<BMA456
 				name="U2"
-				pcbX={8}
-				pcbY={-1}
+				pcbX={-1}
+				pcbY={-8}
 				schX={-8}
 				schY={3}
 				noConnect={["ASDA", "ASCL"]}
@@ -832,6 +861,7 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 					INT1: "net.BMA_INT1",
 					INT2: "net.BMA_INT2",
 				}}
+				pcbRotation={270}
 			/>
 			<capacitor
 				name="C16"
@@ -842,9 +872,10 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				footprint="0402"
 				manufacturerPartNumber={cap100n.mpn}
 				supplierPartNumbers={{ jlcpcb: [cap100n.jlc] }}
-				pcbX={5.4}
-				pcbY={-1}
+				pcbX={-1}
+				pcbY={-5.4}
 				connections={{ pin1: "net.V3V0", pin2: "net.GND" }}
+				pcbRotation={270}
 			/>
 			<capacitor
 				name="C17"
@@ -855,17 +886,18 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				footprint="0402"
 				manufacturerPartNumber={cap100n.mpn}
 				supplierPartNumbers={{ jlcpcb: [cap100n.jlc] }}
-				pcbX={10.6}
-				pcbY={-1}
+				pcbX={-1}
+				pcbY={-10.6}
 				connections={{ pin1: "net.V3V0", pin2: "net.GND" }}
+				pcbRotation={270}
 			/>
 
 			<PCF8563TS
 				name="U4"
 				schX={7.55}
 				schWidth={1.756}
-				pcbX={10}
-				pcbY={-6}
+				pcbX={-6}
+				pcbY={-10}
 				schY={3}
 				noConnect={["CLKOUT"]}
 				connections={{
@@ -877,11 +909,12 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 					OSCI: "net.RTC_OSCI",
 					OSCO: "net.RTC_OSCO",
 				}}
+				pcbRotation={270}
 			/>
 			<crystal
 				name="Y1"
 				schRotation={90}
-				pcbRotation={180}
+				pcbRotation={90}
 				frequency="32.768kHz"
 				loadCapacitance="7pF"
 				manufacturerPartNumber="FC-135 32.7680KA-AG3"
@@ -894,8 +927,8 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 					pcbRotationOffset: 0,
 					modelOriginPosition: { x: -0.0000254, y: -0.0001397, z: -0.01 },
 				}}
-				pcbX={5}
-				pcbY={-4}
+				pcbX={-4}
+				pcbY={-5}
 				schX={4.45}
 				schY={3}
 				connections={{ pin1: "net.RTC_OSCI", pin2: "net.RTC_OSCO" }}
@@ -929,11 +962,12 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				footprint="0402"
 				manufacturerPartNumber={cap100n.mpn}
 				supplierPartNumbers={{ jlcpcb: [cap100n.jlc] }}
-				pcbX={9}
-				pcbY={-8}
+				pcbX={-8}
+				pcbY={-9}
 				schX={6}
 				schY={0}
 				connections={{ pin1: "net.BAT", pin2: "net.GND" }}
+				pcbRotation={270}
 			/>
 			<resistor
 				name="R17"
@@ -942,11 +976,12 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				footprint="0402"
 				manufacturerPartNumber="0402WGF1002TCE"
 				supplierPartNumbers={{ jlcpcb: ["C25744"] }}
-				pcbX={11}
-				pcbY={-8.2}
+				pcbX={-8.2}
+				pcbY={-11}
 				schX={8.5}
 				schY={0}
 				connections={{ pin1: "net.V3V0", pin2: "net.RTC_INT" }}
+				pcbRotation={270}
 			/>
 		</schematicsheet>
 
@@ -959,7 +994,7 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 			{/* Controls & haptics */}
 			<TS_1806SA_2x4x3_5DY_180X
 				name="SW1"
-				pcbY={-2}
+				pcbY={3.5}
 				pcbX={20.2}
 				pcbRotation={90}
 				schX={-8}
@@ -970,7 +1005,7 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 			<TS_1806SA_2x4x3_5DY_180X
 				name="SW2"
 				pcbX={20.2}
-				pcbY={-10}
+				pcbY={-3.5}
 				pcbRotation={90}
 				schX={0}
 				schY={3}
@@ -983,12 +1018,13 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				footprint="0402"
 				manufacturerPartNumber="0402WGF1003TCE"
 				supplierPartNumbers={{ jlcpcb: ["C25741"] }}
-				pcbX={12}
-				pcbY={3.4}
+				pcbX={3.4}
+				pcbY={-12}
 				schX={-8}
 				schY={7}
 				schOrientation="vertical"
 				connections={{ pin1: "net.V3V0", pin2: "net.BUTTON1" }}
+				pcbRotation={270}
 			/>
 			<resistor
 				name="R20"
@@ -996,12 +1032,13 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				footprint="0402"
 				manufacturerPartNumber="0402WGF1003TCE"
 				supplierPartNumbers={{ jlcpcb: ["C25741"] }}
-				pcbX={14}
-				pcbY={-9}
+				pcbX={-12}
+				pcbY={-14}
 				schX={0}
 				schY={7}
 				schOrientation="vertical"
 				connections={{ pin1: "net.V3V0", pin2: "net.BUTTON2" }}
+				pcbRotation={270}
 			/>
 
 			<MotorPads
@@ -1017,11 +1054,12 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				schRotation={0}
 				manufacturerPartNumber="LCM1234A3523F"
 				supplierPartNumbers={{ jlcpcb: ["C7424783"] }}
-				pcbX={13.3}
-				pcbY={15}
+				pcbX={15}
+				pcbY={-13.3}
 				schX={8}
 				schY={7}
 				connections={{ MOTOR_POS: "net.V3V0", MOTOR_NEG: "net.MOTOR_NEG" }}
+				pcbRotation={270}
 			/>
 			<A_2N7002
 				name="Q2"
@@ -1035,8 +1073,8 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 					pcbRotationOffset: 180,
 					modelOriginPosition: { x: 0.0000127, y: -0.0000127, z: 0.050795 },
 				}}
-				pcbX={8.5}
-				pcbY={16.5}
+				pcbX={16.5}
+				pcbY={-8.5}
 				schX={8}
 				schY={-1}
 				connections={{
@@ -1044,6 +1082,7 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 					source: "net.GND",
 					drain: "net.MOTOR_NEG",
 				}}
+				pcbRotation={270}
 			/>
 			<resistor
 				name="R21"
@@ -1051,16 +1090,17 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				footprint="0402"
 				manufacturerPartNumber="0402WGF1000TCE"
 				supplierPartNumbers={{ jlcpcb: ["C25076"] }}
-				pcbX={5.8}
-				pcbY={14.8}
+				pcbX={14.8}
+				pcbY={-5.8}
 				schX={2}
 				schY={-1}
 				connections={{ pin1: "net.MOTOR_EN", pin2: "net.MOTOR_GATE" }}
+				pcbRotation={270}
 			/>
 			<resistor
 				name="R22"
-				pcbY={9.5}
-				pcbX={13}
+				pcbY={-13}
+				pcbX={9.5}
 				resistance="100k"
 				footprint="0402"
 				manufacturerPartNumber="0402WGF1003TCE"
@@ -1069,18 +1109,20 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				schY={-5}
 				schOrientation="vertical"
 				connections={{ pin1: "net.MOTOR_GATE", pin2: "net.GND" }}
+				pcbRotation={270}
 			/>
 			<diode
 				name="D2"
 				footprint="sod323"
 				manufacturerPartNumber="1N5819WS"
 				supplierPartNumbers={{ jlcpcb: ["C5451629"] }}
-				pcbX={9.5}
-				pcbY={10.8}
+				pcbX={10.8}
+				pcbY={-9.5}
 				schX={13}
 				schY={3}
 				schOrientation="vertical"
 				connections={{ anode: "net.MOTOR_NEG", cathode: "net.V3V0" }}
+				pcbRotation={270}
 			/>
 			<capacitor
 				name="C23"
@@ -1088,12 +1130,13 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				footprint="0805"
 				manufacturerPartNumber="CL21A226MAQNNNE"
 				supplierPartNumbers={{ jlcpcb: ["C45783"] }}
-				pcbX={15}
-				pcbY={12}
+				pcbX={12}
+				pcbY={-15}
 				schX={16}
 				schY={-1}
 				schOrientation="vertical"
 				connections={{ pin1: "net.V3V0", pin2: "net.GND" }}
+				pcbRotation={270}
 			/>
 		</schematicsheet>
 		<schematicsheet
@@ -1104,9 +1147,9 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 		>
 			<Crystal32MHz
 				name="Y2"
-				pcbX={1.4}
-				pcbY={10}
-				pcbRotation={90}
+				pcbX={10}
+				pcbY={-1.4}
+				pcbRotation={0}
 				schX={-10}
 				schY={3}
 				connections={{
@@ -1120,19 +1163,20 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				name="Y3"
 				schY={1.3}
 				schX={0}
-				pcbX={-11.3}
-				pcbY={7.15}
-				pcbRotation={270}
+				pcbX={7.15}
+				pcbY={11.3}
+				pcbRotation={180}
 				connections={{ pin1: "net.LF_X1", pin2: "net.LF_X2" }}
 			/>
 			<ChipAntenna
 				name="ANT1"
-				pcbX={20.6}
-				pcbY={5.8}
+				pcbX={5.8}
+				pcbY={-20.6}
 				schX={10}
 				schY={-5}
 				noConnect={["NC"]}
 				connections={{ FEED: "net.RF_FEED" }}
+				pcbRotation={270}
 			/>
 			<inductor
 				name="L2"
@@ -1140,16 +1184,17 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				footprint="0402"
 				manufacturerPartNumber="LQG15HS3N9S02D"
 				supplierPartNumbers={{ jlcpcb: ["C77109"] }}
-				pcbX={1.6}
-				pcbY={5}
+				pcbX={5}
+				pcbY={-1.6}
 				schX={2}
 				schY={-5}
 				connections={{ pin1: "net.RF_ANT", pin2: "net.RF_50" }}
+				pcbRotation={270}
 			/>
 			<inductor
 				name="L3"
-				pcbY={5.8}
-				pcbX={15.8}
+				pcbY={-15.8}
+				pcbX={5.8}
 				inductance="6.8nH"
 				footprint="0402"
 				manufacturerPartNumber="LQG15HS6N8J02D"
@@ -1157,6 +1202,7 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				schX={6}
 				schY={-5}
 				connections={{ pin1: "net.RF_50", pin2: "net.RF_FEED" }}
+				pcbRotation={270}
 			/>
 			<capacitor
 				name="C24"
@@ -1164,9 +1210,9 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				footprint="0402"
 				manufacturerPartNumber="GJM1555C1HR80WB01D"
 				supplierPartNumbers={{ jlcpcb: ["C88902"] }}
-				pcbX={1.5}
-				pcbY={3.5}
-				pcbRotation={0}
+				pcbX={3.5}
+				pcbY={-1.5}
+				pcbRotation={270}
 				schX={0}
 				schY={-7}
 				schOrientation="vertical"
@@ -1180,9 +1226,9 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				footprint="0402"
 				manufacturerPartNumber="CC0402KRX7R7BB104"
 				supplierPartNumbers={{ jlcpcb: ["C60474"] }}
-				pcbX={-6.2}
-				pcbY={1.4}
-				pcbRotation={0}
+				pcbX={1.4}
+				pcbY={6.2}
+				pcbRotation={270}
 				schOrientation="vertical"
 				connections={{ pin1: "net.V3V0", pin2: "net.GND" }}
 			/>
@@ -1194,9 +1240,9 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				footprint="0402"
 				manufacturerPartNumber="CC0402KRX7R7BB104"
 				supplierPartNumbers={{ jlcpcb: ["C60474"] }}
-				pcbX={3.8}
-				pcbY={11.2}
-				pcbRotation={0}
+				pcbX={11.2}
+				pcbY={-3.8}
+				pcbRotation={270}
 				schOrientation="vertical"
 				connections={{ pin1: "net.V3V0", pin2: "net.GND" }}
 			/>
@@ -1208,9 +1254,9 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				footprint="0402"
 				manufacturerPartNumber="CC0402KRX7R7BB104"
 				supplierPartNumbers={{ jlcpcb: ["C60474"] }}
-				pcbX={-5.7}
-				pcbY={13}
-				pcbRotation={0}
+				pcbX={13}
+				pcbY={5.7}
+				pcbRotation={270}
 				schOrientation="vertical"
 				connections={{ pin1: "net.V3V0", pin2: "net.GND" }}
 			/>
@@ -1220,9 +1266,9 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				footprint="0402"
 				manufacturerPartNumber="0402CG120J500NT"
 				supplierPartNumbers={{ jlcpcb: ["C1547"] }}
-				pcbX={3.9}
-				pcbY={9.3}
-				pcbRotation={0}
+				pcbX={9.3}
+				pcbY={-3.9}
+				pcbRotation={270}
 				schX={-12}
 				schY={1}
 				schOrientation="vertical"
@@ -1234,9 +1280,9 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 				footprint="0402"
 				manufacturerPartNumber="0402CG120J500NT"
 				supplierPartNumbers={{ jlcpcb: ["C1547"] }}
-				pcbX={0.5}
-				pcbY={12}
-				pcbRotation={0}
+				pcbX={12}
+				pcbY={-0.5}
+				pcbRotation={270}
 				schX={-8}
 				schY={1}
 				schOrientation="vertical"
@@ -1244,13 +1290,13 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 			/>
 			<capacitor
 				name="C30"
-				pcbY={10.5}
-				pcbX={-12.8}
+				pcbY={12.8}
+				pcbX={10.5}
 				capacitance="12pF"
 				footprint="0402"
 				manufacturerPartNumber="0402CG120J500NT"
 				supplierPartNumbers={{ jlcpcb: ["C1547"] }}
-				pcbRotation={0}
+				pcbRotation={270}
 				schX={-2}
 				schY={1}
 				schOrientation="vertical"
@@ -1258,13 +1304,13 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 			/>
 			<capacitor
 				name="C31"
-				pcbY={3.4}
-				pcbX={-11.5}
+				pcbY={11.5}
+				pcbX={3.4}
 				capacitance="12pF"
 				footprint="0402"
 				manufacturerPartNumber="0402CG120J500NT"
 				supplierPartNumbers={{ jlcpcb: ["C1547"] }}
-				pcbRotation={0}
+				pcbRotation={270}
 				schX={2}
 				schY={1}
 				schOrientation="vertical"
@@ -1278,8 +1324,8 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 			width="0.18mm"
 			pcbPathRelativeTo=".U1 > .ANT"
 			pcbPath={[
-				{ x: 3.9, y: -0.2 },
-				{ x: 5.09, y: -1 },
+				{ x: -0.2, y: -3.9 },
+				{ x: -1, y: -5.09 },
 			]}
 		/>
 		<trace
@@ -1305,10 +1351,10 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 		/>
 		<keepout
 			shape="rect"
-			pcbX={20}
-			pcbY={5.8}
-			width={6}
-			height={7}
+			pcbX={5.8}
+			pcbY={-20}
+			width={7}
+			height={6}
 			layers={["top", "inner1", "inner2", "bottom"]}
 			excludeRefs={[".ANT1"]}
 		/>
@@ -1319,8 +1365,8 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 			width="0.15mm"
 			pcbPathRelativeTo=".U1 > .DEC3"
 			pcbPath={[
-				{ x: 5.8, y: 1 },
-				{ x: 6.69, y: 0.5 },
+				{ x: 1, y: -5.8 },
+				{ x: 0.5, y: -6.69 },
 			]}
 		/>
 		<trace
@@ -1330,8 +1376,8 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 			width="0.15mm"
 			pcbPathRelativeTo=".U1 > .XC1"
 			pcbPath={[
-				{ x: 4, y: 1.4 },
-				{ x: 5.95, y: 2.3 },
+				{ x: 1.4, y: -4 },
+				{ x: 2.3, y: -5.95 },
 			]}
 		/>
 		<trace
@@ -1341,8 +1387,8 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 			width="0.15mm"
 			pcbPathRelativeTo=".U1 > .XC2"
 			pcbPath={[
-				{ x: 3.7, y: 1.8 },
-				{ x: 3.7, y: 4.7 },
+				{ x: 1.8, y: -3.7 },
+				{ x: 4.7, y: -3.7 },
 			]}
 		/>
 		<trace
@@ -1365,7 +1411,7 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 			to=".Y3 > .pin1"
 			width="0.15mm"
 			pcbPathRelativeTo=".U1 > .XL1"
-			pcbPath={[{ x: -5.9, y: 1.8 }]}
+			pcbPath={[{ x: 1.8, y: 5.9 }]}
 		/>
 		<trace
 			name="LF_CLOCK2"
@@ -1373,7 +1419,7 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 			to=".Y3 > .pin2"
 			width="0.15mm"
 			pcbPathRelativeTo=".U1 > .XL2"
-			pcbPath={[{ x: -5.5, y: 1.4 }]}
+			pcbPath={[{ x: 1.4, y: 5.5 }]}
 		/>
 		<trace
 			name="LF_LOAD1"
@@ -1402,7 +1448,7 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 			to=".Y1 > .pin2"
 			width="0.15mm"
 			pcbPathRelativeTo=".U4 > .OSCO"
-			pcbPath={[{ x: -6.15, y: 0.25 }]}
+			pcbPath={[{ x: 0.25, y: 6.15 }]}
 		/>
 		<trace
 			name="DEC4_LOCAL"
@@ -1410,7 +1456,7 @@ export const SMARTWATCH_V1_NRF52810 = () => (
 			to=".C11 > .pin1"
 			width="0.15mm"
 			pcbPathRelativeTo=".U1 > .DEC4"
-			pcbPath={[{ x: -1.4, y: 3.8 }]}
+			pcbPath={[{ x: 3.8, y: 1.4 }]}
 		/>
 	</board>
 );

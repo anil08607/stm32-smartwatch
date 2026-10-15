@@ -1,0 +1,351 @@
+{
+	"description": "Restore the proven BUTTON1 MCU escape and inner2 pull-up connection, then join its new switch branch. Remove only the abandoned VREF spur at the previous J3 position.",
+	"replace_nets": ["BUTTON1"],
+	"remove_tracks": [
+		{
+			"net": "V3V0",
+			"route": [
+				{
+					"route_type": "wire",
+					"x": 16.5,
+					"y": 6.5,
+					"width": 0.3,
+					"layer": "top"
+				},
+				{
+					"route_type": "wire",
+					"x": 13.862,
+					"y": 6.5,
+					"width": 0.3,
+					"layer": "top"
+				}
+			]
+		},
+		{
+			"net": "V3V0",
+			"route": [
+				{
+					"route_type": "wire",
+					"x": 13.862,
+					"y": 6.5,
+					"width": 0.3,
+					"layer": "top"
+				},
+				{
+					"route_type": "wire",
+					"x": 13.572,
+					"y": 6.21,
+					"width": 0.3,
+					"layer": "top"
+				}
+			]
+		},
+		{
+			"net": "V3V0",
+			"route": [
+				{
+					"route_type": "wire",
+					"x": 13.0,
+					"y": 6.21,
+					"width": 0.3,
+					"layer": "top"
+				},
+				{
+					"route_type": "wire",
+					"x": 13.572,
+					"y": 6.21,
+					"width": 0.3,
+					"layer": "top"
+				}
+			]
+		},
+		{
+			"net": "V3V0",
+			"route": [
+				{
+					"route_type": "wire",
+					"x": 13.0,
+					"y": 6.21,
+					"width": 0.3,
+					"layer": "top"
+				},
+				{
+					"route_type": "wire",
+					"x": 12.428,
+					"y": 6.21,
+					"width": 0.3,
+					"layer": "top"
+				}
+			]
+		},
+		{
+			"net": "V3V0",
+			"route": [
+				{
+					"route_type": "wire",
+					"x": 12.302,
+					"y": 6.21,
+					"width": 0.3,
+					"layer": "top"
+				},
+				{
+					"route_type": "wire",
+					"x": 12.428,
+					"y": 6.21,
+					"width": 0.3,
+					"layer": "top"
+				}
+			]
+		}
+	],
+	"tracks": [
+		{
+			"net": "BUTTON1",
+			"route": [
+				{
+					"route_type": "wire",
+					"x": 2.7011,
+					"y": -13.6556,
+					"width": 0.15,
+					"layer": "top"
+				},
+				{
+					"route_type": "wire",
+					"x": 3.4,
+					"y": -12.9567,
+					"width": 0.15,
+					"layer": "top"
+				}
+			]
+		},
+		{
+			"net": "BUTTON1",
+			"route": [
+				{
+					"route_type": "wire",
+					"x": 6.6,
+					"y": 7.0,
+					"width": 0.15,
+					"layer": "top"
+				},
+				{
+					"route_type": "wire",
+					"x": 6.6,
+					"y": 7.7774,
+					"width": 0.15,
+					"layer": "top"
+				}
+			]
+		},
+		{
+			"net": "BUTTON1",
+			"route": [
+				{
+					"route_type": "wire",
+					"x": 3.4,
+					"y": -12.51,
+					"width": 0.15,
+					"layer": "top"
+				},
+				{
+					"route_type": "wire",
+					"x": 3.4,
+					"y": -12.9567,
+					"width": 0.15,
+					"layer": "top"
+				}
+			]
+		},
+		{
+			"net": "BUTTON1",
+			"route": [
+				{
+					"route_type": "wire",
+					"x": 2.7011,
+					"y": -14.4719,
+					"width": 0.15,
+					"layer": "top"
+				},
+				{
+					"route_type": "wire",
+					"x": 2.7011,
+					"y": -13.6556,
+					"width": 0.15,
+					"layer": "top"
+				}
+			]
+		},
+		{
+			"net": "BUTTON1",
+			"route": [
+				{
+					"route_type": "wire",
+					"x": 6.6,
+					"y": -10.593,
+					"width": 0.15,
+					"layer": "inner2"
+				},
+				{
+					"route_type": "wire",
+					"x": 6.6,
+					"y": 7.7774,
+					"width": 0.15,
+					"layer": "inner2"
+				}
+			]
+		},
+		{
+			"net": "BUTTON1",
+			"route": [
+				{
+					"route_type": "wire",
+					"x": 2.7011,
+					"y": -14.4919,
+					"width": 0.15,
+					"layer": "inner2"
+				},
+				{
+					"route_type": "wire",
+					"x": 6.6,
+					"y": -10.593,
+					"width": 0.15,
+					"layer": "inner2"
+				}
+			]
+		},
+		{
+			"net": "BUTTON1",
+			"route": [
+				{
+					"route_type": "wire",
+					"x": 19.0751,
+					"y": 1.8,
+					"width": 0.15,
+					"layer": "top"
+				},
+				{
+					"route_type": "wire",
+					"x": 18.1535,
+					"y": 1.8,
+					"width": 0.15,
+					"layer": "top"
+				}
+			]
+		},
+		{
+			"net": "BUTTON1",
+			"route": [
+				{
+					"route_type": "wire",
+					"x": 13.9649,
+					"y": -2.3886,
+					"width": 0.15,
+					"layer": "inner2"
+				},
+				{
+					"route_type": "wire",
+					"x": 18.1535,
+					"y": 1.8,
+					"width": 0.15,
+					"layer": "inner2"
+				}
+			]
+		},
+		{
+			"net": "BUTTON1",
+			"route": [
+				{
+					"route_type": "wire",
+					"x": 7.2904,
+					"y": -2.3886,
+					"width": 0.15,
+					"layer": "inner2"
+				},
+				{
+					"route_type": "wire",
+					"x": 13.9649,
+					"y": -2.3886,
+					"width": 0.15,
+					"layer": "inner2"
+				}
+			]
+		},
+		{
+			"net": "BUTTON1",
+			"route": [
+				{
+					"x": 6.6,
+					"y": -2.3886,
+					"width": 0.15,
+					"layer": "inner2"
+				},
+				{
+					"x": 7.2904,
+					"y": -2.3886,
+					"width": 0.15,
+					"layer": "inner2"
+				}
+			]
+		},
+		{
+			"net": "BUTTON1",
+			"route": [
+				{
+					"x": 2.7011,
+					"y": -14.4919,
+					"width": 0.15,
+					"layer": "inner2"
+				},
+				{
+					"x": 2.7011,
+					"y": -14.4719,
+					"width": 0.15,
+					"layer": "inner2"
+				}
+			]
+		},
+		{
+			"net": "V3V0",
+			"route": [
+				{
+					"x": 12.302,
+					"y": 6.21,
+					"width": 0.3,
+					"layer": "top"
+				},
+				{
+					"x": 13,
+					"y": 6.21,
+					"width": 0.3,
+					"layer": "top"
+				}
+			]
+		}
+	],
+	"vias": [
+		{
+			"net": "BUTTON1",
+			"x": 2.7011,
+			"y": -14.4719,
+			"outer_diameter": 0.4,
+			"hole_diameter": 0.2,
+			"layers": ["top", "inner1", "inner2", "bottom"]
+		},
+		{
+			"net": "BUTTON1",
+			"x": 6.6,
+			"y": 7.7774,
+			"outer_diameter": 0.4,
+			"hole_diameter": 0.2,
+			"layers": ["top", "inner1", "inner2", "bottom"]
+		},
+		{
+			"net": "BUTTON1",
+			"x": 18.1535,
+			"y": 1.8,
+			"outer_diameter": 0.4,
+			"hole_diameter": 0.2,
+			"layers": ["top", "inner1", "inner2", "bottom"]
+		}
+	]
+}
