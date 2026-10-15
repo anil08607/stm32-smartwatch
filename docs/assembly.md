@@ -30,3 +30,5 @@ The display has a perimeter support ledge and a 0.10 mm tape seat, plus a 0.20 m
 Both captive plungers align with SW1/SW2 at Y=-2/-10 mm and Z=1.7 mm. Their stem starts at X=22.68 mm, giving nominal 0.15 mm clearance from the imported actuator envelope. The stem has 0.30 mm clearance per side in the case guide and 0.30 mm available inward travel. An internal flange prevents outward loss; final switch stroke and molding tolerances need physical confirmation.
 
 Battery, thermistor and motor leads pass around the board perimeter instead of crossing its substrate. `docs/checks/mechanical-clearance.json` records actual solid intersections for these routes, display/retainer, battery/motor and button/case. These scoped nominal checks do not certify the unknown supplier flex population or the complete tolerance stack.
+
+Browser CAD importers can discard glTF transparency. The clock-face graphic is a cosmetic mesh placed 0.02 mm above the outer lens so it remains visible there. It follows the lens in the exploded view, is not an extra manufactured part, and does not change the specified LCD or physical stack.

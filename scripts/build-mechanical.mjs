@@ -304,6 +304,15 @@ add(
 	"Protected 1S pack identification face; final supplier label pending",
 	-7,
 );
+// Browser CAD importers can drop glTF alpha. A cosmetic face sits 0.02 mm above
+// the outer glass, following the lens in the exploded view. It is not physical hardware.
+add(
+	"display-preview-face",
+	cyl(16.2, 0.01, -3.5, 0, 7.225),
+	[0.004, 0.012, 0.025, 1],
+	"Cosmetic display image on outer glass for opaque-material CAD viewers; not an extra physical layer",
+	26,
+);
 // An illustrative clock face uses solid strokes so native GLB previews retain it without textures.
 for (let i = 0; i < 12; i++) {
 	const a = (i * Math.PI) / 6,
@@ -314,36 +323,36 @@ for (let i = 0; i < 12; i++) {
 		jscad.transforms.rotateZ(-a, box([0.45, 1.5, 0.015])),
 		[0.55, 0.75, 0.8, 1],
 		"Illustrative clock dial; not running firmware",
-		20,
+		26,
 	);
-	parts.at(-1).solid = translate([x, y, 6.041], parts.at(-1).solid);
+	parts.at(-1).solid = translate([x, y, 7.245], parts.at(-1).solid);
 }
 add(
 	"dial-hour-hand",
 	translate(
-		[-3.5, 0, 6.055],
+		[-3.5, 0, 7.265],
 		jscad.transforms.rotateZ(0.85, box([0.7, 10, 0.02], [0, 3, 0])),
 	),
 	[0.8, 0.85, 0.88, 1],
 	"Illustrative clock face",
-	20,
+	26,
 );
 add(
 	"dial-minute-hand",
 	translate(
-		[-3.5, 0, 6.075],
+		[-3.5, 0, 7.29],
 		jscad.transforms.rotateZ(-1.05, box([0.45, 14, 0.02], [0, 4, 0])),
 	),
 	[0.8, 0.85, 0.88, 1],
 	"Illustrative clock face",
-	20,
+	26,
 );
 add(
 	"dial-hub",
-	cyl(0.7, 0.03, -3.5, 0, 6.1),
+	cyl(0.7, 0.03, -3.5, 0, 7.32),
 	[0.95, 0.28, 0.04, 1],
 	"Illustrative clock face",
-	20,
+	26,
 );
 // Nonconductive harness envelopes use piecewise cylinders, not electrical copper.
 function wire(id, points, r, color, explode = -3) {

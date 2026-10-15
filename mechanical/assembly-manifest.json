@@ -784,6 +784,31 @@
       "volume_mm3": 12.600000000000023
     },
     {
+      "id": "display-preview-face",
+      "color": [
+        0.004,
+        0.012,
+        0.025,
+        1
+      ],
+      "stage": "Cosmetic display image on outer glass for opaque-material CAD viewers; not an extra physical layer",
+      "explode": 26,
+      "production": false,
+      "bounds_mm": [
+        [
+          -19.7,
+          -16.2,
+          7.22
+        ],
+        [
+          12.7,
+          16.2,
+          7.2299999999999995
+        ]
+      ],
+      "volume_mm3": 8.221270532694817
+    },
+    {
       "id": "dial-marker-0",
       "color": [
         0.55,
@@ -792,21 +817,21 @@
         1
       ],
       "stage": "Illustrative clock dial; not running firmware",
-      "explode": 20,
+      "explode": 26,
       "production": false,
       "bounds_mm": [
         [
           -3.725,
           13.25,
-          6.0335
+          7.2375
         ],
         [
           -3.275,
           14.75,
-          6.048500000000001
+          7.2525
         ]
       ],
-      "volume_mm3": 0.01012500000003147
+      "volume_mm3": 0.010125000000018591
     },
     {
       "id": "dial-marker-1",
@@ -817,21 +842,21 @@
         1
       ],
       "stage": "Illustrative clock dial; not running firmware",
-      "explode": 20,
+      "explode": 26,
       "production": false,
       "bounds_mm": [
         [
           2.9301442841485006,
           11.362336600143813,
-          6.0335
+          7.2375
         ],
         [
           4.069855715851498,
           12.886374705820472,
-          6.048500000000001
+          7.2525
         ]
       ],
-      "volume_mm3": 0.010125000000013706
+      "volume_mm3": 0.01012500000002925
     },
     {
       "id": "dial-marker-2",
@@ -842,21 +867,21 @@
         1
       ],
       "stage": "Illustrative clock dial; not running firmware",
-      "explode": 20,
+      "explode": 26,
       "production": false,
       "bounds_mm": [
         [
           7.862336600143812,
           6.430144284148503,
-          6.0335
+          7.2375
         ],
         [
           9.38637470582047,
           7.5698557158515,
-          6.048500000000001
+          7.2525
         ]
       ],
-      "volume_mm3": 0.010125000000012818
+      "volume_mm3": 0.01012499999999994
     },
     {
       "id": "dial-marker-3",
@@ -867,21 +892,21 @@
         1
       ],
       "stage": "Illustrative clock dial; not running firmware",
-      "explode": 20,
+      "explode": 26,
       "production": false,
       "bounds_mm": [
         [
           9.75,
           -0.22499999999999915,
-          6.0335
+          7.2375
         ],
         [
           11.25,
           0.22500000000000087,
-          6.048500000000001
+          7.2525
         ]
       ],
-      "volume_mm3": 0.010124999999999718
+      "volume_mm3": 0.01012499999999883
     },
     {
       "id": "dial-marker-4",
@@ -892,21 +917,21 @@
         1
       ],
       "stage": "Illustrative clock dial; not running firmware",
-      "explode": 20,
+      "explode": 26,
       "production": false,
       "bounds_mm": [
         [
           7.862336600143814,
           -7.569855715851496,
-          6.0335
+          7.2375
         ],
         [
           9.386374705820472,
           -6.430144284148499,
-          6.048500000000001
+          7.2525
         ]
       ],
-      "volume_mm3": 0.010124999999987061
+      "volume_mm3": 0.010125000000005713
     },
     {
       "id": "dial-marker-5",
@@ -917,21 +942,21 @@
         1
       ],
       "stage": "Illustrative clock dial; not running firmware",
-      "explode": 20,
+      "explode": 26,
       "production": false,
       "bounds_mm": [
         [
           2.9301442841485006,
           -12.886374705820472,
-          6.0335
+          7.2375
         ],
         [
           4.069855715851498,
           -11.362336600143813,
-          6.048500000000001
+          7.2525
         ]
       ],
-      "volume_mm3": 0.010125000000013706
+      "volume_mm3": 0.010125000000015483
     },
     {
       "id": "dial-marker-6",
@@ -942,21 +967,21 @@
         1
       ],
       "stage": "Illustrative clock dial; not running firmware",
-      "explode": 20,
+      "explode": 26,
       "production": false,
       "bounds_mm": [
         [
           -3.7249999999999983,
           -14.75,
-          6.0335
+          7.2375
         ],
         [
           -3.274999999999998,
           -13.25,
-          6.048500000000001
+          7.2525
         ]
       ],
-      "volume_mm3": 0.01012499999999883
+      "volume_mm3": 0.01012499999997396
     },
     {
       "id": "dial-marker-7",
@@ -967,21 +992,21 @@
         1
       ],
       "stage": "Illustrative clock dial; not running firmware",
-      "explode": 20,
+      "explode": 26,
       "production": false,
       "bounds_mm": [
         [
           -11.069855715851496,
           -12.886374705820472,
-          6.0335
+          7.2375
         ],
         [
           -9.930144284148497,
           -11.362336600143813,
-          6.048500000000001
+          7.2525
         ]
       ],
-      "volume_mm3": 0.010125000000024809
+      "volume_mm3": 0.010125000000050122
     },
     {
       "id": "dial-marker-8",
@@ -992,21 +1017,21 @@
         1
       ],
       "stage": "Illustrative clock dial; not running firmware",
-      "explode": 20,
+      "explode": 26,
       "production": false,
       "bounds_mm": [
         [
           -16.386374705820465,
           -7.569855715851505,
-          6.0335
+          7.2375
         ],
         [
           -14.86233660014381,
           -6.430144284148508,
-          6.048500000000001
+          7.2525
         ]
       ],
-      "volume_mm3": 0.010125000000012152
+      "volume_mm3": 0.010125000000013262
     },
     {
       "id": "dial-marker-9",
@@ -1017,21 +1042,21 @@
         1
       ],
       "stage": "Illustrative clock dial; not running firmware",
-      "explode": 20,
+      "explode": 26,
       "production": false,
       "bounds_mm": [
         [
           -18.25,
           -0.2250000000000026,
-          6.0335
+          7.2375
         ],
         [
           -16.75,
           0.22499999999999742,
-          6.048500000000001
+          7.2525
         ]
       ],
-      "volume_mm3": 0.010125000000000828
+      "volume_mm3": 0.010124999999997497
     },
     {
       "id": "dial-marker-10",
@@ -1042,21 +1067,21 @@
         1
       ],
       "stage": "Illustrative clock dial; not running firmware",
-      "explode": 20,
+      "explode": 26,
       "production": false,
       "bounds_mm": [
         [
           -16.38637470582047,
           6.430144284148503,
-          6.0335
+          7.2375
         ],
         [
           -14.862336600143811,
           7.5698557158515,
-          6.048500000000001
+          7.2525
         ]
       ],
-      "volume_mm3": 0.010125000000005269
+      "volume_mm3": 0.010125000000084539
     },
     {
       "id": "dial-marker-11",
@@ -1067,21 +1092,21 @@
         1
       ],
       "stage": "Illustrative clock dial; not running firmware",
-      "explode": 20,
+      "explode": 26,
       "production": false,
       "bounds_mm": [
         [
           -11.069855715851507,
           11.36233660014381,
-          6.0335
+          7.2375
         ],
         [
           -9.930144284148508,
           12.886374705820465,
-          6.048500000000001
+          7.2525
         ]
       ],
-      "volume_mm3": 0.010124999999952866
+      "volume_mm3": 0.010125000000018813
     },
     {
       "id": "dial-hour-hand",
@@ -1092,21 +1117,21 @@
         1
       ],
       "stage": "Illustrative clock face",
-      "explode": 20,
+      "explode": 26,
       "production": false,
       "bounds_mm": [
         [
           -9.741237342182085,
           -1.5829144335690668,
-          6.045
+          7.255
         ],
         [
           -1.7664450886596708,
           5.54281330887896,
-          6.0649999999999995
+          7.2749999999999995
         ]
       ],
-      "volume_mm3": 0.1399999999999988
+      "volume_mm3": 0.14000000000000767
     },
     {
       "id": "dial-minute-hand",
@@ -1117,21 +1142,21 @@
         1
       ],
       "stage": "Illustrative clock face",
-      "explode": 20,
+      "explode": 26,
       "production": false,
       "bounds_mm": [
         [
           -6.21422316255769,
           -1.6878833694338347,
-          6.065
+          7.28
         ],
         [
           6.153608967309825,
           5.66845175256765,
-          6.085
+          7.3
         ]
       ],
-      "volume_mm3": 0.12599999999997635
+      "volume_mm3": 0.12600000000000833
     },
     {
       "id": "dial-hub",
@@ -1142,21 +1167,21 @@
         1
       ],
       "stage": "Illustrative clock face",
-      "explode": 20,
+      "explode": 26,
       "production": false,
       "bounds_mm": [
         [
           -4.2,
           -0.7,
-          6.085
+          7.305000000000001
         ],
         [
           -2.8,
           0.7,
-          6.114999999999999
+          7.335
         ]
       ],
-      "volume_mm3": 0.0460496406152327
+      "volume_mm3": 0.04604964061523423
     },
     {
       "id": "battery-positive",

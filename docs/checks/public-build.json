@@ -3,23 +3,23 @@
   "entries": [
     {
       "file": "index.circuit.tsx",
-      "mechanical_parts": 51,
-      "circuit_sha256": "ecd4d039ec48a6c3ca400882b8f53eb03c17af5b6bcf66d76178830090de4060"
+      "mechanical_parts": 52,
+      "circuit_sha256": "015f0d76412a5df4237934860c2b323e3b3cf4074180ae34d92b7130416602b2"
     },
     {
       "file": "assembly.circuit.tsx",
-      "mechanical_parts": 51,
-      "circuit_sha256": "ecd4d039ec48a6c3ca400882b8f53eb03c17af5b6bcf66d76178830090de4060"
+      "mechanical_parts": 52,
+      "circuit_sha256": "015f0d76412a5df4237934860c2b323e3b3cf4074180ae34d92b7130416602b2"
     },
     {
       "file": "assembly-exploded.circuit.tsx",
-      "mechanical_parts": 51,
-      "circuit_sha256": "d5f8a1e232530b063a6461a6ddb239c2f0311c3bac7c1cb0fa0404839ab0768e"
+      "mechanical_parts": 52,
+      "circuit_sha256": "7d0c3141914a4c2440a6409deee15db137b5f95e434896ca3b71e1969e0d6c6d"
     },
     {
       "file": "pcb.circuit.tsx",
       "mechanical_parts": 0,
-      "circuit_sha256": "c8e0f54c8b9f7c6b0fdde4402f01ce135b9c630d8302ee1f51d6ad2ea5ae800d"
+      "circuit_sha256": "2a807ecf580bfac8654ccb630511a3232b2d9c332d3825522bbcf3543f9b5f54"
     }
   ],
   "diagnostics": 0

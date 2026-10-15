@@ -1,13 +1,13 @@
 {
-  "parts": 385,
-  "external_subassemblies": 51,
+  "parts": 386,
+  "external_subassemblies": 52,
   "all_exported_part_bounds_match": true,
   "nominal_collision_pairs": 9,
   "inputs": {
-    "mechanical/assembly-manifest.json": "ea9c2abf73c6ed80a3ddde3cb8f65584ff69e379ecbc103d8d7f853dca8201ac",
-    "mechanical/assembly-model.json": "f14d3d100e78bc0441bcfb6658e774431571de521889d6f8539d6ff5692f12e9",
-    "mechanical/complete-assembly.glb": "6d4be1f6e489926019c1748b9aedceb1f40390ab148c86bb00d2c54b1bcb73e2",
-    "mechanical/exploded-assembly.glb": "2fd1fe56d8b842ba603bca5508bec2eb39f0a281c384a8cf17f2b5c3ed77ace2",
+    "mechanical/assembly-manifest.json": "77d8b04dc4ee90e30f99efb6650fd0e6e9ec29c8ee0c9ac16c4912d43df76e64",
+    "mechanical/assembly-model.json": "d97cfb3b7ac44f7a03fbdad5b736f41516962a336ea025e2227fea7b2c45d005",
+    "mechanical/complete-assembly.glb": "1330286201d7be10d8697c89fcb423fc3a51eec224ec56cb4b8cb4624b68c589",
+    "mechanical/exploded-assembly.glb": "8dab32f2c5269ebfbf3f77d39aeeea85f0e32da86527428dc2a4905a0b537067",
     "docs/checks/mechanical-clearance.json": "71a8a8a0d7df87122483f84842bc6298acd9a7ca4a510546399f29754cd5f9d0"
   }
 }

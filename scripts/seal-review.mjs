@@ -32,6 +32,7 @@ const files = [
 	"hardware-contract.json",
 	"board-standards.json",
 	"package.json",
+	".github/workflows/check.yml",
 	"bun.lock",
 	"routing/source.circuit.json",
 	"routing/native-copper.json",
