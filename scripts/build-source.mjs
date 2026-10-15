@@ -1,5 +1,6 @@
 import { spawnSync } from "node:child_process";
-import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
+import { canonical, differences } from "./canonical-circuit.mjs";
 const r = spawnSync(
 	"bunx",
 	[
@@ -22,14 +23,20 @@ if (issues.length) throw Error(JSON.stringify(issues));
 for (const record of raw)
 	if (record.type === "source_project_metadata")
 		delete record.source_filesystem_md5_hash;
-const data =
-	JSON.stringify(
-		raw.filter(
-			(x) => x.type !== "source_project_metadata" || Object.keys(x).length > 1,
-		),
-		null,
-		2,
-	) + "\n";
+const normalized = canonical(
+	raw.filter(
+		(x) => x.type !== "source_project_metadata" || Object.keys(x).length > 1,
+	),
+);
+if (existsSync("routing/source.circuit.json")) {
+	const delta = differences(
+		canonical(JSON.parse(readFileSync("routing/source.circuit.json"))),
+		normalized,
+	);
+	if (delta.length)
+		console.log("Source changes (first twelve):", JSON.stringify(delta));
+}
+const data = JSON.stringify(normalized, null, 2) + "\n";
 mkdirSync("routing", { recursive: true });
 mkdirSync("dist/index", { recursive: true });
 writeFileSync("routing/source.circuit.json", data);

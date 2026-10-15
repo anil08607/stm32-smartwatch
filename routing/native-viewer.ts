@@ -36,7 +36,7 @@ function signature(records: RecordData[]) {
 		"pcb_hole",
 	]);
 	const normalize = (x: any): any => {
-		if (typeof x === "number") return Math.round(x * 1e6) / 1e6;
+		if (typeof x === "number") return Number(x.toPrecision(12));
 		if (typeof x === "string") return labels.get(x) ?? x;
 		if (Array.isArray(x)) return x.map(normalize);
 		if (x && typeof x === "object")
