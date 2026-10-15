@@ -6,7 +6,7 @@ import {
 } from "circuit-json-to-kicad";
 import { parseKicadPcb, parseKicadSch } from "kicadts";
 const c = JSON.parse(
-	readFileSync(process.argv[2] ?? "dist/index/circuit.json", "utf8"),
+	readFileSync(process.argv[2] ?? "routing/reviewed.circuit.json", "utf8"),
 );
 const out = process.argv[3] ?? "hardware";
 mkdirSync(out, { recursive: true });

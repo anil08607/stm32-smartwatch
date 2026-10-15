@@ -38,6 +38,4 @@ if (existsSync("routing/source.circuit.json")) {
 }
 const data = JSON.stringify(normalized, null, 2) + "\n";
 mkdirSync("routing", { recursive: true });
-mkdirSync("dist/index", { recursive: true });
 writeFileSync("routing/source.circuit.json", data);
-writeFileSync("dist/index/circuit.json", data);

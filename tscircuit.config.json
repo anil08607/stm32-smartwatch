@@ -1,4 +1,18 @@
 {
 	"$schema": "https://cdn.jsdelivr.net/npm/@tscircuit/cli/types/tscircuit.config.schema.json",
-	"build": {}
+	"build": {
+		"circuitJson": true,
+		"workerTimeoutMs": 180000
+	},
+	"mainEntrypoint": "index.circuit.tsx",
+	"previewComponentPath": "index.circuit.tsx",
+	"siteDefaultComponentPath": "index.circuit.tsx",
+	"includeBoardFiles": [
+		"index.circuit.tsx",
+		"assembly.circuit.tsx",
+		"assembly-exploded.circuit.tsx",
+		"pcb.circuit.tsx"
+	],
+	"alwaysUseLatestTscircuitOnCloud": false,
+	"buildCommand": "bun run build:site"
 }

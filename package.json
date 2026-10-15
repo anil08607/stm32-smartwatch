@@ -30,11 +30,14 @@
 		"format": "biome format --write .",
 		"format:check": "biome format .",
 		"typecheck": "tsc --noEmit",
-		"test": "bun run build && bun run check:connectivity && bun run check:routing && bun run check:assembly && bun run check:decoupling && bun run check:style && bun run check:viewer",
+		"test": "bun run build && bun run check:connectivity && bun run check:routing && bun run check:assembly && bun run check:decoupling && bun run check:style && bun run check:mechanical && bun run check:viewer && bun run check:build",
 		"verify": "bun run format:check && bun run typecheck && bun run test",
 		"export:release": "bun scripts/export-release.mjs",
 		"seal:review": "bun scripts/seal-review.mjs",
-		"check:viewer": "bun scripts/check-viewer.mjs"
+		"check:viewer": "bun scripts/check-viewer.mjs",
+		"build:site": "tsci build --disable-parts-engine --site --pcb-svgs --schematic-svgs",
+		"check:build": "bun scripts/check-public-build.mjs",
+		"check:mechanical": "bun scripts/check-mechanical.mjs"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.4.16",

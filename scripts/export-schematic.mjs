@@ -1,6 +1,6 @@
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { createHash } from "node:crypto";
-const c = JSON.parse(readFileSync("dist/index/circuit.json", "utf8")),
+const c = JSON.parse(readFileSync("routing/reviewed.circuit.json", "utf8")),
 	out = process.argv[2] ?? "hardware";
 mkdirSync(out, { recursive: true });
 const Q = JSON.stringify,

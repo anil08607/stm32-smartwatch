@@ -1,7 +1,7 @@
 {
   "entries": [
     {
-      "entry": "index.circuit.tsx",
+      "entry": "pcb.circuit.tsx",
       "source_components": 71,
       "pcb_components": 71,
       "traces": 833,
@@ -12,15 +12,37 @@
       "circuit_sha256": "b34e9dc192d0602377adb19031fcbe88278e80bbd4e61b75cb27e7ec961217da"
     },
     {
-      "entry": "assembly.circuit.tsx",
-      "source_components": 72,
+      "entry": "index.circuit.tsx",
+      "source_components": 122,
       "pcb_components": 71,
       "traces": 833,
       "vias": 95,
       "pours": 8,
       "diagnostics": 0,
       "schematic_style_issues": 0,
-      "circuit_sha256": "1bf7e7df2ea25b71d59e3424e45a806936ece68a9d9180348fec803a4a7a2bee"
+      "circuit_sha256": "47bdff6d0e850414d7c38e6e5f2e43e7f6fdae066d6272157700a99d6d0553ad"
+    },
+    {
+      "entry": "assembly.circuit.tsx",
+      "source_components": 122,
+      "pcb_components": 71,
+      "traces": 833,
+      "vias": 95,
+      "pours": 8,
+      "diagnostics": 0,
+      "schematic_style_issues": 0,
+      "circuit_sha256": "47bdff6d0e850414d7c38e6e5f2e43e7f6fdae066d6272157700a99d6d0553ad"
+    },
+    {
+      "entry": "assembly-exploded.circuit.tsx",
+      "source_components": 122,
+      "pcb_components": 71,
+      "traces": 833,
+      "vias": 95,
+      "pours": 8,
+      "diagnostics": 0,
+      "schematic_style_issues": 0,
+      "circuit_sha256": "fba79a660dee75d81873541478e47df0b6ee7653f76882dfcf2ed269505e04b8"
     }
   ],
   "stale_geometry_rejected": true

@@ -1,6 +1,6 @@
 # Complete product assembly
 
-The compact/exploded models and `mechanical/assembly-manifest.json` cover 100 solids. They include all 70 fitted PCB component envelopes, board, display, lens, battery, cushion, NTC, motor, harness envelopes, case, bezel, retainer, two plungers, four screws/inserts, two spring bars and two strap halves. This is a provisional packaging model, not supplier-certified CAD or a completed collision/fit qualification.
+The compact/exploded models and `mechanical/assembly-manifest.json` cover the complete dimensioned product stack, including separate copper lands and appearance details. They include all 70 fitted PCB component envelopes, board, display, lens, battery, cushion, NTC, motor, harness envelopes, case, bezel, retainer, two plungers, four screws/inserts, two spring bars and two strap halves. This is a provisional packaging model, not supplier-certified CAD or a completed product fit qualification. The default tscircuit entry now exposes every external part as a named subassembly; the exploded entry separates the same parts.
 
 ## Datum and space
 
@@ -22,3 +22,11 @@ The display body is 35.59 × 37.74 × 1.6 mm at X=-3.5 mm, Z=4.4–6.0 mm. The 3
 ## Remaining mechanical approvals
 
 Exact battery/protection/lead drawing; harness cut lengths; lens and adhesive specification; exact insert selection; plunger travel; case print tolerances; flex folding; enclosure collision inspection; retention/drop/skin-contact and thermal tests. No water-resistance rating is claimed. Purchased strap geometry is illustrative.
+
+## Updated mechanical detail
+
+The display has a perimeter support ledge and a 0.10 mm tape seat, plus a 0.20 mm lens bond. Battery foil, protection tape, label face and separate positive/return leads are visible. The clock face is an illustrative CAD graphic, not running firmware. Existing ER-TFT1.28-3 electrical compatibility and the protected LP403035 pack envelope are retained.
+
+Both captive plungers align with SW1/SW2 at Y=-2/-10 mm and Z=1.7 mm. Their stem starts at X=22.68 mm, giving nominal 0.15 mm clearance from the imported actuator envelope. The stem has 0.30 mm clearance per side in the case guide and 0.30 mm available inward travel. An internal flange prevents outward loss; final switch stroke and molding tolerances need physical confirmation.
+
+Battery, thermistor and motor leads pass around the board perimeter instead of crossing its substrate. `docs/checks/mechanical-clearance.json` records actual solid intersections for these routes, display/retainer, battery/motor and button/case. These scoped nominal checks do not certify the unknown supplier flex population or the complete tolerance stack.

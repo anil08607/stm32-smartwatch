@@ -5,7 +5,7 @@ import { readFileSync } from "node:fs";
 const circuit = JSON.parse(
 	readFileSync(
 		process.argv.slice(2).find((arg) => !arg.startsWith("--")) ??
-			"dist/index/circuit.json",
+			"routing/reviewed.circuit.json",
 		"utf8",
 	),
 );

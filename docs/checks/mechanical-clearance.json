@@ -1,0 +1,50 @@
+{
+  "scope": "Nominal solid checks for PCB/harness crossing, display support, battery/motor and button wall. Supplier tolerance and complete product fit are unqualified.",
+  "contacts": [
+    {
+      "a": "battery",
+      "b": "motor",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "display",
+      "b": "display-retainer",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "battery-positive",
+      "b": "pcb",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "battery-return",
+      "b": "pcb",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "ntc-harness",
+      "b": "pcb",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "motor-harness",
+      "b": "pcb",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "display-flex",
+      "b": "pcb",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "button-plunger-2",
+      "b": "case-base",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "button-plunger-10",
+      "b": "case-base",
+      "overlap_mm3": 0
+    }
+  ]
+}

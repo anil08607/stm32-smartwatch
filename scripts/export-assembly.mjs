@@ -1,6 +1,6 @@
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 const c = JSON.parse(
-	readFileSync(process.argv[2] ?? "dist/index/circuit.json", "utf8"),
+	readFileSync(process.argv[2] ?? "routing/reviewed.circuit.json", "utf8"),
 );
 const pcb = new Map(
 	c

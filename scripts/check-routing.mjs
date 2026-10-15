@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFileSync, writeFileSync } from "node:fs";
 import { createHash } from "node:crypto";
 import { runAllRoutingChecks } from "@tscircuit/checks";
-const bytes = readFileSync("dist/index/circuit.json"),
+const bytes = readFileSync("routing/reviewed.circuit.json"),
 	circuit = JSON.parse(bytes),
 	diagnostics = [
 		...circuit.filter((x) => /error|warning/.test(x.type)),

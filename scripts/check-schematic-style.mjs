@@ -4,7 +4,7 @@ import {
 	analyzeSchematicPlacement,
 	createSchematicPlacementIssueArtifacts,
 } from "../checks/vendor/schematic-placement.mjs";
-const file = process.argv[2] ?? "dist/index/circuit.json";
+const file = process.argv[2] ?? "routing/reviewed.circuit.json";
 const bytes = readFileSync(file),
 	circuit = JSON.parse(bytes);
 const analysis = analyzeSchematicPlacement(circuit);

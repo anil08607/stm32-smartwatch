@@ -8,9 +8,26 @@ import {
 	analyzeSchematicPlacement,
 	createSchematicPlacementIssueArtifacts,
 } from "../checks/vendor/schematic-placement.mjs";
-import Viewer from "../index.circuit.tsx";
+import Viewer from "../pcb.circuit.tsx";
+import DefaultView from "../index.circuit.tsx";
+import Exploded from "../assembly-exploded.circuit.tsx";
+import { nativeRoutingSignature } from "../routing/native-viewer";
+import models from "../mechanical/assembly-model.json";
 import Assembly from "../assembly.circuit.tsx";
 const reviewed = JSON.parse(readFileSync("routing/reviewed.circuit.json"));
+// Regression: supplier-display annotations are optional, but copper lands remain bound.
+const withoutPinAnnotation = structuredClone(reviewed);
+for (const record of withoutPinAnnotation) delete record.pin1_location;
+assert.equal(
+	nativeRoutingSignature(withoutPinAnnotation),
+	nativeRoutingSignature(reviewed),
+);
+const movedPad = structuredClone(reviewed);
+movedPad.find((x) => x.type === "pcb_smtpad").x += 0.1;
+assert.notEqual(
+	nativeRoutingSignature(movedPad),
+	nativeRoutingSignature(reviewed),
+);
 const kinds = new Set(["pcb_trace", "pcb_via", "pcb_copper_pour"]);
 const physical = (x) => {
 	if (Array.isArray(x)) return x.map(physical);
@@ -31,8 +48,10 @@ const geometry = (circuit) =>
 const reports = [];
 mkdirSync("build", { recursive: true });
 for (const [name, component, count] of [
-	["index", Viewer, 71],
-	["assembly", Assembly, 72],
+	["pcb", Viewer, 71],
+	["index", DefaultView, 71 + models.parts.length],
+	["assembly", Assembly, 71 + models.parts.length],
+	["assembly-exploded", Exploded, 71 + models.parts.length],
 ]) {
 	const root = new RootCircuit();
 	root.add(createElement(component));
@@ -55,7 +74,7 @@ for (const [name, component, count] of [
 	assert.deepEqual(await runAllRoutingChecks(c), []);
 	const analysis = analyzeSchematicPlacement(c);
 	assert.deepEqual(createSchematicPlacementIssueArtifacts(c, { analysis }), []);
-	if (name === "assembly")
+	if (name !== "pcb")
 		assert(
 			c.some(
 				(x) =>
@@ -91,5 +110,5 @@ writeFileSync(
 		"\n",
 );
 console.log(
-	"PASS: both real viewer entries retain all 833 segments, 95 vias, 8 pours; zero DRC/style diagnostics; stale geometry rejected.",
+	"PASS: all four real viewer entries retain all 833 segments, 95 vias, 8 pours; zero DRC/style diagnostics; stale geometry rejected.",
 );

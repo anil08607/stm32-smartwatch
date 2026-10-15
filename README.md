@@ -6,7 +6,9 @@ A 46 × 46 mm, four-layer Bluetooth smartwatch PCB with a Nordic nRF52810-QFAA, 
 
 ## Open the design
 
-- `index.circuit.tsx`: reviewed routed PCB and schematic in the tscircuit viewer.
+- `index.circuit.tsx`: complete compact product assembly by default, with the actual routed PCB underneath.
+- `pcb.circuit.tsx`: dedicated routed PCB/schematic view and PCB-only inspection.
+- `assembly-exploded.circuit.tsx`: separated product stack for battery, display, buttons, wiring and enclosure inspection.
 - `assembly.circuit.tsx`: routed PCB plus external product assembly in the tscircuit 3D viewer.
 - `SMARTWATCH_V1_NRF52810.circuit.tsx`: editable electrical design, exact parts, placement and protected critical routes.
 - `hardware/smartwatch-nrf52810.kicad_pro`: portable native KiCad 10 project, seven electrical sheets and local symbol/footprint libraries.
@@ -16,7 +18,9 @@ A 46 × 46 mm, four-layer Bluetooth smartwatch PCB with a Nordic nRF52810-QFAA, 
 
 ## Reproduce the checks
 
-Install Bun 1.3.14, then `bun install --frozen-lockfile`. Run `bun run verify` for formatting, type checks, a fresh editable-source build, strict saved-route binding, connectivity, routing, assembly, schematic-style checks, both actual viewer entries and a stale-geometry rejection test. `bun run check:native` runs the actual KiCad DRC and ERC (KiCad 10 required; set `KICAD_CLI` if it is not on PATH). `bun run check:stock` refreshes public exact-part JLCPCB inventory. `bun run check:order` is intentionally strict and fails while any qualification or purchasing gate is unresolved.
+Install Bun 1.3.14, then `bun install --frozen-lockfile`. Run `bun run verify` for formatting, type checks, a fresh editable-source build, strict saved-route binding, connectivity, routing, assembly, schematic-style checks, all four actual viewer entries and the hosted multi-file CLI build and a stale-geometry rejection test. `bun run check:native` runs the actual KiCad DRC and ERC (KiCad 10 required; set `KICAD_CLI` if it is not on PATH). `bun run check:stock` refreshes public exact-part JLCPCB inventory. `bun run check:order` is intentionally strict and fails while any qualification or purchasing gate is unresolved.
+
+The hosted build uses `bun run build:site` and only the four public entrypoints. Its optional parts engine is off because footprints and exact MPNs are committed and audited separately; inventory is checked by `check:stock`. No DRC or warning-ignore flags are used. Connector pin-1 display annotations cannot invalidate routing; changes to pads, positions, nets or copper still do.
 
 Source/geometry edits invalidate the routed artifact and release evidence. Follow `routing/README.md`; never bypass the fingerprint or regenerate only the screenshots. Manufacturing outputs come from the reviewed native board, not from an unrouted viewer export.
 

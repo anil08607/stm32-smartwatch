@@ -2,7 +2,7 @@ import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import jscad from "@jscad/modeling";
 import stl from "@jscad/stl-serializer";
 const { cuboid, roundedCuboid, cylinder } = jscad.primitives,
-	{ union, subtract } = jscad.booleans,
+	{ union, subtract, intersect } = jscad.booleans,
 	{ translate, rotateY } = jscad.transforms,
 	{ measureVolume, measureBoundingBox } = jscad.measurements;
 mkdirSync("mechanical", { recursive: true });
@@ -57,8 +57,8 @@ for (const [x, y] of screws) base = subtract(base, cyl(1.6, 4.2, x, y, 1.5));
 base = subtract(
 	base,
 	box([11, 8, 6], [0, -26, 1]),
-	box([8, 7, 6], [26, -2, 1.2]),
-	box([8, 7, 6], [26, -10, 1.2]),
+	box([8, 2.8, 2.4], [26, -2, 1.7]),
+	box([8, 2.8, 2.4], [26, -10, 1.7]),
 );
 for (const y of [-30, 30])
 	for (const x of [-12.5, 12.5]) {
@@ -78,14 +78,14 @@ for (const y of [-30, 30])
 add(
 	"case-base",
 	base,
-	[0.11, 0.14, 0.18, 1],
+	[0.018, 0.025, 0.035, 1],
 	"Custom printed base, PETG prototype",
 	-14,
 	true,
 );
 let retainer = subtract(
 	round([47.4, 47.4, 0.8], [0, 0, 3.9], 8),
-	round([36.3, 38.5, 3], [-3.5, 0, 3.9], 0.4),
+	round([33.8, 35.6, 3], [-3.5, 0, 3.9], 0.4),
 );
 retainer = union(
 	retainer,
@@ -122,7 +122,7 @@ for (const [x, y] of screws)
 add(
 	"bezel",
 	bezel,
-	[0.14, 0.18, 0.23, 1],
+	[0.026, 0.035, 0.048, 1],
 	"Printed bezel with lens pocket",
 	30,
 	true,
@@ -130,7 +130,7 @@ add(
 add(
 	"lens",
 	round([38, 40, 1], [-3.5, 0, 6.7], 3),
-	[0.4, 0.7, 0.85, 0.28],
+	[0.12, 0.2, 0.25, 0.12],
 	"Clear polycarbonate; custom cut",
 	26,
 );
@@ -144,9 +144,29 @@ add(
 add(
 	"display-active",
 	cyl(16.2, 0.03, -3.5, 0, 6.015),
-	[0.03, 0.28, 0.43, 1],
+	[0.004, 0.012, 0.025, 1],
 	"Display active face",
 	20,
+);
+add(
+	"display-seat-tape",
+	subtract(
+		box([35.2, 37.3, 0.1], [-3.5, 0, 4.35]),
+		box([33.8, 35.6, 0.3], [-3.5, 0, 4.35]),
+	),
+	[0.06, 0.065, 0.07, 1],
+	"0.10 mm display seat tape; adhesive grade pending",
+	19,
+);
+add(
+	"lens-bond",
+	subtract(
+		round([35.2, 37.3, 0.2], [-3.5, 0, 6.1], 1),
+		cyl(16.5, 0.4, -3.5, 0, 6.1),
+	),
+	[0.02, 0.022, 0.025, 1],
+	"0.20 mm lens perimeter bond; adhesive grade pending",
+	24,
 );
 add(
 	"battery",
@@ -205,21 +225,126 @@ for (const y of [-30, 30]) {
 	);
 	add(
 		`strap-${y}`,
-		round([22, 52, 2], [0, y * 1.85, -3.5], 0.8),
+		union(
+			subtract(
+				round([22, 52, 2], [0, y * 1.85, -3.5], 4),
+				...[-42, -48, -54, -60, -66, -72].map((h) =>
+					box([4, 1.6, 4], [0, y < 0 ? h : 200, -3.5]),
+				),
+			),
+			translate(
+				[0, y, -2],
+				rotateY(
+					Math.PI / 2,
+					subtract(
+						cylinder({ radius: 2.2, height: 22, segments: 32 }),
+						cylinder({ radius: 0.85, height: 24, segments: 32 }),
+					),
+				),
+			),
+		),
 		[0.075, 0.1, 0.14, 1],
 		"22 mm purchased silicone strap envelope",
 		0,
 	);
 }
-for (const y of [-2, -10])
+add(
+	"strap-buckle",
+	subtract(
+		round([25, 8, 2], [0, 81, -2.5], 1.5),
+		round([20, 4.5, 4], [0, 81, -2.5], 0.6),
+	),
+	[0.28, 0.31, 0.35, 1],
+	"Purchased strap buckle envelope",
+	0,
+);
+add(
+	"buckle-tang",
+	box([1.2, 7, 1], [0, 80, -1]),
+	[0.3, 0.33, 0.36, 1],
+	"Purchased buckle tang envelope",
+	0,
+);
+add(
+	"strap-keeper",
+	subtract(
+		round([24, 5, 4.4], [0, 65, -2.4], 0.8),
+		box([22.3, 7, 2.4], [0, 65, -3.3]),
+	),
+	[0.035, 0.045, 0.06, 1],
+	"Purchased silicone strap keeper envelope",
+	0,
+);
+for (const y of [-2, -10]) {
 	add(
 		`button-plunger-${-y}`,
-		round([5.5, 3, 2.5], [24.2, y, 1.5], 0.5),
-		[0.35, 0.4, 0.45, 1],
-		"Prototype button plunger; fit verification required",
+		union(
+			round([5.02, 2.2, 1.8], [25.19, y, 1.7], 0.25),
+			round([0.6, 3.4, 2.6], [24.05, y, 1.7], 0.2),
+			round([1.2, 4, 2.8], [28, y, 1.7], 0.65),
+		),
+		[0.16, 0.2, 0.25, 1],
+		"Captive side actuator: 0.15 mm rest gap, 0.30 mm available inward travel; verify switch tolerance",
 		0,
 		true,
 	);
+}
+// Appearance detail stays inside the reserved pack envelope; it is not a claim of supplier CAD.
+add(
+	"battery-protection-tape",
+	box([29.5, 4, 0.06], [-6, 13.3, -1.77]),
+	[0.65, 0.37, 0.012, 1],
+	"Insulating protection tape appearance",
+	-7,
+);
+add(
+	"battery-label",
+	box([21, 15, 0.04], [-6, -2, -1.77]),
+	[0.8, 0.82, 0.78, 1],
+	"Protected 1S pack identification face; final supplier label pending",
+	-7,
+);
+// An illustrative clock face uses solid strokes so native GLB previews retain it without textures.
+for (let i = 0; i < 12; i++) {
+	const a = (i * Math.PI) / 6,
+		x = -3.5 + 14 * Math.sin(a),
+		y = 14 * Math.cos(a);
+	add(
+		`dial-marker-${i}`,
+		jscad.transforms.rotateZ(-a, box([0.45, 1.5, 0.015])),
+		[0.55, 0.75, 0.8, 1],
+		"Illustrative clock dial; not running firmware",
+		20,
+	);
+	parts.at(-1).solid = translate([x, y, 6.041], parts.at(-1).solid);
+}
+add(
+	"dial-hour-hand",
+	translate(
+		[-3.5, 0, 6.055],
+		jscad.transforms.rotateZ(0.85, box([0.7, 10, 0.02], [0, 3, 0])),
+	),
+	[0.8, 0.85, 0.88, 1],
+	"Illustrative clock face",
+	20,
+);
+add(
+	"dial-minute-hand",
+	translate(
+		[-3.5, 0, 6.075],
+		jscad.transforms.rotateZ(-1.05, box([0.45, 14, 0.02], [0, 4, 0])),
+	),
+	[0.8, 0.85, 0.88, 1],
+	"Illustrative clock face",
+	20,
+);
+add(
+	"dial-hub",
+	cyl(0.7, 0.03, -3.5, 0, 6.1),
+	[0.95, 0.28, 0.04, 1],
+	"Illustrative clock face",
+	20,
+);
 // Nonconductive harness envelopes use piecewise cylinders, not electrical copper.
 function wire(id, points, r, color, explode = -3) {
 	let segments = [];
@@ -255,8 +380,9 @@ wire(
 	"battery-positive",
 	[
 		[-9, 15, -3.8],
-		[-13, 16, -2],
-		[-14, 19, 1.4],
+		[-14, 24, -3],
+		[-14, 24, 3.05],
+		[-14, 19, 3.05],
 	],
 	0.35,
 	[0.8, 0.07, 0.04, 1],
@@ -265,8 +391,9 @@ wire(
 	"battery-return",
 	[
 		[-7, 15, -3.8],
-		[-11, 17, -2],
-		[-13, 19, 1.4],
+		[-12.8, 24, -3],
+		[-12.8, 24, 3.05],
+		[-13, 19, 3.05],
 	],
 	0.35,
 	[0.05, 0.05, 0.06, 1],
@@ -275,8 +402,9 @@ wire(
 	"ntc-harness",
 	[
 		[-6, -18, -3.8],
-		[-17, -17, -3.8],
-		[-19, -10, 1],
+		[-24, -17, -3.8],
+		[-24, -10, 1.8],
+		[-19, -10, 2.6],
 	],
 	0.4,
 	[0.85, 0.75, 0.3, 1],
@@ -285,8 +413,9 @@ wire(
 	"motor-harness",
 	[
 		[16.5, 16, -2.2],
-		[14, 18, -1.6],
-		[13.3, 15, 1],
+		[14, 24, -2.2],
+		[14, 24, 1.6],
+		[13.3, 15, 1.6],
 	],
 	0.4,
 	[0.8, 0.35, 0.1, 1],
@@ -302,7 +431,7 @@ add(
 	"FPC envelope; actual fold length/contact orientation must be confirmed",
 	16,
 );
-const source = JSON.parse(readFileSync("dist/index/circuit.json")),
+const source = JSON.parse(readFileSync("routing/reviewed.circuit.json")),
 	names = new Map(
 		source
 			.filter((x) => x.type === "source_component")
@@ -339,6 +468,57 @@ for (const f of source.filter(
 		0,
 	);
 }
+for (const pad of source.filter(
+	(p) => p.type === "pcb_smtpad" && p.layer === "top",
+)) {
+	if (!pad.width || !pad.height) continue;
+	add(
+		`land-${pad.pcb_smtpad_id}`,
+		box([pad.width, pad.height, 0.035], [pad.x, pad.y, 0.02]),
+		[0.65, 0.43, 0.12, 1],
+		"Top copper land",
+		0,
+	);
+}
+// Explicit collision checks catch the previously unmodelled wires passing through the PCB.
+const byId = new Map(parts.map((p) => [p.id, p]));
+const pairs = [
+	["battery", "motor"],
+	["display", "display-retainer"],
+	...[
+		"battery-positive",
+		"battery-return",
+		"ntc-harness",
+		"motor-harness",
+		"display-flex",
+	].map((id) => [id, "pcb"]),
+	...["button-plunger-2", "button-plunger-10"].map((id) => [id, "case-base"]),
+];
+const contacts = pairs.map(([a, b]) => ({
+	a,
+	b,
+	overlap_mm3: Math.abs(
+		measureVolume(intersect(byId.get(a).solid, byId.get(b).solid)),
+	),
+}));
+mkdirSync("docs/checks", { recursive: true });
+writeFileSync(
+	"docs/checks/mechanical-clearance.json",
+	JSON.stringify(
+		{
+			scope:
+				"Nominal solid checks for PCB/harness crossing, display support, battery/motor and button wall. Supplier tolerance and complete product fit are unqualified.",
+			contacts,
+		},
+		null,
+		2,
+	) + "\n",
+);
+if (contacts.some((c) => c.overlap_mm3 > 0.001))
+	throw Error(
+		"Mechanical interference: " +
+			JSON.stringify(contacts.filter((c) => c.overlap_mm3 > 0.001)),
+	);
 function glb(items, exploded) {
 	let chunks = [],
 		offset = 0;
@@ -388,7 +568,7 @@ function glb(items, exploded) {
 	for (const part of items) {
 		const positions = [],
 			normals = [];
-		for (const poly of part.solid.polygons) {
+		for (const poly of jscad.geometries.geom3.toPolygons(part.solid)) {
 			const v = poly.vertices;
 			for (let i = 1; i < v.length - 1; i++) {
 				const a = v[0],
@@ -420,7 +600,7 @@ function glb(items, exploded) {
 				roughnessFactor: 0.7,
 			},
 			alphaMode: part.color[3] < 1 ? "BLEND" : "OPAQUE",
-			doubleSided: true,
+			doubleSided: part.color[3] === 1,
 		});
 		json.meshes.push({
 			name: part.id,
@@ -459,7 +639,8 @@ writeFileSync(
 			(p) =>
 				!names.has(p.id) &&
 				!source.some((x) => x.type === "source_component" && x.name === p.id) &&
-				p.id !== "pcb",
+				p.id !== "pcb" &&
+				!p.id.startsWith("land-"),
 		),
 		false,
 	),
@@ -491,11 +672,24 @@ console.log(
 	`Generated ${parts.length} assembly solids, 5 printable components, compact/exploded GLB and dimension manifest.`,
 );
 
+const externalParts = parts.filter(
+	(p) =>
+		p.id !== "pcb" &&
+		!p.id.startsWith("land-") &&
+		!source.some((x) => x.type === "source_component" && x.name === p.id),
+);
+mkdirSync("mechanical/parts", { recursive: true });
 writeFileSync(
 	"mechanical/assembly-model.json",
 	JSON.stringify({
-		external:
-			"data:model/gltf-binary;base64," +
-			readFileSync("mechanical/external-assembly.glb").toString("base64"),
+		parts: externalParts.map((p) => {
+			const bytes = glb([p], false);
+			writeFileSync(`mechanical/parts/${p.id}.glb`, bytes);
+			return {
+				id: p.id,
+				explode: p.explode,
+				glb: "data:model/gltf-binary;base64," + bytes.toString("base64"),
+			};
+		}),
 	}) + "\n",
 );

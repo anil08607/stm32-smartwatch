@@ -1,0 +1,26 @@
+{
+  "command": "tsci build --disable-parts-engine",
+  "entries": [
+    {
+      "file": "index.circuit.tsx",
+      "mechanical_parts": 51,
+      "circuit_sha256": "ecd4d039ec48a6c3ca400882b8f53eb03c17af5b6bcf66d76178830090de4060"
+    },
+    {
+      "file": "assembly.circuit.tsx",
+      "mechanical_parts": 51,
+      "circuit_sha256": "ecd4d039ec48a6c3ca400882b8f53eb03c17af5b6bcf66d76178830090de4060"
+    },
+    {
+      "file": "assembly-exploded.circuit.tsx",
+      "mechanical_parts": 51,
+      "circuit_sha256": "d5f8a1e232530b063a6461a6ddb239c2f0311c3bac7c1cb0fa0404839ab0768e"
+    },
+    {
+      "file": "pcb.circuit.tsx",
+      "mechanical_parts": 0,
+      "circuit_sha256": "c8e0f54c8b9f7c6b0fdde4402f01ce135b9c630d8302ee1f51d6ad2ea5ae800d"
+    }
+  ],
+  "diagnostics": 0
+}

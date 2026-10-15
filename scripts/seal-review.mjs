@@ -22,6 +22,8 @@ const files = [
 	"SMARTWATCH_V1_NRF52810.circuit.tsx",
 	"index.circuit.tsx",
 	"assembly.circuit.tsx",
+	"assembly-exploded.circuit.tsx",
+	"pcb.circuit.tsx",
 	"routing/native-viewer.ts",
 	"tscircuit.config.js",
 	"tscircuit.config.json",
@@ -48,6 +50,7 @@ function collect(dir) {
 			files.push(path);
 	}
 }
+collect("mechanical");
 collect("imports");
 collect("routing/native");
 files.push(

@@ -1,0 +1,13 @@
+{
+  "parts": 385,
+  "external_subassemblies": 51,
+  "all_exported_part_bounds_match": true,
+  "nominal_collision_pairs": 9,
+  "inputs": {
+    "mechanical/assembly-manifest.json": "ea9c2abf73c6ed80a3ddde3cb8f65584ff69e379ecbc103d8d7f853dca8201ac",
+    "mechanical/assembly-model.json": "f14d3d100e78bc0441bcfb6658e774431571de521889d6f8539d6ff5692f12e9",
+    "mechanical/complete-assembly.glb": "6d4be1f6e489926019c1748b9aedceb1f40390ab148c86bb00d2c54b1bcb73e2",
+    "mechanical/exploded-assembly.glb": "2fd1fe56d8b842ba603bca5508bec2eb39f0a281c384a8cf17f2b5c3ed77ace2",
+    "docs/checks/mechanical-clearance.json": "71a8a8a0d7df87122483f84842bc6298acd9a7ca4a510546399f29754cd5f9d0"
+  }
+}

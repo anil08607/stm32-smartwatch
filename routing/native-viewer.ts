@@ -6,7 +6,7 @@ type RecordData = Record<string, any>;
 const kinds = new Set(["pcb_trace", "pcb_via", "pcb_copper_pour"]);
 
 // Fail after an electrical/placement edit instead of displaying stale copper.
-function signature(records: RecordData[]) {
+export function nativeRoutingSignature(records: RecordData[]) {
 	const labels = new Map<string, string>();
 	for (const x of records.filter(
 		(x) => x.type === "source_component" && x.ftype !== "subassembly",
@@ -49,7 +49,9 @@ function signature(records: RecordData[]) {
 							k !== "pcb_port_ids" &&
 							k !== "source_group_ids" &&
 							k !== "source_component_ids" &&
-							k !== "source_trace_ids",
+							k !== "source_trace_ids" &&
+							// The optional parts engine changes this annotation, not pad geometry.
+							k !== "pin1_location",
 					)
 					.sort(([a], [b]) => a.localeCompare(b))
 					.map(([k, v]) => [k, normalize(v)]),
@@ -75,8 +77,8 @@ export function installNativeRouting(board: Board | null) {
 	board.doInitialPcbTraceRender = () => {
 		const db = board.root!.db;
 		const current = db.toArray() as RecordData[];
-		const actual = signature(current),
-			expected = signature(reviewed);
+		const actual = nativeRoutingSignature(current),
+			expected = nativeRoutingSignature(reviewed);
 		if (actual !== expected) {
 			const actualRows = actual.split("\n"),
 				expectedRows = expected.split("\n");

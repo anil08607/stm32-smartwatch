@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { createHash } from "node:crypto";
 import { KicadToCircuitJsonConverter } from "kicad-to-circuit-json";
 const source = JSON.parse(readFileSync("routing/source.circuit.json", "utf8")),
@@ -95,10 +95,8 @@ writeFileSync(
 	"routing/reviewed.circuit.json",
 	JSON.stringify(result, null, 2) + "\n",
 );
-writeFileSync(
-	"dist/index/circuit.json",
-	JSON.stringify(result, null, 2) + "\n",
-);
+mkdirSync("dist/pcb", { recursive: true });
+writeFileSync("dist/pcb/circuit.json", JSON.stringify(result, null, 2) + "\n");
 console.log(
 	`Merged ${copper.length} exact native copper records with editable source schematic and geometry.`,
 );
