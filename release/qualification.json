@@ -1,0 +1,11 @@
+{
+  "revision": "nrf52810-r1",
+  "gates": [
+    {"id":"stackup_rf","status":"pending","description":"Fabricator stackup/50-ohm impedance confirmation and final-enclosure RF tuning/radio tests","evidence":null},
+    {"id":"assembly_preview","status":"pending","description":"Assembler accepts exact packages, rotations, pin-1 orientation, stencil and hidden-joint inspection plan","evidence":null},
+    {"id":"external_procurement","status":"pending","description":"Exact protected battery/lead drawing, harnesses, lens, inserts, adhesives, strap and USB equipment selected and quoted","evidence":null},
+    {"id":"battery_thermal","status":"pending","description":"Protected-pack polarity, NTC hot/cold/open/short behavior, charging and closed-case thermal tests","evidence":null},
+    {"id":"mechanical_fit","status":"pending","description":"Physical enclosure, flex, button travel, retention, clearance and battery swelling-space validation","evidence":null},
+    {"id":"firmware_bringup","status":"pending","description":"Working nRF52810 firmware, line-buffer display, oscillators, BLE, peripherals, sleep and first-article test record","evidence":null}
+  ]
+}

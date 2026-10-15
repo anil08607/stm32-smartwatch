@@ -1,0 +1,103 @@
+(footprint "C24_exact"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(property "Reference" "C24"
+		(at 0 1.22 0)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "a42db357-8296-4b13-bd43-ba7ed6b6fbb1")
+		(effects
+			(font
+				(size 0.4 0.4)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "0.8pF"
+		(at 0 3 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "e542b470-af68-4b3b-bb91-353125e56c95")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "3bbe5ca9-c866-4633-8281-974bd4aee32c")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "825e8a3f-67dc-4a2d-874a-f91d2fe0dfbf")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Supplier Part Number" "C88902"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "4a621d00-34fa-5eff-1f92-a0fe0a2ae2fd")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "MPN" "GJM1555C1HR80WB01D"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "36baa9ca-1693-aaca-0993-543629ba5336")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_rect
+		(start -0.93 -0.47)
+		(end 0.93 0.47)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+		(uuid "5f214c99-af76-43aa-8056-386d312c3118")
+	)
+	(pad "1" smd rect
+		(at -0.51 0)
+		(size 0.54 0.64)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "1bfaf784-466d-0a9c-572a-f3440b3d0edc")
+	)
+	(pad "2" smd rect
+		(at 0.51 0)
+		(size 0.54 0.64)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "68d6e300-4534-d241-0cbf-787e5eb3c33d")
+	)
+	(embedded_fonts no)
+)

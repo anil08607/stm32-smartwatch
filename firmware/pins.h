@@ -1,0 +1,23 @@
+#pragma once
+/* nRF52810 P0 GPIO assignments; see hardware-contract.json. */
+#define WATCH_BAT_ADC_PIN 2u
+#define WATCH_BUTTON1_PIN 3u
+#define WATCH_BUTTON2_PIN 4u
+#define WATCH_MOTOR_EN_PIN 5u
+#define WATCH_CHG_INT_PIN 6u
+#define WATCH_LCD_CS_PIN 7u
+#define WATCH_LCD_SCK_PIN 8u
+#define WATCH_LCD_MOSI_PIN 9u
+#define WATCH_LCD_DC_PIN 10u
+#define WATCH_LCD_RESET_PIN 11u
+#define WATCH_LCD_BL_PIN 12u
+#define WATCH_I2C_SCL_PIN 13u
+#define WATCH_I2C_SDA_PIN 14u
+#define WATCH_BMA_INT1_PIN 15u
+#define WATCH_BMA_INT2_PIN 16u
+#define WATCH_RTC_INT_PIN 17u
+#define WATCH_DEBUG_GPIO_PIN 18u
+#define WATCH_NRST_PIN 21u
+#define WATCH_MAIN_RAIL_MV 3050u
+#define WATCH_FRAMEBUFFER_BYTES 115200u
+#define WATCH_RAM_BYTES 24576u

@@ -1,0 +1,127 @@
+{
+	"name": "Anil nRF52810 Smartwatch V1",
+	"owner": "anil08607",
+	"mcu": {
+		"mpn": "NRF52810-QFAA-R",
+		"flash_bytes": 196608,
+		"ram_bytes": 24576,
+		"supply_mode": "internal LDO; DCC unconnected; DCDCEN must remain zero",
+		"pins": {
+			"1": "NRF_DEC1",
+			"2": "LF_X1",
+			"3": "LF_X2",
+			"4": "BAT_ADC",
+			"5": "BUTTON1",
+			"6": "BUTTON2",
+			"7": "MOTOR_EN",
+			"8": "CHG_INT",
+			"9": "LCD_CS",
+			"10": "LCD_SCK",
+			"11": "LCD_MOSI",
+			"12": "LCD_DC",
+			"13": "V3V0",
+			"14": "LCD_RESET",
+			"15": "LCD_BL",
+			"16": "I2C_SCL",
+			"17": "I2C_SDA",
+			"18": "BMA_INT1",
+			"19": "BMA_INT2",
+			"20": "RTC_INT",
+			"21": "DEBUG_GPIO",
+			"24": "NRST",
+			"25": "SWCLK",
+			"26": "SWDIO",
+			"30": "RF_ANT",
+			"31": "GND",
+			"32": "NRF_DEC2",
+			"33": "NRF_DEC3",
+			"34": "HF_X1",
+			"35": "HF_X2",
+			"36": "V3V0",
+			"45": "GND",
+			"46": "NRF_DEC4",
+			"48": "V3V0",
+			"49": "GND"
+		},
+		"no_connect_pins": [22, 23, 27, 28, 29, 37, 38, 39, 40, 41, 42, 43, 44, 47]
+	},
+	"board": {
+		"width_mm": 46,
+		"height_mm": 46,
+		"corner_radius_mm": 8,
+		"thickness_mm": 1,
+		"layers": 4,
+		"copper_oz": 1,
+		"minimum_trace_mm": 0.1,
+		"minimum_clearance_mm": 0.1,
+		"via_diameter_mm": 0.4,
+		"via_drill_mm": 0.2,
+		"copper_edge_clearance_mm": 0.2,
+		"finish": "ENIG",
+		"soldermask": "black",
+		"silkscreen": "white",
+		"stackup_status": "fabricator confirmation required"
+	},
+	"interfaces": {
+		"J1": "USB-C 5 V charging only; USB data NC",
+		"J2": {
+			"1": "protected pack positive",
+			"2": "GND"
+		},
+		"J3": {
+			"1": "V3V0 reference",
+			"2": "SWDIO",
+			"3": "GND",
+			"4": "SWCLK",
+			"5": "NRST",
+			"6": "P0.18 service GPIO"
+		},
+		"J4": "ER-TFT1.28-3 no-touch 15-way FPC",
+		"J5": {
+			"1": "pack thermistor TS",
+			"2": "GND"
+		},
+		"M1": {
+			"1": "V3V0 motor positive",
+			"2": "MOSFET switched return"
+		}
+	},
+	"electrical": {
+		"main_rail_net": "V3V0",
+		"main_rail_nominal_v": 3.05,
+		"feedback_upper_ohm": 510000,
+		"feedback_lower_ohm": 100000,
+		"resistor_tolerance": 0.01,
+		"reference_tolerance_assumed": 0.015,
+		"input_pd_request_v": 5,
+		"battery_cells": 1,
+		"battery_charge_v": 4.2,
+		"initial_charge_current_ma": 100,
+		"battery_capacity_mah": 400,
+		"battery_ntc": "SEMITEC 103AT-2, 10 kohm, B25/85 3435 K",
+		"display_framebuffer_bytes": 115200
+	},
+	"rf": {
+		"antenna": "RFANT3216120A5T",
+		"matching_inductor_nh": 3.9,
+		"matching_shunt_pf": 0.8,
+		"antenna_series_start_nh": 6.8,
+		"feed_width_mm": 0.34,
+		"target_ohm": 50,
+		"antenna_window": {
+			"xmin": 17,
+			"xmax": 23,
+			"ymin": 2.3,
+			"ymax": 9.3
+		},
+		"validation": "VNA tuning and final-enclosure radio tests required"
+	},
+	"mechanical": {
+		"case_width_mm": 54,
+		"case_height_mm": 54,
+		"case_thickness_mm": 18,
+		"pcb_capture": "edge ledge with screwed top retainer; no PCB mounting holes",
+		"strap_width_mm": 22,
+		"water_resistance": "not rated"
+	}
+}

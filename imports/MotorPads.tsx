@@ -6,8 +6,8 @@ const motorPads = { pin1: ["MOTOR_POS"], pin2: ["MOTOR_NEG"] } as const;
 export const MotorPads = (props: ChipProps<typeof motorPads>) => (
 	<connector
 		pinLabels={motorPads}
-		manufacturerPartNumber="LCM1234A3523F"
-		supplierPartNumbers={{ jlcpcb: ["C7424783"] }}
+		manufacturerPartNumber="WIRE_PADS_2"
+		doNotPlace
 		footprint={
 			<footprint insertionDirection="from_above">
 				<smtpad

@@ -1,0 +1,14 @@
+{
+  "drc_violations": 0,
+  "unconnected": 0,
+  "native_copper_and_pads_identical": true,
+  "copper_items": 928,
+  "pads": 281,
+  "files": {
+    "hardware/smartwatch-nrf52810.kicad_pcb": "dc5726961602e7f5d42c3e11879837f3ce18f49425722c08005620fee815eb37",
+    "routing/finalize-native.py": "07284c382ab81b6d7a2dce44068607bfddae8bd21aee2ea901157fe91e1cd023",
+    "routing/native/placement.kicad_pcb": "1558b4a68e66de1863683f815782f5368197f866aae926543ea52098c2a35bd3",
+    "routing/native/router-base.kicad_pcb": "8d1946453f3fd96da7379252d49cced782c1d104c7861eda00c93359a628c66a",
+    "routing/native/routed.ses": "4fb1d3ed63039286b589346c52d066d5be6fd105a78b04cbe5a42b6515a57d40"
+  }
+}

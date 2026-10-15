@@ -1,38 +1,24 @@
-# Assembly instructions
+# Complete product assembly
 
-## Manufacturing intent
+The compact/exploded models and `mechanical/assembly-manifest.json` cover 100 solids. They include all 70 fitted PCB component envelopes, board, display, lens, battery, cushion, NTC, motor, harness envelopes, case, bezel, retainer, two plungers, four screws/inserts, two spring bars and two strap halves. This is a provisional packaging model, not supplier-certified CAD or a completed collision/fit qualification.
 
-- PCB: 40 x 40 mm rounded square, 8 mm corner radius, 1 mm finished thickness, four copper layers.
-- Solder mask / legend: black mask, white top legend.
-- Assembly side: **top only**. Do not place any component on the bottom side.
-- Use the exact LCSC codes in `bom-jlcpcb.csv` and the generated centroid/placement data.
-- Run JLCDFM and inspect every reported exception before releasing fabrication data.
+## Datum and space
 
-## Before ordering
+PCB top is Z=0 mm; PCB bottom is Z=-1 mm. +Y points toward the battery header; USB faces -Y. Board: 46 × 46 mm, R8, 1 mm thick. Polymer case: 54 × 54 × 18 mm, excluding lugs and screw-head detail. Screw centers are (±22.8, ±22.8) mm, outside the rounded PCB corners. The PCB has no mounting holes; a lower edge ledge and upper retainer capture it.
 
-1. Run `npm run verify` and confirm every gate passes.
-2. Run `npm run check:stock`; review low-margin parts and pre-order them if needed.
-3. Compare the fabrication preview with the checked-in PCB, bottom-layer and 3D snapshots.
-4. Confirm the board outline remains 40 x 40 mm with 8 mm corners and no component courtyard crosses the edge.
-5. Confirm J1 is accessible through the intended case wall and both side switches face the case actuators.
-6. Confirm J4 contact direction, pin 1 and LCD flex fold direction using physical samples.
+The display body is 35.59 × 37.74 × 1.6 mm at X=-3.5 mm, Z=4.4–6.0 mm. The 38 × 40 × 1 mm lens occupies Z=6.2–7.2 mm. A 30 × 35 × 4 mm cell envelope sits below the PCB, leaving a nominal 0.7 mm swelling space above the cushion. The protection circuit, leads and supplier tolerance must fit this envelope; no unprotected cell is approved. The 12 mm motor sits beside the battery. Keep metal, cell foil and harnesses out of the antenna window defined in `hardware-contract.json`.
 
-## SMT assembly
+## Assembly sequence
 
-- Assemble all fitted PCB components on top. The bottom side carries copper only.
-- Pay special attention to U5 (DSBGA), U6 (VSON), U1 (UFQFPN), U2 (LGA), U3 (DFN), J1 shell tabs and J4 fine-pitch contacts.
-- Use X-ray or equivalent inspection for hidden-joint packages when available.
-- Do not fit the external LCD panel, LiPo, or wire-lead motor during reflow.
-- Preserve the exposed connector openings and switch actuation paths during washing and handling.
+1. Inspect bare PCB fabrication and the top SMT assembly. Check exact MPNs, pin 1, polarity, solder joints and connector latch direction. Request X-ray for hidden-joint ICs. Do not fit M1 as an SMT component.
+2. Perform current-limited PCB bring-up using `docs/bring-up.md`. Program and verify an application built for the documented nRF52810 pin map.
+3. Print base, bezel, display retainer and both button plungers. Deburr and dry-fit the PCB. Check the USB opening, button actuation, FPC latch access, screw clearances and the RF window. Confirm exact M2 insert dimensions before fitting inserts.
+4. Bond the insulated SEMITEC 103AT-2 NTC to the qualified protected battery pack using materials approved by the pack supplier. Connect it only to J5. Label the NTC harness separately from the battery lead.
+5. Install the cushion, battery and motor. Hand-solder motor leads to M1 with power removed. Dress and strain-relieve leads; do not pinch them against the retainer or screws. Verify battery J2 pin 1 is positive and pin 2 is ground with a meter before connection.
+6. Connect the no-touch LCD FPC to J4. Confirm contact side, pin 1, latch closure and actual flex bend radius/length using the purchased panel. The model's flex shape is an envelope, not a manufacturing drawing.
+7. Install display retainer, display, lens bond and bezel after validating the optical aperture and stack height. Verify insert engagement and screw length physically; no screw may contact the cell or copper.
+8. Fit the 22 mm strap and spring bars. Verify retention, button travel and USB access. Repeat charging, thermal, RF, haptic, display and low-power tests in the closed case.
 
-## Post-SMT installation
+## Remaining mechanical approvals
 
-1. Inspect for solder bridges, rotated ICs, tombstoned passives and incomplete connector tabs.
-2. Attach M1 to the top-side motor pads with correct polarity; add mechanical strain relief outside the pad joint.
-3. Verify the battery lead polarity against J2 before mating it. Never use connector color alone as proof of polarity.
-4. Insert the no-touch ER-TFT1.28-3 flex into J4 with pin 1 aligned, then close the latch without forcing it.
-5. Mount the display, battery and motor so they do not load J4, the crystal, BMA456, or solder joints.
-
-## Mechanical validation
-
-The PCB source does not validate the complete watch stack. Check display fold radius, battery swelling allowance, connector insertion/removal, motor isolation, antenna-free keepouts, case-wall clearances, button travel, gasket compression and service access in the final enclosure CAD.
+Exact battery/protection/lead drawing; harness cut lengths; lens and adhesive specification; exact insert selection; plunger travel; case print tolerances; flex folding; enclosure collision inspection; retention/drop/skin-contact and thermal tests. No water-resistance rating is claimed. Purchased strap geometry is illustrative.

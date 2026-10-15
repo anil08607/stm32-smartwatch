@@ -1,0 +1,1 @@
+(sym_lib_table (lib (name "Smartwatch") (type "KiCad") (uri "${KIPRJMOD}/Smartwatch.kicad_sym") (options "") (descr "Project-local symbols with exact numbered source pins")))

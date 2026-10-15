@@ -1,0 +1,110 @@
+[
+	{
+		"reference": "LCD1",
+		"quantity": 1,
+		"part": "ER-TFT1.28-3, no-touch, 15-pin 0.5 mm FPC",
+		"purchase_url": "https://www.buydisplay.com/1-28-inch-tft-lcd-display-240x240-round-circle-screen-for-smart-watch",
+		"stage": "After reflow; verify flex contact orientation",
+		"envelope_mm": [35.59, 37.74, 1.6],
+		"stock_status": "supplier confirmation required"
+	},
+	{
+		"reference": "BT1",
+		"quantity": 1,
+		"part": "LP403035 3.7 V 400 mAh protected 1S LiPo; confirmed JST-SH polarity and protection required",
+		"purchase_url": "https://www.lipolbattery.com/LiPo-Battery-Datahseet/LiPo_Battery_LP403035_3.7V_400mAh.pdf",
+		"stage": "Qualified custom pack order; do not substitute bare unprotected cell",
+		"envelope_mm": [30, 35, 4],
+		"stock_status": "pack quote, protection circuit and lead drawing required"
+	},
+	{
+		"reference": "NTC1",
+		"quantity": 1,
+		"part": "SEMITEC 103AT-2 10 kohm 3435 K thermistor",
+		"purchase_url": "https://www.arrow.com/en/products/103at-2/semitec-corporation",
+		"stage": "Insulate and bond to pack; connect to J5; test open/short faults",
+		"stock_status": "supplier confirmation required"
+	},
+	{
+		"reference": "M1",
+		"quantity": 1,
+		"part": "LCM1234A3523F wire-lead vibration motor",
+		"supplier_code": "C7424783",
+		"purchase_url": "https://www.lcsc.com/product-detail/C7424783.html",
+		"stage": "Hand-solder to M1 pads; no SMT paste or CPL entry",
+		"envelope_mm": [12, 12, 3.4],
+		"stock_status": "supplier confirmation required"
+	},
+	{
+		"reference": "H_BAT,H_NTC",
+		"quantity": 2,
+		"part": "JST SHR-02V-S housing with two SSH-003T-P0.2 contacts, assembled 28 AWG lead, nominal 50 mm",
+		"purchase_url": "https://www.jst-mfg.com/product/index.php?series=231",
+		"stage": "One polarized battery lead, one marked NTC lead; verify actual cut length",
+		"stock_status": "harness quote required"
+	},
+	{
+		"reference": "H_SWD",
+		"quantity": 1,
+		"part": "JST SHR-06V-S housing with six SSH-003T-P0.2 contacts and probe-specific adapter",
+		"purchase_url": "https://www.jst-mfg.com/product/index.php?series=231",
+		"stage": "Programming equipment; custom pinout in hardware-contract.json",
+		"stock_status": "harness quote required"
+	},
+	{
+		"reference": "CASE1,BEZEL1,RETAINER1,PLUNGER1,PLUNGER2",
+		"quantity": 1,
+		"part": "Custom five-part polymer enclosure set from mechanical/ STL models",
+		"purchase_url": "https://3d.jlcpcb.com/",
+		"stage": "Prototype print quote; inspect fit and refine before wearable use",
+		"stock_status": "custom manufacture; no stock claim"
+	},
+	{
+		"reference": "LENS1",
+		"quantity": 1,
+		"part": "Custom 38 x 40 x 1 mm clear polycarbonate lens, R3 corners",
+		"purchase_url": "https://www.protolabs.com/services/cnc-machining/",
+		"stage": "Custom cut lens; bond after display fit check",
+		"stock_status": "custom quote required"
+	},
+	{
+		"reference": "FAST1",
+		"quantity": 4,
+		"part": "M2 x 8 mm screws with M2 heat-set inserts sized to enclosure drawing",
+		"purchase_url": "https://www.mcmaster.com/heat-set-inserts/",
+		"stage": "Case fastening; verify insert OD and installed depth with supplier drawing",
+		"stock_status": "exact insert selection and fit test required"
+	},
+	{
+		"reference": "STRAP1",
+		"quantity": 1,
+		"part": "22 mm silicone quick-release strap with two matching spring bars",
+		"purchase_url": "https://www.bartonwatchbands.com/collections/22mm-watch-bands",
+		"stage": "Final mechanical assembly; verify lug and pin fit",
+		"stock_status": "supplier confirmation required"
+	},
+	{
+		"reference": "ADH1",
+		"quantity": 1,
+		"part": "Electronics-safe lens/display tape, 0.5 mm battery cushion and insulated NTC bond; exact compatible grades pending",
+		"purchase_url": "https://www.3m.com/3M/en_US/bonding-and-assembly-us/",
+		"stage": "Select materials compatible with pack supplier and temperature limits",
+		"stock_status": "exact adhesive selection required"
+	},
+	{
+		"reference": "TOOL_SWD",
+		"quantity": 1,
+		"part": "Nordic nRF52 DK debug-out or compatible SEGGER J-Link",
+		"purchase_url": "https://www.nordicsemi.com/Products/Development-hardware/nRF52-DK",
+		"stage": "Reusable programming/test equipment; not fitted to watch",
+		"stock_status": "supplier confirmation required"
+	},
+	{
+		"reference": "TOOL_USB",
+		"quantity": 1,
+		"part": "5 V USB-C source and USB-C cable",
+		"purchase_url": "https://www.digikey.com/en/products/filter/usb-cables/455",
+		"stage": "Charging/test equipment; qualify source/cable with watch",
+		"stock_status": "exact cable/source selection required"
+	}
+]

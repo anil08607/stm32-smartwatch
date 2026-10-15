@@ -4,10 +4,17 @@ import { readFileSync } from "node:fs";
 const circuit = JSON.parse(
 	readFileSync(process.argv[2] ?? "dist/index/circuit.json", "utf8"),
 );
-const sourceComponents = circuit.filter(
-	(item) => item.type === "source_component",
+const excluded = new Set(
+	circuit
+		.filter((x) => x.type === "pcb_component" && x.do_not_place)
+		.map((x) => x.source_component_id),
 );
-const pcbComponents = circuit.filter((item) => item.type === "pcb_component");
+const sourceComponents = circuit.filter(
+	(x) => x.type === "source_component" && !excluded.has(x.source_component_id),
+);
+const pcbComponents = circuit.filter(
+	(item) => item.type === "pcb_component" && !item.do_not_place,
+);
 assert.equal(
 	pcbComponents.length,
 	sourceComponents.length,
@@ -16,6 +23,16 @@ assert.equal(
 
 const names = new Map(
 	sourceComponents.map((item) => [item.source_component_id, item.name]),
+);
+assert.equal(
+	circuit.filter((x) => x.type === "source_component").length,
+	71,
+	"Complete board must contain 71 components",
+);
+assert.equal(
+	sourceComponents.length,
+	70,
+	"Complete assembly must contain 70 fitted SMT parts",
 );
 for (const component of pcbComponents) {
 	const name =
@@ -107,6 +124,44 @@ for (const [lcsc, group] of expectedGroups) {
 	);
 }
 
+const cplRows = readFileSync("release/assembly-cpl.csv", "utf8")
+	.trim()
+	.split(/\r?\n/)
+	.slice(1)
+	.map(parseCsvLine);
+assert.equal(cplRows.length, 70, "CPL must contain exactly 70 fitted parts");
+assert.equal(
+	new Set(cplRows.map((x) => x[0])).size,
+	70,
+	"Duplicate CPL designators",
+);
+const native = JSON.parse(readFileSync("docs/checks/native-geometry.json"));
+for (const component of pcbComponents) {
+	const name = names.get(component.source_component_id);
+	const row = cplRows.find((x) => x[0] === name);
+	assert(row, `${name}: CPL placement missing`);
+	const position = native.positions[name];
+	assert.equal(row[3], "Top");
+	for (const [actual, expected] of [
+		[parseFloat(row[1]), component.center.x + 23],
+		[parseFloat(row[2]), component.center.y + 23],
+		[position.center.x, component.center.x],
+		[position.center.y, component.center.y],
+	])
+		assert(
+			Math.abs(actual - expected) < 0.00011,
+			`${name}: source/native/CPL position differs`,
+		);
+	assert(
+		Math.abs(((Number(row[4]) - component.rotation + 540) % 360) - 180) < 0.001,
+		`${name}: CPL rotation differs`,
+	);
+	assert(
+		Math.abs(((position.rotation - component.rotation + 540) % 360) - 180) <
+			0.001,
+		`${name}: native rotation differs`,
+	);
+}
 console.log(
 	`PASS: ${pcbComponents.length} fitted components are top-side only, on-board, carry exact JLCPCB/LCSC codes, and match ${bomRows.length} BOM lines.`,
 );

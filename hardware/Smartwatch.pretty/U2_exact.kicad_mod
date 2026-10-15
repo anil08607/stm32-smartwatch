@@ -1,0 +1,175 @@
+(footprint "U2_exact"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(property "Reference" "U2"
+		(at -0.004064 -2.132332 0)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "6c513cbe-bb52-48de-aad9-36789d6f793a")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "BMA456"
+		(at 0 3 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "bcec8dc2-cc26-4d66-bf89-5ed4296d7937")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "b7bdc6a3-0a2a-4446-b4db-7cdc2b6060c3")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "41bbb4d9-1f1d-4884-a414-01fcac2501f1")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Supplier Part Number" "C189518"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "7cafc460-1a47-c240-4820-3fe05577be00")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "MPN" "BMA456"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "586dcda0-27ea-ee9f-0897-f062391acf63")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_poly
+		(pts
+			(xy -1.524064 -1.382332) (xy 1.515936 -1.382332) (xy 1.515936 1.784668) (xy -1.524064 1.784668) (xy -1.524064 -1.382332)
+		)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+		(uuid "41fd33a0-4aab-dae1-28ab-169e63fdf7e3")
+	)
+	(pad "1" smd rect
+		(at -0.750062 0.87503)
+		(size 0.28001 0.499999)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "4e91484a-275e-f6d6-62b0-ca0a133f7516")
+	)
+	(pad "2" smd rect
+		(at -0.249936 0.87503)
+		(size 0.28001 0.499999)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "7a7ec800-3d69-933f-0aae-118252c5b643")
+	)
+	(pad "3" smd rect
+		(at 0.249936 0.87503)
+		(size 0.28001 0.499999)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "192f146c-5cc1-2ab4-2d4e-962c48a1a8f4")
+	)
+	(pad "4" smd rect
+		(at 0.750062 0.87503)
+		(size 0.28001 0.499999)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "1e245fe0-64a9-02ff-54d2-59e20e4db6c3")
+	)
+	(pad "5" smd rect
+		(at 0.87503 0.249936)
+		(size 0.499999 0.28001)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "0d64fbc0-6bac-ffe1-360a-fbfe283d0823")
+	)
+	(pad "6" smd rect
+		(at 0.87503 -0.249936)
+		(size 0.499999 0.28001)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "78b1649c-0df8-e4bc-5cbf-9b243887e4fc")
+	)
+	(pad "7" smd rect
+		(at 0.750062 -0.87503)
+		(size 0.28001 0.499999)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "41ac17c6-4863-a91a-2d8c-96065c832ada")
+	)
+	(pad "8" smd rect
+		(at 0.249936 -0.87503)
+		(size 0.28001 0.499999)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "49789540-0160-f07f-46b6-b4427131a6fd")
+	)
+	(pad "9" smd rect
+		(at -0.249936 -0.87503)
+		(size 0.28001 0.499999)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "72abf9e0-2d88-ed20-179a-1fa05cbd2c60")
+	)
+	(pad "10" smd rect
+		(at -0.750062 -0.87503)
+		(size 0.28001 0.499999)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "19d267a4-2b50-a51c-7073-b1dc4a694164")
+	)
+	(pad "11" smd rect
+		(at -0.87503 -0.249936)
+		(size 0.499999 0.28001)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "21fa95f8-7c9d-6e08-1b35-7208463289f8")
+	)
+	(pad "12" smd rect
+		(at -0.87503 0.249936)
+		(size 0.499999 0.28001)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "45edcf80-3245-4b81-1e9c-c7820af44383")
+	)
+	(embedded_fonts no)
+	(model "https://modelcdn.tscircuit.com/easyeda_models/assets/C189518.step?uuid=83ec6157b4954879af30009d604f164f&cachebust_origin="
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 -90)
+		)
+	)
+)

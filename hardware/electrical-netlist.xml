@@ -1,0 +1,3358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="E">
+  <design>
+    <source>hardware/smartwatch-nrf52810.kicad_sch</source>
+    <date>2026-10-15T17:04:23</date>
+    <tool>Eeschema 10.0.5</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title>nRF52810 smartwatch — electrical sheets</title>
+        <company>Anil Kumar</company>
+        <rev>V1</rev>
+        <date/>
+        <source>smartwatch-nrf52810.kicad_sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="2" name="/USB-C PD &amp; Battery Charging/" tstamps="/7e6436a1-fcc2-4cb9-87cb-9629d5543048/">
+      <title_block>
+        <title>USB-C PD &amp; Battery Charging</title>
+        <company>Anil Kumar</company>
+        <rev>V1 nRF52810</rev>
+        <date/>
+        <source>usb_pd.kicad_sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="3" name="/3.05 V Buck-Boost Power/" tstamps="/02683a66-c52e-4b99-8822-9ee7b6c4597b/">
+      <title_block>
+        <title>3.05 V Buck-Boost Power</title>
+        <company>Anil Kumar</company>
+        <rev>V1 nRF52810</rev>
+        <date/>
+        <source>system_power.kicad_sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="4" name="/MCU, Battery Monitor &amp; Programming/" tstamps="/c1472135-b14c-47c8-8ef9-8e73f7020832/">
+      <title_block>
+        <title>MCU, Battery Monitor &amp; Programming</title>
+        <company>Anil Kumar</company>
+        <rev>V1 nRF52810</rev>
+        <date/>
+        <source>controller.kicad_sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="5" name="/Display &amp; Backlight/" tstamps="/dfbb889c-f19b-4a82-8d8d-eadf82de2329/">
+      <title_block>
+        <title>Display &amp; Backlight</title>
+        <company>Anil Kumar</company>
+        <rev>V1 nRF52810</rev>
+        <date/>
+        <source>display.kicad_sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="6" name="/Motion &amp; RTC/" tstamps="/e22dfb01-a00b-49a1-8693-cb5783bd1f19/">
+      <title_block>
+        <title>Motion &amp; RTC</title>
+        <company>Anil Kumar</company>
+        <rev>V1 nRF52810</rev>
+        <date/>
+        <source>sensors.kicad_sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="7" name="/Buttons &amp; Haptics/" tstamps="/c796d37c-6d49-4e8f-8c6e-9b83eed34c15/">
+      <title_block>
+        <title>Buttons &amp; Haptics</title>
+        <company>Anil Kumar</company>
+        <rev>V1 nRF52810</rev>
+        <date/>
+        <source>interface.kicad_sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="8" name="/BLE Radio, Clocks and Local Supply/" tstamps="/bb0227a7-8c7e-40a6-8870-d15e89392fe6/">
+      <title_block>
+        <title>BLE Radio, Clocks and Local Supply</title>
+        <company>Anil Kumar</company>
+        <rev>V1 nRF52810</rev>
+        <date/>
+        <source>radio_clock.kicad_sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="C1">
+      <value>CL05A105KA5NQNC</value>
+      <footprint>Smartwatch:C1_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:C1_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="C1_exact" description=""/>
+      <property name="Sheetname" value="USB-C PD &amp; Battery Charging"/>
+      <property name="Sheetfile" value="usb_pd.kicad_sch"/>
+      <sheetpath names="/USB-C PD &amp; Battery Charging/" tstamps="/7e6436a1-fcc2-4cb9-87cb-9629d5543048/"/>
+      <tstamps>ab861dc1-70dc-4e43-824e-45278d3d31a6</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C2">
+      <value>CL21A106KAYNNNE</value>
+      <footprint>Smartwatch:C2_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:C2_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="C2_exact" description=""/>
+      <property name="Sheetname" value="USB-C PD &amp; Battery Charging"/>
+      <property name="Sheetfile" value="usb_pd.kicad_sch"/>
+      <sheetpath names="/USB-C PD &amp; Battery Charging/" tstamps="/7e6436a1-fcc2-4cb9-87cb-9629d5543048/"/>
+      <tstamps>9685eb76-5661-4a3b-85f3-1e1bb3c3b550</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C3">
+      <value>CL05A105KA5NQNC</value>
+      <footprint>Smartwatch:C3_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:C3_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="C3_exact" description=""/>
+      <property name="Sheetname" value="USB-C PD &amp; Battery Charging"/>
+      <property name="Sheetfile" value="usb_pd.kicad_sch"/>
+      <sheetpath names="/USB-C PD &amp; Battery Charging/" tstamps="/7e6436a1-fcc2-4cb9-87cb-9629d5543048/"/>
+      <tstamps>8a214cef-6d47-4c9a-8724-9b3267218f8f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C6">
+      <value>CL05A105KA5NQNC</value>
+      <footprint>Smartwatch:C6_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:C6_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="C6_exact" description=""/>
+      <property name="Sheetname" value="USB-C PD &amp; Battery Charging"/>
+      <property name="Sheetfile" value="usb_pd.kicad_sch"/>
+      <sheetpath names="/USB-C PD &amp; Battery Charging/" tstamps="/7e6436a1-fcc2-4cb9-87cb-9629d5543048/"/>
+      <tstamps>90fce73c-b7c1-44cf-89bf-1f8c67197651</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D1">
+      <value>LESD5Z5.0CT1G</value>
+      <footprint>Smartwatch:D1_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:D1_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="D1_exact" description=""/>
+      <property name="Sheetname" value="USB-C PD &amp; Battery Charging"/>
+      <property name="Sheetfile" value="usb_pd.kicad_sch"/>
+      <sheetpath names="/USB-C PD &amp; Battery Charging/" tstamps="/7e6436a1-fcc2-4cb9-87cb-9629d5543048/"/>
+      <tstamps>33a123e5-d474-48f3-895a-7c304f171842</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J1">
+      <value>TYPE-C-31-M-12</value>
+      <footprint>Smartwatch:J1_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:J1_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="J1_exact" description=""/>
+      <property name="Sheetname" value="USB-C PD &amp; Battery Charging"/>
+      <property name="Sheetfile" value="usb_pd.kicad_sch"/>
+      <sheetpath names="/USB-C PD &amp; Battery Charging/" tstamps="/7e6436a1-fcc2-4cb9-87cb-9629d5543048/"/>
+      <tstamps>493d650d-8d15-401b-8a25-88bb54c2f91f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+            <pin num="9"/>
+            <pin num="10"/>
+            <pin num="11"/>
+            <pin num="12"/>
+            <pin num="13"/>
+            <pin num="14"/>
+            <pin num="15"/>
+            <pin num="16"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J2">
+      <value>SM02B-SRSS-TB(LF)(SN)</value>
+      <footprint>Smartwatch:J2_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:J2_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="J2_exact" description=""/>
+      <property name="Sheetname" value="USB-C PD &amp; Battery Charging"/>
+      <property name="Sheetfile" value="usb_pd.kicad_sch"/>
+      <sheetpath names="/USB-C PD &amp; Battery Charging/" tstamps="/7e6436a1-fcc2-4cb9-87cb-9629d5543048/"/>
+      <tstamps>45476306-1e4b-49f9-8261-06dd5417f2dd</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J5">
+      <value>SM02B-SRSS-TB(LF)(SN)</value>
+      <footprint>Smartwatch:J5_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:J5_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="J5_exact" description=""/>
+      <property name="Sheetname" value="USB-C PD &amp; Battery Charging"/>
+      <property name="Sheetfile" value="usb_pd.kicad_sch"/>
+      <sheetpath names="/USB-C PD &amp; Battery Charging/" tstamps="/7e6436a1-fcc2-4cb9-87cb-9629d5543048/"/>
+      <tstamps>085aa91a-4e43-4696-88f9-aff5d74f485f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R1">
+      <value>0402WGF0000TCE</value>
+      <footprint>Smartwatch:R1_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:R1_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="R1_exact" description=""/>
+      <property name="Sheetname" value="USB-C PD &amp; Battery Charging"/>
+      <property name="Sheetfile" value="usb_pd.kicad_sch"/>
+      <sheetpath names="/USB-C PD &amp; Battery Charging/" tstamps="/7e6436a1-fcc2-4cb9-87cb-9629d5543048/"/>
+      <tstamps>a791366f-6f62-4125-8edc-ac9ec72017b1</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R2">
+      <value>0402WGF0000TCE</value>
+      <footprint>Smartwatch:R2_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:R2_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="R2_exact" description=""/>
+      <property name="Sheetname" value="USB-C PD &amp; Battery Charging"/>
+      <property name="Sheetfile" value="usb_pd.kicad_sch"/>
+      <sheetpath names="/USB-C PD &amp; Battery Charging/" tstamps="/7e6436a1-fcc2-4cb9-87cb-9629d5543048/"/>
+      <tstamps>d653b016-db1d-48f5-836f-84a44465e5d6</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R7">
+      <value>0402WGF1002TCE</value>
+      <footprint>Smartwatch:R7_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:R7_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="R7_exact" description=""/>
+      <property name="Sheetname" value="USB-C PD &amp; Battery Charging"/>
+      <property name="Sheetfile" value="usb_pd.kicad_sch"/>
+      <sheetpath names="/USB-C PD &amp; Battery Charging/" tstamps="/7e6436a1-fcc2-4cb9-87cb-9629d5543048/"/>
+      <tstamps>e74859e6-5cd1-4fc9-83fb-6132168effe3</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R18">
+      <value>0402WGF100JTCE</value>
+      <footprint>Smartwatch:R18_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:R18_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="R18_exact" description=""/>
+      <property name="Sheetname" value="USB-C PD &amp; Battery Charging"/>
+      <property name="Sheetfile" value="usb_pd.kicad_sch"/>
+      <sheetpath names="/USB-C PD &amp; Battery Charging/" tstamps="/7e6436a1-fcc2-4cb9-87cb-9629d5543048/"/>
+      <tstamps>4bcfa70b-aaca-4ae4-80dc-515864e5c8ee</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U3">
+      <value>HUSB238_002DD</value>
+      <footprint>Smartwatch:U3_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:U3_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="U3_exact" description=""/>
+      <property name="Sheetname" value="USB-C PD &amp; Battery Charging"/>
+      <property name="Sheetfile" value="usb_pd.kicad_sch"/>
+      <sheetpath names="/USB-C PD &amp; Battery Charging/" tstamps="/7e6436a1-fcc2-4cb9-87cb-9629d5543048/"/>
+      <tstamps>101de8b7-37d2-49bf-8163-3c95ce6e77bb</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+            <pin num="9"/>
+            <pin num="10"/>
+            <pin num="11"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U5">
+      <value>BQ25180YBGR</value>
+      <footprint>Smartwatch:U5_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:U5_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="U5_exact" description=""/>
+      <property name="Sheetname" value="USB-C PD &amp; Battery Charging"/>
+      <property name="Sheetfile" value="usb_pd.kicad_sch"/>
+      <sheetpath names="/USB-C PD &amp; Battery Charging/" tstamps="/7e6436a1-fcc2-4cb9-87cb-9629d5543048/"/>
+      <tstamps>da34151d-9ba2-4589-8be2-fc39ca4c4daf</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C4">
+      <value>CL21A106KAYNNNE</value>
+      <footprint>Smartwatch:C4_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:C4_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="C4_exact" description=""/>
+      <property name="Sheetname" value="3.05 V Buck-Boost Power"/>
+      <property name="Sheetfile" value="system_power.kicad_sch"/>
+      <sheetpath names="/3.05 V Buck-Boost Power/" tstamps="/02683a66-c52e-4b99-8822-9ee7b6c4597b/"/>
+      <tstamps>08d1623c-441b-45a6-889f-ce1086354967</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C5">
+      <value>CL21A226MAQNNNE</value>
+      <footprint>Smartwatch:C5_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:C5_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="C5_exact" description=""/>
+      <property name="Sheetname" value="3.05 V Buck-Boost Power"/>
+      <property name="Sheetfile" value="system_power.kicad_sch"/>
+      <sheetpath names="/3.05 V Buck-Boost Power/" tstamps="/02683a66-c52e-4b99-8822-9ee7b6c4597b/"/>
+      <tstamps>1d96682b-db05-4d31-8e0c-e774ccefe039</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="L1">
+      <value>DFE252012P-R47M=P2</value>
+      <footprint>Smartwatch:L1_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:L1_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="L1_exact" description=""/>
+      <property name="Sheetname" value="3.05 V Buck-Boost Power"/>
+      <property name="Sheetfile" value="system_power.kicad_sch"/>
+      <sheetpath names="/3.05 V Buck-Boost Power/" tstamps="/02683a66-c52e-4b99-8822-9ee7b6c4597b/"/>
+      <tstamps>dffe8596-427f-450e-8f64-654a609af134</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R4">
+      <value>RC0402FR-07510KL</value>
+      <footprint>Smartwatch:R4_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:R4_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="R4_exact" description=""/>
+      <property name="Sheetname" value="3.05 V Buck-Boost Power"/>
+      <property name="Sheetfile" value="system_power.kicad_sch"/>
+      <sheetpath names="/3.05 V Buck-Boost Power/" tstamps="/02683a66-c52e-4b99-8822-9ee7b6c4597b/"/>
+      <tstamps>ec7e008b-5f4d-45c4-8a53-2426d1d7b7cd</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R5">
+      <value>0402WGF1003TCE</value>
+      <footprint>Smartwatch:R5_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:R5_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="R5_exact" description=""/>
+      <property name="Sheetname" value="3.05 V Buck-Boost Power"/>
+      <property name="Sheetfile" value="system_power.kicad_sch"/>
+      <sheetpath names="/3.05 V Buck-Boost Power/" tstamps="/02683a66-c52e-4b99-8822-9ee7b6c4597b/"/>
+      <tstamps>d9a37366-a195-42ef-8f8c-64a72b24d75e</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R6">
+      <value>0402WGF1003TCE</value>
+      <footprint>Smartwatch:R6_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:R6_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="R6_exact" description=""/>
+      <property name="Sheetname" value="3.05 V Buck-Boost Power"/>
+      <property name="Sheetfile" value="system_power.kicad_sch"/>
+      <sheetpath names="/3.05 V Buck-Boost Power/" tstamps="/02683a66-c52e-4b99-8822-9ee7b6c4597b/"/>
+      <tstamps>550a92e3-30a8-4fa0-8314-c5bdde5a76c4</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U6">
+      <value>TPS63802DLAR</value>
+      <footprint>Smartwatch:U6_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:U6_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="U6_exact" description=""/>
+      <property name="Sheetname" value="3.05 V Buck-Boost Power"/>
+      <property name="Sheetfile" value="system_power.kicad_sch"/>
+      <sheetpath names="/3.05 V Buck-Boost Power/" tstamps="/02683a66-c52e-4b99-8822-9ee7b6c4597b/"/>
+      <tstamps>f0b4d52f-b572-4514-870d-61e39e46cde5</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+            <pin num="9"/>
+            <pin num="10"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C8">
+      <value>CC0402KRX7R7BB104</value>
+      <footprint>Smartwatch:C8_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:C8_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="C8_exact" description=""/>
+      <property name="Sheetname" value="MCU, Battery Monitor &amp; Programming"/>
+      <property name="Sheetfile" value="controller.kicad_sch"/>
+      <sheetpath names="/MCU, Battery Monitor &amp; Programming/" tstamps="/c1472135-b14c-47c8-8ef9-8e73f7020832/"/>
+      <tstamps>f09d8479-566a-4c7c-8b15-6fa8635e4499</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C9">
+      <value>0402CG101J500NT</value>
+      <footprint>Smartwatch:C9_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:C9_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="C9_exact" description=""/>
+      <property name="Sheetname" value="MCU, Battery Monitor &amp; Programming"/>
+      <property name="Sheetfile" value="controller.kicad_sch"/>
+      <sheetpath names="/MCU, Battery Monitor &amp; Programming/" tstamps="/c1472135-b14c-47c8-8ef9-8e73f7020832/"/>
+      <tstamps>2a36848a-8064-4691-80e2-f3c5b5fcb787</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C10">
+      <value>CC0402KRX7R7BB104</value>
+      <footprint>Smartwatch:C10_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:C10_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="C10_exact" description=""/>
+      <property name="Sheetname" value="MCU, Battery Monitor &amp; Programming"/>
+      <property name="Sheetfile" value="controller.kicad_sch"/>
+      <sheetpath names="/MCU, Battery Monitor &amp; Programming/" tstamps="/c1472135-b14c-47c8-8ef9-8e73f7020832/"/>
+      <tstamps>908d7290-0e24-4592-8b58-0e971e603ef2</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C11">
+      <value>CL05A105KA5NQNC</value>
+      <footprint>Smartwatch:C11_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:C11_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="C11_exact" description=""/>
+      <property name="Sheetname" value="MCU, Battery Monitor &amp; Programming"/>
+      <property name="Sheetfile" value="controller.kicad_sch"/>
+      <sheetpath names="/MCU, Battery Monitor &amp; Programming/" tstamps="/c1472135-b14c-47c8-8ef9-8e73f7020832/"/>
+      <tstamps>22b5894e-02a7-4bb5-8ee8-ae7db1fc6f25</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C12">
+      <value>CL10A475KO8NNNC</value>
+      <footprint>Smartwatch:C12_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:C12_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="C12_exact" description=""/>
+      <property name="Sheetname" value="MCU, Battery Monitor &amp; Programming"/>
+      <property name="Sheetfile" value="controller.kicad_sch"/>
+      <sheetpath names="/MCU, Battery Monitor &amp; Programming/" tstamps="/c1472135-b14c-47c8-8ef9-8e73f7020832/"/>
+      <tstamps>fa70213c-8aaf-4d8f-8d6d-9377a388260e</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C13">
+      <value>CC0402KRX7R7BB104</value>
+      <footprint>Smartwatch:C13_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:C13_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="C13_exact" description=""/>
+      <property name="Sheetname" value="MCU, Battery Monitor &amp; Programming"/>
+      <property name="Sheetfile" value="controller.kicad_sch"/>
+      <sheetpath names="/MCU, Battery Monitor &amp; Programming/" tstamps="/c1472135-b14c-47c8-8ef9-8e73f7020832/"/>
+      <tstamps>6645ca87-da63-46d5-8b2b-8e48f6d382c9</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C14">
+      <value>CC0402KRX7R7BB104</value>
+      <footprint>Smartwatch:C14_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:C14_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="C14_exact" description=""/>
+      <property name="Sheetname" value="MCU, Battery Monitor &amp; Programming"/>
+      <property name="Sheetfile" value="controller.kicad_sch"/>
+      <sheetpath names="/MCU, Battery Monitor &amp; Programming/" tstamps="/c1472135-b14c-47c8-8ef9-8e73f7020832/"/>
+      <tstamps>fafc2212-18d3-4700-8520-f88d2d25775c</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J3">
+      <value>SM06B-SRSS-TB(LF)(SN)</value>
+      <footprint>Smartwatch:J3_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:J3_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="J3_exact" description=""/>
+      <property name="Sheetname" value="MCU, Battery Monitor &amp; Programming"/>
+      <property name="Sheetfile" value="controller.kicad_sch"/>
+      <sheetpath names="/MCU, Battery Monitor &amp; Programming/" tstamps="/c1472135-b14c-47c8-8ef9-8e73f7020832/"/>
+      <tstamps>804f4f16-3b25-4494-8f41-95b53f30e13c</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R8">
+      <value>0402WGF4701TCE</value>
+      <footprint>Smartwatch:R8_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:R8_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="R8_exact" description=""/>
+      <property name="Sheetname" value="MCU, Battery Monitor &amp; Programming"/>
+      <property name="Sheetfile" value="controller.kicad_sch"/>
+      <sheetpath names="/MCU, Battery Monitor &amp; Programming/" tstamps="/c1472135-b14c-47c8-8ef9-8e73f7020832/"/>
+      <tstamps>ec185795-d711-43cd-8b56-63d3a54651c7</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R9">
+      <value>0402WGF4701TCE</value>
+      <footprint>Smartwatch:R9_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:R9_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="R9_exact" description=""/>
+      <property name="Sheetname" value="MCU, Battery Monitor &amp; Programming"/>
+      <property name="Sheetfile" value="controller.kicad_sch"/>
+      <sheetpath names="/MCU, Battery Monitor &amp; Programming/" tstamps="/c1472135-b14c-47c8-8ef9-8e73f7020832/"/>
+      <tstamps>fed5e5f1-8dae-4b3b-81e2-65930e7b7809</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R10">
+      <value>0402WGF1002TCE</value>
+      <footprint>Smartwatch:R10_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:R10_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="R10_exact" description=""/>
+      <property name="Sheetname" value="MCU, Battery Monitor &amp; Programming"/>
+      <property name="Sheetfile" value="controller.kicad_sch"/>
+      <sheetpath names="/MCU, Battery Monitor &amp; Programming/" tstamps="/c1472135-b14c-47c8-8ef9-8e73f7020832/"/>
+      <tstamps>38fea159-d1d7-4d6f-8bff-32f5d5b40e72</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R12">
+      <value>0402WGF1004TCE</value>
+      <footprint>Smartwatch:R12_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:R12_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="R12_exact" description=""/>
+      <property name="Sheetname" value="MCU, Battery Monitor &amp; Programming"/>
+      <property name="Sheetfile" value="controller.kicad_sch"/>
+      <sheetpath names="/MCU, Battery Monitor &amp; Programming/" tstamps="/c1472135-b14c-47c8-8ef9-8e73f7020832/"/>
+      <tstamps>f0a6cd08-84bf-4e98-82cc-3b0f561428d0</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R13">
+      <value>0402WGF3303TCE</value>
+      <footprint>Smartwatch:R13_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:R13_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="R13_exact" description=""/>
+      <property name="Sheetname" value="MCU, Battery Monitor &amp; Programming"/>
+      <property name="Sheetfile" value="controller.kicad_sch"/>
+      <sheetpath names="/MCU, Battery Monitor &amp; Programming/" tstamps="/c1472135-b14c-47c8-8ef9-8e73f7020832/"/>
+      <tstamps>7a2eca4d-e16f-40df-86fe-f9aa946d813d</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U1">
+      <value>NRF52810-QFAA-R</value>
+      <footprint>Smartwatch:U1_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:U1_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="U1_exact" description=""/>
+      <property name="Sheetname" value="MCU, Battery Monitor &amp; Programming"/>
+      <property name="Sheetfile" value="controller.kicad_sch"/>
+      <sheetpath names="/MCU, Battery Monitor &amp; Programming/" tstamps="/c1472135-b14c-47c8-8ef9-8e73f7020832/"/>
+      <tstamps>316ca0ef-da62-46d8-82c1-1d1e20890d22</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+            <pin num="9"/>
+            <pin num="10"/>
+            <pin num="11"/>
+            <pin num="12"/>
+            <pin num="13"/>
+            <pin num="14"/>
+            <pin num="15"/>
+            <pin num="16"/>
+            <pin num="17"/>
+            <pin num="18"/>
+            <pin num="19"/>
+            <pin num="20"/>
+            <pin num="21"/>
+            <pin num="22"/>
+            <pin num="23"/>
+            <pin num="24"/>
+            <pin num="25"/>
+            <pin num="26"/>
+            <pin num="27"/>
+            <pin num="28"/>
+            <pin num="29"/>
+            <pin num="30"/>
+            <pin num="31"/>
+            <pin num="32"/>
+            <pin num="33"/>
+            <pin num="34"/>
+            <pin num="35"/>
+            <pin num="36"/>
+            <pin num="37"/>
+            <pin num="38"/>
+            <pin num="39"/>
+            <pin num="40"/>
+            <pin num="41"/>
+            <pin num="42"/>
+            <pin num="43"/>
+            <pin num="44"/>
+            <pin num="45"/>
+            <pin num="46"/>
+            <pin num="47"/>
+            <pin num="48"/>
+            <pin num="49"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C15">
+      <value>CC0402KRX7R7BB104</value>
+      <footprint>Smartwatch:C15_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:C15_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="C15_exact" description=""/>
+      <property name="Sheetname" value="Display &amp; Backlight"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <sheetpath names="/Display &amp; Backlight/" tstamps="/dfbb889c-f19b-4a82-8d8d-eadf82de2329/"/>
+      <tstamps>c1f5e527-f9d4-41df-8793-aebe1021a091</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J4">
+      <value>AFC24-S15FIA-00</value>
+      <footprint>Smartwatch:J4_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:J4_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="J4_exact" description=""/>
+      <property name="Sheetname" value="Display &amp; Backlight"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <sheetpath names="/Display &amp; Backlight/" tstamps="/dfbb889c-f19b-4a82-8d8d-eadf82de2329/"/>
+      <tstamps>ea02801a-adb2-4e50-8c4e-29abf2219904</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+            <pin num="9"/>
+            <pin num="10"/>
+            <pin num="11"/>
+            <pin num="12"/>
+            <pin num="13"/>
+            <pin num="14"/>
+            <pin num="15"/>
+            <pin num="16"/>
+            <pin num="17"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="Q1">
+      <value>2N7002</value>
+      <footprint>Smartwatch:Q1_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:Q1_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="Q1_exact" description=""/>
+      <property name="Sheetname" value="Display &amp; Backlight"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <sheetpath names="/Display &amp; Backlight/" tstamps="/dfbb889c-f19b-4a82-8d8d-eadf82de2329/"/>
+      <tstamps>32d833f3-48ce-477c-8cc3-291cc5202137</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R14">
+      <value>0402WGF220JTCE</value>
+      <footprint>Smartwatch:R14_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:R14_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="R14_exact" description=""/>
+      <property name="Sheetname" value="Display &amp; Backlight"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <sheetpath names="/Display &amp; Backlight/" tstamps="/dfbb889c-f19b-4a82-8d8d-eadf82de2329/"/>
+      <tstamps>f01df5b3-5044-465c-8d4f-687ffd9e8b72</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R15">
+      <value>0402WGF1000TCE</value>
+      <footprint>Smartwatch:R15_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:R15_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="R15_exact" description=""/>
+      <property name="Sheetname" value="Display &amp; Backlight"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <sheetpath names="/Display &amp; Backlight/" tstamps="/dfbb889c-f19b-4a82-8d8d-eadf82de2329/"/>
+      <tstamps>71ef1a10-2315-4fd0-82ce-12804e0ebc03</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R16">
+      <value>0402WGF1003TCE</value>
+      <footprint>Smartwatch:R16_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:R16_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="R16_exact" description=""/>
+      <property name="Sheetname" value="Display &amp; Backlight"/>
+      <property name="Sheetfile" value="display.kicad_sch"/>
+      <sheetpath names="/Display &amp; Backlight/" tstamps="/dfbb889c-f19b-4a82-8d8d-eadf82de2329/"/>
+      <tstamps>32c71e5b-9e5d-4535-866e-879c3179f579</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C16">
+      <value>CC0402KRX7R7BB104</value>
+      <footprint>Smartwatch:C16_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:C16_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="C16_exact" description=""/>
+      <property name="Sheetname" value="Motion &amp; RTC"/>
+      <property name="Sheetfile" value="sensors.kicad_sch"/>
+      <sheetpath names="/Motion &amp; RTC/" tstamps="/e22dfb01-a00b-49a1-8693-cb5783bd1f19/"/>
+      <tstamps>e1d53e4f-418b-4713-8ba1-2d5f81b61b31</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C17">
+      <value>CC0402KRX7R7BB104</value>
+      <footprint>Smartwatch:C17_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:C17_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="C17_exact" description=""/>
+      <property name="Sheetname" value="Motion &amp; RTC"/>
+      <property name="Sheetfile" value="sensors.kicad_sch"/>
+      <sheetpath names="/Motion &amp; RTC/" tstamps="/e22dfb01-a00b-49a1-8693-cb5783bd1f19/"/>
+      <tstamps>aa482ed1-86ee-4527-877d-7a03619ff5b6</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C22">
+      <value>CC0402KRX7R7BB104</value>
+      <footprint>Smartwatch:C22_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:C22_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="C22_exact" description=""/>
+      <property name="Sheetname" value="Motion &amp; RTC"/>
+      <property name="Sheetfile" value="sensors.kicad_sch"/>
+      <sheetpath names="/Motion &amp; RTC/" tstamps="/e22dfb01-a00b-49a1-8693-cb5783bd1f19/"/>
+      <tstamps>0ee73df9-932d-4156-80c8-90d336ed4789</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R17">
+      <value>0402WGF1002TCE</value>
+      <footprint>Smartwatch:R17_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:R17_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="R17_exact" description=""/>
+      <property name="Sheetname" value="Motion &amp; RTC"/>
+      <property name="Sheetfile" value="sensors.kicad_sch"/>
+      <sheetpath names="/Motion &amp; RTC/" tstamps="/e22dfb01-a00b-49a1-8693-cb5783bd1f19/"/>
+      <tstamps>b8c94a38-f7c8-447e-8d12-c83c9d68f1fb</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U2">
+      <value>BMA456</value>
+      <footprint>Smartwatch:U2_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:U2_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="U2_exact" description=""/>
+      <property name="Sheetname" value="Motion &amp; RTC"/>
+      <property name="Sheetfile" value="sensors.kicad_sch"/>
+      <sheetpath names="/Motion &amp; RTC/" tstamps="/e22dfb01-a00b-49a1-8693-cb5783bd1f19/"/>
+      <tstamps>325a90f3-89d8-431f-8ccd-8da8b1484442</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+            <pin num="9"/>
+            <pin num="10"/>
+            <pin num="11"/>
+            <pin num="12"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U4">
+      <value>PCF8563TS/5,118</value>
+      <footprint>Smartwatch:U4_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:U4_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="U4_exact" description=""/>
+      <property name="Sheetname" value="Motion &amp; RTC"/>
+      <property name="Sheetfile" value="sensors.kicad_sch"/>
+      <sheetpath names="/Motion &amp; RTC/" tstamps="/e22dfb01-a00b-49a1-8693-cb5783bd1f19/"/>
+      <tstamps>d6ba6fe2-fc11-4865-8966-f4f6df42cdec</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="Y1">
+      <value>FC-135 32.7680KA-AG3</value>
+      <footprint>Smartwatch:Y1_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:Y1_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="Y1_exact" description=""/>
+      <property name="Sheetname" value="Motion &amp; RTC"/>
+      <property name="Sheetfile" value="sensors.kicad_sch"/>
+      <sheetpath names="/Motion &amp; RTC/" tstamps="/e22dfb01-a00b-49a1-8693-cb5783bd1f19/"/>
+      <tstamps>e7424eff-12e0-4abe-8c45-c15409aba4e8</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C23">
+      <value>CL21A226MAQNNNE</value>
+      <footprint>Smartwatch:C23_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:C23_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="C23_exact" description=""/>
+      <property name="Sheetname" value="Buttons &amp; Haptics"/>
+      <property name="Sheetfile" value="interface.kicad_sch"/>
+      <sheetpath names="/Buttons &amp; Haptics/" tstamps="/c796d37c-6d49-4e8f-8c6e-9b83eed34c15/"/>
+      <tstamps>e377a9bf-7155-478d-8c33-de074234d844</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D2">
+      <value>1N5819WS</value>
+      <footprint>Smartwatch:D2_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:D2_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="D2_exact" description=""/>
+      <property name="Sheetname" value="Buttons &amp; Haptics"/>
+      <property name="Sheetfile" value="interface.kicad_sch"/>
+      <sheetpath names="/Buttons &amp; Haptics/" tstamps="/c796d37c-6d49-4e8f-8c6e-9b83eed34c15/"/>
+      <tstamps>2265f533-6d7b-4037-85b7-5ace727a6c48</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="M1">
+      <value>LCM1234A3523F</value>
+      <footprint>Smartwatch:M1_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:M1_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="M1_exact" description=""/>
+      <property name="Sheetname" value="Buttons &amp; Haptics"/>
+      <property name="Sheetfile" value="interface.kicad_sch"/>
+      <property name="dnp"/>
+      <sheetpath names="/Buttons &amp; Haptics/" tstamps="/c796d37c-6d49-4e8f-8c6e-9b83eed34c15/"/>
+      <tstamps>2d214ca6-9b86-4255-8e41-6d42cca977a5</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="Q2">
+      <value>AO3400A</value>
+      <footprint>Smartwatch:Q2_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:Q2_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="Q2_exact" description=""/>
+      <property name="Sheetname" value="Buttons &amp; Haptics"/>
+      <property name="Sheetfile" value="interface.kicad_sch"/>
+      <sheetpath names="/Buttons &amp; Haptics/" tstamps="/c796d37c-6d49-4e8f-8c6e-9b83eed34c15/"/>
+      <tstamps>8845886b-e6cb-4f28-8d18-a66a83d622fd</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R19">
+      <value>0402WGF1003TCE</value>
+      <footprint>Smartwatch:R19_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:R19_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="R19_exact" description=""/>
+      <property name="Sheetname" value="Buttons &amp; Haptics"/>
+      <property name="Sheetfile" value="interface.kicad_sch"/>
+      <sheetpath names="/Buttons &amp; Haptics/" tstamps="/c796d37c-6d49-4e8f-8c6e-9b83eed34c15/"/>
+      <tstamps>9d8856d8-c622-4455-8819-0a48964f7aad</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R20">
+      <value>0402WGF1003TCE</value>
+      <footprint>Smartwatch:R20_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:R20_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="R20_exact" description=""/>
+      <property name="Sheetname" value="Buttons &amp; Haptics"/>
+      <property name="Sheetfile" value="interface.kicad_sch"/>
+      <sheetpath names="/Buttons &amp; Haptics/" tstamps="/c796d37c-6d49-4e8f-8c6e-9b83eed34c15/"/>
+      <tstamps>0e9b91ae-8134-492d-8d68-3bda807087ee</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R21">
+      <value>0402WGF1000TCE</value>
+      <footprint>Smartwatch:R21_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:R21_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="R21_exact" description=""/>
+      <property name="Sheetname" value="Buttons &amp; Haptics"/>
+      <property name="Sheetfile" value="interface.kicad_sch"/>
+      <sheetpath names="/Buttons &amp; Haptics/" tstamps="/c796d37c-6d49-4e8f-8c6e-9b83eed34c15/"/>
+      <tstamps>0670f8ea-5102-4513-8fc0-70477d4cdc7c</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R22">
+      <value>0402WGF1003TCE</value>
+      <footprint>Smartwatch:R22_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:R22_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="R22_exact" description=""/>
+      <property name="Sheetname" value="Buttons &amp; Haptics"/>
+      <property name="Sheetfile" value="interface.kicad_sch"/>
+      <sheetpath names="/Buttons &amp; Haptics/" tstamps="/c796d37c-6d49-4e8f-8c6e-9b83eed34c15/"/>
+      <tstamps>cff91094-9176-4457-8f94-18db559257eb</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="SW1">
+      <value>TS-1806SA-2x4x3.5DY-180X</value>
+      <footprint>Smartwatch:SW1_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:SW1_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="SW1_exact" description=""/>
+      <property name="Sheetname" value="Buttons &amp; Haptics"/>
+      <property name="Sheetfile" value="interface.kicad_sch"/>
+      <sheetpath names="/Buttons &amp; Haptics/" tstamps="/c796d37c-6d49-4e8f-8c6e-9b83eed34c15/"/>
+      <tstamps>e4be7c16-0bb0-4440-8209-62899a4d1883</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="SW2">
+      <value>TS-1806SA-2x4x3.5DY-180X</value>
+      <footprint>Smartwatch:SW2_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:SW2_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="SW2_exact" description=""/>
+      <property name="Sheetname" value="Buttons &amp; Haptics"/>
+      <property name="Sheetfile" value="interface.kicad_sch"/>
+      <sheetpath names="/Buttons &amp; Haptics/" tstamps="/c796d37c-6d49-4e8f-8c6e-9b83eed34c15/"/>
+      <tstamps>ccd4f612-aa47-4b5b-8870-70a9d1dfc725</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="ANT1">
+      <value>RFANT3216120A5T</value>
+      <footprint>Smartwatch:ANT1_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:ANT1_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="ANT1_exact" description=""/>
+      <property name="Sheetname" value="BLE Radio, Clocks and Local Supply"/>
+      <property name="Sheetfile" value="radio_clock.kicad_sch"/>
+      <sheetpath names="/BLE Radio, Clocks and Local Supply/" tstamps="/bb0227a7-8c7e-40a6-8870-d15e89392fe6/"/>
+      <tstamps>9aa2ea89-f92d-4c6f-8040-8437197953cf</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C24">
+      <value>GJM1555C1HR80WB01D</value>
+      <footprint>Smartwatch:C24_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:C24_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="C24_exact" description=""/>
+      <property name="Sheetname" value="BLE Radio, Clocks and Local Supply"/>
+      <property name="Sheetfile" value="radio_clock.kicad_sch"/>
+      <sheetpath names="/BLE Radio, Clocks and Local Supply/" tstamps="/bb0227a7-8c7e-40a6-8870-d15e89392fe6/"/>
+      <tstamps>133d22d9-8524-4624-8d63-ba05f75cf9ca</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C25">
+      <value>CC0402KRX7R7BB104</value>
+      <footprint>Smartwatch:C25_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:C25_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="C25_exact" description=""/>
+      <property name="Sheetname" value="BLE Radio, Clocks and Local Supply"/>
+      <property name="Sheetfile" value="radio_clock.kicad_sch"/>
+      <sheetpath names="/BLE Radio, Clocks and Local Supply/" tstamps="/bb0227a7-8c7e-40a6-8870-d15e89392fe6/"/>
+      <tstamps>ae44923e-fec2-4790-87e0-df0c323baab6</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C26">
+      <value>CC0402KRX7R7BB104</value>
+      <footprint>Smartwatch:C26_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:C26_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="C26_exact" description=""/>
+      <property name="Sheetname" value="BLE Radio, Clocks and Local Supply"/>
+      <property name="Sheetfile" value="radio_clock.kicad_sch"/>
+      <sheetpath names="/BLE Radio, Clocks and Local Supply/" tstamps="/bb0227a7-8c7e-40a6-8870-d15e89392fe6/"/>
+      <tstamps>31c65e04-9802-43a6-8a57-f10fc2a403e3</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C27">
+      <value>CC0402KRX7R7BB104</value>
+      <footprint>Smartwatch:C27_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:C27_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="C27_exact" description=""/>
+      <property name="Sheetname" value="BLE Radio, Clocks and Local Supply"/>
+      <property name="Sheetfile" value="radio_clock.kicad_sch"/>
+      <sheetpath names="/BLE Radio, Clocks and Local Supply/" tstamps="/bb0227a7-8c7e-40a6-8870-d15e89392fe6/"/>
+      <tstamps>2fbe87fe-5a12-4515-867a-dfbb9f1fc11d</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C28">
+      <value>0402CG120J500NT</value>
+      <footprint>Smartwatch:C28_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:C28_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="C28_exact" description=""/>
+      <property name="Sheetname" value="BLE Radio, Clocks and Local Supply"/>
+      <property name="Sheetfile" value="radio_clock.kicad_sch"/>
+      <sheetpath names="/BLE Radio, Clocks and Local Supply/" tstamps="/bb0227a7-8c7e-40a6-8870-d15e89392fe6/"/>
+      <tstamps>ebca3449-f77b-4351-80ee-bb8bfca59039</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C29">
+      <value>0402CG120J500NT</value>
+      <footprint>Smartwatch:C29_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:C29_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="C29_exact" description=""/>
+      <property name="Sheetname" value="BLE Radio, Clocks and Local Supply"/>
+      <property name="Sheetfile" value="radio_clock.kicad_sch"/>
+      <sheetpath names="/BLE Radio, Clocks and Local Supply/" tstamps="/bb0227a7-8c7e-40a6-8870-d15e89392fe6/"/>
+      <tstamps>efe2ca6a-f330-4b09-828b-54d0d145f302</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C30">
+      <value>0402CG120J500NT</value>
+      <footprint>Smartwatch:C30_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:C30_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="C30_exact" description=""/>
+      <property name="Sheetname" value="BLE Radio, Clocks and Local Supply"/>
+      <property name="Sheetfile" value="radio_clock.kicad_sch"/>
+      <sheetpath names="/BLE Radio, Clocks and Local Supply/" tstamps="/bb0227a7-8c7e-40a6-8870-d15e89392fe6/"/>
+      <tstamps>0de00bed-0228-41e6-85d0-7b7f4b8e75c0</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C31">
+      <value>0402CG120J500NT</value>
+      <footprint>Smartwatch:C31_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:C31_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="C31_exact" description=""/>
+      <property name="Sheetname" value="BLE Radio, Clocks and Local Supply"/>
+      <property name="Sheetfile" value="radio_clock.kicad_sch"/>
+      <sheetpath names="/BLE Radio, Clocks and Local Supply/" tstamps="/bb0227a7-8c7e-40a6-8870-d15e89392fe6/"/>
+      <tstamps>ba9d0f80-31fa-44b2-8018-d4001d4420ad</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="L2">
+      <value>LQG15HS3N9S02D</value>
+      <footprint>Smartwatch:L2_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:L2_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="L2_exact" description=""/>
+      <property name="Sheetname" value="BLE Radio, Clocks and Local Supply"/>
+      <property name="Sheetfile" value="radio_clock.kicad_sch"/>
+      <sheetpath names="/BLE Radio, Clocks and Local Supply/" tstamps="/bb0227a7-8c7e-40a6-8870-d15e89392fe6/"/>
+      <tstamps>d76354d8-4578-4844-8bb6-9e0dc0dc95fb</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="L3">
+      <value>LQG15HS6N8J02D</value>
+      <footprint>Smartwatch:L3_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:L3_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="L3_exact" description=""/>
+      <property name="Sheetname" value="BLE Radio, Clocks and Local Supply"/>
+      <property name="Sheetfile" value="radio_clock.kicad_sch"/>
+      <sheetpath names="/BLE Radio, Clocks and Local Supply/" tstamps="/bb0227a7-8c7e-40a6-8870-d15e89392fe6/"/>
+      <tstamps>842983de-8fb1-4277-83fa-d5c8295c7a14</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="Y2">
+      <value>X201632MKB4SI</value>
+      <footprint>Smartwatch:Y2_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:Y2_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="Y2_exact" description=""/>
+      <property name="Sheetname" value="BLE Radio, Clocks and Local Supply"/>
+      <property name="Sheetfile" value="radio_clock.kicad_sch"/>
+      <sheetpath names="/BLE Radio, Clocks and Local Supply/" tstamps="/bb0227a7-8c7e-40a6-8870-d15e89392fe6/"/>
+      <tstamps>bfd10cd3-2fa8-469b-88e8-bcc4f153e005</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="Y3">
+      <value>ABS07-32.768KHZ-9-T</value>
+      <footprint>Smartwatch:Y3_exact</footprint>
+      <fields>
+        <field name="Footprint">Smartwatch:Y3_exact</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Smartwatch" part="Y3_exact" description=""/>
+      <property name="Sheetname" value="BLE Radio, Clocks and Local Supply"/>
+      <property name="Sheetfile" value="radio_clock.kicad_sch"/>
+      <sheetpath names="/BLE Radio, Clocks and Local Supply/" tstamps="/bb0227a7-8c7e-40a6-8870-d15e89392fe6/"/>
+      <tstamps>42883681-b6de-4f70-8064-8864a5e8383a</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="Smartwatch" part="ANT1_exact">
+      <fields>
+        <field name="Reference">A</field>
+        <field name="Value">RFANT3216120A5T</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="FEED" type="passive"/>
+        <pin num="2" name="NC" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="C10_exact">
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">CC0402KRX7R7BB104</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="C11_exact">
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">CL05A105KA5NQNC</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="C12_exact">
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">CL10A475KO8NNNC</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="C13_exact">
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">CC0402KRX7R7BB104</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="C14_exact">
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">CC0402KRX7R7BB104</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="C15_exact">
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">CC0402KRX7R7BB104</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="C16_exact">
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">CC0402KRX7R7BB104</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="C17_exact">
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">CC0402KRX7R7BB104</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="C1_exact">
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">CL05A105KA5NQNC</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="C22_exact">
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">CC0402KRX7R7BB104</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="C23_exact">
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">CL21A226MAQNNNE</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="C24_exact">
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">GJM1555C1HR80WB01D</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="C25_exact">
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">CC0402KRX7R7BB104</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="C26_exact">
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">CC0402KRX7R7BB104</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="C27_exact">
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">CC0402KRX7R7BB104</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="C28_exact">
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">0402CG120J500NT</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="C29_exact">
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">0402CG120J500NT</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="C2_exact">
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">CL21A106KAYNNNE</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="C30_exact">
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">0402CG120J500NT</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="C31_exact">
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">0402CG120J500NT</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="C3_exact">
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">CL05A105KA5NQNC</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="C4_exact">
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">CL21A106KAYNNNE</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="C5_exact">
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">CL21A226MAQNNNE</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="C6_exact">
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">CL05A105KA5NQNC</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="C8_exact">
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">CC0402KRX7R7BB104</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="C9_exact">
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">0402CG101J500NT</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="D1_exact">
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">LESD5Z5.0CT1G</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="D2_exact">
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">1N5819WS</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="J1_exact">
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">TYPE-C-31-M-12</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="GND_A" type="power_out"/>
+        <pin num="2" name="VBUS_A" type="power_out"/>
+        <pin num="3" name="SBU2" type="passive"/>
+        <pin num="4" name="CC1" type="passive"/>
+        <pin num="5" name="DN_A" type="passive"/>
+        <pin num="6" name="DP_A" type="passive"/>
+        <pin num="7" name="DN_B" type="passive"/>
+        <pin num="8" name="DP_B" type="passive"/>
+        <pin num="9" name="CC2" type="passive"/>
+        <pin num="10" name="SBU1" type="passive"/>
+        <pin num="11" name="VBUS_B" type="passive"/>
+        <pin num="12" name="GND_B" type="passive"/>
+        <pin num="13" name="SHELL1" type="passive"/>
+        <pin num="14" name="SHELL2" type="passive"/>
+        <pin num="15" name="SHELL3" type="passive"/>
+        <pin num="16" name="SHELL4" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="J2_exact">
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">SM02B-SRSS-TB(LF)(SN)</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="BAT_POS" type="power_out"/>
+        <pin num="2" name="BAT_NEG" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="J3_exact">
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">SM06B-SRSS-TB(LF)(SN)</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="VREF" type="passive"/>
+        <pin num="2" name="SWDIO" type="passive"/>
+        <pin num="3" name="GND" type="passive"/>
+        <pin num="4" name="SWCLK" type="passive"/>
+        <pin num="5" name="NRST" type="passive"/>
+        <pin num="6" name="DEBUG_GPIO" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="J4_exact">
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">AFC24-S15FIA-00</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="GND1" type="passive"/>
+        <pin num="2" name="LEDK" type="passive"/>
+        <pin num="3" name="LEDA" type="passive"/>
+        <pin num="4" name="VDD" type="passive"/>
+        <pin num="5" name="RS" type="passive"/>
+        <pin num="6" name="CS" type="passive"/>
+        <pin num="7" name="SCL" type="passive"/>
+        <pin num="8" name="SDA" type="passive"/>
+        <pin num="9" name="RESET" type="passive"/>
+        <pin num="10" name="CTP_VDD" type="passive"/>
+        <pin num="11" name="GND2" type="passive"/>
+        <pin num="12" name="CTP_RST" type="passive"/>
+        <pin num="13" name="CTP_INT" type="passive"/>
+        <pin num="14" name="CTP_SDA" type="passive"/>
+        <pin num="15" name="CTP_SCL" type="passive"/>
+        <pin num="16" name="MOUNT_1" type="passive"/>
+        <pin num="17" name="MOUNT_2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="J5_exact">
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">SM02B-SRSS-TB(LF)(SN)</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="BAT_POS" type="passive"/>
+        <pin num="2" name="BAT_NEG" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="L1_exact">
+      <fields>
+        <field name="Reference">L</field>
+        <field name="Value">DFE252012P-R47M=P2</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="L2_exact">
+      <fields>
+        <field name="Reference">L</field>
+        <field name="Value">LQG15HS3N9S02D</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="L3_exact">
+      <fields>
+        <field name="Reference">L</field>
+        <field name="Value">LQG15HS6N8J02D</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="M1_exact">
+      <fields>
+        <field name="Reference">M</field>
+        <field name="Value">LCM1234A3523F</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="MOTOR_POS" type="passive"/>
+        <pin num="2" name="MOTOR_NEG" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="Q1_exact">
+      <fields>
+        <field name="Reference">Q</field>
+        <field name="Value">2N7002</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+        <pin num="3" name="pin3" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="Q2_exact">
+      <fields>
+        <field name="Reference">Q</field>
+        <field name="Value">AO3400A</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+        <pin num="3" name="pin3" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="R10_exact">
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">0402WGF1002TCE</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="R12_exact">
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">0402WGF1004TCE</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="R13_exact">
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">0402WGF3303TCE</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="R14_exact">
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">0402WGF220JTCE</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="R15_exact">
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">0402WGF1000TCE</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="R16_exact">
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">0402WGF1003TCE</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="R17_exact">
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">0402WGF1002TCE</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="R18_exact">
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">0402WGF100JTCE</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="R19_exact">
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">0402WGF1003TCE</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="R1_exact">
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">0402WGF0000TCE</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="R20_exact">
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">0402WGF1003TCE</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="R21_exact">
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">0402WGF1000TCE</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="R22_exact">
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">0402WGF1003TCE</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="R2_exact">
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">0402WGF0000TCE</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="R4_exact">
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">RC0402FR-07510KL</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="R5_exact">
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">0402WGF1003TCE</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="R6_exact">
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">0402WGF1003TCE</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="R7_exact">
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">0402WGF1002TCE</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="R8_exact">
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">0402WGF4701TCE</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="R9_exact">
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">0402WGF4701TCE</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="SW1_exact">
+      <fields>
+        <field name="Reference">S</field>
+        <field name="Value">TS-1806SA-2x4x3.5DY-180X</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+        <pin num="3" name="EP1" type="passive"/>
+        <pin num="4" name="pin3_alt1" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="SW2_exact">
+      <fields>
+        <field name="Reference">S</field>
+        <field name="Value">TS-1806SA-2x4x3.5DY-180X</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+        <pin num="3" name="EP1" type="passive"/>
+        <pin num="4" name="pin3_alt1" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="U1_exact">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">NRF52810-QFAA-R</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="DEC1" type="power_out"/>
+        <pin num="2" name="XL1" type="passive"/>
+        <pin num="3" name="XL2" type="passive"/>
+        <pin num="4" name="P0_02" type="bidirectional"/>
+        <pin num="5" name="P0_03" type="bidirectional"/>
+        <pin num="6" name="P0_04" type="bidirectional"/>
+        <pin num="7" name="P0_05" type="bidirectional"/>
+        <pin num="8" name="P0_06" type="bidirectional"/>
+        <pin num="9" name="P0_07" type="bidirectional"/>
+        <pin num="10" name="P0_08" type="bidirectional"/>
+        <pin num="11" name="P0_09" type="bidirectional"/>
+        <pin num="12" name="P0_10" type="bidirectional"/>
+        <pin num="13" name="VDD1" type="power_in"/>
+        <pin num="14" name="P0_11" type="bidirectional"/>
+        <pin num="15" name="P0_12" type="bidirectional"/>
+        <pin num="16" name="P0_13" type="bidirectional"/>
+        <pin num="17" name="P0_14" type="bidirectional"/>
+        <pin num="18" name="P0_15" type="bidirectional"/>
+        <pin num="19" name="P0_16" type="bidirectional"/>
+        <pin num="20" name="P0_17" type="bidirectional"/>
+        <pin num="21" name="P0_18" type="bidirectional"/>
+        <pin num="22" name="P0_19" type="bidirectional"/>
+        <pin num="23" name="P0_20" type="bidirectional"/>
+        <pin num="24" name="nRESET" type="bidirectional"/>
+        <pin num="25" name="SWDCLK" type="bidirectional"/>
+        <pin num="26" name="SWDIO" type="bidirectional"/>
+        <pin num="27" name="P0_22" type="bidirectional"/>
+        <pin num="28" name="P0_23" type="bidirectional"/>
+        <pin num="29" name="P0_24" type="bidirectional"/>
+        <pin num="30" name="ANT" type="passive"/>
+        <pin num="31" name="VSS2" type="passive"/>
+        <pin num="32" name="DEC2" type="power_out"/>
+        <pin num="33" name="DEC3" type="power_out"/>
+        <pin num="34" name="XC1" type="passive"/>
+        <pin num="35" name="XC2" type="passive"/>
+        <pin num="36" name="VDD3" type="power_in"/>
+        <pin num="37" name="P0_25" type="bidirectional"/>
+        <pin num="38" name="P0_26" type="bidirectional"/>
+        <pin num="39" name="P0_27" type="bidirectional"/>
+        <pin num="40" name="P0_28" type="bidirectional"/>
+        <pin num="41" name="P0_29" type="bidirectional"/>
+        <pin num="42" name="P0_30" type="bidirectional"/>
+        <pin num="43" name="P0_31" type="bidirectional"/>
+        <pin num="44" name="NC" type="passive"/>
+        <pin num="45" name="VSS1" type="passive"/>
+        <pin num="46" name="DEC4" type="power_out"/>
+        <pin num="47" name="DCC" type="passive"/>
+        <pin num="48" name="VDD2" type="power_in"/>
+        <pin num="49" name="EP" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="U2_exact">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">BMA456</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="SDO" type="passive"/>
+        <pin num="2" name="SDX" type="passive"/>
+        <pin num="3" name="VDDIO" type="passive"/>
+        <pin num="4" name="ASDA" type="passive"/>
+        <pin num="5" name="INT1" type="passive"/>
+        <pin num="6" name="INT2" type="passive"/>
+        <pin num="7" name="VDD" type="power_in"/>
+        <pin num="8" name="GNDIO" type="passive"/>
+        <pin num="9" name="GND" type="passive"/>
+        <pin num="10" name="CSB" type="passive"/>
+        <pin num="11" name="ASCL" type="passive"/>
+        <pin num="12" name="SCX" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="U3_exact">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">HUSB238_002DD</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="VIN" type="power_in"/>
+        <pin num="2" name="D_POS" type="passive"/>
+        <pin num="3" name="D_NEG" type="passive"/>
+        <pin num="4" name="CC1" type="passive"/>
+        <pin num="5" name="CC2" type="passive"/>
+        <pin num="6" name="SDA" type="passive"/>
+        <pin num="7" name="SCL" type="passive"/>
+        <pin num="8" name="VSET" type="passive"/>
+        <pin num="9" name="ISET" type="passive"/>
+        <pin num="10" name="GATE" type="passive"/>
+        <pin num="11" name="GND" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="U4_exact">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">PCF8563TS/5,118</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="OSCI" type="passive"/>
+        <pin num="2" name="OSCO" type="passive"/>
+        <pin num="3" name="INT" type="passive"/>
+        <pin num="4" name="VSS" type="passive"/>
+        <pin num="5" name="SDA" type="passive"/>
+        <pin num="6" name="SCL" type="passive"/>
+        <pin num="7" name="CLKOUT" type="passive"/>
+        <pin num="8" name="VDD" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="U5_exact">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">BQ25180YBGR</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="INT" type="passive"/>
+        <pin num="2" name="IN" type="power_in"/>
+        <pin num="3" name="SCL" type="passive"/>
+        <pin num="4" name="SYS" type="power_out"/>
+        <pin num="5" name="SDA" type="passive"/>
+        <pin num="6" name="BAT" type="power_in"/>
+        <pin num="7" name="TS_MR" type="passive"/>
+        <pin num="8" name="GND" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="U6_exact">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">TPS63802DLAR</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="EN" type="passive"/>
+        <pin num="2" name="MODE" type="passive"/>
+        <pin num="3" name="AGND" type="passive"/>
+        <pin num="4" name="FB" type="passive"/>
+        <pin num="5" name="PG" type="passive"/>
+        <pin num="6" name="VOUT" type="power_out"/>
+        <pin num="7" name="L2" type="passive"/>
+        <pin num="8" name="GND" type="passive"/>
+        <pin num="9" name="L1" type="passive"/>
+        <pin num="10" name="VIN" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="Y1_exact">
+      <fields>
+        <field name="Reference">Y</field>
+        <field name="Value">FC-135 32.7680KA-AG3</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="Y2_exact">
+      <fields>
+        <field name="Reference">Y</field>
+        <field name="Value">X201632MKB4SI</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+        <pin num="3" name="pin3" type="passive"/>
+        <pin num="4" name="pin4" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Smartwatch" part="Y3_exact">
+      <fields>
+        <field name="Reference">Y</field>
+        <field name="Value">ABS07-32.768KHZ-9-T</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="pin1" type="passive"/>
+        <pin num="2" name="pin2" type="passive"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="Smartwatch">
+      <uri>${KIPRJMOD}/Smartwatch.kicad_sym</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="BAT" class="Default">
+      <node ref="C22" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="C3" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="J2" pin="1" pinfunction="BAT_POS_1" pintype="power_out"/>
+      <node ref="R12" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="U4" pin="8" pinfunction="VDD_8" pintype="power_in"/>
+      <node ref="U5" pin="6" pinfunction="BAT_6" pintype="power_in"/>
+    </net>
+    <net code="2" name="BAT_ADC" class="Default">
+      <node ref="C14" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="R12" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="R13" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="U1" pin="4" pinfunction="P0_02_4" pintype="bidirectional"/>
+    </net>
+    <net code="3" name="BMA_INT1" class="Default">
+      <node ref="U1" pin="18" pinfunction="P0_15_18" pintype="bidirectional"/>
+      <node ref="U2" pin="5" pinfunction="INT1_5" pintype="passive"/>
+    </net>
+    <net code="4" name="BMA_INT2" class="Default">
+      <node ref="U1" pin="19" pinfunction="P0_16_19" pintype="bidirectional"/>
+      <node ref="U2" pin="6" pinfunction="INT2_6" pintype="passive"/>
+    </net>
+    <net code="5" name="BQ_TS" class="Default">
+      <node ref="J5" pin="1" pinfunction="BAT_POS_1" pintype="passive"/>
+      <node ref="U5" pin="7" pinfunction="TS_MR_7" pintype="passive"/>
+    </net>
+    <net code="6" name="BUCK_FB" class="Default">
+      <node ref="R4" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="R5" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="U6" pin="4" pinfunction="FB_4" pintype="passive"/>
+    </net>
+    <net code="7" name="BUCK_L1" class="Default">
+      <node ref="L1" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="U6" pin="9" pinfunction="L1_9" pintype="passive"/>
+    </net>
+    <net code="8" name="BUCK_L2" class="Default">
+      <node ref="L1" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="U6" pin="7" pinfunction="L2_7" pintype="passive"/>
+    </net>
+    <net code="9" name="BUCK_PG" class="Default">
+      <node ref="R6" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="U6" pin="5" pinfunction="PG_5" pintype="passive"/>
+    </net>
+    <net code="10" name="BUTTON1" class="Default">
+      <node ref="R19" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="SW1" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="U1" pin="5" pinfunction="P0_03_5" pintype="bidirectional"/>
+    </net>
+    <net code="11" name="BUTTON2" class="Default">
+      <node ref="R20" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="SW2" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="U1" pin="6" pinfunction="P0_04_6" pintype="bidirectional"/>
+    </net>
+    <net code="12" name="CHG_INT" class="Default">
+      <node ref="R7" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="U1" pin="8" pinfunction="P0_06_8" pintype="bidirectional"/>
+      <node ref="U5" pin="1" pinfunction="INT_1" pintype="passive"/>
+    </net>
+    <net code="13" name="DEBUG_GPIO" class="Default">
+      <node ref="J3" pin="6" pinfunction="DEBUG_GPIO_6" pintype="passive"/>
+      <node ref="U1" pin="21" pinfunction="P0_18_21" pintype="bidirectional"/>
+    </net>
+    <net code="14" name="DISPLAY_LEDA" class="Default">
+      <node ref="J4" pin="3" pinfunction="LEDA_3" pintype="passive"/>
+      <node ref="R14" pin="2" pinfunction="pin2_2" pintype="passive"/>
+    </net>
+    <net code="15" name="DISPLAY_LED_K" class="Default">
+      <node ref="J4" pin="2" pinfunction="LEDK_2" pintype="passive"/>
+      <node ref="Q1" pin="3" pinfunction="pin3_3" pintype="passive"/>
+    </net>
+    <net code="16" name="GND" class="Default">
+      <node ref="C1" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="C10" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="C11" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="C12" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="C13" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="C14" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="C15" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="C16" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="C17" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="C2" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="C22" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="C23" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="C24" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="C25" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="C26" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="C27" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="C28" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="C29" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="C3" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="C30" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="C31" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="C4" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="C5" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="C6" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="C8" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="C9" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="D1" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="J1" pin="1" pinfunction="GND_A_1" pintype="power_out"/>
+      <node ref="J1" pin="12" pinfunction="GND_B_12" pintype="passive"/>
+      <node ref="J1" pin="13" pinfunction="SHELL1_13" pintype="passive"/>
+      <node ref="J1" pin="14" pinfunction="SHELL2_14" pintype="passive"/>
+      <node ref="J1" pin="15" pinfunction="SHELL3_15" pintype="passive"/>
+      <node ref="J1" pin="16" pinfunction="SHELL4_16" pintype="passive"/>
+      <node ref="J2" pin="2" pinfunction="BAT_NEG_2" pintype="passive"/>
+      <node ref="J3" pin="3" pinfunction="GND_3" pintype="passive"/>
+      <node ref="J4" pin="1" pinfunction="GND1_1" pintype="passive"/>
+      <node ref="J4" pin="11" pinfunction="GND2_11" pintype="passive"/>
+      <node ref="J5" pin="2" pinfunction="BAT_NEG_2" pintype="passive"/>
+      <node ref="Q1" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="Q2" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="R1" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="R13" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="R16" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="R2" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="R22" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="R5" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="SW1" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="SW2" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="U1" pin="31" pinfunction="VSS2_31" pintype="passive"/>
+      <node ref="U1" pin="45" pinfunction="VSS1_45" pintype="passive"/>
+      <node ref="U1" pin="49" pinfunction="EP_49" pintype="passive"/>
+      <node ref="U2" pin="1" pinfunction="SDO_1" pintype="passive"/>
+      <node ref="U2" pin="8" pinfunction="GNDIO_8" pintype="passive"/>
+      <node ref="U2" pin="9" pinfunction="GND_9" pintype="passive"/>
+      <node ref="U3" pin="11" pinfunction="GND_11" pintype="passive"/>
+      <node ref="U4" pin="4" pinfunction="VSS_4" pintype="passive"/>
+      <node ref="U5" pin="8" pinfunction="GND_8" pintype="passive"/>
+      <node ref="U6" pin="2" pinfunction="MODE_2" pintype="passive"/>
+      <node ref="U6" pin="3" pinfunction="AGND_3" pintype="passive"/>
+      <node ref="U6" pin="8" pinfunction="GND_8" pintype="passive"/>
+      <node ref="Y2" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="Y2" pin="4" pinfunction="pin4_4" pintype="passive"/>
+    </net>
+    <net code="17" name="HF_X1" class="Default">
+      <node ref="C28" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="U1" pin="34" pinfunction="XC1_34" pintype="passive"/>
+      <node ref="Y2" pin="1" pinfunction="pin1_1" pintype="passive"/>
+    </net>
+    <net code="18" name="HF_X2" class="Default">
+      <node ref="C29" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="U1" pin="35" pinfunction="XC2_35" pintype="passive"/>
+      <node ref="Y2" pin="3" pinfunction="pin3_3" pintype="passive"/>
+    </net>
+    <net code="19" name="I2C_SCL" class="Default">
+      <node ref="R8" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="U1" pin="16" pinfunction="P0_13_16" pintype="bidirectional"/>
+      <node ref="U2" pin="12" pinfunction="SCX_12" pintype="passive"/>
+      <node ref="U4" pin="6" pinfunction="SCL_6" pintype="passive"/>
+      <node ref="U5" pin="3" pinfunction="SCL_3" pintype="passive"/>
+    </net>
+    <net code="20" name="I2C_SDA" class="Default">
+      <node ref="R9" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="U1" pin="17" pinfunction="P0_14_17" pintype="bidirectional"/>
+      <node ref="U2" pin="2" pinfunction="SDX_2" pintype="passive"/>
+      <node ref="U4" pin="5" pinfunction="SDA_5" pintype="passive"/>
+      <node ref="U5" pin="5" pinfunction="SDA_5" pintype="passive"/>
+    </net>
+    <net code="21" name="LCD_BL" class="Default">
+      <node ref="R15" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="U1" pin="15" pinfunction="P0_12_15" pintype="bidirectional"/>
+    </net>
+    <net code="22" name="LCD_BL_GATE" class="Default">
+      <node ref="Q1" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="R15" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="R16" pin="1" pinfunction="pin1_1" pintype="passive"/>
+    </net>
+    <net code="23" name="LCD_CS" class="Default">
+      <node ref="J4" pin="6" pinfunction="CS_6" pintype="passive"/>
+      <node ref="U1" pin="9" pinfunction="P0_07_9" pintype="bidirectional"/>
+    </net>
+    <net code="24" name="LCD_DC" class="Default">
+      <node ref="J4" pin="5" pinfunction="RS_5" pintype="passive"/>
+      <node ref="U1" pin="12" pinfunction="P0_10_12" pintype="bidirectional"/>
+    </net>
+    <net code="25" name="LCD_MOSI" class="Default">
+      <node ref="J4" pin="8" pinfunction="SDA_8" pintype="passive"/>
+      <node ref="U1" pin="11" pinfunction="P0_09_11" pintype="bidirectional"/>
+    </net>
+    <net code="26" name="LCD_RESET" class="Default">
+      <node ref="J4" pin="9" pinfunction="RESET_9" pintype="passive"/>
+      <node ref="U1" pin="14" pinfunction="P0_11_14" pintype="bidirectional"/>
+    </net>
+    <net code="27" name="LCD_SCK" class="Default">
+      <node ref="J4" pin="7" pinfunction="SCL_7" pintype="passive"/>
+      <node ref="U1" pin="10" pinfunction="P0_08_10" pintype="bidirectional"/>
+    </net>
+    <net code="28" name="LF_X1" class="Default">
+      <node ref="C30" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="U1" pin="2" pinfunction="XL1_2" pintype="passive"/>
+      <node ref="Y3" pin="1" pinfunction="pin1_1" pintype="passive"/>
+    </net>
+    <net code="29" name="LF_X2" class="Default">
+      <node ref="C31" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="U1" pin="3" pinfunction="XL2_3" pintype="passive"/>
+      <node ref="Y3" pin="2" pinfunction="pin2_2" pintype="passive"/>
+    </net>
+    <net code="30" name="MOTOR_EN" class="Default">
+      <node ref="R21" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="U1" pin="7" pinfunction="P0_05_7" pintype="bidirectional"/>
+    </net>
+    <net code="31" name="MOTOR_GATE" class="Default">
+      <node ref="Q2" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="R21" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="R22" pin="1" pinfunction="pin1_1" pintype="passive"/>
+    </net>
+    <net code="32" name="MOTOR_NEG" class="Default">
+      <node ref="D2" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="M1" pin="2" pinfunction="MOTOR_NEG_2" pintype="passive"/>
+      <node ref="Q2" pin="3" pinfunction="pin3_3" pintype="passive"/>
+    </net>
+    <net code="33" name="NRF_DEC1" class="Default">
+      <node ref="C8" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="U1" pin="1" pinfunction="DEC1_1" pintype="power_out"/>
+    </net>
+    <net code="34" name="NRF_DEC2" class="Default">
+      <node ref="C9" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="U1" pin="32" pinfunction="DEC2_32" pintype="power_out"/>
+    </net>
+    <net code="35" name="NRF_DEC3" class="Default">
+      <node ref="C10" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="U1" pin="33" pinfunction="DEC3_33" pintype="power_out"/>
+    </net>
+    <net code="36" name="NRF_DEC4" class="Default">
+      <node ref="C11" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="U1" pin="46" pinfunction="DEC4_46" pintype="power_out"/>
+    </net>
+    <net code="37" name="NRST" class="Default">
+      <node ref="C13" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="J3" pin="5" pinfunction="NRST_5" pintype="passive"/>
+      <node ref="R10" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="U1" pin="24" pinfunction="nRESET_24" pintype="bidirectional"/>
+    </net>
+    <net code="38" name="PD_ISET" class="Default">
+      <node ref="R2" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="U3" pin="9" pinfunction="ISET_9" pintype="passive"/>
+    </net>
+    <net code="39" name="PD_VIN" class="Default">
+      <node ref="C6" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="R18" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="U3" pin="1" pinfunction="VIN_1" pintype="power_in"/>
+    </net>
+    <net code="40" name="PD_VSET" class="Default">
+      <node ref="R1" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="U3" pin="8" pinfunction="VSET_8" pintype="passive"/>
+    </net>
+    <net code="41" name="RF_50" class="Default">
+      <node ref="L2" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="L3" pin="1" pinfunction="pin1_1" pintype="passive"/>
+    </net>
+    <net code="42" name="RF_ANT" class="Default">
+      <node ref="C24" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="L2" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="U1" pin="30" pinfunction="ANT_30" pintype="passive"/>
+    </net>
+    <net code="43" name="RF_FEED" class="Default">
+      <node ref="ANT1" pin="1" pinfunction="FEED_1" pintype="passive"/>
+      <node ref="L3" pin="2" pinfunction="pin2_2" pintype="passive"/>
+    </net>
+    <net code="44" name="RTC_INT" class="Default">
+      <node ref="R17" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="U1" pin="20" pinfunction="P0_17_20" pintype="bidirectional"/>
+      <node ref="U4" pin="3" pinfunction="INT_3" pintype="passive"/>
+    </net>
+    <net code="45" name="RTC_OSCI" class="Default">
+      <node ref="U4" pin="1" pinfunction="OSCI_1" pintype="passive"/>
+      <node ref="Y1" pin="1" pinfunction="pin1_1" pintype="passive"/>
+    </net>
+    <net code="46" name="RTC_OSCO" class="Default">
+      <node ref="U4" pin="2" pinfunction="OSCO_2" pintype="passive"/>
+      <node ref="Y1" pin="2" pinfunction="pin2_2" pintype="passive"/>
+    </net>
+    <net code="47" name="SWCLK" class="Default">
+      <node ref="J3" pin="4" pinfunction="SWCLK_4" pintype="passive"/>
+      <node ref="U1" pin="25" pinfunction="SWDCLK_25" pintype="bidirectional"/>
+    </net>
+    <net code="48" name="SWDIO" class="Default">
+      <node ref="J3" pin="2" pinfunction="SWDIO_2" pintype="passive"/>
+      <node ref="U1" pin="26" pinfunction="SWDIO_26" pintype="bidirectional"/>
+    </net>
+    <net code="49" name="SYS" class="Default">
+      <node ref="C2" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="C4" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="U5" pin="4" pinfunction="SYS_4" pintype="power_out"/>
+      <node ref="U6" pin="1" pinfunction="EN_1" pintype="passive"/>
+      <node ref="U6" pin="10" pinfunction="VIN_10" pintype="power_in"/>
+    </net>
+    <net code="50" name="USB5V" class="Default">
+      <node ref="C1" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="D1" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="J1" pin="11" pinfunction="VBUS_B_11" pintype="passive"/>
+      <node ref="J1" pin="2" pinfunction="VBUS_A_2" pintype="power_out"/>
+      <node ref="R18" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="U5" pin="2" pinfunction="IN_2" pintype="power_in"/>
+    </net>
+    <net code="51" name="USB_CC1" class="Default">
+      <node ref="J1" pin="4" pinfunction="CC1_4" pintype="passive"/>
+      <node ref="U3" pin="4" pinfunction="CC1_4" pintype="passive"/>
+    </net>
+    <net code="52" name="USB_CC2" class="Default">
+      <node ref="J1" pin="9" pinfunction="CC2_9" pintype="passive"/>
+      <node ref="U3" pin="5" pinfunction="CC2_5" pintype="passive"/>
+    </net>
+    <net code="53" name="V3V0" class="Default">
+      <node ref="C12" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="C15" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="C16" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="C17" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="C23" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="C25" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="C26" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="C27" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="C5" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="D2" pin="2" pinfunction="pin2_2" pintype="passive"/>
+      <node ref="J3" pin="1" pinfunction="VREF_1" pintype="passive"/>
+      <node ref="J4" pin="4" pinfunction="VDD_4" pintype="passive"/>
+      <node ref="M1" pin="1" pinfunction="MOTOR_POS_1" pintype="passive"/>
+      <node ref="R10" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="R14" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="R17" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="R19" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="R20" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="R4" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="R6" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="R7" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="R8" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="R9" pin="1" pinfunction="pin1_1" pintype="passive"/>
+      <node ref="U1" pin="13" pinfunction="VDD1_13" pintype="power_in"/>
+      <node ref="U1" pin="36" pinfunction="VDD3_36" pintype="power_in"/>
+      <node ref="U1" pin="48" pinfunction="VDD2_48" pintype="power_in"/>
+      <node ref="U2" pin="10" pinfunction="CSB_10" pintype="passive"/>
+      <node ref="U2" pin="3" pinfunction="VDDIO_3" pintype="passive"/>
+      <node ref="U2" pin="7" pinfunction="VDD_7" pintype="power_in"/>
+      <node ref="U6" pin="6" pinfunction="VOUT_6" pintype="power_out"/>
+    </net>
+    <net code="54" name="unconnected-(ANT1-NC-Pad2)" class="Default">
+      <node ref="ANT1" pin="2" pinfunction="NC_2" pintype="passive+no_connect"/>
+    </net>
+    <net code="55" name="unconnected-(J1-DN_A-Pad5)" class="Default">
+      <node ref="J1" pin="5" pinfunction="DN_A_5" pintype="passive+no_connect"/>
+    </net>
+    <net code="56" name="unconnected-(J1-DN_B-Pad7)" class="Default">
+      <node ref="J1" pin="7" pinfunction="DN_B_7" pintype="passive+no_connect"/>
+    </net>
+    <net code="57" name="unconnected-(J1-DP_A-Pad6)" class="Default">
+      <node ref="J1" pin="6" pinfunction="DP_A_6" pintype="passive+no_connect"/>
+    </net>
+    <net code="58" name="unconnected-(J1-DP_B-Pad8)" class="Default">
+      <node ref="J1" pin="8" pinfunction="DP_B_8" pintype="passive+no_connect"/>
+    </net>
+    <net code="59" name="unconnected-(J1-SBU1-Pad10)" class="Default">
+      <node ref="J1" pin="10" pinfunction="SBU1_10" pintype="passive+no_connect"/>
+    </net>
+    <net code="60" name="unconnected-(J1-SBU2-Pad3)" class="Default">
+      <node ref="J1" pin="3" pinfunction="SBU2_3" pintype="passive+no_connect"/>
+    </net>
+    <net code="61" name="unconnected-(J4-CTP_INT-Pad13)" class="Default">
+      <node ref="J4" pin="13" pinfunction="CTP_INT_13" pintype="passive+no_connect"/>
+    </net>
+    <net code="62" name="unconnected-(J4-CTP_RST-Pad12)" class="Default">
+      <node ref="J4" pin="12" pinfunction="CTP_RST_12" pintype="passive+no_connect"/>
+    </net>
+    <net code="63" name="unconnected-(J4-CTP_SCL-Pad15)" class="Default">
+      <node ref="J4" pin="15" pinfunction="CTP_SCL_15" pintype="passive+no_connect"/>
+    </net>
+    <net code="64" name="unconnected-(J4-CTP_SDA-Pad14)" class="Default">
+      <node ref="J4" pin="14" pinfunction="CTP_SDA_14" pintype="passive+no_connect"/>
+    </net>
+    <net code="65" name="unconnected-(J4-CTP_VDD-Pad10)" class="Default">
+      <node ref="J4" pin="10" pinfunction="CTP_VDD_10" pintype="passive+no_connect"/>
+    </net>
+    <net code="66" name="unconnected-(J4-MOUNT_1-Pad16)" class="Default">
+      <node ref="J4" pin="16" pinfunction="MOUNT_1_16" pintype="passive+no_connect"/>
+    </net>
+    <net code="67" name="unconnected-(J4-MOUNT_2-Pad17)" class="Default">
+      <node ref="J4" pin="17" pinfunction="MOUNT_2_17" pintype="passive+no_connect"/>
+    </net>
+    <net code="68" name="unconnected-(SW1-EP1-Pad3)" class="Default">
+      <node ref="SW1" pin="3" pinfunction="EP1_3" pintype="passive+no_connect"/>
+    </net>
+    <net code="69" name="unconnected-(SW1-pin3_alt1-Pad4)" class="Default">
+      <node ref="SW1" pin="4" pinfunction="pin3_alt1_4" pintype="passive+no_connect"/>
+    </net>
+    <net code="70" name="unconnected-(SW2-EP1-Pad3)" class="Default">
+      <node ref="SW2" pin="3" pinfunction="EP1_3" pintype="passive+no_connect"/>
+    </net>
+    <net code="71" name="unconnected-(SW2-pin3_alt1-Pad4)" class="Default">
+      <node ref="SW2" pin="4" pinfunction="pin3_alt1_4" pintype="passive+no_connect"/>
+    </net>
+    <net code="72" name="unconnected-(U1-DCC-Pad47)" class="Default">
+      <node ref="U1" pin="47" pinfunction="DCC_47" pintype="passive+no_connect"/>
+    </net>
+    <net code="73" name="unconnected-(U1-NC-Pad44)" class="Default">
+      <node ref="U1" pin="44" pinfunction="NC_44" pintype="passive+no_connect"/>
+    </net>
+    <net code="74" name="unconnected-(U1-P0_19-Pad22)" class="Default">
+      <node ref="U1" pin="22" pinfunction="P0_19_22" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="75" name="unconnected-(U1-P0_20-Pad23)" class="Default">
+      <node ref="U1" pin="23" pinfunction="P0_20_23" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="76" name="unconnected-(U1-P0_22-Pad27)" class="Default">
+      <node ref="U1" pin="27" pinfunction="P0_22_27" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="77" name="unconnected-(U1-P0_23-Pad28)" class="Default">
+      <node ref="U1" pin="28" pinfunction="P0_23_28" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="78" name="unconnected-(U1-P0_24-Pad29)" class="Default">
+      <node ref="U1" pin="29" pinfunction="P0_24_29" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="79" name="unconnected-(U1-P0_25-Pad37)" class="Default">
+      <node ref="U1" pin="37" pinfunction="P0_25_37" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="80" name="unconnected-(U1-P0_26-Pad38)" class="Default">
+      <node ref="U1" pin="38" pinfunction="P0_26_38" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="81" name="unconnected-(U1-P0_27-Pad39)" class="Default">
+      <node ref="U1" pin="39" pinfunction="P0_27_39" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="82" name="unconnected-(U1-P0_28-Pad40)" class="Default">
+      <node ref="U1" pin="40" pinfunction="P0_28_40" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="83" name="unconnected-(U1-P0_29-Pad41)" class="Default">
+      <node ref="U1" pin="41" pinfunction="P0_29_41" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="84" name="unconnected-(U1-P0_30-Pad42)" class="Default">
+      <node ref="U1" pin="42" pinfunction="P0_30_42" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="85" name="unconnected-(U1-P0_31-Pad43)" class="Default">
+      <node ref="U1" pin="43" pinfunction="P0_31_43" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="86" name="unconnected-(U2-ASCL-Pad11)" class="Default">
+      <node ref="U2" pin="11" pinfunction="ASCL_11" pintype="passive+no_connect"/>
+    </net>
+    <net code="87" name="unconnected-(U2-ASDA-Pad4)" class="Default">
+      <node ref="U2" pin="4" pinfunction="ASDA_4" pintype="passive+no_connect"/>
+    </net>
+    <net code="88" name="unconnected-(U3-D_NEG-Pad3)" class="Default">
+      <node ref="U3" pin="3" pinfunction="D_NEG_3" pintype="passive+no_connect"/>
+    </net>
+    <net code="89" name="unconnected-(U3-D_POS-Pad2)" class="Default">
+      <node ref="U3" pin="2" pinfunction="D_POS_2" pintype="passive+no_connect"/>
+    </net>
+    <net code="90" name="unconnected-(U3-GATE-Pad10)" class="Default">
+      <node ref="U3" pin="10" pinfunction="GATE_10" pintype="passive+no_connect"/>
+    </net>
+    <net code="91" name="unconnected-(U3-SCL-Pad7)" class="Default">
+      <node ref="U3" pin="7" pinfunction="SCL_7" pintype="passive+no_connect"/>
+    </net>
+    <net code="92" name="unconnected-(U3-SDA-Pad6)" class="Default">
+      <node ref="U3" pin="6" pinfunction="SDA_6" pintype="passive+no_connect"/>
+    </net>
+    <net code="93" name="unconnected-(U4-CLKOUT-Pad7)" class="Default">
+      <node ref="U4" pin="7" pinfunction="CLKOUT_7" pintype="passive+no_connect"/>
+    </net>
+  </nets>
+</export>

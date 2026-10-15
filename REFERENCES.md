@@ -1,10 +1,14 @@
-# References and verification record
+# Manufacturer references
 
-The final design was rechecked on 2026-10-05, including a live exact-part JLCPCB audit for five boards; see [the stock and replacement record](./sourcing/README.md). Manufacturer datasheets control the electrical design, and live inventory must be checked again at order time.
+Electrical facts and package requirements come from the manufacturers below. Current inventory evidence is recorded separately in `sourcing/stock.json`; physical measurements remain pending.
+
+- [Nordic nRF52810 product specification v1.5](https://infocenter.nordicsemi.com/pdf/nRF52810_PS_v1.5.pdf): QFAA48 pinout, exposed ground pad, internal LDO mode, 192 KiB flash/24 KiB RAM, crystals and reference matching network.
+- [Nordic pin assignments](https://docs.nordicsemi.com/r/bundle/ps_nrf52810/page/pin.html).
+- [SEMITEC AT thermistors](https://www.semitec-global.com/products/thermistor_at/): 103AT-2, 10 kΩ, B25/85=3435 K.
+- [Yageo RC0402FR-07510KL listing and specification](https://www.lcsc.com/product-detail/Chip-Resistor-Surface-Mount_510KR-5103-1_C137961.html): R4 exact stocked alternative.
 
 ## Manufacturer authorities
 
-- STM32L432KCU3 (same STM32L432KC device/pinout, temperature grade 3): [ST datasheet](https://www.st.com/resource/en/datasheet/stm32l432kc.pdf) and [STM32L4 hardware development application note](https://www.st.com/resource/en/application_note/dm00125306-getting-started-with-stm32l4-series-and-stm32l4-series-hardware-development-stmicroelectronics.pdf).
 - BMA456: [Bosch Sensortec datasheet](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bma456-ds000.pdf) and [official SensorAPI](https://github.com/boschsensortec/BMA456_SensorAPI).
 - PCF8563TS: [NXP datasheet](https://www.nxp.com/docs/en/data-sheet/PCF8563.pdf).
 - BQ25180YBGR: [TI datasheet and reference circuit](https://www.ti.com/lit/ds/symlink/bq25180.pdf).
@@ -26,29 +30,29 @@ The selected BuyDisplay panel is 1.28 inch, 240 x 240, 4-wire SPI, GC9A01A, 35.5
 | -----------: | ------- | --------------------- |
 |            1 | GND     | GND                   |
 |            2 | LEDK    | Q1 drain              |
-|            3 | LEDA    | 3V3 through R14       |
-|            4 | VDD     | 3V3                   |
+|            3 | LEDA    | V3V0 through R14       |
+|            4 | VDD     | V3V0                   |
 |            5 | RS      | LCD D/C GPIO          |
-|            6 | CS      | STM32 SPI chip select |
-|            7 | SCL     | STM32 SPI clock       |
-|            8 | SDA     | STM32 SPI MOSI        |
-|            9 | RESET   | STM32 reset GPIO      |
+|            6 | CS      | nRF52810 SPI chip select |
+|            7 | SCL     | nRF52810 SPI clock       |
+|            8 | SDA     | nRF52810 SPI MOSI        |
+|            9 | RESET   | nRF52810 reset GPIO      |
 |           10 | CTP_VDD | NC; touch not fitted  |
 |           11 | GND     | GND                   |
 |        12–15 | CTP_*   | NC; touch not fitted  |
 
-The display datasheet allows 2.5–3.3 V VDD and specifies a 2-chip white backlight at 3.0 V typical, 30 mA typical and 40 mA maximum. V1 uses a 22 Ω resistor plus N-MOSFET/PWM topology, which deliberately starts below maximum brightness on a 3.3 V rail; measure actual LED current and brightness before changing R14. The connector's two shell/hold-down pads are mechanical NCs. The top-side footprint includes a pin-1 marker; cable insertion orientation must be checked against the physical no-touch panel before production.
+The display datasheet allows 2.5–3.3 V VDD and specifies a 2-chip white backlight at 3.0 V typical, 30 mA typical and 40 mA maximum. V1 uses a 22 Ω resistor plus N-MOSFET/PWM topology, which deliberately starts below maximum brightness on a 3.05 V rail; measure actual LED current and brightness before changing R14. The connector's two shell/hold-down pads are mechanical NCs. The top-side footprint includes a pin-1 marker; cable insertion orientation must be checked against the physical no-touch panel before production.
 
 ### BQ25180YBGR
 
 | Ball    | Signal      | Connection                              |
 | ------- | ----------- | --------------------------------------- |
-| A1 / A2 | INT / IN    | 3V3 pull-up interrupt / protected USB5V |
+| A1 / A2 | INT / IN    | V3V0 pull-up interrupt / protected USB5V |
 | B1 / B2 | SCL / SYS   | shared I2C / buck-boost input           |
 | C1 / C2 | SDA / BAT   | shared I2C / protected 1S pack          |
-| D1 / D2 | TS/MR / GND | fixed 10 kΩ TS option / ground          |
+| D1 / D2 | TS/MR / GND | bonded 10 kΩ NTC through J5 / ground          |
 
-The implemented local values satisfy the datasheet minimums: IN 1 µF, SYS 10 µF, BAT 1 µF. The fixed TS resistor is valid electrically but is explicitly not a substitute for production pack-temperature qualification.
+The implemented local values satisfy the datasheet minimums: IN 1 µF, SYS 10 µF, BAT 1 µF. J5 connects a bonded 10 kΩ, B25/85=3435 K NTC. Pack temperature and open/short fault behavior must be qualified.
 
 ### PCF8563TS
 
@@ -64,15 +68,14 @@ Q1/2N7002 and Q2/AO3400A use SOT-23 pins 1=gate, 2=source, 3=drain. The [Nexperi
 
 ### Side switches
 
-SW1/SW2 use the exact C51927172 land pattern, including two locating holes and bracket pads. The part is a right-angle, normally-open SPST switch; V1 uses an active-low STM32 input with an external 100 kΩ pull-up. The JLCPCB listing identifies it as an SMT-assembly part in the SMD-4P 4.6 x 1.8 mm family.
+SW1/SW2 use the exact C51927172 land pattern, including two locating holes and bracket pads. The part is a right-angle, normally-open SPST switch; V1 uses an active-low nRF52810 input with an external 100 kΩ pull-up. The JLCPCB listing identifies it as an SMT-assembly part in the SMD-4P 4.6 x 1.8 mm family.
 
 ### Programming connector
 
-J3 is JST `SM06B-SRSS-TB(LF)(SN)`, LCSC/JLCPCB `C160405`, using the official 6-circuit right-angle JST-SH land pattern. It replaces TP1-TP6 and exposes 3V3 reference, SWDIO, GND, SWCLK, NRST, and BOOT0 through one keyed cable. Its local tscircuit footprint uses the official 0.6 x 1.55 mm contact pads at 1.0 mm pitch and 1.2 x 1.8 mm mechanical pads at x = +/-3.8 mm, cross-checked against the corresponding KiCad official-library footprint `JST_SH_SM06B-SRSS-TB_1x06-1MP_P1.00mm_Horizontal`.
+J3 is JST `SM06B-SRSS-TB(LF)(SN)`, LCSC/JLCPCB `C160405`, using the official 6-circuit right-angle JST-SH land pattern. It replaces TP1-TP6 and exposes V3V0 reference, SWDIO, GND, SWCLK, NRST, and P0.18 service GPIO through one keyed cable. Its local tscircuit footprint uses the official 0.6 x 1.55 mm contact pads at 1.0 mm pitch and 1.2 x 1.8 mm mechanical pads at x = +/-3.8 mm, cross-checked against the corresponding KiCad official-library footprint `JST_SH_SM06B-SRSS-TB_1x06-1MP_P1.00mm_Horizontal`.
 
 ## JLCPCB/LCSC sourcing links
 
-- [STM32L432KCU3 C1337558](https://jlcpcb.com/partdetail/STM32L432KCU3/C1337558)
 - [BMA456 C189518](https://jlcpcb.com/partdetail/BMA456/C189518)
 - [HUSB238_002DD C7471904](https://jlcpcb.com/partdetail/C7471904)
 - [PCF8563TS/5,118 C27397](https://jlcpcb.com/partdetail/NXPSemicon-PCF8563TS_5118/C27397)

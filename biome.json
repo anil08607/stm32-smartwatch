@@ -7,7 +7,16 @@
 			"!.tscircuit",
 			"!dist",
 			"!node_modules",
-			"!__snapshots__"
+			"!__snapshots__",
+			"!build",
+			"!hardware",
+			"!checks/vendor",
+			"!docs/checks",
+			"!routing/*.json",
+			"!release",
+			"!sourcing/stock.json",
+			"!mechanical/*.json",
+			"!mechanical/viewer.js"
 		]
 	},
 	"formatter": {

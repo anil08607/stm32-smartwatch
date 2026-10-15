@@ -1,0 +1,109 @@
+{
+  "version": 1,
+  "head": {
+    "generator": "circuit-json-to-kicad",
+    "generator_version": "0.0.1",
+    "project_name": "smartwatch-nrf52810",
+    "created": "2026-10-15T11:14:12.279Z",
+    "modified": "2026-10-15T11:14:12.279Z"
+  },
+  "meta": {
+    "version": 1
+  },
+  "text_variables": {},
+  "libraries": {
+    "pinned_symbol_libs": [],
+    "pinned_footprint_libs": []
+  },
+  "boards": [],
+  "cvpcb": {
+    "meta": {
+      "version": 0
+    }
+  },
+  "erc": {
+    "meta": {
+      "version": 0
+    },
+    "erc_exclusions": []
+  },
+  "net_settings": {
+    "meta": {
+      "version": 1
+    },
+    "last_net_id": 0,
+    "classes": [
+      {
+        "name": "Default",
+        "track_width": 0.15,
+        "via_diameter": 0.4,
+        "via_drill": 0.2,
+        "clearance": 0.1
+      }
+    ]
+  },
+  "pcbnew": {
+    "page_layout_descr_file": "",
+    "last_paths": {}
+  },
+  "schematic": {
+    "meta": {
+      "version": 1
+    },
+    "page_layout_descr_file": "",
+    "last_opened_files": [
+      "smartwatch-nrf52810.kicad_sch"
+    ]
+  },
+  "board": {
+    "meta": {
+      "version": 1
+    },
+    "design_settings": {
+      "rules": {
+        "min_via_annular_width": 0.1,
+        "min_hole_clearance": 0.1,
+        "min_via_diameter": 0.4,
+        "min_track_width": 0.1,
+        "min_through_hole_diameter": 0.2,
+        "min_clearance": 0.1,
+        "min_copper_edge_clearance": 0.2
+      }
+    },
+    "last_opened_board": "smartwatch-nrf52810.kicad_pcb"
+  },
+  "sheets": [
+    [
+      "4ea960cb-2e45-4875-a000-e6ed21cda64f",
+      "Root"
+    ],
+    [
+      "84df61a1-d8ed-4a85-9e34-1e0317d7ef19",
+      "USB-C PD & Battery Charging"
+    ],
+    [
+      "d17a5e8a-02e9-4595-9f21-2bc7b286e918",
+      "3.05 V Buck-Boost Power"
+    ],
+    [
+      "b5c421e1-2c4c-46b3-9f36-ea47517fa703",
+      "MCU, Battery Monitor & Programming"
+    ],
+    [
+      "4c98e893-70e6-4406-ac97-9896d2d5853d",
+      "Display & Backlight"
+    ],
+    [
+      "cdb4e428-0626-4d0b-8167-ce41fec736e4",
+      "Motion & RTC"
+    ],
+    [
+      "2f08f2fa-57b7-4aa1-abc2-20273881c3ab",
+      "Buttons & Haptics"
+    ],
+    [
+      "d3d54cf0-ca71-4152-bba7-330d16965971",
+      "BLE Radio, Clocks and Local Supply"
+    ]
+  ]
+}

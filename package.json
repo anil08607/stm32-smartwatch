@@ -1,38 +1,59 @@
 {
-	"name": "smartwatch-v1-stm32",
+	"name": "smartwatch-v1-nrf52810",
 	"version": "1.0.0",
 	"private": true,
-	"description": "Standalone STM32L432 smartwatch PCB implemented in tscircuit",
+	"description": "nRF52810 Bluetooth smartwatch hardware, mechanical assembly and manufacturing checks",
 	"main": "index.circuit.tsx",
 	"type": "module",
 	"keywords": [
 		"tscircuit",
 		"smartwatch",
-		"stm32",
+		"nrf52810",
 		"pcb"
 	],
 	"scripts": {
 		"dev": "tsci dev index.circuit.tsx",
-		"build": "tsci build index.circuit.tsx --disable-parts-engine",
-		"build:placement": "SMARTWATCH_ROUTED=0 tsci build index.circuit.tsx --routing-disabled --disable-parts-engine",
-		"build:routed": "SMARTWATCH_ROUTED=1 npm run build -- --autorouter-timeout 5m && node scripts/check-connectivity.mjs --require-routing",
-		"check:assembly": "node scripts/check-assembly.mjs",
-		"check:connectivity": "node scripts/check-connectivity.mjs",
-		"check:decoupling": "node scripts/check-decoupling.mjs",
-		"check:routing": "node scripts/check-routing.mjs",
-		"check:stock": "node scripts/check-jlcpcb-stock.mjs",
+		"start": "bun run dev",
+		"build:source": "bun scripts/build-source.mjs",
+		"build": "bun run build:source && bun scripts/check-bindings.mjs && bun scripts/merge-native.mjs",
+		"check:connectivity": "bun scripts/check-connectivity.mjs",
+		"check:routing": "bun scripts/check-routing.mjs",
+		"check:assembly": "bun scripts/check-assembly.mjs",
+		"check:decoupling": "bun scripts/check-decoupling.mjs",
+		"check:style": "bun scripts/check-schematic-style.mjs",
+		"check:native": "bun scripts/check-native.mjs && python3 scripts/check-netlist.py",
+		"check:stock": "bun scripts/check-stock.mjs",
+		"check:order": "bun scripts/check-order.mjs",
+		"export:assembly": "bun scripts/export-assembly.mjs",
+		"build:mechanical": "bun scripts/build-mechanical.mjs && bun build mechanical/viewer-entry.js --target browser --minify --outfile mechanical/viewer.js",
+		"preview:assembly": "python3 -m http.server 8766 --bind 127.0.0.1",
 		"format": "biome format --write .",
 		"format:check": "biome format .",
-		"snapshot": "tsci snapshot SMARTWATCH_V1_STM32.circuit.tsx --3d",
-		"snapshot:update": "npm run build:routed && SMARTWATCH_ROUTED=1 tsci snapshot SMARTWATCH_V1_STM32.circuit.tsx --update --force-update --3d --disable-parts-engine && SMARTWATCH_ROUTED=1 tsci snapshot SMARTWATCH_V1_STM32.circuit.tsx --update --force-update --layer bottom --disable-parts-engine",
-		"start": "tsci dev index.circuit.tsx",
-		"test": "npm run build:placement && node scripts/check-connectivity.mjs",
 		"typecheck": "tsc --noEmit",
-		"verify": "npm run format:check && npm run typecheck && npm test && npm run build:routed && npm run check:routing && npm run check:assembly && npm run check:decoupling"
+		"test": "bun run build && bun run check:connectivity && bun run check:routing && bun run check:assembly && bun run check:decoupling && bun run check:style && bun run check:viewer",
+		"verify": "bun run format:check && bun run typecheck && bun run test",
+		"export:release": "bun scripts/export-release.mjs",
+		"seal:review": "bun scripts/seal-review.mjs",
+		"check:viewer": "bun scripts/check-viewer.mjs"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.4.16",
-		"tscircuit": "0.0.2460",
-		"typescript": "5.9.3"
-	}
+		"tscircuit": "0.0.2830",
+		"typescript": "5.9.3",
+		"circuit-json-to-kicad": "0.0.230",
+		"kicad-to-circuit-json": "0.0.142",
+		"@resvg/resvg-js": "2.6.2",
+		"@jscad/modeling": "2.13.0",
+		"@jscad/stl-serializer": "2.1.23",
+		"jszip": "3.10.1",
+		"@types/react": "19.2.18",
+		"polygon-clipping": "0.15.7",
+		"kicadts": "0.0.53",
+		"@tscircuit/checks": "0.0.247",
+		"circuit-to-svg": "0.0.445"
+	},
+	"overrides": {
+		"@tscircuit/core": "0.0.2112"
+	},
+	"packageManager": "bun@1.3.14"
 }

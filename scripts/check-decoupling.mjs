@@ -18,7 +18,6 @@ function center(name) {
 }
 
 const checks = [
-	["U1", ["C8", "C9", "C10", "C11", "C12"], 5.5],
 	["U2", ["C16", "C17"], 3],
 	["U3", ["C6"], 3.7],
 	["U4", ["C22"], 2.6],
@@ -40,4 +39,27 @@ for (const [device, capacitors, maximumDistance] of checks) {
 
 console.log(
 	`PASS: ${checks.length} IC power groups keep their required local capacitors within reviewed placement limits.`,
+);
+
+const native = JSON.parse(
+	readFileSync("docs/checks/native-geometry.json", "utf8"),
+);
+for (const net of ["NRF_DEC1", "NRF_DEC2", "NRF_DEC3", "NRF_DEC4"]) {
+	const route = native.stats[net];
+	assert.equal(
+		route.vias,
+		0,
+		`${net}: regulator decoupling must not change layers`,
+	);
+	assert.deepEqual(route.layers, ["top"]);
+	assert(route.length_mm <= 5, `${net}: decoupling copper exceeds 5 mm`);
+}
+assert.equal(native.errors.length, 0, JSON.stringify(native.errors));
+assert.equal(
+	native.rf_reference_corridor_candidates.length,
+	0,
+	"RF reference corridor is crossed by signal copper",
+);
+console.log(
+	"PASS: Nordic DEC1–DEC4 use short top-layer routes; RF feed reference corridor has no crossing signal tracks.",
 );

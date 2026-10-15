@@ -1,0 +1,27 @@
+{
+  "entries": [
+    {
+      "entry": "index.circuit.tsx",
+      "source_components": 71,
+      "pcb_components": 71,
+      "traces": 833,
+      "vias": 95,
+      "pours": 8,
+      "diagnostics": 0,
+      "schematic_style_issues": 0,
+      "circuit_sha256": "b34e9dc192d0602377adb19031fcbe88278e80bbd4e61b75cb27e7ec961217da"
+    },
+    {
+      "entry": "assembly.circuit.tsx",
+      "source_components": 72,
+      "pcb_components": 71,
+      "traces": 833,
+      "vias": 95,
+      "pours": 8,
+      "diagnostics": 0,
+      "schematic_style_issues": 0,
+      "circuit_sha256": "1bf7e7df2ea25b71d59e3424e45a806936ece68a9d9180348fec803a4a7a2bee"
+    }
+  ],
+  "stale_geometry_rejected": true
+}

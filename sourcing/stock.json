@@ -1,0 +1,719 @@
+{
+  "checked_at": "2026-10-15T11:51:26.891Z",
+  "circuit_sha256": "7f6008d9e5f9a89f4ac978a32b71056d8210856d8fdb1d58ea10aad48e4be51c",
+  "quantity": 5,
+  "inventory_reserved": false,
+  "method": "Exact public JLCPCB catalog identity; conservative minimum of warehouse and available-order quantity. Package and orientation still require assembly review.",
+  "parts": [
+    {
+      "code": "C127629",
+      "mpn": "RFANT3216120A5T",
+      "designators": [
+        "ANT1"
+      ],
+      "required_for_five_with_attrition": 10,
+      "supplier_mpn": "RFANT3216120A5T",
+      "package": "1206",
+      "warehouse_stock": 10698,
+      "available_order_quantity": 10264,
+      "stock": 10264,
+      "identity_match": true,
+      "can_purchase": true,
+      "status": "available",
+      "url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C127629"
+    },
+    {
+      "code": "C136167",
+      "mpn": "LESD5Z5.0CT1G",
+      "designators": [
+        "D1"
+      ],
+      "required_for_five_with_attrition": 10,
+      "supplier_mpn": "LESD5Z5.0CT1G",
+      "package": "SOD-523",
+      "warehouse_stock": 207426,
+      "available_order_quantity": 202974,
+      "stock": 202974,
+      "identity_match": true,
+      "can_purchase": true,
+      "status": "available",
+      "url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C136167"
+    },
+    {
+      "code": "C137961",
+      "mpn": "RC0402FR-07510KL",
+      "designators": [
+        "R4"
+      ],
+      "required_for_five_with_attrition": 10,
+      "supplier_mpn": "RC0402FR-07510KL",
+      "package": "0402",
+      "warehouse_stock": 683378,
+      "available_order_quantity": 652626,
+      "stock": 652626,
+      "identity_match": true,
+      "can_purchase": true,
+      "status": "available",
+      "url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C137961"
+    },
+    {
+      "code": "C141828",
+      "mpn": "NRF52810-QFAA-R",
+      "designators": [
+        "U1"
+      ],
+      "required_for_five_with_attrition": 10,
+      "supplier_mpn": "NRF52810-QFAA-R",
+      "package": "UQFN-48-EP(6x6)",
+      "warehouse_stock": 34644,
+      "available_order_quantity": 34605,
+      "stock": 34605,
+      "identity_match": true,
+      "can_purchase": true,
+      "status": "available",
+      "url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C141828"
+    },
+    {
+      "code": "C1546",
+      "mpn": "0402CG101J500NT",
+      "designators": [
+        "C9"
+      ],
+      "required_for_five_with_attrition": 10,
+      "supplier_mpn": "0402CG101J500NT",
+      "package": "0402",
+      "warehouse_stock": 3978756,
+      "available_order_quantity": 3387807,
+      "stock": 3387807,
+      "identity_match": true,
+      "can_purchase": true,
+      "status": "available",
+      "url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C1546"
+    },
+    {
+      "code": "C1547",
+      "mpn": "0402CG120J500NT",
+      "designators": [
+        "C28",
+        "C29",
+        "C30",
+        "C31"
+      ],
+      "required_for_five_with_attrition": 25,
+      "supplier_mpn": "0402CG120J500NT",
+      "package": "0402",
+      "warehouse_stock": 1719947,
+      "available_order_quantity": 1398777,
+      "stock": 1398777,
+      "identity_match": true,
+      "can_purchase": true,
+      "status": "available",
+      "url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C1547"
+    },
+    {
+      "code": "C15850",
+      "mpn": "CL21A106KAYNNNE",
+      "designators": [
+        "C2",
+        "C4"
+      ],
+      "required_for_five_with_attrition": 15,
+      "supplier_mpn": "CL21A106KAYNNNE",
+      "package": "0805",
+      "warehouse_stock": 3661072,
+      "available_order_quantity": 2032386,
+      "stock": 2032386,
+      "identity_match": true,
+      "can_purchase": true,
+      "status": "available",
+      "url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C15850"
+    },
+    {
+      "code": "C160402",
+      "mpn": "SM02B-SRSS-TB(LF)(SN)",
+      "designators": [
+        "J5",
+        "J2"
+      ],
+      "required_for_five_with_attrition": 15,
+      "supplier_mpn": "SM02B-SRSS-TB(LF)(SN)",
+      "package": "SMD,P=1mm,Surface Mount，Right Angle",
+      "warehouse_stock": 64790,
+      "available_order_quantity": 62966,
+      "stock": 62966,
+      "identity_match": true,
+      "can_purchase": true,
+      "status": "available",
+      "url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C160402"
+    },
+    {
+      "code": "C160405",
+      "mpn": "SM06B-SRSS-TB(LF)(SN)",
+      "designators": [
+        "J3"
+      ],
+      "required_for_five_with_attrition": 10,
+      "supplier_mpn": "SM06B-SRSS-TB(LF)(SN)",
+      "package": "SMD,P=1mm,Surface Mount，Right Angle",
+      "warehouse_stock": 2995,
+      "available_order_quantity": 2261,
+      "stock": 2261,
+      "identity_match": true,
+      "can_purchase": true,
+      "status": "available",
+      "url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C160405"
+    },
+    {
+      "code": "C165948",
+      "mpn": "TYPE-C-31-M-12",
+      "designators": [
+        "J1"
+      ],
+      "required_for_five_with_attrition": 10,
+      "supplier_mpn": "TYPE-C-31-M-12",
+      "package": "SMD",
+      "warehouse_stock": 381715,
+      "available_order_quantity": 367466,
+      "stock": 367466,
+      "identity_match": true,
+      "can_purchase": true,
+      "status": "available",
+      "url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C165948"
+    },
+    {
+      "code": "C17168",
+      "mpn": "0402WGF0000TCE",
+      "designators": [
+        "R1",
+        "R2"
+      ],
+      "required_for_five_with_attrition": 15,
+      "supplier_mpn": "0402WGF0000TCE",
+      "package": "0402",
+      "warehouse_stock": 9233330,
+      "available_order_quantity": 7151606,
+      "stock": 7151606,
+      "identity_match": true,
+      "can_purchase": true,
+      "status": "available",
+      "url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C17168"
+    },
+    {
+      "code": "C179635",
+      "mpn": "ABS07-32.768KHZ-9-T",
+      "designators": [
+        "Y3"
+      ],
+      "required_for_five_with_attrition": 10,
+      "supplier_mpn": "ABS07-32.768KHZ-9-T",
+      "package": "SMD3215-2P",
+      "warehouse_stock": 1627,
+      "available_order_quantity": 1607,
+      "stock": 1607,
+      "identity_match": true,
+      "can_purchase": true,
+      "status": "available",
+      "url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C179635"
+    },
+    {
+      "code": "C189518",
+      "mpn": "BMA456",
+      "designators": [
+        "U2"
+      ],
+      "required_for_five_with_attrition": 10,
+      "supplier_mpn": "BMA456",
+      "package": "LGA-12(2x2)",
+      "warehouse_stock": 2504,
+      "available_order_quantity": 2490,
+      "stock": 2490,
+      "identity_match": true,
+      "can_purchase": true,
+      "status": "available",
+      "url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C189518"
+    },
+    {
+      "code": "C19666",
+      "mpn": "CL10A475KO8NNNC",
+      "designators": [
+        "C12"
+      ],
+      "required_for_five_with_attrition": 10,
+      "supplier_mpn": "CL10A475KO8NNNC",
+      "package": "0603",
+      "warehouse_stock": 3664809,
+      "available_order_quantity": 2935056,
+      "stock": 2935056,
+      "identity_match": true,
+      "can_purchase": true,
+      "status": "available",
+      "url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C19666"
+    },
+    {
+      "code": "C20917",
+      "mpn": "AO3400A",
+      "designators": [
+        "Q2"
+      ],
+      "required_for_five_with_attrition": 10,
+      "supplier_mpn": "AO3400A",
+      "package": "SOT-23",
+      "warehouse_stock": 753292,
+      "available_order_quantity": 598828,
+      "stock": 598828,
+      "identity_match": true,
+      "can_purchase": true,
+      "status": "available",
+      "url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C20917"
+    },
+    {
+      "code": "C237552",
+      "mpn": "DFE252012P-R47M=P2",
+      "designators": [
+        "L1"
+      ],
+      "required_for_five_with_attrition": 10,
+      "supplier_mpn": "DFE252012P-R47M=P2",
+      "package": "1008",
+      "warehouse_stock": 11403,
+      "available_order_quantity": 10749,
+      "stock": 10749,
+      "identity_match": true,
+      "can_purchase": true,
+      "status": "available",
+      "url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C237552"
+    },
+    {
+      "code": "C25076",
+      "mpn": "0402WGF1000TCE",
+      "designators": [
+        "R15",
+        "R21"
+      ],
+      "required_for_five_with_attrition": 15,
+      "supplier_mpn": "0402WGF1000TCE",
+      "package": "0402",
+      "warehouse_stock": 8299756,
+      "available_order_quantity": 7107490,
+      "stock": 7107490,
+      "identity_match": true,
+      "can_purchase": true,
+      "status": "available",
+      "url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C25076"
+    },
+    {
+      "code": "C25077",
+      "mpn": "0402WGF100JTCE",
+      "designators": [
+        "R18"
+      ],
+      "required_for_five_with_attrition": 10,
+      "supplier_mpn": "0402WGF100JTCE",
+      "package": "0402",
+      "warehouse_stock": 3984257,
+      "available_order_quantity": 3375544,
+      "stock": 3375544,
+      "identity_match": true,
+      "can_purchase": true,
+      "status": "available",
+      "url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C25077"
+    },
+    {
+      "code": "C25092",
+      "mpn": "0402WGF220JTCE",
+      "designators": [
+        "R14"
+      ],
+      "required_for_five_with_attrition": 10,
+      "supplier_mpn": "0402WGF220JTCE",
+      "package": "0402",
+      "warehouse_stock": 4081725,
+      "available_order_quantity": 2952311,
+      "stock": 2952311,
+      "identity_match": true,
+      "can_purchase": true,
+      "status": "available",
+      "url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C25092"
+    },
+    {
+      "code": "C25741",
+      "mpn": "0402WGF1003TCE",
+      "designators": [
+        "R5",
+        "R6",
+        "R16",
+        "R19",
+        "R20",
+        "R22"
+      ],
+      "required_for_five_with_attrition": 36,
+      "supplier_mpn": "0402WGF1003TCE",
+      "package": "0402",
+      "warehouse_stock": 9724036,
+      "available_order_quantity": 8049329,
+      "stock": 8049329,
+      "identity_match": true,
+      "can_purchase": true,
+      "status": "available",
+      "url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C25741"
+    },
+    {
+      "code": "C25744",
+      "mpn": "0402WGF1002TCE",
+      "designators": [
+        "R7",
+        "R10",
+        "R17"
+      ],
+      "required_for_five_with_attrition": 20,
+      "supplier_mpn": "0402WGF1002TCE",
+      "package": "0402",
+      "warehouse_stock": 21581070,
+      "available_order_quantity": 16462570,
+      "stock": 16462570,
+      "identity_match": true,
+      "can_purchase": true,
+      "status": "available",
+      "url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C25744"
+    },
+    {
+      "code": "C25778",
+      "mpn": "0402WGF3303TCE",
+      "designators": [
+        "R13"
+      ],
+      "required_for_five_with_attrition": 10,
+      "supplier_mpn": "0402WGF3303TCE",
+      "package": "0402",
+      "warehouse_stock": 130536,
+      "available_order_quantity": 65846,
+      "stock": 65846,
+      "identity_match": true,
+      "can_purchase": true,
+      "status": "available",
+      "url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C25778"
+    },
+    {
+      "code": "C25900",
+      "mpn": "0402WGF4701TCE",
+      "designators": [
+        "R8",
+        "R9"
+      ],
+      "required_for_five_with_attrition": 15,
+      "supplier_mpn": "0402WGF4701TCE",
+      "package": "0402",
+      "warehouse_stock": 16153213,
+      "available_order_quantity": 14313267,
+      "stock": 14313267,
+      "identity_match": true,
+      "can_purchase": true,
+      "status": "available",
+      "url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C25900"
+    },
+    {
+      "code": "C26083",
+      "mpn": "0402WGF1004TCE",
+      "designators": [
+        "R12"
+      ],
+      "required_for_five_with_attrition": 10,
+      "supplier_mpn": "0402WGF1004TCE",
+      "package": "0402",
+      "warehouse_stock": 2050726,
+      "available_order_quantity": 1606869,
+      "stock": 1606869,
+      "identity_match": true,
+      "can_purchase": true,
+      "status": "available",
+      "url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C26083"
+    },
+    {
+      "code": "C27397",
+      "mpn": "PCF8563TS/5,118",
+      "designators": [
+        "U4"
+      ],
+      "required_for_five_with_attrition": 10,
+      "supplier_mpn": "PCF8563TS/5,118",
+      "package": "TSSOP-8-3mm",
+      "warehouse_stock": 17152,
+      "available_order_quantity": 16785,
+      "stock": 16785,
+      "identity_match": true,
+      "can_purchase": true,
+      "status": "available",
+      "url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C27397"
+    },
+    {
+      "code": "C2845237",
+      "mpn": "TPS63802DLAR",
+      "designators": [
+        "U6"
+      ],
+      "required_for_five_with_attrition": 10,
+      "supplier_mpn": "TPS63802DLAR",
+      "package": "VSON-10(2x3)",
+      "warehouse_stock": 40604,
+      "available_order_quantity": 40282,
+      "stock": 40282,
+      "identity_match": true,
+      "can_purchase": true,
+      "status": "available",
+      "url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C2845237"
+    },
+    {
+      "code": "C3682423",
+      "mpn": "BQ25180YBGR",
+      "designators": [
+        "U5"
+      ],
+      "required_for_five_with_attrition": 10,
+      "supplier_mpn": "BQ25180YBGR",
+      "package": "DSBGA-8",
+      "warehouse_stock": 4168,
+      "available_order_quantity": 4116,
+      "stock": 4116,
+      "identity_match": true,
+      "can_purchase": true,
+      "status": "available",
+      "url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C3682423"
+    },
+    {
+      "code": "C45783",
+      "mpn": "CL21A226MAQNNNE",
+      "designators": [
+        "C5",
+        "C23"
+      ],
+      "required_for_five_with_attrition": 15,
+      "supplier_mpn": "CL21A226MAQNNNE",
+      "package": "0805",
+      "warehouse_stock": 3350640,
+      "available_order_quantity": 2453737,
+      "stock": 2453737,
+      "identity_match": true,
+      "can_purchase": true,
+      "status": "available",
+      "url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C45783"
+    },
+    {
+      "code": "C51927172",
+      "mpn": "TS-1806SA-2x4x3.5DY-180X",
+      "designators": [
+        "SW1",
+        "SW2"
+      ],
+      "required_for_five_with_attrition": 15,
+      "supplier_mpn": "TS-1806SA-2x4x3.5DY-180X",
+      "package": "SMD-4P,4.6x1.8mm",
+      "warehouse_stock": 1906,
+      "available_order_quantity": 1900,
+      "stock": 1900,
+      "identity_match": true,
+      "can_purchase": true,
+      "status": "available",
+      "url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C51927172"
+    },
+    {
+      "code": "C52923",
+      "mpn": "CL05A105KA5NQNC",
+      "designators": [
+        "C6",
+        "C1",
+        "C3",
+        "C11"
+      ],
+      "required_for_five_with_attrition": 25,
+      "supplier_mpn": "CL05A105KA5NQNC",
+      "package": "0402",
+      "warehouse_stock": 7569463,
+      "available_order_quantity": 5380463,
+      "stock": 5380463,
+      "identity_match": true,
+      "can_purchase": true,
+      "status": "available",
+      "url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C52923"
+    },
+    {
+      "code": "C5451629",
+      "mpn": "1N5819WS",
+      "designators": [
+        "D2"
+      ],
+      "required_for_five_with_attrition": 10,
+      "supplier_mpn": "1N5819WS",
+      "package": "SOD-323",
+      "warehouse_stock": 722951,
+      "available_order_quantity": 719668,
+      "stock": 719668,
+      "identity_match": true,
+      "can_purchase": true,
+      "status": "available",
+      "url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C5451629"
+    },
+    {
+      "code": "C60474",
+      "mpn": "CC0402KRX7R7BB104",
+      "designators": [
+        "C8",
+        "C10",
+        "C13",
+        "C14",
+        "C15",
+        "C16",
+        "C17",
+        "C22",
+        "C25",
+        "C26",
+        "C27"
+      ],
+      "required_for_five_with_attrition": 66,
+      "supplier_mpn": "CC0402KRX7R7BB104",
+      "package": "0402",
+      "warehouse_stock": 15891650,
+      "available_order_quantity": 14961217,
+      "stock": 14961217,
+      "identity_match": true,
+      "can_purchase": true,
+      "status": "available",
+      "url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C60474"
+    },
+    {
+      "code": "C6709462",
+      "mpn": "AFC24-S15FIA-00",
+      "designators": [
+        "J4"
+      ],
+      "required_for_five_with_attrition": 10,
+      "supplier_mpn": "AFC24-S15FIA-00",
+      "package": "SMD,P=0.5mm,Surface Mount，Right Angle",
+      "warehouse_stock": 5263,
+      "available_order_quantity": 5169,
+      "stock": 5169,
+      "identity_match": true,
+      "can_purchase": true,
+      "status": "available",
+      "url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C6709462"
+    },
+    {
+      "code": "C718072",
+      "mpn": "X201632MKB4SI",
+      "designators": [
+        "Y2"
+      ],
+      "required_for_five_with_attrition": 10,
+      "supplier_mpn": "X201632MKB4SI",
+      "package": "SMD2016-4P",
+      "warehouse_stock": 54633,
+      "available_order_quantity": 53603,
+      "stock": 53603,
+      "identity_match": true,
+      "can_purchase": true,
+      "status": "available",
+      "url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C718072"
+    },
+    {
+      "code": "C7275970",
+      "mpn": "FC-135 32.7680KA-AG3",
+      "designators": [
+        "Y1"
+      ],
+      "required_for_five_with_attrition": 10,
+      "supplier_mpn": "FC-135 32.7680KA-AG3",
+      "package": "SMD3215-2P",
+      "warehouse_stock": 4884,
+      "available_order_quantity": 4823,
+      "stock": 4823,
+      "identity_match": true,
+      "can_purchase": true,
+      "status": "available",
+      "url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C7275970"
+    },
+    {
+      "code": "C7471904",
+      "mpn": "HUSB238_002DD",
+      "designators": [
+        "U3"
+      ],
+      "required_for_five_with_attrition": 10,
+      "supplier_mpn": "HUSB238_002DD",
+      "package": "DFN-10L(3x3)",
+      "warehouse_stock": 14866,
+      "available_order_quantity": 14730,
+      "stock": 14730,
+      "identity_match": true,
+      "can_purchase": true,
+      "status": "available",
+      "url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C7471904"
+    },
+    {
+      "code": "C77109",
+      "mpn": "LQG15HS3N9S02D",
+      "designators": [
+        "L2"
+      ],
+      "required_for_five_with_attrition": 10,
+      "supplier_mpn": "LQG15HS3N9S02D",
+      "package": "0402",
+      "warehouse_stock": 45088,
+      "available_order_quantity": 43651,
+      "stock": 43651,
+      "identity_match": true,
+      "can_purchase": true,
+      "status": "available",
+      "url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C77109"
+    },
+    {
+      "code": "C77110",
+      "mpn": "LQG15HS6N8J02D",
+      "designators": [
+        "L3"
+      ],
+      "required_for_five_with_attrition": 10,
+      "supplier_mpn": "LQG15HS6N8J02D",
+      "package": "0402",
+      "warehouse_stock": 359036,
+      "available_order_quantity": 357139,
+      "stock": 357139,
+      "identity_match": true,
+      "can_purchase": true,
+      "status": "available",
+      "url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C77110"
+    },
+    {
+      "code": "C8545",
+      "mpn": "2N7002",
+      "designators": [
+        "Q1"
+      ],
+      "required_for_five_with_attrition": 10,
+      "supplier_mpn": "2N7002",
+      "package": "SOT-23",
+      "warehouse_stock": 1824060,
+      "available_order_quantity": 1663060,
+      "stock": 1663060,
+      "identity_match": true,
+      "can_purchase": true,
+      "status": "available",
+      "url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C8545"
+    },
+    {
+      "code": "C88902",
+      "mpn": "GJM1555C1HR80WB01D",
+      "designators": [
+        "C24"
+      ],
+      "required_for_five_with_attrition": 10,
+      "supplier_mpn": "GJM1555C1HR80WB01D",
+      "package": "0402",
+      "warehouse_stock": 210553,
+      "available_order_quantity": 201604,
+      "stock": 201604,
+      "identity_match": true,
+      "can_purchase": true,
+      "status": "available",
+      "url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C88902"
+    }
+  ]
+}

@@ -17,8 +17,8 @@ const components = records("source_component");
 const ports = records("source_port");
 const nets = records("source_net");
 const traces = records("source_trace");
-assert.equal(components.length, 59, "Unexpected missing/extra components");
-assert.equal(nets.length, 42, "Unexpected missing/extra named nets");
+assert.equal(components.length, 71, "Unexpected missing/extra components");
+assert.equal(nets.length, 53, "Unexpected missing/extra named nets");
 for (const name of ["U7", "C7", "C18", "C19", "C20", "C21"])
 	assert(
 		!components.some((item) => item.name === name),
@@ -132,7 +132,7 @@ for (const [name, gate, drain] of [
 }
 // The remaining devices still need the shared bus and its two pull-ups.
 for (const [name, scl, sda] of [
-	["U1", 29, 30],
+	["U1", 16, 17],
 	["U2", 12, 2],
 	["U4", 6, 5],
 	["U5", 3, 5],
@@ -143,13 +143,13 @@ for (const [name, scl, sda] of [
 // BMA456: preserve both interrupts, supply straps and the 0x18 address strap.
 for (const [pin, net] of [
 	[1, "GND"],
-	[3, "V3V3"],
+	[3, "V3V0"],
 	[5, "BMA_INT1"],
 	[6, "BMA_INT2"],
-	[7, "V3V3"],
+	[7, "V3V0"],
 	[8, "GND"],
 	[9, "GND"],
-	[10, "V3V3"],
+	[10, "V3V0"],
 ])
 	expectPinNet("U2", pin, net);
 for (const pin of [4, 11]) {
@@ -160,11 +160,11 @@ for (const pin of [4, 11]) {
 	);
 	assert(port?.do_not_connect, `U2.${pin}: unused auxiliary bus must be NC`);
 }
-expectPinNet("M1", 1, "V3V3");
+expectPinNet("M1", 1, "V3V0");
 expectPinNet("M1", 2, "MOTOR_NEG");
-expectPinNet("R8", 1, "V3V3");
+expectPinNet("R8", 1, "V3V0");
 expectPinNet("R8", 2, "I2C_SCL");
-expectPinNet("R9", 1, "V3V3");
+expectPinNet("R9", 1, "V3V0");
 expectPinNet("R9", 2, "I2C_SDA");
 
 // HUSB238 is a real USB-PD sink. Hardware straps deliberately cap the
@@ -194,30 +194,44 @@ expectPinNet("R2", 1, "PD_ISET");
 expectPinNet("R2", 2, "GND");
 expectPinNet("R18", 1, "USB5V");
 expectPinNet("R18", 2, "PD_VIN");
-const pa11 = ports.find(
-	(port) =>
-		port.source_component_id === source("U1").source_component_id &&
-		port.pin_number === 21,
+const contract = JSON.parse(readFileSync("hardware-contract.json", "utf8"));
+for (const [pin, net] of Object.entries(contract.mcu.pins))
+	expectPinNet("U1", Number(pin), net);
+for (const pin of contract.mcu.no_connect_pins) {
+	const port = ports.find(
+		(p) =>
+			p.source_component_id === source("U1").source_component_id &&
+			p.pin_number === pin,
+	);
+	assert(port?.do_not_connect, `U1.${pin}: must be NC`);
+}
+assert.equal(source("U1").manufacturer_part_number, contract.mcu.mpn);
+expectPinNet("J5", 1, "BQ_TS");
+expectPinNet("J5", 2, "GND");
+assert(
+	!components.some(
+		(c) => c.name === "R3" || /STM32/i.test(c.manufacturer_part_number ?? ""),
+	),
 );
-assert(pa11?.do_not_connect, "Unused PA11 must be explicitly NC");
+assert.equal(source("R5").resistance, 100000);
 
 const board = records("pcb_board")[0];
-assert.equal(board.width, 40, "Watch PCB must remain 40 mm");
-assert.equal(board.height, 40);
+assert.equal(board.width, 46, "Watch PCB must remain 46 mm");
+assert.equal(board.height, 46);
 assert.equal(board.num_layers, 4);
 for (const point of board.outline) {
-	assert(Math.abs(point.x) <= 20.001 && Math.abs(point.y) <= 20.001);
+	assert(Math.abs(point.x) <= 23.001 && Math.abs(point.y) <= 23.001);
 	const x = Math.abs(point.x);
 	const y = Math.abs(point.y);
-	if (x > 12.001 && y > 12.001) {
+	if (x > 15.001 && y > 15.001) {
 		assert(
-			Math.abs(Math.hypot(x - 12, y - 12) - 8) < 0.01,
+			Math.abs(Math.hypot(x - 15, y - 15) - 8) < 0.01,
 			"Board corner radius must remain 8 mm",
 		);
 	} else {
 		assert(
-			Math.abs(x - 20) < 0.01 || Math.abs(y - 20) < 0.01,
-			"Board edge must remain a 40 mm rounded square",
+			Math.abs(x - 23) < 0.01 || Math.abs(y - 23) < 0.01,
+			"Board edge must remain a 46 mm rounded square",
 		);
 	}
 }
@@ -233,5 +247,5 @@ for (const component of records("pcb_component")) {
 	assert(!component.is_allowed_to_be_off_board, "Do not bypass board-edge DRC");
 }
 console.log(
-	`PASS: ${components.length} top-side components, ${nets.length} distinct nets, safe 5 V USB-PD straps, no unexpected open pins or DRC diagnostics; MOSFET pin maps, shared I2C and 40 mm rounded-square placement verified.`,
+	`PASS: ${components.length} top-side components, ${nets.length} distinct nets, safe 5 V USB-PD straps, no unexpected open pins or DRC diagnostics; MOSFET pin maps, shared I2C and 46 mm rounded-square placement verified.`,
 );

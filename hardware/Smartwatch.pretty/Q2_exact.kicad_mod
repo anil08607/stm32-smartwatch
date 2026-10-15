@@ -1,0 +1,121 @@
+(footprint "Q2_exact"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(property "Reference" "Q2"
+		(at 0.0254 -2.524 0)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "2d4699cc-c1c5-421e-b162-c784c2ed5920")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "Q2"
+		(at 0 3 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "bc95424a-e12d-4796-923b-3c5a9780bd47")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "25c02a9d-f541-49f0-a1a8-a77f20302a4c")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "fd5c7088-a9a2-43d1-918b-599809a22b33")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Supplier Part Number" "C20917"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "688e5fa8-3509-9e38-2d5e-63e8703999f8")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "MPN" "AO3400A"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "11b289e0-4235-68e1-72b8-47e25cc4d91d")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_poly
+		(pts
+			(xy -1.7486 -1.774) (xy 1.7994 -1.774) (xy 1.7994 1.774) (xy -1.7486 1.774) (xy -1.7486 -1.774)
+		)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+		(uuid "32036f20-5aa5-9f61-18b1-521e73f7bc63")
+	)
+	(pad "1" smd rect
+		(at 0.999998 0.94996)
+		(size 0.999998 0.650011)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "4bbd3efe-3e43-b2be-30ca-267e23509a3e")
+	)
+	(pad "2" smd rect
+		(at 0.999998 -0.94996)
+		(size 0.999998 0.650011)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "576967a0-06de-9c81-6526-a0a23c915b3d")
+	)
+	(pad "3" smd rect
+		(at -0.999998 0)
+		(size 0.999998 0.650011)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "5ef28b02-4b87-9842-381c-a58224b1b2c2")
+	)
+	(embedded_fonts no)
+	(model "https://modelcdn.tscircuit.com/easyeda_models/assets/C20917.step?uuid=d777607a152f4f3aac9bb0d0c14ed6fd&cachebust_origin="
+		(offset
+			(xyz 0.0000127 -0.0000127 -0.050795)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 -180)
+		)
+	)
+)

@@ -1,0 +1,1 @@
+(fp_lib_table (lib (name "Smartwatch")(type "KiCad")(uri "${KIPRJMOD}/Smartwatch.pretty")(options "")(descr "Exact generated footprints")))

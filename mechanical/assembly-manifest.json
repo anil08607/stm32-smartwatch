@@ -1,0 +1,2512 @@
+{
+  "datum": "PCB top Z=0 mm; +Y toward battery connector, -Y toward USB; Z up",
+  "case_mm": [
+    54,
+    54,
+    18
+  ],
+  "includes": "case, bezel, retainer, lens, display, flex envelope, battery, cushion, NTC, harness envelopes, motor, fasteners, spring bars, straps, board and all fitted component envelopes",
+  "status": "provisional fit model; exact supplier CAD, flex folding, battery protection volume, harness lengths and hardware fit require physical validation",
+  "parts": [
+    {
+      "id": "case-base",
+      "color": [
+        0.11,
+        0.14,
+        0.18,
+        1
+      ],
+      "stage": "Custom printed base, PETG prototype",
+      "explode": -14,
+      "production": true,
+      "bounds_mm": [
+        [
+          -27,
+          -35.000000000000014,
+          -8.5
+        ],
+        [
+          27,
+          35.000000000000014,
+          4.300000000000001
+        ]
+      ],
+      "volume_mm3": 10641.90144204957
+    },
+    {
+      "id": "display-retainer",
+      "color": [
+        0.25,
+        0.28,
+        0.32,
+        1
+      ],
+      "stage": "Printed PCB/display retainer",
+      "explode": 12,
+      "production": true,
+      "bounds_mm": [
+        [
+          -25.1,
+          -25.1,
+          0
+        ],
+        [
+          25.1,
+          25.1,
+          4.3
+        ]
+      ],
+      "volume_mm3": 743.7508045415426
+    },
+    {
+      "id": "bezel",
+      "color": [
+        0.14,
+        0.18,
+        0.23,
+        1
+      ],
+      "stage": "Printed bezel with lens pocket",
+      "explode": 30,
+      "production": true,
+      "bounds_mm": [
+        [
+          -27.000000000000004,
+          -27.000000000000004,
+          4.3
+        ],
+        [
+          27.000000000000004,
+          27.000000000000004,
+          9.5
+        ]
+      ],
+      "volume_mm3": 7566.63543231102
+    },
+    {
+      "id": "lens",
+      "color": [
+        0.4,
+        0.7,
+        0.85,
+        0.28
+      ],
+      "stage": "Clear polycarbonate; custom cut",
+      "explode": 26,
+      "production": false,
+      "bounds_mm": [
+        [
+          -22.5,
+          -20,
+          6.2
+        ],
+        [
+          15.5,
+          20,
+          7.2
+        ]
+      ],
+      "volume_mm3": 1512.1936575195314
+    },
+    {
+      "id": "display",
+      "color": [
+        0.03,
+        0.04,
+        0.055,
+        1
+      ],
+      "stage": "ER-TFT1.28-3 no-touch envelope",
+      "explode": 20,
+      "production": false,
+      "bounds_mm": [
+        [
+          -21.295,
+          -18.87,
+          4.4
+        ],
+        [
+          14.295000000000002,
+          18.87,
+          6
+        ]
+      ],
+      "volume_mm3": 2149.0665599999993
+    },
+    {
+      "id": "display-active",
+      "color": [
+        0.03,
+        0.28,
+        0.43,
+        1
+      ],
+      "stage": "Display active face",
+      "explode": 20,
+      "production": false,
+      "bounds_mm": [
+        [
+          -19.7,
+          -16.2,
+          6
+        ],
+        [
+          12.7,
+          16.2,
+          6.029999999999999
+        ]
+      ],
+      "volume_mm3": 24.663811598085218
+    },
+    {
+      "id": "battery",
+      "color": [
+        0.68,
+        0.7,
+        0.73,
+        1
+      ],
+      "stage": "LP403035 protected pack envelope; swelling reserve below",
+      "explode": -7,
+      "production": false,
+      "bounds_mm": [
+        [
+          -21,
+          -19.5,
+          -5.8
+        ],
+        [
+          9,
+          15.5,
+          -1.7999999999999998
+        ]
+      ],
+      "volume_mm3": 4199.444882312504
+    },
+    {
+      "id": "motor",
+      "color": [
+        0.5,
+        0.52,
+        0.55,
+        1
+      ],
+      "stage": "LCM1234A3523F wired motor",
+      "explode": -7,
+      "production": false,
+      "bounds_mm": [
+        [
+          10.5,
+          10,
+          -5.5
+        ],
+        [
+          22.5,
+          22,
+          -2.0999999999999996
+        ]
+      ],
+      "volume_mm3": 383.4337422656236
+    },
+    {
+      "id": "battery-cushion",
+      "color": [
+        0.22,
+        0.25,
+        0.28,
+        1
+      ],
+      "stage": "Nonconductive battery cushion; supplier approval needed",
+      "explode": -7,
+      "production": false,
+      "bounds_mm": [
+        [
+          -20.5,
+          -19,
+          -7
+        ],
+        [
+          8.5,
+          15,
+          -6.5
+        ]
+      ],
+      "volume_mm3": 492.99999999999955
+    },
+    {
+      "id": "ntc",
+      "color": [
+        0.15,
+        0.14,
+        0.12,
+        1
+      ],
+      "stage": "SEMITEC insulated NTC bonded to pack",
+      "explode": -7,
+      "production": false,
+      "bounds_mm": [
+        [
+          -7.25,
+          -19.5,
+          -4.3999999999999995
+        ],
+        [
+          -4.75,
+          -16.5,
+          -3.1999999999999993
+        ]
+      ],
+      "volume_mm3": 8.872496406152411
+    },
+    {
+      "id": "insert-1",
+      "color": [
+        0.68,
+        0.48,
+        0.12,
+        1
+      ],
+      "stage": "M2 insert envelope; exact insert drawing pending",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          -24.400000000000002,
+          -24.400000000000002,
+          -0.5
+        ],
+        [
+          -21.2,
+          -21.2,
+          3.5
+        ]
+      ],
+      "volume_mm3": 24.05858775000023
+    },
+    {
+      "id": "screw-1",
+      "color": [
+        0.55,
+        0.57,
+        0.6,
+        1
+      ],
+      "stage": "M2 x 8 screw envelope",
+      "explode": 36,
+      "production": false,
+      "bounds_mm": [
+        [
+          -24.7,
+          -24.7,
+          0.09999999999999964
+        ],
+        [
+          -20.900000000000002,
+          -20.900000000000002,
+          9.700000000000001
+        ]
+      ],
+      "volume_mm3": 43.15509177656133
+    },
+    {
+      "id": "insert-2",
+      "color": [
+        0.68,
+        0.48,
+        0.12,
+        1
+      ],
+      "stage": "M2 insert envelope; exact insert drawing pending",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          -24.400000000000002,
+          21.2,
+          -0.5
+        ],
+        [
+          -21.2,
+          24.400000000000002,
+          3.5
+        ]
+      ],
+      "volume_mm3": 24.058587749999827
+    },
+    {
+      "id": "screw-2",
+      "color": [
+        0.55,
+        0.57,
+        0.6,
+        1
+      ],
+      "stage": "M2 x 8 screw envelope",
+      "explode": 36,
+      "production": false,
+      "bounds_mm": [
+        [
+          -24.7,
+          20.900000000000002,
+          0.09999999999999964
+        ],
+        [
+          -20.900000000000002,
+          24.7,
+          9.700000000000001
+        ]
+      ],
+      "volume_mm3": 43.155091776563
+    },
+    {
+      "id": "insert-3",
+      "color": [
+        0.68,
+        0.48,
+        0.12,
+        1
+      ],
+      "stage": "M2 insert envelope; exact insert drawing pending",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          21.2,
+          -24.400000000000002,
+          -0.5
+        ],
+        [
+          24.400000000000002,
+          -21.2,
+          3.5
+        ]
+      ],
+      "volume_mm3": 24.058587750000406
+    },
+    {
+      "id": "screw-3",
+      "color": [
+        0.55,
+        0.57,
+        0.6,
+        1
+      ],
+      "stage": "M2 x 8 screw envelope",
+      "explode": 36,
+      "production": false,
+      "bounds_mm": [
+        [
+          20.900000000000002,
+          -24.7,
+          0.09999999999999964
+        ],
+        [
+          24.7,
+          -20.900000000000002,
+          9.700000000000001
+        ]
+      ],
+      "volume_mm3": 43.15509177656095
+    },
+    {
+      "id": "insert-4",
+      "color": [
+        0.68,
+        0.48,
+        0.12,
+        1
+      ],
+      "stage": "M2 insert envelope; exact insert drawing pending",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          21.2,
+          21.2,
+          -0.5
+        ],
+        [
+          24.400000000000002,
+          24.400000000000002,
+          3.5
+        ]
+      ],
+      "volume_mm3": 24.058587749999973
+    },
+    {
+      "id": "screw-4",
+      "color": [
+        0.55,
+        0.57,
+        0.6,
+        1
+      ],
+      "stage": "M2 x 8 screw envelope",
+      "explode": 36,
+      "production": false,
+      "bounds_mm": [
+        [
+          20.900000000000002,
+          20.900000000000002,
+          0.09999999999999964
+        ],
+        [
+          24.7,
+          24.7,
+          9.700000000000001
+        ]
+      ],
+      "volume_mm3": 43.1550917765614
+    },
+    {
+      "id": "spring-bar--30",
+      "color": [
+        0.65,
+        0.68,
+        0.72,
+        1
+      ],
+      "stage": "22 mm quick-release spring bar envelope",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          -13,
+          -30.7,
+          -2.7
+        ],
+        [
+          13,
+          -29.3,
+          -1.3
+        ]
+      ],
+      "volume_mm3": 39.56825561527296
+    },
+    {
+      "id": "strap--30",
+      "color": [
+        0.075,
+        0.1,
+        0.14,
+        1
+      ],
+      "stage": "22 mm purchased silicone strap envelope",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          -11,
+          -81.5,
+          -4.5
+        ],
+        [
+          11,
+          -29.5,
+          -2.5
+        ]
+      ],
+      "volume_mm3": 2286.8897646250016
+    },
+    {
+      "id": "spring-bar-30",
+      "color": [
+        0.65,
+        0.68,
+        0.72,
+        1
+      ],
+      "stage": "22 mm quick-release spring bar envelope",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          -13,
+          29.3,
+          -2.7
+        ],
+        [
+          13,
+          30.7,
+          -1.3
+        ]
+      ],
+      "volume_mm3": 39.56825561527383
+    },
+    {
+      "id": "strap-30",
+      "color": [
+        0.075,
+        0.1,
+        0.14,
+        1
+      ],
+      "stage": "22 mm purchased silicone strap envelope",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          -11,
+          29.5,
+          -4.5
+        ],
+        [
+          11,
+          81.5,
+          -2.5
+        ]
+      ],
+      "volume_mm3": 2286.889764625001
+    },
+    {
+      "id": "button-plunger-2",
+      "color": [
+        0.35,
+        0.4,
+        0.45,
+        1
+      ],
+      "stage": "Prototype button plunger; fit verification required",
+      "explode": 0,
+      "production": true,
+      "bounds_mm": [
+        [
+          21.45,
+          -3.5,
+          0.25
+        ],
+        [
+          26.95,
+          -0.5,
+          2.75
+        ]
+      ],
+      "volume_mm3": 40.70789288330077
+    },
+    {
+      "id": "button-plunger-10",
+      "color": [
+        0.35,
+        0.4,
+        0.45,
+        1
+      ],
+      "stage": "Prototype button plunger; fit verification required",
+      "explode": 0,
+      "production": true,
+      "bounds_mm": [
+        [
+          21.45,
+          -11.5,
+          0.25
+        ],
+        [
+          26.95,
+          -8.5,
+          2.75
+        ]
+      ],
+      "volume_mm3": 40.707892883300964
+    },
+    {
+      "id": "battery-positive",
+      "color": [
+        0.8,
+        0.07,
+        0.04,
+        1
+      ],
+      "stage": "Harness route envelope; dress and strain-relieve during fit test",
+      "explode": -3,
+      "production": false,
+      "bounds_mm": [
+        [
+          -14.34062846428911,
+          14.66235090701709,
+          -4.111187957132071
+        ],
+        [
+          -8.843328482426559,
+          19.26565617860199,
+          1.6335262810223852
+        ]
+      ],
+      "volume_mm3": 3.334282913605761
+    },
+    {
+      "id": "battery-return",
+      "color": [
+        0.05,
+        0.05,
+        0.06,
+        1
+      ],
+      "stage": "Harness route envelope; dress and strain-relieve during fit test",
+      "explode": -3,
+      "production": false,
+      "bounds_mm": [
+        [
+          -13.309534150414729,
+          14.691014554720015,
+          -4.124103748695724
+        ],
+        [
+          -6.804974480464265,
+          19.309534150414727,
+          1.616208314285967
+        ]
+      ],
+      "volume_mm3": 3.3818122871526253
+    },
+    {
+      "id": "ntc-harness",
+      "color": [
+        0.85,
+        0.75,
+        0.3,
+        1
+      ],
+      "stage": "Harness route envelope; dress and strain-relieve during fit test",
+      "explode": -3,
+      "production": false,
+      "bounds_mm": [
+        [
+          -19.38642876752639,
+          -18.39672131147541,
+          -4.198357282587081
+        ],
+        [
+          -5.963934426229506,
+          -9.766247597801735,
+          1.3239497030500655
+        ]
+      ],
+      "volume_mm3": 9.429125885667936
+    },
+    {
+      "id": "motor-harness",
+      "color": [
+        0.8,
+        0.35,
+        0.1,
+        1
+      ],
+      "stage": "Harness route envelope; dress and strain-relieve during fit test",
+      "explode": -3,
+      "production": false,
+      "bounds_mm": [
+        [
+          12.907332328609765,
+          14.734675423444678,
+          -2.5886733184146564
+        ],
+        [
+          16.75368266222145,
+          18.315716991189774,
+          1.2976833630141005
+        ]
+      ],
+      "volume_mm3": 3.4004985557756244
+    },
+    {
+      "id": "display-flex",
+      "color": [
+        0.65,
+        0.38,
+        0.08,
+        1
+      ],
+      "stage": "FPC envelope; actual fold length/contact orientation must be confirmed",
+      "explode": 16,
+      "production": false,
+      "bounds_mm": [
+        [
+          -22.075,
+          -4,
+          0.5
+        ],
+        [
+          -17,
+          4,
+          4.5
+        ]
+      ],
+      "volume_mm3": 14.219999999999931
+    },
+    {
+      "id": "pcb",
+      "color": [
+        0.025,
+        0.12,
+        0.09,
+        1
+      ],
+      "stage": "46 x 46 R8 board represented by the native PCB artifact",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          -23,
+          -23,
+          -1
+        ],
+        [
+          23,
+          23,
+          0
+        ]
+      ],
+      "volume_mm3": 2060.4882312499994
+    },
+    {
+      "id": "J1",
+      "color": [
+        0.62,
+        0.65,
+        0.68,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          -3.8560000000000003,
+          -20.897000000000002,
+          0
+        ],
+        [
+          3.8560000000000003,
+          -15.993,
+          3.2
+        ]
+      ],
+      "volume_mm3": 121.02287360000007
+    },
+    {
+      "id": "U3",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          7,
+          -13.888,
+          0
+        ],
+        [
+          9,
+          -11.112,
+          1
+        ]
+      ],
+      "volume_mm3": 5.55200000000001
+    },
+    {
+      "id": "R18",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          4.876,
+          -9.256,
+          0
+        ],
+        [
+          6.124,
+          -8.744,
+          0.6
+        ]
+      ],
+      "volume_mm3": 0.3833855999999979
+    },
+    {
+      "id": "C6",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          7.876,
+          -10.256,
+          0
+        ],
+        [
+          9.123999999999999,
+          -9.744,
+          0.6
+        ]
+      ],
+      "volume_mm3": 0.3833855999999989
+    },
+    {
+      "id": "R1",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          10.676000000000002,
+          -11.756,
+          0
+        ],
+        [
+          11.924,
+          -11.244,
+          0.6
+        ]
+      ],
+      "volume_mm3": 0.38338560000000155
+    },
+    {
+      "id": "R2",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          10.676000000000002,
+          -13.256,
+          0
+        ],
+        [
+          11.924,
+          -12.744,
+          0.6
+        ]
+      ],
+      "volume_mm3": 0.38338560000000654
+    },
+    {
+      "id": "D1",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          -7.1,
+          -12.78,
+          0
+        ],
+        [
+          -5.5,
+          -12.22,
+          0.6
+        ]
+      ],
+      "volume_mm3": 0.5376000000000027
+    },
+    {
+      "id": "U5",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          -7.756,
+          -11.075999999999999,
+          0
+        ],
+        [
+          -7.244,
+          -9.924000000000001,
+          1
+        ]
+      ],
+      "volume_mm3": 0.589823999999998
+    },
+    {
+      "id": "C1",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          -10.123999999999999,
+          -12.256,
+          0
+        ],
+        [
+          -8.876000000000001,
+          -11.744,
+          0.6
+        ]
+      ],
+      "volume_mm3": 0.3833856000000001
+    },
+    {
+      "id": "C2",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          -5.64,
+          -8.56,
+          0
+        ],
+        [
+          -3.3600000000000003,
+          -7.44,
+          0.6
+        ]
+      ],
+      "volume_mm3": 1.5321600000000015
+    },
+    {
+      "id": "C3",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          -10.623999999999999,
+          -9.256,
+          0
+        ],
+        [
+          -9.376000000000001,
+          -8.744,
+          0.6
+        ]
+      ],
+      "volume_mm3": 0.3833855999999983
+    },
+    {
+      "id": "J5",
+      "color": [
+        0.62,
+        0.65,
+        0.68,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          -21.22,
+          -11.92,
+          0
+        ],
+        [
+          -16.78,
+          -8.08,
+          3.2
+        ]
+      ],
+      "volume_mm3": 54.55871999999998
+    },
+    {
+      "id": "R7",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          -6.624,
+          -5.056,
+          0
+        ],
+        [
+          -5.376,
+          -4.544,
+          0.6
+        ]
+      ],
+      "volume_mm3": 0.3833856000000001
+    },
+    {
+      "id": "J2",
+      "color": [
+        0.62,
+        0.65,
+        0.68,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          -15.920000000000002,
+          16.78,
+          0
+        ],
+        [
+          -12.079999999999998,
+          21.22,
+          3.2
+        ]
+      ],
+      "volume_mm3": 54.55872000000001
+    },
+    {
+      "id": "U6",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          -0.9600000000000001,
+          -11.42,
+          0
+        ],
+        [
+          0.9600000000000003,
+          -9.58,
+          1
+        ]
+      ],
+      "volume_mm3": 3.532799999999999
+    },
+    {
+      "id": "L1",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          -1.08,
+          -8.02,
+          0
+        ],
+        [
+          1.08,
+          -6.579999999999999,
+          2.2
+        ]
+      ],
+      "volume_mm3": 6.842880000000003
+    },
+    {
+      "id": "C4",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          -4.84,
+          -11.059999999999999,
+          0
+        ],
+        [
+          -2.56,
+          -9.940000000000001,
+          0.6
+        ]
+      ],
+      "volume_mm3": 1.5321599999999975
+    },
+    {
+      "id": "C5",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          2.44,
+          -11.639999999999999,
+          0
+        ],
+        [
+          3.56,
+          -9.360000000000001,
+          0.6
+        ]
+      ],
+      "volume_mm3": 1.5321599999999982
+    },
+    {
+      "id": "R4",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          2.8760000000000003,
+          -6.756,
+          0
+        ],
+        [
+          4.124,
+          -6.244,
+          0.6
+        ]
+      ],
+      "volume_mm3": 0.383385599999999
+    },
+    {
+      "id": "R5",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          4.876,
+          -6.756,
+          0
+        ],
+        [
+          6.124,
+          -6.244,
+          0.6
+        ]
+      ],
+      "volume_mm3": 0.38338559999999733
+    },
+    {
+      "id": "R6",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          -2.624,
+          -5.256,
+          0
+        ],
+        [
+          -1.376,
+          -4.744,
+          0.6
+        ]
+      ],
+      "volume_mm3": 0.38338560000000055
+    },
+    {
+      "id": "U1",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          -6.779999999999999,
+          3.22,
+          0
+        ],
+        [
+          -1.2200000000000002,
+          8.78,
+          1
+        ]
+      ],
+      "volume_mm3": 30.913599999999995
+    },
+    {
+      "id": "C8",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          -9.324,
+          8.044,
+          0
+        ],
+        [
+          -8.075999999999999,
+          8.556000000000001,
+          0.6
+        ]
+      ],
+      "volume_mm3": 0.3833856000000021
+    },
+    {
+      "id": "C9",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          0.3759999999999999,
+          6.044,
+          0
+        ],
+        [
+          1.624,
+          6.556,
+          0.6
+        ]
+      ],
+      "volume_mm3": 0.38338560000000044
+    },
+    {
+      "id": "C10",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          2.5760000000000005,
+          6.244,
+          0
+        ],
+        [
+          3.824,
+          6.756,
+          0.6
+        ]
+      ],
+      "volume_mm3": 0.3833855999999999
+    },
+    {
+      "id": "C11",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          -6.024000000000001,
+          10.344,
+          0
+        ],
+        [
+          -4.776,
+          10.856,
+          0.6
+        ]
+      ],
+      "volume_mm3": 0.38338559999999855
+    },
+    {
+      "id": "C12",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          -2.98,
+          1.1199999999999999,
+          0
+        ],
+        [
+          -1.02,
+          1.8800000000000001,
+          0.6
+        ]
+      ],
+      "volume_mm3": 0.8937600000000003
+    },
+    {
+      "id": "R8",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          -3.6239999999999997,
+          -1.256,
+          0
+        ],
+        [
+          -2.3760000000000003,
+          -0.744,
+          0.6
+        ]
+      ],
+      "volume_mm3": 0.38338559999999977
+    },
+    {
+      "id": "R9",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          -1.624,
+          -1.256,
+          0
+        ],
+        [
+          -0.3759999999999999,
+          -0.744,
+          0.6
+        ]
+      ],
+      "volume_mm3": 0.3833856
+    },
+    {
+      "id": "R10",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          0.3759999999999999,
+          0.744,
+          0
+        ],
+        [
+          1.624,
+          1.256,
+          0.6
+        ]
+      ],
+      "volume_mm3": 0.3833856
+    },
+    {
+      "id": "C13",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          2.744,
+          0.3759999999999999,
+          0
+        ],
+        [
+          3.256,
+          1.624,
+          0.6
+        ]
+      ],
+      "volume_mm3": 0.3833855999999997
+    },
+    {
+      "id": "R12",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          -8.624,
+          -0.15600000000000017,
+          0
+        ],
+        [
+          -7.376,
+          0.3560000000000002,
+          0.6
+        ]
+      ],
+      "volume_mm3": 0.3833856000000003
+    },
+    {
+      "id": "R13",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          -1.9240000000000002,
+          -4.256,
+          0
+        ],
+        [
+          -0.6759999999999999,
+          -3.7439999999999998,
+          0.6
+        ]
+      ],
+      "volume_mm3": 0.3833856
+    },
+    {
+      "id": "C14",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          0.6759999999999999,
+          -4.256,
+          0
+        ],
+        [
+          1.9240000000000002,
+          -3.7439999999999998,
+          0.6
+        ]
+      ],
+      "volume_mm3": 0.3833856000000001
+    },
+    {
+      "id": "J3",
+      "color": [
+        0.62,
+        0.65,
+        0.68,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          -7.5200000000000005,
+          16.28,
+          0
+        ],
+        [
+          -0.47999999999999954,
+          20.72,
+          3.2
+        ]
+      ],
+      "volume_mm3": 100.02431999999993
+    },
+    {
+      "id": "J4",
+      "color": [
+        0.62,
+        0.65,
+        0.68,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          -18.90004192,
+          -4.8399801600000005,
+          0
+        ],
+        [
+          -15.09995808,
+          4.8399801600000005,
+          3.2
+        ]
+      ],
+      "volume_mm3": 117.71091450839431
+    },
+    {
+      "id": "R14",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          -15.623999999999999,
+          8.244,
+          0
+        ],
+        [
+          -14.376000000000001,
+          8.756,
+          0.6
+        ]
+      ],
+      "volume_mm3": 0.3833855999999958
+    },
+    {
+      "id": "Q1",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          -18.1999976,
+          11.580027440000002,
+          0
+        ],
+        [
+          -15.800002399999999,
+          13.61997256,
+          0.6
+        ]
+      ],
+      "volume_mm3": 2.9375150977580544
+    },
+    {
+      "id": "R15",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          -17.124,
+          14.943999999999999,
+          0
+        ],
+        [
+          -15.876,
+          15.456,
+          0.6
+        ]
+      ],
+      "volume_mm3": 0.3833856000000134
+    },
+    {
+      "id": "R16",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          -11.623999999999999,
+          14.744,
+          0
+        ],
+        [
+          -10.376000000000001,
+          15.256,
+          0.6
+        ]
+      ],
+      "volume_mm3": 0.3833856000000001
+    },
+    {
+      "id": "C15",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          -13.024,
+          12.844,
+          0
+        ],
+        [
+          -11.776000000000002,
+          13.356,
+          0.6
+        ]
+      ],
+      "volume_mm3": 0.383385600000008
+    },
+    {
+      "id": "U2",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          7.0999764,
+          -1.9000236000000001,
+          0
+        ],
+        [
+          8.9000236,
+          -0.09997639999999985,
+          1
+        ]
+      ],
+      "volume_mm3": 3.2401699222278406
+    },
+    {
+      "id": "C16",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          4.776000000000001,
+          -1.256,
+          0
+        ],
+        [
+          6.024,
+          -0.744,
+          0.6
+        ]
+      ],
+      "volume_mm3": 0.38338560000000005
+    },
+    {
+      "id": "C17",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          9.976,
+          -1.256,
+          0
+        ],
+        [
+          11.223999999999998,
+          -0.744,
+          0.6
+        ]
+      ],
+      "volume_mm3": 0.38338559999999927
+    },
+    {
+      "id": "U4",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          7.640000000000001,
+          -6.720000000000001,
+          0
+        ],
+        [
+          12.36,
+          -5.279999999999999,
+          1
+        ]
+      ],
+      "volume_mm3": 6.796800000000005
+    },
+    {
+      "id": "Y1",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          3.6199999999999997,
+          -4.54,
+          0
+        ],
+        [
+          6.380000000000001,
+          -3.46,
+          0.6
+        ]
+      ],
+      "volume_mm3": 1.7884800000000007
+    },
+    {
+      "id": "C22",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          8.376000000000001,
+          -8.256,
+          0
+        ],
+        [
+          9.623999999999999,
+          -7.744,
+          0.6
+        ]
+      ],
+      "volume_mm3": 0.38338559999999977
+    },
+    {
+      "id": "R17",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          10.376000000000001,
+          -8.456,
+          0
+        ],
+        [
+          11.623999999999999,
+          -7.943999999999999,
+          0.6
+        ]
+      ],
+      "volume_mm3": 0.38338559999999655
+    },
+    {
+      "id": "SW1",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          18.8200434,
+          -4.11999576,
+          0
+        ],
+        [
+          21.5799566,
+          0.11999575999999967,
+          3.5
+        ]
+      ],
+      "volume_mm3": 40.957029973776216
+    },
+    {
+      "id": "SW2",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          18.8200434,
+          -12.11999576,
+          0
+        ],
+        [
+          21.5799566,
+          -7.88000424,
+          3.5
+        ]
+      ],
+      "volume_mm3": 40.9570299737762
+    },
+    {
+      "id": "R19",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          11.376000000000001,
+          3.144,
+          0
+        ],
+        [
+          12.623999999999999,
+          3.6559999999999997,
+          0.6
+        ]
+      ],
+      "volume_mm3": 0.38338560000000044
+    },
+    {
+      "id": "R20",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          13.376000000000001,
+          -9.256,
+          0
+        ],
+        [
+          14.623999999999999,
+          -8.744,
+          0.6
+        ]
+      ],
+      "volume_mm3": 0.38338559999999255
+    },
+    {
+      "id": "Q2",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          7.3000024,
+          15.48002744,
+          0
+        ],
+        [
+          9.6999976,
+          17.51997256,
+          0.6
+        ]
+      ],
+      "volume_mm3": 2.9375150977580553
+    },
+    {
+      "id": "R21",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          5.175999999999999,
+          14.544,
+          0
+        ],
+        [
+          6.424,
+          15.056000000000001,
+          0.6
+        ]
+      ],
+      "volume_mm3": 0.3833855999999991
+    },
+    {
+      "id": "R22",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          12.376000000000001,
+          9.244,
+          0
+        ],
+        [
+          13.623999999999999,
+          9.756,
+          0.6
+        ]
+      ],
+      "volume_mm3": 0.38338559999999877
+    },
+    {
+      "id": "D2",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          8.419999999999998,
+          10.620000000000001,
+          0
+        ],
+        [
+          10.580000000000002,
+          10.98,
+          0.6
+        ]
+      ],
+      "volume_mm3": 0.46655999999999553
+    },
+    {
+      "id": "C23",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          13.86,
+          11.440000000000001,
+          0
+        ],
+        [
+          16.14,
+          12.559999999999999,
+          0.6
+        ]
+      ],
+      "volume_mm3": 1.532160000000001
+    },
+    {
+      "id": "Y2",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          0.6399999999999997,
+          9.080000000000002,
+          0
+        ],
+        [
+          2.16,
+          10.919999999999998,
+          0.6
+        ]
+      ],
+      "volume_mm3": 1.6780799999999978
+    },
+    {
+      "id": "Y3",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          -12.020000000000001,
+          5.670000000000001,
+          0
+        ],
+        [
+          -10.58,
+          8.63,
+          0.6
+        ]
+      ],
+      "volume_mm3": 2.5574399999999997
+    },
+    {
+      "id": "ANT1",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          19.039960000000004,
+          5.135999999999999,
+          0
+        ],
+        [
+          22.16004,
+          6.464,
+          0.6
+        ]
+      ],
+      "volume_mm3": 2.4860797439999924
+    },
+    {
+      "id": "L2",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          0.976,
+          4.744,
+          0
+        ],
+        [
+          2.224,
+          5.256,
+          0.6
+        ]
+      ],
+      "volume_mm3": 0.38338560000000055
+    },
+    {
+      "id": "L3",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          15.176,
+          5.544,
+          0
+        ],
+        [
+          16.424,
+          6.056,
+          0.6
+        ]
+      ],
+      "volume_mm3": 0.3833855999999949
+    },
+    {
+      "id": "C24",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          0.876,
+          3.244,
+          0
+        ],
+        [
+          2.124,
+          3.756,
+          0.6
+        ]
+      ],
+      "volume_mm3": 0.38338559999999966
+    },
+    {
+      "id": "C25",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          -6.824000000000001,
+          1.144,
+          0
+        ],
+        [
+          -5.576,
+          1.656,
+          0.6
+        ]
+      ],
+      "volume_mm3": 0.3833856
+    },
+    {
+      "id": "C26",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          3.1759999999999997,
+          10.943999999999999,
+          0
+        ],
+        [
+          4.4239999999999995,
+          11.456,
+          0.6
+        ]
+      ],
+      "volume_mm3": 0.38338559999999905
+    },
+    {
+      "id": "C27",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          -6.324000000000001,
+          12.744,
+          0
+        ],
+        [
+          -5.076,
+          13.256,
+          0.6
+        ]
+      ],
+      "volume_mm3": 0.3833856
+    },
+    {
+      "id": "C28",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          3.2759999999999994,
+          9.044,
+          0
+        ],
+        [
+          4.523999999999999,
+          9.556000000000001,
+          0.6
+        ]
+      ],
+      "volume_mm3": 0.3833855999999999
+    },
+    {
+      "id": "C29",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          -0.12400000000000011,
+          11.744,
+          0
+        ],
+        [
+          1.124,
+          12.256,
+          0.6
+        ]
+      ],
+      "volume_mm3": 0.3833856000000009
+    },
+    {
+      "id": "C30",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          -13.424,
+          10.244,
+          0
+        ],
+        [
+          -12.176000000000002,
+          10.756,
+          0.6
+        ]
+      ],
+      "volume_mm3": 0.383385599999994
+    },
+    {
+      "id": "C31",
+      "color": [
+        0.13,
+        0.14,
+        0.15,
+        1
+      ],
+      "stage": "Component envelope; use native PCB/footprint for exact lands",
+      "explode": 0,
+      "production": false,
+      "bounds_mm": [
+        [
+          -12.123999999999999,
+          3.144,
+          0
+        ],
+        [
+          -10.876000000000001,
+          3.6559999999999997,
+          0.6
+        ]
+      ],
+      "volume_mm3": 0.3833855999999979
+    }
+  ]
+}

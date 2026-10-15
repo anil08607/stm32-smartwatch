@@ -1,0 +1,14 @@
+{
+  "status": "REVIEW_ONLY_NOT_ORDER_APPROVED",
+  "checked_at": "2026-10-15T11:52:58.827Z",
+  "source_sha256": "7f6008d9e5f9a89f4ac978a32b71056d8210856d8fdb1d58ea10aad48e4be51c",
+  "stock_reserved": false,
+  "holds": [
+    "Fabricator stackup/50-ohm impedance confirmation and final-enclosure RF tuning/radio tests",
+    "Assembler accepts exact packages, rotations, pin-1 orientation, stencil and hidden-joint inspection plan",
+    "Exact protected battery/lead drawing, harnesses, lens, inserts, adhesives, strap and USB equipment selected and quoted",
+    "Protected-pack polarity, NTC hot/cold/open/short behavior, charging and closed-case thermal tests",
+    "Physical enclosure, flex, button travel, retention, clearance and battery swelling-space validation",
+    "Working nRF52810 firmware, line-buffer display, oscillators, BLE, peripherals, sleep and first-article test record"
+  ]
+}

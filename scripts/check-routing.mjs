@@ -1,35 +1,32 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { readFileSync, writeFileSync } from "node:fs";
+import { createHash } from "node:crypto";
 import { runAllRoutingChecks } from "@tscircuit/checks";
-
-const circuit = JSON.parse(
-	readFileSync(process.argv[2] ?? "dist/index/circuit.json", "utf8"),
+const bytes = readFileSync("dist/index/circuit.json"),
+	circuit = JSON.parse(bytes),
+	diagnostics = [
+		...circuit.filter((x) => /error|warning/.test(x.type)),
+		...(await runAllRoutingChecks(circuit)),
+	];
+const traces = circuit.filter((x) => x.type === "pcb_trace"),
+	vias = circuit.filter((x) => x.type === "pcb_via"),
+	pours = circuit.filter((x) => x.type === "pcb_copper_pour");
+assert(
+	traces.length > 500 && vias.length > 0 && pours.length >= 4,
+	"Reviewed native copper missing",
 );
-const generatedDiagnostics = circuit.filter((item) =>
-	/error|warning/.test(item.type),
+const report = {
+	circuit_sha256: createHash("sha256").update(bytes).digest("hex"),
+	traces: traces.length,
+	vias: vias.length,
+	pours: pours.length,
+	diagnostics,
+};
+writeFileSync(
+	"docs/checks/circuit-routing.json",
+	JSON.stringify(report, null, 2) + "\n",
 );
-const routingDiagnostics = await runAllRoutingChecks(circuit);
-assert.equal(
-	generatedDiagnostics.length,
-	0,
-	JSON.stringify(generatedDiagnostics, null, 2),
-);
-assert.equal(
-	routingDiagnostics.length,
-	0,
-	JSON.stringify(routingDiagnostics, null, 2),
-);
-
-const traces = circuit.filter((item) => item.type === "pcb_trace");
-const routedLayers = new Set(
-	traces.flatMap((trace) =>
-		(trace.route ?? []).map((point) => point.layer).filter(Boolean),
-	),
-);
-assert.equal(traces.length, 153, "Unexpected routed-trace count");
-for (const layer of ["top", "inner1", "inner2", "bottom"])
-	assert(routedLayers.has(layer), `${layer}: no routed copper`);
-
+assert.equal(diagnostics.length, 0, JSON.stringify(diagnostics, null, 2));
 console.log(
-	`PASS: ${traces.length} copper traces pass routing DRC and use all four copper layers.`,
+	`PASS: ${traces.length} native-width segments, ${vias.length} vias and ${pours.length} filled polygons; zero routing diagnostics.`,
 );

@@ -1,0 +1,39 @@
+{
+	"revision": "nrf52810-r1",
+	"fabrication": {
+		"width_mm": 46,
+		"height_mm": 46,
+		"corner_radius_mm": 8,
+		"thickness_mm": 1,
+		"layers": 4,
+		"copper_oz": 1,
+		"minimum_trace_mm": 0.1,
+		"minimum_clearance_mm": 0.1,
+		"via_diameter_mm": 0.4,
+		"via_drill_mm": 0.2,
+		"copper_edge_clearance_mm": 0.2,
+		"finish": "ENIG",
+		"soldermask": "black",
+		"silkscreen": "white",
+		"stackup_status": "fabricator confirmation required"
+	},
+	"assembly": {
+		"side": "top",
+		"excluded_from_smt": ["M1"],
+		"hidden_joints": ["U1", "U2", "U3", "U5", "U6"],
+		"paste_for_wire_pads": false
+	},
+	"quality": {
+		"source_diagnostics": 0,
+		"schematic_style_issues": 0,
+		"native_drc_violations": 0,
+		"native_unconnected_items": 0,
+		"native_erc_violations": 0,
+		"allow_waivers": false
+	},
+	"release": {
+		"stock_max_age_hours": 24,
+		"board_quantity": 5,
+		"require_physical_qualification": true
+	}
+}

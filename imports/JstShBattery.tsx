@@ -13,7 +13,7 @@ export const JstShBattery = (props: ChipProps<typeof jstPins>) => (
 		supplierPartNumbers={{ jlcpcb: ["C160402"] }}
 		pinAttributes={{ BAT_POS: { providesPower: true } }}
 		footprint={
-			<footprint>
+			<footprint insertionDirection="from_y_pos">
 				<smtpad
 					portHints={["pin1"]}
 					pcbX={-0.5}

@@ -1,38 +1,9 @@
-# JLCPCB sourcing and replacement policy
+# Purchasing and stock
 
-The current audit queried each exact LCSC/JLCPCB code through the public JLC Search index on **2026-10-05 at 09:45 UTC**. The 34 selected line items cover all **59 fitted PCB components per board**, and every line had enough reported stock for five boards at that moment.
+`release/full-purchase-list.csv` is the complete purchase list per watch. `assembly-bom.csv` has 70 fitted parts grouped into 40 exact SMT lines; `assembly-cpl.csv` has 70 placements. External parts and reusable tools are separate rows. M1 is purchased as a wire-lead motor and fitted after reflow.
 
-- Machine-readable evidence: [jlcpcb-stock-2026-10-05.json](./jlcpcb-stock-2026-10-05.json)
-- JLCPCB upload BOM: [bom-jlcpcb.csv](../bom-jlcpcb.csv)
-- Engineering BOM: [bom.csv](../bom.csv)
+`sourcing/stock.json` queries each exact JLCPCB component code through the public part-detail catalog and checks the normalized manufacturer part number. Available quantity is the smaller of warehouse stock and available-order quantity. The batch requirement is five boards plus max(5 pieces, 20%) attrition per line. Unknown quantities, mismatched identities, non-purchasable listings and shortages fail. Inventory is not reserved and evidence expires after 24 hours.
 
-Stock is live and is not reserved by this repository. Always run `npm run check:stock` immediately before ordering and review the actual JLCPCB assembly cart.
+The original 510 kΩ listing C11616 had no orderable stock during review. R4 now specifies Yageo RC0402FR-07510KL, C137961: 510 kΩ, ±1%, 0402, 62.5 mW, 50 V. This preserves the feedback ratio and package. No value substitution was made to bypass stock.
 
-## Low-margin items
-
-The recorded audit found only 7 pieces of `R4`/C11616 (510 kΩ) and 6 pieces of `R5`/C4147 (91 kΩ), against five of each required for five boards. They passed the exact quantity check but leave little room for JLCPCB attrition.
-
-Preferred order-time action:
-
-1. Pre-order C11616 and C4147 into the JLCPCB parts library, or reduce the build quantity.
-2. If either becomes unavailable, choose a 0402, 1%, same-resistance part with at least the same voltage/power rating.
-3. Update the source MPN and LCSC code, regenerate both BOMs and the stock audit, then run `npm run verify`.
-4. Do not change the 510 kΩ / 91 kΩ ratio without recalculating and validating the TPS63802 output voltage.
-
-The MCU `U1`/C1337558 also had limited but sufficient stock (34 pieces). The motor `M1`/C7424783 had 85 pieces and is manually lead-soldered after SMT assembly.
-
-## Exact-part rules
-
-- `U3` must remain a HUSB238-compatible PD sink whose pin mapping and VSET/ISET strap behavior match the implemented DFN-10 circuit. The selected exact part is `HUSB238_002DD`, C7471904.
-- `J4` must preserve the 15-pin, 0.5 mm, right-angle, double-contact FPC geometry and physical contact orientation of AFC24-S15FIA-00, C6709462.
-- `J1`, `J2`, `J3`, `SW1` and `SW2` cannot be replaced solely by electrical equivalence; their shell, locating, mating and side-actuation geometry must match.
-- `U5`, `U6`, `U1`, `U2` and `U4` are not generic footprint substitutions. A replacement requires a complete schematic, firmware and layout review.
-- Passive alternatives must match value, tolerance, voltage rating, dielectric where applicable, package, and temperature/power requirements.
-
-## External and post-assembly items
-
-- `LCD1`: order the ER-TFT1.28-3 in the no-touch configuration and install its flex after SMT assembly. Verify pin 1 and connector contact direction on a physical sample.
-- `BT1`: use only a protected, qualified 3.7 V 1S LiPo with verified connector polarity. The selected reference pack has no NTC; final wearable safety qualification remains required.
-- `M1`: JLCPCB may supply the motor, but its wire leads are attached manually to the top-side motor pads. Confirm polarity and strain relief.
-
-The historical 2026-09-08 JSON is retained as an audit record only; it is not the current order basis.
+The external-parts list names supplier/product or quote destinations. A product URL is not a stock or compatibility confirmation. The protected battery pack, harnesses, case, lens, inserts, adhesives and cable must be quoted/selected against their drawings before the complete watch can be purchased as one qualified kit. Neither JLCPCB nor any other supplier has accepted the assembly or ordered material in this session.

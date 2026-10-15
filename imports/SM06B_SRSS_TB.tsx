@@ -8,12 +8,12 @@ import type { ChipProps } from "@tscircuit/props";
  * SWD cable pinout, not the ARM 10-pin Cortex-Debug assignment.
  */
 const programmingPins = {
-	pin1: ["VREF", "V3V3"],
+	pin1: ["VREF"],
 	pin2: ["SWDIO"],
 	pin3: ["GND"],
 	pin4: ["SWCLK"],
 	pin5: ["NRST"],
-	pin6: ["BOOT0"],
+	pin6: ["DEBUG_GPIO"],
 } as const;
 
 export const SM06B_SRSS_TB = (props: ChipProps<typeof programmingPins>) => (
